@@ -1,0 +1,5 @@
+def p(
+    val i: int;
+  )
+{
+}

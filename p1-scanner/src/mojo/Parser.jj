@@ -1,0 +1,127 @@
+/* Copyright (C) 1997-2023, Antony L Hosking.
+ * All rights reserved.  */
+
+options {
+  DEBUG_PARSER = false;
+  DEBUG_LOOKAHEAD = false;
+  DEBUG_TOKEN_MANAGER = false;
+  STATIC = false;
+  JDK_VERSION = "1.9";
+}
+PARSER_BEGIN(Parser)
+public class Parser {}
+PARSER_END(Parser)
+
+/**************************************************
+ * The lexical spec starts here                   *
+ **************************************************/
+
+TOKEN_MGR_DECLS :
+{
+  static int comment, pragma;
+  public static void main(String[] args) {
+    SimpleCharStream stream = new SimpleCharStream(System.in);
+    ParserTokenManager scanner = new ParserTokenManager(stream);
+    while (true) {
+      try {
+        Token token = scanner.getNextToken();
+        for (Token t = token.specialToken; t != null; t = t.specialToken)
+          System.out.println(tokenImage[t.kind] + " " + t);
+        if (token.kind == EOF) {
+            if (comment != 0) {
+                throw new TokenMgrError();
+            }
+            break;
+        }
+        System.out.println(tokenImage[token.kind] + " " + token);
+      } catch (TokenMgrError e) {
+        System.out.println("!ERROR");
+        System.err.println(e.getMessage());
+        System.exit(-1);
+      }
+    }
+  }
+}
+
+/* WHITE SPACE */
+SKIP : { " " | "\t" | "\n" | "\r" | "\13" | "\f" }
+
+/* KEYWORDS */
+TOKEN :
+{
+  "break" | "class" | "const" | "else" | "extends" | "for" | "if" | "loop" | "method" |
+  "override" | "proc" | "return" | "struct" | "type" | "until" | "val" | "var" | "while"
+}
+
+/* OPERATORS */
+TOKEN :
+{ "||" | "<"  | "<=" | "+" | "-" | "{" | "}" | ";" | ","
+| "&&" | ">"  | ">=" | "*" | "/" | "(" | ")" | ":" | "."
+| "==" | "!"  | "!=" | ".."| "%" | "[" | "]" | ":="| "=" | "^" }
+
+/* TODO: comments */                          //should not allowed */ and /* inside comment.
+//SKIP : {<ANY: "/*" ("\n" | <PRINTINGCHAR> | <ESCAPE> | "'" )* "*/">}
+//
+//TOKEN : {<#EXCLUDE: ~["/","*"]>}
+
+SKIP: {
+    "/*" {comment = 1;} : COMMENT
+}
+
+<COMMENT> SKIP : {
+    "/*" {comment += 1;}
+}
+
+<COMMENT> SKIP : {
+    "*/" {
+        comment -= 1;
+        SwitchTo (comment == 0 ? DEFAULT : COMMENT);
+
+    }
+}
+
+<COMMENT> SKIP : {
+    <~[]>
+}
+
+
+
+/* TODO: identifiers */
+TOKEN : {<ID: <LETTER> (<LETTER> | <DIGIT> | "_")*>}
+
+//TOKEN : {<ID: "int"|"bool"|"false"|"true"|"Null"|"nil"|"Refany"|"Root"|"Text"|"First"|"Last"|"Number"|"New">}
+
+/*
+break   else      if       override   struct   var
+class   extends   loop     proc       type     while
+const   for       method   return     until
+*/
+
+/* TODO: numbers */
+TOKEN : {<NUMBER: (<DIGIT>)+ | (<DIGIT>)+ "_" (<HexDigit>)+>}
+
+/* TODO: characters */
+TOKEN: {<CHAR: "'" (<PRINTINGCHAR> | <ESCAPE> | "\"" ) "'">}
+
+/* TODO: texts (strings) */
+TOKEN: {<TEXT: "\"" (<PRINTINGCHAR> | <ESCAPE> | "'")* "\"">}
+
+
+TOKEN : {< #ESCAPE: "\\" "a"   | "\\" "b"   | "\\" "f"   | "\\" "n"   | "\\" "r"
+                           | "\\" "t"   | "\\" "v"   | "\\" "\\"   | "\\" "'"   | "\\" "\""
+                           | "\\" ( "0" | "1" | "2" | "3" ) <OctalDigit> <OctalDigit>
+                           | "\\x" <HexDigit> <HexDigit>
+                           | "\\u" <HexDigit> <HexDigit> <HexDigit> <HexDigit>
+                           | "\\U" <HexDigit> <HexDigit> <HexDigit> <HexDigit>
+                                   <HexDigit> <HexDigit> <HexDigit> <HexDigit> >}
+
+
+TOKEN : {< #OctalDigit: "0"|"1"|"2"|"3"|"4"|"5"|"6"|"7" >}
+TOKEN : {< #PRINTINGCHAR:(<OTHERCHAR> | <DIGIT> | <LETTER>) >}
+TOKEN : {< #HexDigit:(<DIGIT> | ["A" - "F"]) | (["a" - "f"]) >}
+TOKEN : {< #DIGIT: "0"|"1"|"2"|"3"|"4"|"5"|"6"|"7"|"8"|"9" >}
+TOKEN : {< #LETTER: ["A" - "Z"] | ["a" - "z"] >}
+TOKEN : {< #OTHERCHAR: "/" | "*" | " " | "!" | "#" | "$" | "%" | "&" | "(" | ")"
+                                 | "+" | "," | "-" | "." | ":" | ";"
+                                 | "<" | "=" | ">" | "?" | "@" | "[" | "]" | "^"
+                                 | "_" | "`" | "{" | "|" | "}" | "~" >}

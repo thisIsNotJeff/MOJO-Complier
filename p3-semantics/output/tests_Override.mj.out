@@ -1,0 +1,60 @@
+BEGIN _BUILTIN
+_BUILTIN.int=int
+_BUILTIN.bool=bool
+_BUILTIN.false:bool=false
+_BUILTIN.true:bool=true
+_BUILTIN.Null=^null
+_BUILTIN.nil:Null=0
+_BUILTIN.Refany=^null
+_BUILTIN.Address=^null
+_BUILTIN.Root=null
+object {
+}
+_BUILTIN.Text=^null
+_BUILTIN.First:(...)
+_BUILTIN.Last:(...)
+_BUILTIN.New:(...)
+_BUILTIN.Number:(...)
+BEGIN Override
+Override.FooU:(VALUE u:U)
+Override.FooT:(VALUE t:T)
+Override.U=Root
+object {
+0: x:int
+0: foo:()=Override.FooU:(VALUE u:U)
+4: bar:()=null
+}
+Override.T=U
+object {
+4: y:int
+-1: foo:null=Override.FooT:(VALUE t:T)
+8: baz:()=null
+}
+BEGIN Override.1
+VALUE u:U
+END Override.1
+BEGIN Override.2
+VALUE t:T
+END Override.2
+BEGIN Override.3
+x:int
+END Override.3
+BEGIN Override.4
+foo:()=Override.FooU:(VALUE u:U)
+bar:()=null
+END Override.4
+BEGIN Override.5
+END Override.5
+BEGIN Override.7
+END Override.7
+BEGIN Override.9
+y:int
+END Override.9
+BEGIN Override.10
+baz:()=null
+foo:null=Override.FooT:(VALUE t:T)
+END Override.10
+BEGIN Override.11
+END Override.11
+END Override
+END _BUILTIN

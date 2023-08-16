@@ -1,0 +1,983 @@
+PROCEDURE ArrayRecord
+# Before canonicalization (trees):
+MOVE(
+ TEMP ArrayRecord.1.a,
+ ESEQ(
+  MOVE(
+   TEMP t.0,
+   CONST 10),
+  BLT(
+   TEMP t.0,
+   CONST 0,
+   L.0, L.1),
+  LABEL L.1,
+  MOVE(
+   TEMP t.1,
+   TEMP t.0),
+  MOVE(
+   TEMP t.2,
+   CONST 16),
+  MOVE(
+   TEMP t.2,
+   ADD(
+    TEMP t.2,
+    MUL(
+     TEMP t.1,
+     CONST 16))),
+  MOVE(
+   TEMP t.3,
+   CALL(
+    NAME malloc,
+    CONST 0,
+    TEMP t.2)),
+  MOVE(
+   MEM(
+    TEMP t.3, 
+    CONST 0, 8),
+   ADD(
+    TEMP t.3,
+    CONST 16)),
+  MOVE(
+   MEM(
+    TEMP t.3, 
+    CONST 8, 8),
+   TEMP t.0),
+  MOVE(
+   TEMP t.5,
+   MEM(
+    TEMP t.3, 
+    CONST 8, 8)),
+  MOVE(
+   TEMP t.6,
+   MEM(
+    TEMP t.3, 
+    CONST 0, 8)),
+  MOVE(
+   TEMP t.4,
+   CONST 0),
+  BGE(
+   TEMP t.4,
+   TEMP t.5,
+   L.4, L.2),
+  LABEL L.2,
+  MOVE(
+   TEMP t.7,
+   ADD(
+    TEMP t.6,
+    MUL(
+     TEMP t.4,
+     CONST 16))),
+  MOVE(
+   MEM(
+    TEMP t.7, 
+    CONST 0, 8),
+   CONST 0),
+  MOVE(
+   MEM(
+    TEMP t.7, 
+    CONST 8, 8),
+   CONST 0),
+  MOVE(
+   TEMP t.4,
+   ADD(
+    TEMP t.4,
+    CONST 1)),
+  LABEL L.3,
+  BLT(
+   TEMP t.4,
+   TEMP t.5,
+   L.2, L.4),
+  LABEL L.4,
+  TEMP t.3))
+# After canonicalization (trees):
+MOVE(
+ TEMP t.0,
+ CONST 10)
+BLT(
+ TEMP t.0,
+ CONST 0,
+ L.0, L.1)
+LABEL L.1
+MOVE(
+ TEMP t.1,
+ TEMP t.0)
+MOVE(
+ TEMP t.2,
+ CONST 16)
+MOVE(
+ TEMP t.2,
+ ADD(
+  TEMP t.2,
+  MUL(
+   TEMP t.1,
+   CONST 16)))
+MOVE(
+ TEMP t.3,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  TEMP t.2))
+MOVE(
+ MEM(
+  TEMP t.3, 
+  CONST 0, 8),
+ ADD(
+  TEMP t.3,
+  CONST 16))
+MOVE(
+ MEM(
+  TEMP t.3, 
+  CONST 8, 8),
+ TEMP t.0)
+MOVE(
+ TEMP t.5,
+ MEM(
+  TEMP t.3, 
+  CONST 8, 8))
+MOVE(
+ TEMP t.6,
+ MEM(
+  TEMP t.3, 
+  CONST 0, 8))
+MOVE(
+ TEMP t.4,
+ CONST 0)
+BGE(
+ TEMP t.4,
+ TEMP t.5,
+ L.4, L.2)
+LABEL L.2
+MOVE(
+ TEMP t.7,
+ ADD(
+  TEMP t.6,
+  MUL(
+   TEMP t.4,
+   CONST 16)))
+MOVE(
+ MEM(
+  TEMP t.7, 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ MEM(
+  TEMP t.7, 
+  CONST 8, 8),
+ CONST 0)
+MOVE(
+ TEMP t.4,
+ ADD(
+  TEMP t.4,
+  CONST 1))
+LABEL L.3
+BLT(
+ TEMP t.4,
+ TEMP t.5,
+ L.2, L.4)
+LABEL L.4
+MOVE(
+ TEMP ArrayRecord.1.a,
+ TEMP t.3)
+# Basic Blocks:
+LABEL L.7
+MOVE(
+ TEMP t.0,
+ CONST 10)
+BLT(
+ TEMP t.0,
+ CONST 0,
+ L.0, L.1)
+LABEL L.1
+MOVE(
+ TEMP t.1,
+ TEMP t.0)
+MOVE(
+ TEMP t.2,
+ CONST 16)
+MOVE(
+ TEMP t.2,
+ ADD(
+  TEMP t.2,
+  MUL(
+   TEMP t.1,
+   CONST 16)))
+MOVE(
+ TEMP t.3,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  TEMP t.2))
+MOVE(
+ MEM(
+  TEMP t.3, 
+  CONST 0, 8),
+ ADD(
+  TEMP t.3,
+  CONST 16))
+MOVE(
+ MEM(
+  TEMP t.3, 
+  CONST 8, 8),
+ TEMP t.0)
+MOVE(
+ TEMP t.5,
+ MEM(
+  TEMP t.3, 
+  CONST 8, 8))
+MOVE(
+ TEMP t.6,
+ MEM(
+  TEMP t.3, 
+  CONST 0, 8))
+MOVE(
+ TEMP t.4,
+ CONST 0)
+BGE(
+ TEMP t.4,
+ TEMP t.5,
+ L.4, L.2)
+LABEL L.2
+MOVE(
+ TEMP t.7,
+ ADD(
+  TEMP t.6,
+  MUL(
+   TEMP t.4,
+   CONST 16)))
+MOVE(
+ MEM(
+  TEMP t.7, 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ MEM(
+  TEMP t.7, 
+  CONST 8, 8),
+ CONST 0)
+MOVE(
+ TEMP t.4,
+ ADD(
+  TEMP t.4,
+  CONST 1))
+JUMP(
+ NAME L.3)
+LABEL L.3
+BLT(
+ TEMP t.4,
+ TEMP t.5,
+ L.2, L.4)
+LABEL L.4
+MOVE(
+ TEMP ArrayRecord.1.a,
+ TEMP t.3)
+# Trace Scheduled:
+LABEL L.7
+MOVE(
+ TEMP t.0,
+ CONST 10)
+BLT(
+ TEMP t.0,
+ CONST 0,
+ L.0, L.1)
+LABEL L.1
+MOVE(
+ TEMP t.1,
+ TEMP t.0)
+MOVE(
+ TEMP t.2,
+ CONST 16)
+MOVE(
+ TEMP t.2,
+ ADD(
+  TEMP t.2,
+  MUL(
+   TEMP t.1,
+   CONST 16)))
+MOVE(
+ TEMP t.3,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  TEMP t.2))
+MOVE(
+ MEM(
+  TEMP t.3, 
+  CONST 0, 8),
+ ADD(
+  TEMP t.3,
+  CONST 16))
+MOVE(
+ MEM(
+  TEMP t.3, 
+  CONST 8, 8),
+ TEMP t.0)
+MOVE(
+ TEMP t.5,
+ MEM(
+  TEMP t.3, 
+  CONST 8, 8))
+MOVE(
+ TEMP t.6,
+ MEM(
+  TEMP t.3, 
+  CONST 0, 8))
+MOVE(
+ TEMP t.4,
+ CONST 0)
+BGE(
+ TEMP t.4,
+ TEMP t.5,
+ L.4, L.2)
+LABEL L.2
+MOVE(
+ TEMP t.7,
+ ADD(
+  TEMP t.6,
+  MUL(
+   TEMP t.4,
+   CONST 16)))
+MOVE(
+ MEM(
+  TEMP t.7, 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ MEM(
+  TEMP t.7, 
+  CONST 8, 8),
+ CONST 0)
+MOVE(
+ TEMP t.4,
+ ADD(
+  TEMP t.4,
+  CONST 1))
+LABEL L.3
+BLT(
+ TEMP t.4,
+ TEMP t.5,
+ L.2, L.4)
+LABEL L.4
+MOVE(
+ TEMP ArrayRecord.1.a,
+ TEMP t.3)
+# With procedure entry/exit:
+LABEL L.7
+MOVE(
+ TEMP t.0,
+ CONST 10)
+BLT(
+ TEMP t.0,
+ CONST 0,
+ L.0, L.1)
+LABEL L.1
+MOVE(
+ TEMP t.1,
+ TEMP t.0)
+MOVE(
+ TEMP t.2,
+ CONST 16)
+MOVE(
+ TEMP t.2,
+ ADD(
+  TEMP t.2,
+  MUL(
+   TEMP t.1,
+   CONST 16)))
+MOVE(
+ TEMP t.3,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  TEMP t.2))
+MOVE(
+ MEM(
+  TEMP t.3, 
+  CONST 0, 8),
+ ADD(
+  TEMP t.3,
+  CONST 16))
+MOVE(
+ MEM(
+  TEMP t.3, 
+  CONST 8, 8),
+ TEMP t.0)
+MOVE(
+ TEMP t.5,
+ MEM(
+  TEMP t.3, 
+  CONST 8, 8))
+MOVE(
+ TEMP t.6,
+ MEM(
+  TEMP t.3, 
+  CONST 0, 8))
+MOVE(
+ TEMP t.4,
+ CONST 0)
+BGE(
+ TEMP t.4,
+ TEMP t.5,
+ L.4, L.2)
+LABEL L.2
+MOVE(
+ TEMP t.7,
+ ADD(
+  TEMP t.6,
+  MUL(
+   TEMP t.4,
+   CONST 16)))
+MOVE(
+ MEM(
+  TEMP t.7, 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ MEM(
+  TEMP t.7, 
+  CONST 8, 8),
+ CONST 0)
+MOVE(
+ TEMP t.4,
+ ADD(
+  TEMP t.4,
+  CONST 1))
+LABEL L.3
+BLT(
+ TEMP t.4,
+ TEMP t.5,
+ L.2, L.4)
+LABEL L.4
+MOVE(
+ TEMP ArrayRecord.1.a,
+ TEMP t.3)
+# Instructions:
+L.7:	# <- 
+	movq $10,t.0	# t.0 <- 
+	xorq t.8,t.8	# t.8 <- 
+	cmpq t.8,t.0	# <- t.0 t.8 
+	jl L.0	# <- : goto L.0 L.1 
+L.1:	# <- 
+	movq t.0,t.1	# t.1 := t.0 
+	movq $16,t.2	# t.2 <- 
+	movq t.2,t.9	# t.9 := t.2 
+	movq t.1,t.10	# t.10 := t.1 
+	shlq $4,t.10	# t.10 <- t.10 
+	addq t.10,t.9	# t.9 <- t.10 t.9 
+	movq t.9,t.2	# t.2 := t.9 
+	movq t.2,%rdi	# %rdi := t.2 
+	call malloc	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	movq %rax,t.3	# t.3 := %rax 
+	movq t.3,t.11	# t.11 := t.3 
+	addq $16,t.11	# t.11 <- t.11 
+	movq t.11,0(t.3)	# <- t.11 t.3 
+	movq t.0,8(t.3)	# <- t.0 t.3 
+	movq 8(t.3),t.12	# t.12 <- t.3 
+	movq t.12,t.5	# t.5 := t.12 
+	movq 0(t.3),t.13	# t.13 <- t.3 
+	movq t.13,t.6	# t.6 := t.13 
+	xorq t.4,t.4	# t.4 <- 
+	cmpq t.5,t.4	# <- t.4 t.5 
+	jge L.4	# <- : goto L.4 L.2 
+L.2:	# <- 
+	movq t.6,t.14	# t.14 := t.6 
+	movq t.4,t.15	# t.15 := t.4 
+	shlq $4,t.15	# t.15 <- t.15 
+	addq t.15,t.14	# t.14 <- t.15 t.14 
+	movq t.14,t.7	# t.7 := t.14 
+	movq $0,0(t.7)	# <- t.7 
+	movq $0,8(t.7)	# <- t.7 
+	movq t.4,t.16	# t.16 := t.4 
+	addq $1,t.16	# t.16 <- t.16 
+	movq t.16,t.4	# t.4 := t.16 
+L.3:	# <- 
+	cmpq t.5,t.4	# <- t.4 t.5 
+	jl L.2	# <- : goto L.2 L.4 
+L.4:	# <- 
+	movq t.3,ArrayRecord.1.a	# ArrayRecord.1.a := t.3 
+# Control Flow Graph:
+0: t.0 t.8 <- ; goto 1 
+1: t.1 t.2 t.9 t.10 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.3 t.11 t.12 t.5 t.13 t.6 t.4 <- t.0 ; goto 4 2 
+2: t.14 t.15 t.7 t.16 t.4 <- t.6 t.4 ; goto 3 
+3: <- t.4 t.5 ; goto 2 4 
+4: ArrayRecord.1.a <- t.3 %rsp %rbp ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+t.0: t.8 %rsp %rbp t.11 t.3 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.2 t.9 t.10 
+t.8: t.0 %rsp %rbp 
+t.1: t.9 t.2 %rsp %rbp 
+t.2: %rsp %rbp t.0 t.1 
+t.9: %rsp %rbp t.0 t.10 t.1 
+t.10: %rsp %rbp t.0 t.9 
+t.3: t.4 t.6 t.13 t.5 t.12 t.11 %rsp %rbp t.0 t.16 t.7 t.14 t.15 
+t.11: t.3 %rsp %rbp t.0 
+t.12: t.3 %rsp %rbp 
+t.5: t.4 t.6 t.13 t.3 %rsp %rbp t.16 t.7 t.14 t.15 
+t.13: t.3 %rsp %rbp t.5 
+t.6: t.4 t.3 %rsp %rbp t.5 t.16 t.7 t.14 t.15 
+t.4: t.3 %rsp %rbp t.6 t.5 t.7 t.14 t.15 
+t.14: t.5 t.6 t.3 %rsp %rbp t.4 t.15 
+t.15: t.5 t.6 t.3 %rsp %rbp t.4 t.14 
+t.7: t.5 t.6 t.3 %rsp %rbp t.4 
+t.16: t.5 t.6 t.3 %rsp %rbp 
+ArrayRecord.1.a: %rsp %rbp 
+ArrayRecord.1.a <= t.3
+t.14 <= t.6
+t.15 <= t.4
+t.7 <= t.14
+t.16 <= t.4
+t.4 <= t.16
+t.1 <= t.0
+t.9 <= t.2
+t.10 <= t.1
+t.2 <= t.9
+%rdi <= t.2
+t.3 <= %rax
+t.11 <= t.3
+t.5 <= t.12
+t.6 <= t.13
+# Register Allocation:
+%rax->%rax
+%rbx->%rbx
+%rcx->%rcx
+%rdx->%rdx
+%rsp->%rsp
+%rbp->%rbp
+%rsi->%rsi
+%rdi->%rdi
+%r8->%r8
+%r9->%r9
+%r10->%r10
+%r11->%r11
+%r12->%r12
+%r13->%r13
+%r14->%r14
+%r15->%r15
+t.0->%r12
+t.8->%rax
+t.1->%r12
+t.2->%rdi
+t.9->%rdi
+t.10->%rax
+t.3->%rax
+t.11->%rbx
+t.12->%rcx
+t.5->%rcx
+t.13->%rbx
+t.6->%rbx
+t.4->%rdx
+t.14->%rsi
+t.15->%rdi
+t.7->%rsi
+t.16->%rdx
+ArrayRecord.1.a->%rax
+# Assembly code:
+	.text
+ArrayRecord:
+	pushq %rbp
+	movq %rsp,%rbp
+	subq $16,%rsp
+	movq %r12, -16(%rbp)
+	movq %rbx, -8(%rbp)
+L.7:
+	movq $10,%r12
+	xorq %rax,%rax
+	cmpq %rax,%r12
+	jl L.0
+L.1:
+#	movq %r12,%r12
+	movq $16,%rdi
+#	movq %rdi,%rdi
+	movq %r12,%rax
+	shlq $4,%rax
+	addq %rax,%rdi
+#	movq %rdi,%rdi
+#	movq %rdi,%rdi
+	call malloc
+#	movq %rax,%rax
+	movq %rax,%rbx
+	addq $16,%rbx
+	movq %rbx,0(%rax)
+	movq %r12,8(%rax)
+	movq 8(%rax),%rcx
+#	movq %rcx,%rcx
+	movq 0(%rax),%rbx
+#	movq %rbx,%rbx
+	xorq %rdx,%rdx
+	cmpq %rcx,%rdx
+	jge L.4
+L.2:
+	movq %rbx,%rsi
+	movq %rdx,%rdi
+	shlq $4,%rdi
+	addq %rdi,%rsi
+#	movq %rsi,%rsi
+	movq $0,0(%rsi)
+	movq $0,8(%rsi)
+#	movq %rdx,%rdx
+	addq $1,%rdx
+#	movq %rdx,%rdx
+L.3:
+	cmpq %rcx,%rdx
+	jl L.2
+L.4:
+#	movq %rax,%rax
+#	returnSink
+	movq -8(%rbp),%rbx
+	movq -16(%rbp),%r12
+	addq $16,%rsp
+	popq %rbp
+	ret
+L.0:
+	call badSub
+END ArrayRecord
+PROCEDURE main
+# Before canonicalization (trees):
+EXP(
+ CALL(
+  NAME ArrayRecord,
+  CONST 0))
+# After canonicalization (trees):
+EXP(
+ CALL(
+  NAME ArrayRecord,
+  CONST 0))
+# Basic Blocks:
+LABEL L.8
+EXP(
+ CALL(
+  NAME ArrayRecord,
+  CONST 0))
+# Trace Scheduled:
+LABEL L.8
+EXP(
+ CALL(
+  NAME ArrayRecord,
+  CONST 0))
+# With procedure entry/exit:
+LABEL L.8
+EXP(
+ CALL(
+  NAME ArrayRecord,
+  CONST 0))
+# Instructions:
+L.8:	# <- 
+	call ArrayRecord	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- 
+# Control Flow Graph:
+0: %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rsp %rbp ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+# Register Allocation:
+%rax->%rax
+%rbx->%rbx
+%rcx->%rcx
+%rdx->%rdx
+%rsp->%rsp
+%rbp->%rbp
+%rsi->%rsi
+%rdi->%rdi
+%r8->%r8
+%r9->%r9
+%r10->%r10
+%r11->%r11
+%r12->%r12
+%r13->%r13
+%r14->%r14
+%r15->%r15
+# Assembly code:
+	.globl main
+	.text
+main:
+	pushq %rbp
+	movq %rsp,%rbp
+L.8:
+	call ArrayRecord
+#	returnSink
+	popq %rbp
+	ret
+END main
+	.data
+	.balign 8
+L.5:	.asciz	"Attempt to use a null pointer"
+PROCEDURE badPtr
+# Before canonicalization (trees):
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.5)),
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# After canonicalization (trees):
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.5))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Basic Blocks:
+LABEL L.9
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.5))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Trace Scheduled:
+LABEL L.9
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.5))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# With procedure entry/exit:
+LABEL L.9
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.5))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Instructions:
+L.9:	# <- 
+	leaq L.5(%rip),t.17	# t.17 <- 
+	movq t.17,%rdi	# %rdi := t.17 
+	call puts	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	movabsq $1,t.18	# t.18 <- 
+	movq t.18,%rdi	# %rdi := t.18 
+	call exit	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+# Control Flow Graph:
+0: t.17 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.18 <- %rsp %rbp ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+t.17: %rsp %rbp 
+t.18: %rsp %rbp 
+%rdi <= t.17
+%rdi <= t.18
+# Register Allocation:
+%rax->%rax
+%rbx->%rbx
+%rcx->%rcx
+%rdx->%rdx
+%rsp->%rsp
+%rbp->%rbp
+%rsi->%rsi
+%rdi->%rdi
+%r8->%r8
+%r9->%r9
+%r10->%r10
+%r11->%r11
+%r12->%r12
+%r13->%r13
+%r14->%r14
+%r15->%r15
+t.17->%rdi
+t.18->%rdi
+# Assembly code:
+	.text
+badPtr:
+	pushq %rbp
+	movq %rsp,%rbp
+L.9:
+	leaq L.5(%rip),%rdi
+#	movq %rdi,%rdi
+	call puts
+	movabsq $1,%rdi
+#	movq %rdi,%rdi
+	call exit
+#	returnSink
+	popq %rbp
+	ret
+END badPtr
+	.data
+	.balign 8
+L.6:	.asciz	"Subscript out of bounds"
+PROCEDURE badSub
+# Before canonicalization (trees):
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.6)),
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# After canonicalization (trees):
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.6))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Basic Blocks:
+LABEL L.10
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.6))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Trace Scheduled:
+LABEL L.10
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.6))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# With procedure entry/exit:
+LABEL L.10
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.6))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Instructions:
+L.10:	# <- 
+	leaq L.6(%rip),t.19	# t.19 <- 
+	movq t.19,%rdi	# %rdi := t.19 
+	call puts	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	movabsq $1,t.20	# t.20 <- 
+	movq t.20,%rdi	# %rdi := t.20 
+	call exit	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+# Control Flow Graph:
+0: t.19 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.20 <- %rsp %rbp ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+t.19: %rsp %rbp 
+t.20: %rsp %rbp 
+%rdi <= t.19
+%rdi <= t.20
+# Register Allocation:
+%rax->%rax
+%rbx->%rbx
+%rcx->%rcx
+%rdx->%rdx
+%rsp->%rsp
+%rbp->%rbp
+%rsi->%rsi
+%rdi->%rdi
+%r8->%r8
+%r9->%r9
+%r10->%r10
+%r11->%r11
+%r12->%r12
+%r13->%r13
+%r14->%r14
+%r15->%r15
+t.19->%rdi
+t.20->%rdi
+# Assembly code:
+	.text
+badSub:
+	pushq %rbp
+	movq %rsp,%rbp
+L.10:
+	leaq L.6(%rip),%rdi
+#	movq %rdi,%rdi
+	call puts
+	movabsq $1,%rdi
+#	movq %rdi,%rdi
+	call exit
+#	returnSink
+	popq %rbp
+	ret
+END badSub

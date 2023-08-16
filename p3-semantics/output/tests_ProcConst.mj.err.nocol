@@ -1,0 +1,3 @@
+ line 1, column: error: value is not a constant expression
+ line 4, column: error: undefined (Bar)
+ line 4, column: error: value is not a constant expression

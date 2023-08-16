@@ -1,0 +1,10 @@
+def exit(status: int);
+
+var a: (x,y: int);
+{
+  var b: (x,y: int);
+  a.x := 1;
+  a.y := 2;
+  b := a;
+  exit(b.x+b.y);
+}

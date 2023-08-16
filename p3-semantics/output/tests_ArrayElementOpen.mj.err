@@ -1,0 +1,2 @@
+ line 1, column 10: error: array element type cannot be an open array
+ line 1, column 10: error: -------->mojo.Absyn$Type$Array@6842775d-1

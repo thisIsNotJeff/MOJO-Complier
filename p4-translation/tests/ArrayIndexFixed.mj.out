@@ -1,0 +1,22 @@
+	.data
+	.balign 8
+ArrayIndexFixed.x:
+	.quad 0
+	.quad 0
+	.quad 0
+	.quad 0
+	.quad 0
+	.quad 0
+	.quad 0
+	.quad 0
+	.quad 0
+	.quad 0
+	.text
+ArrayIndexFixed:
+MOVE(
+ TEMP ArrayIndexFixed.1.v,
+ MEM(
+  NAME ArrayIndexFixed.x, 
+  CONST 40, 8))
+
+

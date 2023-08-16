@@ -1,0 +1,29 @@
+BEGIN _BUILTIN
+_BUILTIN.int=int
+_BUILTIN.bool=bool
+_BUILTIN.false:bool=false
+_BUILTIN.true:bool=true
+_BUILTIN.Null=^null
+_BUILTIN.nil:Null=0
+_BUILTIN.Refany=^null
+_BUILTIN.Address=^null
+_BUILTIN.Root=null
+object {
+}
+_BUILTIN.Text=^null
+_BUILTIN.First:(...)
+_BUILTIN.Last:(...)
+_BUILTIN.New:(...)
+_BUILTIN.Number:(...)
+BEGIN RecordTypeTooLarge
+RecordTypeTooLarge.R=
+struct {
+0: a:[4095][65535]int
+-1: b:[4095][65535]int
+-2: c:[4095][65535]int
+-3: d:[4095][65535]int
+-4: e:[4095][65535]int
+-5: f:[4095][65535]int
+}
+END RecordTypeTooLarge
+END _BUILTIN

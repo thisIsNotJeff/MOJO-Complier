@@ -1,0 +1,41 @@
+BEGIN _BUILTIN
+_BUILTIN.int=int
+_BUILTIN.bool=bool
+_BUILTIN.false:bool=false
+_BUILTIN.true:bool=true
+_BUILTIN.Null=^null
+_BUILTIN.nil:Null=0
+_BUILTIN.Refany=^null
+_BUILTIN.Address=^null
+_BUILTIN.Root=null
+object {
+}
+_BUILTIN.Text=^null
+_BUILTIN.First:(...)
+_BUILTIN.Last:(...)
+_BUILTIN.New:(...)
+_BUILTIN.Number:(...)
+BEGIN QueensStaticOpen
+QueensStaticOpen.putchar:(VALUE i:int):int
+QueensStaticOpen.N:int=8
+QueensStaticOpen.row:^[null]int
+QueensStaticOpen.col:^[null]int
+QueensStaticOpen.diag1:^[null]int
+QueensStaticOpen.diag2:^[null]int
+QueensStaticOpen.Solve:(VALUE c:int)
+QueensStaticOpen.Print:()
+BEGIN QueensStaticOpen.1
+VALUE i:int
+END QueensStaticOpen.1
+BEGIN QueensStaticOpen.2
+VALUE c:int
+END QueensStaticOpen.2
+BEGIN QueensStaticOpen.3
+END QueensStaticOpen.3
+BEGIN QueensStaticOpen.Solve
+QueensStaticOpen.Solve.c:int
+END QueensStaticOpen.Solve
+BEGIN QueensStaticOpen.Print
+END QueensStaticOpen.Print
+END QueensStaticOpen
+END _BUILTIN

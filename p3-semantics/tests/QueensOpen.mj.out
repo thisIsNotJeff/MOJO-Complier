@@ -1,0 +1,53 @@
+BEGIN _BUILTIN
+_BUILTIN.int=int
+_BUILTIN.bool=bool
+_BUILTIN.false:bool=false
+_BUILTIN.true:bool=true
+_BUILTIN.Null=^null
+_BUILTIN.nil:Null=0
+_BUILTIN.Refany=^null
+_BUILTIN.Address=^null
+_BUILTIN.Root=null
+object {
+}
+_BUILTIN.Text=^null
+_BUILTIN.First:(...)
+_BUILTIN.Last:(...)
+_BUILTIN.New:(...)
+_BUILTIN.Number:(...)
+BEGIN QueensOpen
+QueensOpen.putchar:(VALUE i:int):int
+QueensOpen.N:int=8
+QueensOpen.Queens=Root
+object {
+0: row:^[null]int
+4: col:^[null]int
+8: diag1:^[null]int
+12: diag2:^[null]int
+0: init:():Queens=QueensOpen.Init:(VALUE self:Queens):Queens
+4: solve:(VALUE c:int)=QueensOpen.Solve:(VALUE self:Queens; VALUE c:int)
+}
+QueensOpen.Init:(VALUE self:Queens):Queens
+QueensOpen.Solve:(VALUE self:Queens; VALUE c:int)
+QueensOpen.Print:(VALUE self:Queens)
+BEGIN QueensOpen.Init
+QueensOpen.Init.self:Queens
+END QueensOpen.Init
+BEGIN QueensOpen.Solve
+QueensOpen.Solve.self:Queens
+QueensOpen.Solve.c:int
+BEGIN QueensOpen.Solve.1
+QueensOpen.Solve.1.r:int
+END QueensOpen.Solve.1
+END QueensOpen.Solve
+BEGIN QueensOpen.Print
+QueensOpen.Print.self:Queens
+BEGIN QueensOpen.Print.1
+QueensOpen.Print.1.i:int
+BEGIN QueensOpen.Print.1.1
+QueensOpen.Print.1.1.j:int
+END QueensOpen.Print.1.1
+END QueensOpen.Print.1
+END QueensOpen.Print
+END QueensOpen
+END _BUILTIN

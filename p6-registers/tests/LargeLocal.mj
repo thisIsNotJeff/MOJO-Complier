@@ -1,0 +1,3 @@
+{
+  var x: [16_0FFFFFFF]int;
+}

@@ -1,0 +1,12 @@
+const
+  ALERT = '\a';
+  BS = '\n';
+  FF = '\f';
+  NL = '\n';
+  CR = '\r';
+  HT = '\t';
+  VT = '\v';
+  nul = '\000';
+  soh = '\001';
+  stx = '\002';
+  del = '\177';

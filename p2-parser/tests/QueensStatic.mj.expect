@@ -1,0 +1,59 @@
+def putchar(
+    val i: int;
+  ): int;
+const N: int = 8;
+var row: [N] int;
+var col: [N] int;
+var diag1: [(N + N) - 1] int;
+var diag2: [(N + N) - 1] int;
+def Solve(
+    val c: int;
+  )
+{
+  if c == Number(col)
+  {
+    Print();
+  }
+  else
+    {
+      for r := 0 .. Number(row) - 1 by 1
+        {
+          if (row[r] == 0
+              && diag1[r + c] == 0)
+            && diag2[(r + (N - 1)) - c] == 0
+          {
+            row[r] := 1;
+            diag1[r + c] := 1;
+            diag2[(r + (N - 1)) - c] := 1;
+            col[c] := r;
+            Solve(c + 1);
+            row[r] := 0;
+            diag1[r + c] := 0;
+            diag2[(r + (N - 1)) - c] := 0;
+          }
+        }
+    }
+}
+def Print()
+{
+  for i := 0 .. Number(col) - 1 by 1
+    {
+      for j := 0 .. Number(row) - 1 by 1
+        {
+          putchar(32);
+          if col[i] == j
+          {
+            putchar(81);
+          }
+          else
+            {
+              putchar(46);
+            }
+          putchar(10);
+        }
+      putchar(10);
+    }
+}
+{
+  Solve(0);
+}

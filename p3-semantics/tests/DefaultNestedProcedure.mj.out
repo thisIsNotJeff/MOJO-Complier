@@ -1,0 +1,30 @@
+BEGIN _BUILTIN
+_BUILTIN.int=int
+_BUILTIN.bool=bool
+_BUILTIN.false:bool=false
+_BUILTIN.true:bool=true
+_BUILTIN.Null=^null
+_BUILTIN.nil:Null=0
+_BUILTIN.Refany=^null
+_BUILTIN.Address=^null
+_BUILTIN.Root=null
+object {
+}
+_BUILTIN.Text=^null
+_BUILTIN.First:(...)
+_BUILTIN.Last:(...)
+_BUILTIN.New:(...)
+_BUILTIN.Number:(...)
+BEGIN DefaultNestedProcedure
+BEGIN DefaultNestedProcedure.1
+DefaultNestedProcedure.1.T=Root
+object {
+0: bar:()=DefaultNestedProcedure.1.Bar:(VALUE t:T)
+}
+DefaultNestedProcedure.1.Bar:(VALUE t:T)
+BEGIN DefaultNestedProcedure.1.Bar
+DefaultNestedProcedure.1.Bar.t:T
+END DefaultNestedProcedure.1.Bar
+END DefaultNestedProcedure.1
+END DefaultNestedProcedure
+END _BUILTIN

@@ -1,0 +1,49 @@
+def putchar(i: int): int;
+
+const N: int = 8;
+
+var
+  row := New(^[]int, N);
+  col := New(^[]int, N);
+  diag1 := New(^[]int, N+N-1);
+  diag2 := New(^[]int, N+N-1);
+
+def Solve(c: int) {
+  if c == Number(col^) {
+    Print();
+  } else {
+    for r := 0 .. Number(row^)-1 {
+      if row[r] == 0
+         && diag1[r+c] == 0
+         && diag2[r+(N-1)-c] == 0 {
+        row[r] := 1;
+        diag1[r+c] := 1;
+        diag2[r+(N-1)-c] := 1;
+        col[c] := r;
+        Solve(c+1);
+        row[r] := 0;
+        diag1[r+c] := 0;
+        diag2[r+(N-1)-c] := 0;
+      }
+    }
+  }
+}
+
+def Print() {
+  for i := 0 .. Number(col^)-1 {
+    for j := 0 .. Number(row^)-1 {
+      putchar(' ');
+      if col[i] == j {
+        putchar('Q');
+      } else {
+        putchar('.');
+      }
+    }
+    putchar('\n');
+  }
+  putchar('\n');
+}
+
+{
+  Solve(0);
+}

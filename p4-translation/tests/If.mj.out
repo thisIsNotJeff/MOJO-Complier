@@ -1,0 +1,34 @@
+	.text
+If:
+MOVE(
+ TEMP If.1.x,
+ CONST 0),
+BEQ(
+ TEMP If.1.x,
+ CONST 1,
+ L.1, L.2),
+LABEL L.1,
+MOVE(
+ TEMP If.1.x,
+ CONST 10),
+JUMP(
+ NAME L.3),
+LABEL L.2,
+BLT(
+ TEMP If.1.x,
+ CONST 4,
+ L.4, L.5),
+LABEL L.4,
+MOVE(
+ TEMP If.1.x,
+ CONST 20),
+JUMP(
+ NAME L.6),
+LABEL L.5,
+MOVE(
+ TEMP If.1.x,
+ CONST 30),
+LABEL L.6,
+LABEL L.3
+
+

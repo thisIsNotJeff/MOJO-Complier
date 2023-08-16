@@ -1,0 +1,3 @@
+ line 1, column 10: error: array type has too many elements
+ line 1, column 10: error: -------->mojo.Absyn$Type$Int@6842775d4
+ line 1, column 10: error: array type is too large

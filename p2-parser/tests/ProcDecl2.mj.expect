@@ -1,0 +1,6 @@
+def foo(
+    val i: int;
+  )
+{
+  i := i + 1;
+}

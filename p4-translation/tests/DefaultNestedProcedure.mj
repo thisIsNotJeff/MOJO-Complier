@@ -1,0 +1,7 @@
+{
+  type T = object {
+    bar() := Bar;
+  };
+  def Bar(t: T) {}
+}
+

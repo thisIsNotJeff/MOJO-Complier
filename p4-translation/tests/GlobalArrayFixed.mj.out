@@ -1,0 +1,16 @@
+	.data
+	.balign 8
+GlobalArrayFixed.x:
+	.quad 0
+	.quad 0
+	.quad 0
+	.quad 0
+	.quad 0
+	.quad 0
+	.quad 0
+	.quad 0
+	.quad 0
+	.quad 0
+	.text
+GlobalArrayFixed:
+

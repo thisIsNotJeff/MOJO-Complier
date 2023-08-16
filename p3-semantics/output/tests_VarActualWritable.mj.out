@@ -1,0 +1,28 @@
+BEGIN _BUILTIN
+_BUILTIN.int=int
+_BUILTIN.bool=bool
+_BUILTIN.false:bool=false
+_BUILTIN.true:bool=true
+_BUILTIN.Null=^null
+_BUILTIN.nil:Null=0
+_BUILTIN.Refany=^null
+_BUILTIN.Address=^null
+_BUILTIN.Root=null
+object {
+}
+_BUILTIN.Text=^null
+_BUILTIN.First:(...)
+_BUILTIN.Last:(...)
+_BUILTIN.New:(...)
+_BUILTIN.Number:(...)
+BEGIN VarActualWritable
+VarActualWritable.c:int=0
+VarActualWritable.foo:(VAR i:int)
+BEGIN VarActualWritable.1
+VAR i:int
+END VarActualWritable.1
+BEGIN VarActualWritable.foo
+VarActualWritable.foo.i:int
+END VarActualWritable.foo
+END VarActualWritable
+END _BUILTIN

@@ -1,0 +1,9 @@
+type Cell = (
+  x: int;
+  next: ^Cell;
+);
+var head: Cell;
+def append(cell: Cell) {
+  cell.next := head;
+  head := cell;
+}

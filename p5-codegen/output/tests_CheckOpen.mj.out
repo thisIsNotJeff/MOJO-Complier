@@ -1,0 +1,4295 @@
+PROCEDURE CheckOpen
+# Before canonicalization (trees):
+MOVE(
+ TEMP t.1,
+ CONST 5),
+MOVE(
+ TEMP t.0,
+ CONST 0),
+BGE(
+ TEMP t.0,
+ TEMP t.1,
+ L.1, L.0),
+LABEL L.0,
+MOVE(
+ TEMP t.3,
+ CONST 5),
+MOVE(
+ TEMP t.2,
+ CONST 0),
+BGE(
+ TEMP t.2,
+ TEMP t.3,
+ L.3, L.2),
+LABEL L.2,
+MOVE(
+ TEMP t.5,
+ CONST 5),
+MOVE(
+ TEMP t.4,
+ CONST 0),
+BGE(
+ TEMP t.4,
+ TEMP t.5,
+ L.5, L.4),
+LABEL L.4,
+MOVE(
+ MEM(
+  ADD(
+   ADD(
+    ADD(
+     TEMP %rbp,
+     MUL(
+      TEMP t.0,
+      CONST 200)),
+    MUL(
+     TEMP t.2,
+     CONST 40)),
+   MUL(
+    TEMP t.4,
+    CONST 8)), 
+  CONST -1000, 8),
+ CONST 0),
+MOVE(
+ TEMP t.4,
+ ADD(
+  TEMP t.4,
+  CONST 1)),
+BLT(
+ TEMP t.4,
+ TEMP t.5,
+ L.4, L.5),
+LABEL L.5,
+MOVE(
+ TEMP t.2,
+ ADD(
+  TEMP t.2,
+  CONST 1)),
+BLT(
+ TEMP t.2,
+ TEMP t.3,
+ L.2, L.3),
+LABEL L.3,
+MOVE(
+ TEMP t.0,
+ ADD(
+  TEMP t.0,
+  CONST 1)),
+BLT(
+ TEMP t.0,
+ TEMP t.1,
+ L.0, L.1),
+LABEL L.1,
+MOVE(
+ TEMP CheckOpen.2.a,
+ ESEQ(
+  MOVE(
+   TEMP t.6,
+   CONST 5),
+  BLT(
+   TEMP t.6,
+   CONST 0,
+   L.6, L.7),
+  LABEL L.7,
+  MOVE(
+   TEMP t.7,
+   TEMP t.6),
+  MOVE(
+   TEMP t.8,
+   CONST 5),
+  BLT(
+   TEMP t.8,
+   CONST 0,
+   L.6, L.8),
+  LABEL L.8,
+  MOVE(
+   TEMP t.9,
+   MUL(
+    TEMP t.8,
+    TEMP t.7)),
+  MOVE(
+   TEMP t.10,
+   CONST 5),
+  BLT(
+   TEMP t.10,
+   CONST 0,
+   L.6, L.9),
+  LABEL L.9,
+  MOVE(
+   TEMP t.11,
+   MUL(
+    TEMP t.10,
+    TEMP t.9)),
+  MOVE(
+   TEMP t.12,
+   CONST 32),
+  MOVE(
+   TEMP t.12,
+   ADD(
+    TEMP t.12,
+    MUL(
+     TEMP t.11,
+     CONST 8))),
+  MOVE(
+   TEMP t.13,
+   CALL(
+    NAME malloc,
+    CONST 0,
+    TEMP t.12)),
+  MOVE(
+   MEM(
+    TEMP t.13, 
+    CONST 0, 8),
+   ADD(
+    TEMP t.13,
+    CONST 32)),
+  MOVE(
+   MEM(
+    TEMP t.13, 
+    CONST 8, 8),
+   TEMP t.6),
+  MOVE(
+   MEM(
+    TEMP t.13, 
+    CONST 16, 8),
+   TEMP t.8),
+  MOVE(
+   MEM(
+    TEMP t.13, 
+    CONST 24, 8),
+   TEMP t.10),
+  MOVE(
+   TEMP t.15,
+   MEM(
+    TEMP t.13, 
+    CONST 8, 8)),
+  MOVE(
+   TEMP t.15,
+   MUL(
+    TEMP t.15,
+    MEM(
+     TEMP t.13, 
+     CONST 16, 8))),
+  MOVE(
+   TEMP t.15,
+   MUL(
+    TEMP t.15,
+    MEM(
+     TEMP t.13, 
+     CONST 24, 8))),
+  MOVE(
+   TEMP t.16,
+   MEM(
+    TEMP t.13, 
+    CONST 0, 8)),
+  MOVE(
+   TEMP t.14,
+   CONST 0),
+  BGE(
+   TEMP t.14,
+   TEMP t.15,
+   L.12, L.10),
+  LABEL L.10,
+  MOVE(
+   MEM(
+    ADD(
+     TEMP t.16,
+     MUL(
+      TEMP t.14,
+      CONST 8)), 
+    CONST 0, 8),
+   CONST 0),
+  MOVE(
+   TEMP t.14,
+   ADD(
+    TEMP t.14,
+    CONST 1)),
+  LABEL L.11,
+  BLT(
+   TEMP t.14,
+   TEMP t.15,
+   L.10, L.12),
+  LABEL L.12,
+  TEMP t.13)),
+MOVE(
+ TEMP t.17,
+ CONST 0),
+MOVE(
+ TEMP t.18,
+ CONST 4),
+MOVE(
+ TEMP t.19,
+ CONST 1),
+LABEL L.13,
+MOVE(
+ TEMP CheckOpen.2.1.i,
+ TEMP t.17),
+MOVE(
+ TEMP t.20,
+ CONST 0),
+MOVE(
+ TEMP t.21,
+ CONST 4),
+MOVE(
+ TEMP t.22,
+ CONST 1),
+LABEL L.16,
+MOVE(
+ TEMP CheckOpen.2.1.1.j,
+ TEMP t.20),
+MOVE(
+ TEMP t.23,
+ CONST 0),
+MOVE(
+ TEMP t.24,
+ CONST 4),
+MOVE(
+ TEMP t.25,
+ CONST 1),
+LABEL L.19,
+MOVE(
+ TEMP CheckOpen.2.1.1.1.k,
+ TEMP t.23),
+MOVE(
+ MEM(
+  ESEQ(
+   MOVE(
+    TEMP t.34,
+    ESEQ(
+     MOVE(
+      TEMP t.30,
+      ESEQ(
+       MOVE(
+        TEMP t.27,
+        ESEQ(
+         MOVE(
+          TEMP t.26,
+          TEMP CheckOpen.2.a),
+         BEQ(
+          TEMP t.26,
+          CONST 0,
+          L.22, L.23),
+         LABEL L.23,
+         TEMP t.26)),
+       MOVE(
+        MEM(
+         TEMP %rbp, 
+         CONST -1016, 8),
+        MEM(
+         TEMP t.27, 
+         CONST 16, 8)),
+       MOVE(
+        MEM(
+         TEMP %rbp, 
+         CONST -1008, 8),
+        MEM(
+         TEMP t.27, 
+         CONST 24, 8)),
+       MOVE(
+        TEMP t.29,
+        ESEQ(
+         MOVE(
+          TEMP t.28,
+          TEMP CheckOpen.2.1.i),
+         BLT(
+          TEMP t.28,
+          CONST 0,
+          L.6, L.24),
+         LABEL L.24,
+         BGE(
+          TEMP t.28,
+          MEM(
+           TEMP t.27, 
+           CONST 8, 8),
+          L.6, L.25),
+         LABEL L.25,
+         TEMP t.28)),
+       MOVE(
+        TEMP t.29,
+        MUL(
+         TEMP t.29,
+         MEM(
+          TEMP %rbp, 
+          CONST -1016, 8))),
+       MOVE(
+        TEMP t.29,
+        MUL(
+         TEMP t.29,
+         MEM(
+          TEMP %rbp, 
+          CONST -1008, 8))),
+       MOVE(
+        MEM(
+         TEMP %rbp, 
+         CONST -1024, 8),
+        ADD(
+         MEM(
+          TEMP t.27, 
+          CONST 0, 8),
+         MUL(
+          TEMP t.29,
+          CONST 8))),
+       TEMP %rbp)),
+     MOVE(
+      MEM(
+       TEMP %rbp, 
+       CONST -1032, 8),
+      MEM(
+       TEMP t.30, 
+       CONST -1008, 8)),
+     MOVE(
+      TEMP t.32,
+      ESEQ(
+       MOVE(
+        TEMP t.31,
+        TEMP CheckOpen.2.1.1.j),
+       BLT(
+        TEMP t.31,
+        CONST 0,
+        L.6, L.26),
+       LABEL L.26,
+       BGE(
+        TEMP t.31,
+        MEM(
+         TEMP t.30, 
+         CONST -1016, 8),
+        L.6, L.27),
+       LABEL L.27,
+       TEMP t.31)),
+     MOVE(
+      TEMP t.32,
+      MUL(
+       TEMP t.32,
+       MEM(
+        TEMP %rbp, 
+        CONST -1032, 8))),
+     MOVE(
+      MEM(
+       TEMP %rbp, 
+       CONST -1040, 8),
+      ADD(
+       MEM(
+        TEMP t.30, 
+        CONST -1024, 8),
+       MUL(
+        TEMP t.32,
+        CONST 8))),
+     TEMP %rbp)),
+   ADD(
+    MEM(
+     TEMP t.34, 
+     CONST -1040, 8),
+    MUL(
+     ESEQ(
+      MOVE(
+       TEMP t.33,
+       TEMP CheckOpen.2.1.1.1.k),
+      BLT(
+       TEMP t.33,
+       CONST 0,
+       L.6, L.28),
+      LABEL L.28,
+      BGE(
+       TEMP t.33,
+       MEM(
+        TEMP t.34, 
+        CONST -1032, 8),
+       L.6, L.29),
+      LABEL L.29,
+      TEMP t.33),
+     CONST 8))), 
+  CONST 0, 8),
+ MUL(
+  MUL(
+   ADD(
+    TEMP CheckOpen.2.1.i,
+    CONST 1),
+   ADD(
+    TEMP CheckOpen.2.1.1.j,
+    CONST 1)),
+  ADD(
+   TEMP CheckOpen.2.1.1.1.k,
+   CONST 1))),
+MOVE(
+ MEM(
+  ADD(
+   ADD(
+    ADD(
+     TEMP %rbp,
+     ADD(
+      CONST -1000,
+      MUL(
+       TEMP CheckOpen.2.1.i,
+       CONST 200))),
+    MUL(
+     TEMP CheckOpen.2.1.1.j,
+     CONST 40)),
+   MUL(
+    TEMP CheckOpen.2.1.1.1.k,
+    CONST 8)), 
+  CONST 0, 8),
+ MUL(
+  MUL(
+   ADD(
+    TEMP CheckOpen.2.1.i,
+    CONST 1),
+   ADD(
+    TEMP CheckOpen.2.1.1.j,
+    CONST 1)),
+  ADD(
+   TEMP CheckOpen.2.1.1.1.k,
+   CONST 1))),
+MOVE(
+ TEMP t.23,
+ ADD(
+  TEMP t.23,
+  TEMP t.25)),
+LABEL L.20,
+BLE(
+ TEMP t.23,
+ TEMP t.24,
+ L.19, L.21),
+LABEL L.21,
+MOVE(
+ TEMP t.20,
+ ADD(
+  TEMP t.20,
+  TEMP t.22)),
+LABEL L.17,
+BLE(
+ TEMP t.20,
+ TEMP t.21,
+ L.16, L.18),
+LABEL L.18,
+MOVE(
+ TEMP t.17,
+ ADD(
+  TEMP t.17,
+  TEMP t.19)),
+LABEL L.14,
+BLE(
+ TEMP t.17,
+ TEMP t.18,
+ L.13, L.15),
+LABEL L.15,
+MOVE(
+ TEMP t.35,
+ CONST 0),
+MOVE(
+ TEMP t.36,
+ CONST 4),
+MOVE(
+ TEMP t.37,
+ CONST 1),
+LABEL L.30,
+MOVE(
+ TEMP CheckOpen.2.2.i,
+ TEMP t.35),
+MOVE(
+ TEMP t.38,
+ CONST 0),
+MOVE(
+ TEMP t.39,
+ CONST 4),
+MOVE(
+ TEMP t.40,
+ CONST 1),
+LABEL L.33,
+MOVE(
+ TEMP CheckOpen.2.2.1.j,
+ TEMP t.38),
+MOVE(
+ TEMP t.41,
+ CONST 0),
+MOVE(
+ TEMP t.42,
+ CONST 4),
+MOVE(
+ TEMP t.43,
+ CONST 1),
+LABEL L.36,
+MOVE(
+ TEMP CheckOpen.2.2.1.1.k,
+ TEMP t.41),
+BNE(
+ MEM(
+  ESEQ(
+   MOVE(
+    TEMP t.52,
+    ESEQ(
+     MOVE(
+      TEMP t.48,
+      ESEQ(
+       MOVE(
+        TEMP t.45,
+        ESEQ(
+         MOVE(
+          TEMP t.44,
+          TEMP CheckOpen.2.a),
+         BEQ(
+          TEMP t.44,
+          CONST 0,
+          L.22, L.42),
+         LABEL L.42,
+         TEMP t.44)),
+       MOVE(
+        MEM(
+         TEMP %rbp, 
+         CONST -1056, 8),
+        MEM(
+         TEMP t.45, 
+         CONST 16, 8)),
+       MOVE(
+        MEM(
+         TEMP %rbp, 
+         CONST -1048, 8),
+        MEM(
+         TEMP t.45, 
+         CONST 24, 8)),
+       MOVE(
+        TEMP t.47,
+        ESEQ(
+         MOVE(
+          TEMP t.46,
+          TEMP CheckOpen.2.2.i),
+         BLT(
+          TEMP t.46,
+          CONST 0,
+          L.6, L.43),
+         LABEL L.43,
+         BGE(
+          TEMP t.46,
+          MEM(
+           TEMP t.45, 
+           CONST 8, 8),
+          L.6, L.44),
+         LABEL L.44,
+         TEMP t.46)),
+       MOVE(
+        TEMP t.47,
+        MUL(
+         TEMP t.47,
+         MEM(
+          TEMP %rbp, 
+          CONST -1056, 8))),
+       MOVE(
+        TEMP t.47,
+        MUL(
+         TEMP t.47,
+         MEM(
+          TEMP %rbp, 
+          CONST -1048, 8))),
+       MOVE(
+        MEM(
+         TEMP %rbp, 
+         CONST -1064, 8),
+        ADD(
+         MEM(
+          TEMP t.45, 
+          CONST 0, 8),
+         MUL(
+          TEMP t.47,
+          CONST 8))),
+       TEMP %rbp)),
+     MOVE(
+      MEM(
+       TEMP %rbp, 
+       CONST -1072, 8),
+      MEM(
+       TEMP t.48, 
+       CONST -1048, 8)),
+     MOVE(
+      TEMP t.50,
+      ESEQ(
+       MOVE(
+        TEMP t.49,
+        TEMP CheckOpen.2.2.1.j),
+       BLT(
+        TEMP t.49,
+        CONST 0,
+        L.6, L.45),
+       LABEL L.45,
+       BGE(
+        TEMP t.49,
+        MEM(
+         TEMP t.48, 
+         CONST -1056, 8),
+        L.6, L.46),
+       LABEL L.46,
+       TEMP t.49)),
+     MOVE(
+      TEMP t.50,
+      MUL(
+       TEMP t.50,
+       MEM(
+        TEMP %rbp, 
+        CONST -1072, 8))),
+     MOVE(
+      MEM(
+       TEMP %rbp, 
+       CONST -1080, 8),
+      ADD(
+       MEM(
+        TEMP t.48, 
+        CONST -1064, 8),
+       MUL(
+        TEMP t.50,
+        CONST 8))),
+     TEMP %rbp)),
+   ADD(
+    MEM(
+     TEMP t.52, 
+     CONST -1080, 8),
+    MUL(
+     ESEQ(
+      MOVE(
+       TEMP t.51,
+       TEMP CheckOpen.2.2.1.1.k),
+      BLT(
+       TEMP t.51,
+       CONST 0,
+       L.6, L.47),
+      LABEL L.47,
+      BGE(
+       TEMP t.51,
+       MEM(
+        TEMP t.52, 
+        CONST -1072, 8),
+       L.6, L.48),
+      LABEL L.48,
+      TEMP t.51),
+     CONST 8))), 
+  CONST 0, 8),
+ MEM(
+  ADD(
+   ADD(
+    ADD(
+     TEMP %rbp,
+     ADD(
+      CONST -1000,
+      MUL(
+       TEMP CheckOpen.2.2.i,
+       CONST 200))),
+    MUL(
+     TEMP CheckOpen.2.2.1.j,
+     CONST 40)),
+   MUL(
+    TEMP CheckOpen.2.2.1.1.k,
+    CONST 8)), 
+  CONST 0, 8),
+ L.39, L.40),
+LABEL L.39,
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 78)),
+JUMP(
+ NAME L.41),
+LABEL L.40,
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 84)),
+LABEL L.41,
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 10)),
+MOVE(
+ TEMP t.41,
+ ADD(
+  TEMP t.41,
+  TEMP t.43)),
+LABEL L.37,
+BLE(
+ TEMP t.41,
+ TEMP t.42,
+ L.36, L.38),
+LABEL L.38,
+MOVE(
+ TEMP t.38,
+ ADD(
+  TEMP t.38,
+  TEMP t.40)),
+LABEL L.34,
+BLE(
+ TEMP t.38,
+ TEMP t.39,
+ L.33, L.35),
+LABEL L.35,
+MOVE(
+ TEMP t.35,
+ ADD(
+  TEMP t.35,
+  TEMP t.37)),
+LABEL L.31,
+BLE(
+ TEMP t.35,
+ TEMP t.36,
+ L.30, L.32),
+LABEL L.32
+# After canonicalization (trees):
+MOVE(
+ TEMP t.1,
+ CONST 5)
+MOVE(
+ TEMP t.0,
+ CONST 0)
+BGE(
+ TEMP t.0,
+ TEMP t.1,
+ L.1, L.0)
+LABEL L.0
+MOVE(
+ TEMP t.3,
+ CONST 5)
+MOVE(
+ TEMP t.2,
+ CONST 0)
+BGE(
+ TEMP t.2,
+ TEMP t.3,
+ L.3, L.2)
+LABEL L.2
+MOVE(
+ TEMP t.5,
+ CONST 5)
+MOVE(
+ TEMP t.4,
+ CONST 0)
+BGE(
+ TEMP t.4,
+ TEMP t.5,
+ L.5, L.4)
+LABEL L.4
+MOVE(
+ MEM(
+  ADD(
+   ADD(
+    ADD(
+     TEMP %rbp,
+     MUL(
+      TEMP t.0,
+      CONST 200)),
+    MUL(
+     TEMP t.2,
+     CONST 40)),
+   MUL(
+    TEMP t.4,
+    CONST 8)), 
+  CONST -1000, 8),
+ CONST 0)
+MOVE(
+ TEMP t.4,
+ ADD(
+  TEMP t.4,
+  CONST 1))
+BLT(
+ TEMP t.4,
+ TEMP t.5,
+ L.4, L.5)
+LABEL L.5
+MOVE(
+ TEMP t.2,
+ ADD(
+  TEMP t.2,
+  CONST 1))
+BLT(
+ TEMP t.2,
+ TEMP t.3,
+ L.2, L.3)
+LABEL L.3
+MOVE(
+ TEMP t.0,
+ ADD(
+  TEMP t.0,
+  CONST 1))
+BLT(
+ TEMP t.0,
+ TEMP t.1,
+ L.0, L.1)
+LABEL L.1
+MOVE(
+ TEMP t.6,
+ CONST 5)
+BLT(
+ TEMP t.6,
+ CONST 0,
+ L.6, L.7)
+LABEL L.7
+MOVE(
+ TEMP t.7,
+ TEMP t.6)
+MOVE(
+ TEMP t.8,
+ CONST 5)
+BLT(
+ TEMP t.8,
+ CONST 0,
+ L.6, L.8)
+LABEL L.8
+MOVE(
+ TEMP t.9,
+ MUL(
+  TEMP t.8,
+  TEMP t.7))
+MOVE(
+ TEMP t.10,
+ CONST 5)
+BLT(
+ TEMP t.10,
+ CONST 0,
+ L.6, L.9)
+LABEL L.9
+MOVE(
+ TEMP t.11,
+ MUL(
+  TEMP t.10,
+  TEMP t.9))
+MOVE(
+ TEMP t.12,
+ CONST 32)
+MOVE(
+ TEMP t.12,
+ ADD(
+  TEMP t.12,
+  MUL(
+   TEMP t.11,
+   CONST 8)))
+MOVE(
+ TEMP t.13,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  TEMP t.12))
+MOVE(
+ MEM(
+  TEMP t.13, 
+  CONST 0, 8),
+ ADD(
+  TEMP t.13,
+  CONST 32))
+MOVE(
+ MEM(
+  TEMP t.13, 
+  CONST 8, 8),
+ TEMP t.6)
+MOVE(
+ MEM(
+  TEMP t.13, 
+  CONST 16, 8),
+ TEMP t.8)
+MOVE(
+ MEM(
+  TEMP t.13, 
+  CONST 24, 8),
+ TEMP t.10)
+MOVE(
+ TEMP t.15,
+ MEM(
+  TEMP t.13, 
+  CONST 8, 8))
+MOVE(
+ TEMP t.15,
+ MUL(
+  TEMP t.15,
+  MEM(
+   TEMP t.13, 
+   CONST 16, 8)))
+MOVE(
+ TEMP t.15,
+ MUL(
+  TEMP t.15,
+  MEM(
+   TEMP t.13, 
+   CONST 24, 8)))
+MOVE(
+ TEMP t.16,
+ MEM(
+  TEMP t.13, 
+  CONST 0, 8))
+MOVE(
+ TEMP t.14,
+ CONST 0)
+BGE(
+ TEMP t.14,
+ TEMP t.15,
+ L.12, L.10)
+LABEL L.10
+MOVE(
+ MEM(
+  ADD(
+   TEMP t.16,
+   MUL(
+    TEMP t.14,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.14,
+ ADD(
+  TEMP t.14,
+  CONST 1))
+LABEL L.11
+BLT(
+ TEMP t.14,
+ TEMP t.15,
+ L.10, L.12)
+LABEL L.12
+MOVE(
+ TEMP CheckOpen.2.a,
+ TEMP t.13)
+MOVE(
+ TEMP t.17,
+ CONST 0)
+MOVE(
+ TEMP t.18,
+ CONST 4)
+MOVE(
+ TEMP t.19,
+ CONST 1)
+LABEL L.13
+MOVE(
+ TEMP CheckOpen.2.1.i,
+ TEMP t.17)
+MOVE(
+ TEMP t.20,
+ CONST 0)
+MOVE(
+ TEMP t.21,
+ CONST 4)
+MOVE(
+ TEMP t.22,
+ CONST 1)
+LABEL L.16
+MOVE(
+ TEMP CheckOpen.2.1.1.j,
+ TEMP t.20)
+MOVE(
+ TEMP t.23,
+ CONST 0)
+MOVE(
+ TEMP t.24,
+ CONST 4)
+MOVE(
+ TEMP t.25,
+ CONST 1)
+LABEL L.19
+MOVE(
+ TEMP CheckOpen.2.1.1.1.k,
+ TEMP t.23)
+MOVE(
+ TEMP t.26,
+ TEMP CheckOpen.2.a)
+BEQ(
+ TEMP t.26,
+ CONST 0,
+ L.22, L.23)
+LABEL L.23
+MOVE(
+ TEMP t.27,
+ TEMP t.26)
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1016, 8),
+ MEM(
+  TEMP t.27, 
+  CONST 16, 8))
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1008, 8),
+ MEM(
+  TEMP t.27, 
+  CONST 24, 8))
+MOVE(
+ TEMP t.28,
+ TEMP CheckOpen.2.1.i)
+BLT(
+ TEMP t.28,
+ CONST 0,
+ L.6, L.24)
+LABEL L.24
+BGE(
+ TEMP t.28,
+ MEM(
+  TEMP t.27, 
+  CONST 8, 8),
+ L.6, L.25)
+LABEL L.25
+MOVE(
+ TEMP t.29,
+ TEMP t.28)
+MOVE(
+ TEMP t.29,
+ MUL(
+  TEMP t.29,
+  MEM(
+   TEMP %rbp, 
+   CONST -1016, 8)))
+MOVE(
+ TEMP t.29,
+ MUL(
+  TEMP t.29,
+  MEM(
+   TEMP %rbp, 
+   CONST -1008, 8)))
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1024, 8),
+ ADD(
+  MEM(
+   TEMP t.27, 
+   CONST 0, 8),
+  MUL(
+   TEMP t.29,
+   CONST 8)))
+MOVE(
+ TEMP t.30,
+ TEMP %rbp)
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1032, 8),
+ MEM(
+  TEMP t.30, 
+  CONST -1008, 8))
+MOVE(
+ TEMP t.31,
+ TEMP CheckOpen.2.1.1.j)
+BLT(
+ TEMP t.31,
+ CONST 0,
+ L.6, L.26)
+LABEL L.26
+BGE(
+ TEMP t.31,
+ MEM(
+  TEMP t.30, 
+  CONST -1016, 8),
+ L.6, L.27)
+LABEL L.27
+MOVE(
+ TEMP t.32,
+ TEMP t.31)
+MOVE(
+ TEMP t.32,
+ MUL(
+  TEMP t.32,
+  MEM(
+   TEMP %rbp, 
+   CONST -1032, 8)))
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1040, 8),
+ ADD(
+  MEM(
+   TEMP t.30, 
+   CONST -1024, 8),
+  MUL(
+   TEMP t.32,
+   CONST 8)))
+MOVE(
+ TEMP t.34,
+ TEMP %rbp)
+MOVE(
+ TEMP t.33,
+ TEMP CheckOpen.2.1.1.1.k)
+BLT(
+ TEMP t.33,
+ CONST 0,
+ L.6, L.28)
+LABEL L.28
+BGE(
+ TEMP t.33,
+ MEM(
+  TEMP t.34, 
+  CONST -1032, 8),
+ L.6, L.29)
+LABEL L.29
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.34, 
+    CONST -1040, 8),
+   MUL(
+    TEMP t.33,
+    CONST 8)), 
+  CONST 0, 8),
+ MUL(
+  MUL(
+   ADD(
+    TEMP CheckOpen.2.1.i,
+    CONST 1),
+   ADD(
+    TEMP CheckOpen.2.1.1.j,
+    CONST 1)),
+  ADD(
+   TEMP CheckOpen.2.1.1.1.k,
+   CONST 1)))
+MOVE(
+ MEM(
+  ADD(
+   ADD(
+    ADD(
+     TEMP %rbp,
+     ADD(
+      CONST -1000,
+      MUL(
+       TEMP CheckOpen.2.1.i,
+       CONST 200))),
+    MUL(
+     TEMP CheckOpen.2.1.1.j,
+     CONST 40)),
+   MUL(
+    TEMP CheckOpen.2.1.1.1.k,
+    CONST 8)), 
+  CONST 0, 8),
+ MUL(
+  MUL(
+   ADD(
+    TEMP CheckOpen.2.1.i,
+    CONST 1),
+   ADD(
+    TEMP CheckOpen.2.1.1.j,
+    CONST 1)),
+  ADD(
+   TEMP CheckOpen.2.1.1.1.k,
+   CONST 1)))
+MOVE(
+ TEMP t.23,
+ ADD(
+  TEMP t.23,
+  TEMP t.25))
+LABEL L.20
+BLE(
+ TEMP t.23,
+ TEMP t.24,
+ L.19, L.21)
+LABEL L.21
+MOVE(
+ TEMP t.20,
+ ADD(
+  TEMP t.20,
+  TEMP t.22))
+LABEL L.17
+BLE(
+ TEMP t.20,
+ TEMP t.21,
+ L.16, L.18)
+LABEL L.18
+MOVE(
+ TEMP t.17,
+ ADD(
+  TEMP t.17,
+  TEMP t.19))
+LABEL L.14
+BLE(
+ TEMP t.17,
+ TEMP t.18,
+ L.13, L.15)
+LABEL L.15
+MOVE(
+ TEMP t.35,
+ CONST 0)
+MOVE(
+ TEMP t.36,
+ CONST 4)
+MOVE(
+ TEMP t.37,
+ CONST 1)
+LABEL L.30
+MOVE(
+ TEMP CheckOpen.2.2.i,
+ TEMP t.35)
+MOVE(
+ TEMP t.38,
+ CONST 0)
+MOVE(
+ TEMP t.39,
+ CONST 4)
+MOVE(
+ TEMP t.40,
+ CONST 1)
+LABEL L.33
+MOVE(
+ TEMP CheckOpen.2.2.1.j,
+ TEMP t.38)
+MOVE(
+ TEMP t.41,
+ CONST 0)
+MOVE(
+ TEMP t.42,
+ CONST 4)
+MOVE(
+ TEMP t.43,
+ CONST 1)
+LABEL L.36
+MOVE(
+ TEMP CheckOpen.2.2.1.1.k,
+ TEMP t.41)
+MOVE(
+ TEMP t.44,
+ TEMP CheckOpen.2.a)
+BEQ(
+ TEMP t.44,
+ CONST 0,
+ L.22, L.42)
+LABEL L.42
+MOVE(
+ TEMP t.45,
+ TEMP t.44)
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1056, 8),
+ MEM(
+  TEMP t.45, 
+  CONST 16, 8))
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1048, 8),
+ MEM(
+  TEMP t.45, 
+  CONST 24, 8))
+MOVE(
+ TEMP t.46,
+ TEMP CheckOpen.2.2.i)
+BLT(
+ TEMP t.46,
+ CONST 0,
+ L.6, L.43)
+LABEL L.43
+BGE(
+ TEMP t.46,
+ MEM(
+  TEMP t.45, 
+  CONST 8, 8),
+ L.6, L.44)
+LABEL L.44
+MOVE(
+ TEMP t.47,
+ TEMP t.46)
+MOVE(
+ TEMP t.47,
+ MUL(
+  TEMP t.47,
+  MEM(
+   TEMP %rbp, 
+   CONST -1056, 8)))
+MOVE(
+ TEMP t.47,
+ MUL(
+  TEMP t.47,
+  MEM(
+   TEMP %rbp, 
+   CONST -1048, 8)))
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1064, 8),
+ ADD(
+  MEM(
+   TEMP t.45, 
+   CONST 0, 8),
+  MUL(
+   TEMP t.47,
+   CONST 8)))
+MOVE(
+ TEMP t.48,
+ TEMP %rbp)
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1072, 8),
+ MEM(
+  TEMP t.48, 
+  CONST -1048, 8))
+MOVE(
+ TEMP t.49,
+ TEMP CheckOpen.2.2.1.j)
+BLT(
+ TEMP t.49,
+ CONST 0,
+ L.6, L.45)
+LABEL L.45
+BGE(
+ TEMP t.49,
+ MEM(
+  TEMP t.48, 
+  CONST -1056, 8),
+ L.6, L.46)
+LABEL L.46
+MOVE(
+ TEMP t.50,
+ TEMP t.49)
+MOVE(
+ TEMP t.50,
+ MUL(
+  TEMP t.50,
+  MEM(
+   TEMP %rbp, 
+   CONST -1072, 8)))
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1080, 8),
+ ADD(
+  MEM(
+   TEMP t.48, 
+   CONST -1064, 8),
+  MUL(
+   TEMP t.50,
+   CONST 8)))
+MOVE(
+ TEMP t.52,
+ TEMP %rbp)
+MOVE(
+ TEMP t.51,
+ TEMP CheckOpen.2.2.1.1.k)
+BLT(
+ TEMP t.51,
+ CONST 0,
+ L.6, L.47)
+LABEL L.47
+BGE(
+ TEMP t.51,
+ MEM(
+  TEMP t.52, 
+  CONST -1072, 8),
+ L.6, L.48)
+LABEL L.48
+BNE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.52, 
+    CONST -1080, 8),
+   MUL(
+    TEMP t.51,
+    CONST 8)), 
+  CONST 0, 8),
+ MEM(
+  ADD(
+   ADD(
+    ADD(
+     TEMP %rbp,
+     ADD(
+      CONST -1000,
+      MUL(
+       TEMP CheckOpen.2.2.i,
+       CONST 200))),
+    MUL(
+     TEMP CheckOpen.2.2.1.j,
+     CONST 40)),
+   MUL(
+    TEMP CheckOpen.2.2.1.1.k,
+    CONST 8)), 
+  CONST 0, 8),
+ L.39, L.40)
+LABEL L.39
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 78))
+JUMP(
+ NAME L.41)
+LABEL L.40
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 84))
+LABEL L.41
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 10))
+MOVE(
+ TEMP t.41,
+ ADD(
+  TEMP t.41,
+  TEMP t.43))
+LABEL L.37
+BLE(
+ TEMP t.41,
+ TEMP t.42,
+ L.36, L.38)
+LABEL L.38
+MOVE(
+ TEMP t.38,
+ ADD(
+  TEMP t.38,
+  TEMP t.40))
+LABEL L.34
+BLE(
+ TEMP t.38,
+ TEMP t.39,
+ L.33, L.35)
+LABEL L.35
+MOVE(
+ TEMP t.35,
+ ADD(
+  TEMP t.35,
+  TEMP t.37))
+LABEL L.31
+BLE(
+ TEMP t.35,
+ TEMP t.36,
+ L.30, L.32)
+LABEL L.32
+# Basic Blocks:
+LABEL L.51
+MOVE(
+ TEMP t.1,
+ CONST 5)
+MOVE(
+ TEMP t.0,
+ CONST 0)
+BGE(
+ TEMP t.0,
+ TEMP t.1,
+ L.1, L.0)
+LABEL L.0
+MOVE(
+ TEMP t.3,
+ CONST 5)
+MOVE(
+ TEMP t.2,
+ CONST 0)
+BGE(
+ TEMP t.2,
+ TEMP t.3,
+ L.3, L.2)
+LABEL L.2
+MOVE(
+ TEMP t.5,
+ CONST 5)
+MOVE(
+ TEMP t.4,
+ CONST 0)
+BGE(
+ TEMP t.4,
+ TEMP t.5,
+ L.5, L.4)
+LABEL L.4
+MOVE(
+ MEM(
+  ADD(
+   ADD(
+    ADD(
+     TEMP %rbp,
+     MUL(
+      TEMP t.0,
+      CONST 200)),
+    MUL(
+     TEMP t.2,
+     CONST 40)),
+   MUL(
+    TEMP t.4,
+    CONST 8)), 
+  CONST -1000, 8),
+ CONST 0)
+MOVE(
+ TEMP t.4,
+ ADD(
+  TEMP t.4,
+  CONST 1))
+BLT(
+ TEMP t.4,
+ TEMP t.5,
+ L.4, L.5)
+LABEL L.5
+MOVE(
+ TEMP t.2,
+ ADD(
+  TEMP t.2,
+  CONST 1))
+BLT(
+ TEMP t.2,
+ TEMP t.3,
+ L.2, L.3)
+LABEL L.3
+MOVE(
+ TEMP t.0,
+ ADD(
+  TEMP t.0,
+  CONST 1))
+BLT(
+ TEMP t.0,
+ TEMP t.1,
+ L.0, L.1)
+LABEL L.1
+MOVE(
+ TEMP t.6,
+ CONST 5)
+BLT(
+ TEMP t.6,
+ CONST 0,
+ L.6, L.7)
+LABEL L.7
+MOVE(
+ TEMP t.7,
+ TEMP t.6)
+MOVE(
+ TEMP t.8,
+ CONST 5)
+BLT(
+ TEMP t.8,
+ CONST 0,
+ L.6, L.8)
+LABEL L.8
+MOVE(
+ TEMP t.9,
+ MUL(
+  TEMP t.8,
+  TEMP t.7))
+MOVE(
+ TEMP t.10,
+ CONST 5)
+BLT(
+ TEMP t.10,
+ CONST 0,
+ L.6, L.9)
+LABEL L.9
+MOVE(
+ TEMP t.11,
+ MUL(
+  TEMP t.10,
+  TEMP t.9))
+MOVE(
+ TEMP t.12,
+ CONST 32)
+MOVE(
+ TEMP t.12,
+ ADD(
+  TEMP t.12,
+  MUL(
+   TEMP t.11,
+   CONST 8)))
+MOVE(
+ TEMP t.13,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  TEMP t.12))
+MOVE(
+ MEM(
+  TEMP t.13, 
+  CONST 0, 8),
+ ADD(
+  TEMP t.13,
+  CONST 32))
+MOVE(
+ MEM(
+  TEMP t.13, 
+  CONST 8, 8),
+ TEMP t.6)
+MOVE(
+ MEM(
+  TEMP t.13, 
+  CONST 16, 8),
+ TEMP t.8)
+MOVE(
+ MEM(
+  TEMP t.13, 
+  CONST 24, 8),
+ TEMP t.10)
+MOVE(
+ TEMP t.15,
+ MEM(
+  TEMP t.13, 
+  CONST 8, 8))
+MOVE(
+ TEMP t.15,
+ MUL(
+  TEMP t.15,
+  MEM(
+   TEMP t.13, 
+   CONST 16, 8)))
+MOVE(
+ TEMP t.15,
+ MUL(
+  TEMP t.15,
+  MEM(
+   TEMP t.13, 
+   CONST 24, 8)))
+MOVE(
+ TEMP t.16,
+ MEM(
+  TEMP t.13, 
+  CONST 0, 8))
+MOVE(
+ TEMP t.14,
+ CONST 0)
+BGE(
+ TEMP t.14,
+ TEMP t.15,
+ L.12, L.10)
+LABEL L.10
+MOVE(
+ MEM(
+  ADD(
+   TEMP t.16,
+   MUL(
+    TEMP t.14,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.14,
+ ADD(
+  TEMP t.14,
+  CONST 1))
+JUMP(
+ NAME L.11)
+LABEL L.11
+BLT(
+ TEMP t.14,
+ TEMP t.15,
+ L.10, L.12)
+LABEL L.12
+MOVE(
+ TEMP CheckOpen.2.a,
+ TEMP t.13)
+MOVE(
+ TEMP t.17,
+ CONST 0)
+MOVE(
+ TEMP t.18,
+ CONST 4)
+MOVE(
+ TEMP t.19,
+ CONST 1)
+JUMP(
+ NAME L.13)
+LABEL L.13
+MOVE(
+ TEMP CheckOpen.2.1.i,
+ TEMP t.17)
+MOVE(
+ TEMP t.20,
+ CONST 0)
+MOVE(
+ TEMP t.21,
+ CONST 4)
+MOVE(
+ TEMP t.22,
+ CONST 1)
+JUMP(
+ NAME L.16)
+LABEL L.16
+MOVE(
+ TEMP CheckOpen.2.1.1.j,
+ TEMP t.20)
+MOVE(
+ TEMP t.23,
+ CONST 0)
+MOVE(
+ TEMP t.24,
+ CONST 4)
+MOVE(
+ TEMP t.25,
+ CONST 1)
+JUMP(
+ NAME L.19)
+LABEL L.19
+MOVE(
+ TEMP CheckOpen.2.1.1.1.k,
+ TEMP t.23)
+MOVE(
+ TEMP t.26,
+ TEMP CheckOpen.2.a)
+BEQ(
+ TEMP t.26,
+ CONST 0,
+ L.22, L.23)
+LABEL L.23
+MOVE(
+ TEMP t.27,
+ TEMP t.26)
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1016, 8),
+ MEM(
+  TEMP t.27, 
+  CONST 16, 8))
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1008, 8),
+ MEM(
+  TEMP t.27, 
+  CONST 24, 8))
+MOVE(
+ TEMP t.28,
+ TEMP CheckOpen.2.1.i)
+BLT(
+ TEMP t.28,
+ CONST 0,
+ L.6, L.24)
+LABEL L.24
+BGE(
+ TEMP t.28,
+ MEM(
+  TEMP t.27, 
+  CONST 8, 8),
+ L.6, L.25)
+LABEL L.25
+MOVE(
+ TEMP t.29,
+ TEMP t.28)
+MOVE(
+ TEMP t.29,
+ MUL(
+  TEMP t.29,
+  MEM(
+   TEMP %rbp, 
+   CONST -1016, 8)))
+MOVE(
+ TEMP t.29,
+ MUL(
+  TEMP t.29,
+  MEM(
+   TEMP %rbp, 
+   CONST -1008, 8)))
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1024, 8),
+ ADD(
+  MEM(
+   TEMP t.27, 
+   CONST 0, 8),
+  MUL(
+   TEMP t.29,
+   CONST 8)))
+MOVE(
+ TEMP t.30,
+ TEMP %rbp)
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1032, 8),
+ MEM(
+  TEMP t.30, 
+  CONST -1008, 8))
+MOVE(
+ TEMP t.31,
+ TEMP CheckOpen.2.1.1.j)
+BLT(
+ TEMP t.31,
+ CONST 0,
+ L.6, L.26)
+LABEL L.26
+BGE(
+ TEMP t.31,
+ MEM(
+  TEMP t.30, 
+  CONST -1016, 8),
+ L.6, L.27)
+LABEL L.27
+MOVE(
+ TEMP t.32,
+ TEMP t.31)
+MOVE(
+ TEMP t.32,
+ MUL(
+  TEMP t.32,
+  MEM(
+   TEMP %rbp, 
+   CONST -1032, 8)))
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1040, 8),
+ ADD(
+  MEM(
+   TEMP t.30, 
+   CONST -1024, 8),
+  MUL(
+   TEMP t.32,
+   CONST 8)))
+MOVE(
+ TEMP t.34,
+ TEMP %rbp)
+MOVE(
+ TEMP t.33,
+ TEMP CheckOpen.2.1.1.1.k)
+BLT(
+ TEMP t.33,
+ CONST 0,
+ L.6, L.28)
+LABEL L.28
+BGE(
+ TEMP t.33,
+ MEM(
+  TEMP t.34, 
+  CONST -1032, 8),
+ L.6, L.29)
+LABEL L.29
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.34, 
+    CONST -1040, 8),
+   MUL(
+    TEMP t.33,
+    CONST 8)), 
+  CONST 0, 8),
+ MUL(
+  MUL(
+   ADD(
+    TEMP CheckOpen.2.1.i,
+    CONST 1),
+   ADD(
+    TEMP CheckOpen.2.1.1.j,
+    CONST 1)),
+  ADD(
+   TEMP CheckOpen.2.1.1.1.k,
+   CONST 1)))
+MOVE(
+ MEM(
+  ADD(
+   ADD(
+    ADD(
+     TEMP %rbp,
+     ADD(
+      CONST -1000,
+      MUL(
+       TEMP CheckOpen.2.1.i,
+       CONST 200))),
+    MUL(
+     TEMP CheckOpen.2.1.1.j,
+     CONST 40)),
+   MUL(
+    TEMP CheckOpen.2.1.1.1.k,
+    CONST 8)), 
+  CONST 0, 8),
+ MUL(
+  MUL(
+   ADD(
+    TEMP CheckOpen.2.1.i,
+    CONST 1),
+   ADD(
+    TEMP CheckOpen.2.1.1.j,
+    CONST 1)),
+  ADD(
+   TEMP CheckOpen.2.1.1.1.k,
+   CONST 1)))
+MOVE(
+ TEMP t.23,
+ ADD(
+  TEMP t.23,
+  TEMP t.25))
+JUMP(
+ NAME L.20)
+LABEL L.20
+BLE(
+ TEMP t.23,
+ TEMP t.24,
+ L.19, L.21)
+LABEL L.21
+MOVE(
+ TEMP t.20,
+ ADD(
+  TEMP t.20,
+  TEMP t.22))
+JUMP(
+ NAME L.17)
+LABEL L.17
+BLE(
+ TEMP t.20,
+ TEMP t.21,
+ L.16, L.18)
+LABEL L.18
+MOVE(
+ TEMP t.17,
+ ADD(
+  TEMP t.17,
+  TEMP t.19))
+JUMP(
+ NAME L.14)
+LABEL L.14
+BLE(
+ TEMP t.17,
+ TEMP t.18,
+ L.13, L.15)
+LABEL L.15
+MOVE(
+ TEMP t.35,
+ CONST 0)
+MOVE(
+ TEMP t.36,
+ CONST 4)
+MOVE(
+ TEMP t.37,
+ CONST 1)
+JUMP(
+ NAME L.30)
+LABEL L.30
+MOVE(
+ TEMP CheckOpen.2.2.i,
+ TEMP t.35)
+MOVE(
+ TEMP t.38,
+ CONST 0)
+MOVE(
+ TEMP t.39,
+ CONST 4)
+MOVE(
+ TEMP t.40,
+ CONST 1)
+JUMP(
+ NAME L.33)
+LABEL L.33
+MOVE(
+ TEMP CheckOpen.2.2.1.j,
+ TEMP t.38)
+MOVE(
+ TEMP t.41,
+ CONST 0)
+MOVE(
+ TEMP t.42,
+ CONST 4)
+MOVE(
+ TEMP t.43,
+ CONST 1)
+JUMP(
+ NAME L.36)
+LABEL L.36
+MOVE(
+ TEMP CheckOpen.2.2.1.1.k,
+ TEMP t.41)
+MOVE(
+ TEMP t.44,
+ TEMP CheckOpen.2.a)
+BEQ(
+ TEMP t.44,
+ CONST 0,
+ L.22, L.42)
+LABEL L.42
+MOVE(
+ TEMP t.45,
+ TEMP t.44)
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1056, 8),
+ MEM(
+  TEMP t.45, 
+  CONST 16, 8))
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1048, 8),
+ MEM(
+  TEMP t.45, 
+  CONST 24, 8))
+MOVE(
+ TEMP t.46,
+ TEMP CheckOpen.2.2.i)
+BLT(
+ TEMP t.46,
+ CONST 0,
+ L.6, L.43)
+LABEL L.43
+BGE(
+ TEMP t.46,
+ MEM(
+  TEMP t.45, 
+  CONST 8, 8),
+ L.6, L.44)
+LABEL L.44
+MOVE(
+ TEMP t.47,
+ TEMP t.46)
+MOVE(
+ TEMP t.47,
+ MUL(
+  TEMP t.47,
+  MEM(
+   TEMP %rbp, 
+   CONST -1056, 8)))
+MOVE(
+ TEMP t.47,
+ MUL(
+  TEMP t.47,
+  MEM(
+   TEMP %rbp, 
+   CONST -1048, 8)))
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1064, 8),
+ ADD(
+  MEM(
+   TEMP t.45, 
+   CONST 0, 8),
+  MUL(
+   TEMP t.47,
+   CONST 8)))
+MOVE(
+ TEMP t.48,
+ TEMP %rbp)
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1072, 8),
+ MEM(
+  TEMP t.48, 
+  CONST -1048, 8))
+MOVE(
+ TEMP t.49,
+ TEMP CheckOpen.2.2.1.j)
+BLT(
+ TEMP t.49,
+ CONST 0,
+ L.6, L.45)
+LABEL L.45
+BGE(
+ TEMP t.49,
+ MEM(
+  TEMP t.48, 
+  CONST -1056, 8),
+ L.6, L.46)
+LABEL L.46
+MOVE(
+ TEMP t.50,
+ TEMP t.49)
+MOVE(
+ TEMP t.50,
+ MUL(
+  TEMP t.50,
+  MEM(
+   TEMP %rbp, 
+   CONST -1072, 8)))
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1080, 8),
+ ADD(
+  MEM(
+   TEMP t.48, 
+   CONST -1064, 8),
+  MUL(
+   TEMP t.50,
+   CONST 8)))
+MOVE(
+ TEMP t.52,
+ TEMP %rbp)
+MOVE(
+ TEMP t.51,
+ TEMP CheckOpen.2.2.1.1.k)
+BLT(
+ TEMP t.51,
+ CONST 0,
+ L.6, L.47)
+LABEL L.47
+BGE(
+ TEMP t.51,
+ MEM(
+  TEMP t.52, 
+  CONST -1072, 8),
+ L.6, L.48)
+LABEL L.48
+BNE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.52, 
+    CONST -1080, 8),
+   MUL(
+    TEMP t.51,
+    CONST 8)), 
+  CONST 0, 8),
+ MEM(
+  ADD(
+   ADD(
+    ADD(
+     TEMP %rbp,
+     ADD(
+      CONST -1000,
+      MUL(
+       TEMP CheckOpen.2.2.i,
+       CONST 200))),
+    MUL(
+     TEMP CheckOpen.2.2.1.j,
+     CONST 40)),
+   MUL(
+    TEMP CheckOpen.2.2.1.1.k,
+    CONST 8)), 
+  CONST 0, 8),
+ L.39, L.40)
+LABEL L.39
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 78))
+JUMP(
+ NAME L.41)
+LABEL L.40
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 84))
+JUMP(
+ NAME L.41)
+LABEL L.41
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 10))
+MOVE(
+ TEMP t.41,
+ ADD(
+  TEMP t.41,
+  TEMP t.43))
+JUMP(
+ NAME L.37)
+LABEL L.37
+BLE(
+ TEMP t.41,
+ TEMP t.42,
+ L.36, L.38)
+LABEL L.38
+MOVE(
+ TEMP t.38,
+ ADD(
+  TEMP t.38,
+  TEMP t.40))
+JUMP(
+ NAME L.34)
+LABEL L.34
+BLE(
+ TEMP t.38,
+ TEMP t.39,
+ L.33, L.35)
+LABEL L.35
+MOVE(
+ TEMP t.35,
+ ADD(
+  TEMP t.35,
+  TEMP t.37))
+JUMP(
+ NAME L.31)
+LABEL L.31
+BLE(
+ TEMP t.35,
+ TEMP t.36,
+ L.30, L.32)
+LABEL L.32
+# Trace Scheduled:
+LABEL L.51
+MOVE(
+ TEMP t.1,
+ CONST 5)
+MOVE(
+ TEMP t.0,
+ CONST 0)
+BGE(
+ TEMP t.0,
+ TEMP t.1,
+ L.1, L.0)
+LABEL L.0
+MOVE(
+ TEMP t.3,
+ CONST 5)
+MOVE(
+ TEMP t.2,
+ CONST 0)
+BGE(
+ TEMP t.2,
+ TEMP t.3,
+ L.3, L.2)
+LABEL L.2
+MOVE(
+ TEMP t.5,
+ CONST 5)
+MOVE(
+ TEMP t.4,
+ CONST 0)
+BGE(
+ TEMP t.4,
+ TEMP t.5,
+ L.5, L.4)
+LABEL L.4
+MOVE(
+ MEM(
+  ADD(
+   ADD(
+    ADD(
+     TEMP %rbp,
+     MUL(
+      TEMP t.0,
+      CONST 200)),
+    MUL(
+     TEMP t.2,
+     CONST 40)),
+   MUL(
+    TEMP t.4,
+    CONST 8)), 
+  CONST -1000, 8),
+ CONST 0)
+MOVE(
+ TEMP t.4,
+ ADD(
+  TEMP t.4,
+  CONST 1))
+BLT(
+ TEMP t.4,
+ TEMP t.5,
+ L.4, L.5)
+LABEL L.5
+MOVE(
+ TEMP t.2,
+ ADD(
+  TEMP t.2,
+  CONST 1))
+BLT(
+ TEMP t.2,
+ TEMP t.3,
+ L.2, L.3)
+LABEL L.3
+MOVE(
+ TEMP t.0,
+ ADD(
+  TEMP t.0,
+  CONST 1))
+BLT(
+ TEMP t.0,
+ TEMP t.1,
+ L.0, L.1)
+LABEL L.1
+MOVE(
+ TEMP t.6,
+ CONST 5)
+BLT(
+ TEMP t.6,
+ CONST 0,
+ L.6, L.7)
+LABEL L.7
+MOVE(
+ TEMP t.7,
+ TEMP t.6)
+MOVE(
+ TEMP t.8,
+ CONST 5)
+BLT(
+ TEMP t.8,
+ CONST 0,
+ L.6, L.8)
+LABEL L.8
+MOVE(
+ TEMP t.9,
+ MUL(
+  TEMP t.8,
+  TEMP t.7))
+MOVE(
+ TEMP t.10,
+ CONST 5)
+BLT(
+ TEMP t.10,
+ CONST 0,
+ L.6, L.9)
+LABEL L.9
+MOVE(
+ TEMP t.11,
+ MUL(
+  TEMP t.10,
+  TEMP t.9))
+MOVE(
+ TEMP t.12,
+ CONST 32)
+MOVE(
+ TEMP t.12,
+ ADD(
+  TEMP t.12,
+  MUL(
+   TEMP t.11,
+   CONST 8)))
+MOVE(
+ TEMP t.13,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  TEMP t.12))
+MOVE(
+ MEM(
+  TEMP t.13, 
+  CONST 0, 8),
+ ADD(
+  TEMP t.13,
+  CONST 32))
+MOVE(
+ MEM(
+  TEMP t.13, 
+  CONST 8, 8),
+ TEMP t.6)
+MOVE(
+ MEM(
+  TEMP t.13, 
+  CONST 16, 8),
+ TEMP t.8)
+MOVE(
+ MEM(
+  TEMP t.13, 
+  CONST 24, 8),
+ TEMP t.10)
+MOVE(
+ TEMP t.15,
+ MEM(
+  TEMP t.13, 
+  CONST 8, 8))
+MOVE(
+ TEMP t.15,
+ MUL(
+  TEMP t.15,
+  MEM(
+   TEMP t.13, 
+   CONST 16, 8)))
+MOVE(
+ TEMP t.15,
+ MUL(
+  TEMP t.15,
+  MEM(
+   TEMP t.13, 
+   CONST 24, 8)))
+MOVE(
+ TEMP t.16,
+ MEM(
+  TEMP t.13, 
+  CONST 0, 8))
+MOVE(
+ TEMP t.14,
+ CONST 0)
+BGE(
+ TEMP t.14,
+ TEMP t.15,
+ L.12, L.10)
+LABEL L.10
+MOVE(
+ MEM(
+  ADD(
+   TEMP t.16,
+   MUL(
+    TEMP t.14,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.14,
+ ADD(
+  TEMP t.14,
+  CONST 1))
+LABEL L.11
+BLT(
+ TEMP t.14,
+ TEMP t.15,
+ L.10, L.12)
+LABEL L.12
+MOVE(
+ TEMP CheckOpen.2.a,
+ TEMP t.13)
+MOVE(
+ TEMP t.17,
+ CONST 0)
+MOVE(
+ TEMP t.18,
+ CONST 4)
+MOVE(
+ TEMP t.19,
+ CONST 1)
+LABEL L.13
+MOVE(
+ TEMP CheckOpen.2.1.i,
+ TEMP t.17)
+MOVE(
+ TEMP t.20,
+ CONST 0)
+MOVE(
+ TEMP t.21,
+ CONST 4)
+MOVE(
+ TEMP t.22,
+ CONST 1)
+LABEL L.16
+MOVE(
+ TEMP CheckOpen.2.1.1.j,
+ TEMP t.20)
+MOVE(
+ TEMP t.23,
+ CONST 0)
+MOVE(
+ TEMP t.24,
+ CONST 4)
+MOVE(
+ TEMP t.25,
+ CONST 1)
+LABEL L.19
+MOVE(
+ TEMP CheckOpen.2.1.1.1.k,
+ TEMP t.23)
+MOVE(
+ TEMP t.26,
+ TEMP CheckOpen.2.a)
+BEQ(
+ TEMP t.26,
+ CONST 0,
+ L.22, L.23)
+LABEL L.23
+MOVE(
+ TEMP t.27,
+ TEMP t.26)
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1016, 8),
+ MEM(
+  TEMP t.27, 
+  CONST 16, 8))
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1008, 8),
+ MEM(
+  TEMP t.27, 
+  CONST 24, 8))
+MOVE(
+ TEMP t.28,
+ TEMP CheckOpen.2.1.i)
+BLT(
+ TEMP t.28,
+ CONST 0,
+ L.6, L.24)
+LABEL L.24
+BGE(
+ TEMP t.28,
+ MEM(
+  TEMP t.27, 
+  CONST 8, 8),
+ L.6, L.25)
+LABEL L.25
+MOVE(
+ TEMP t.29,
+ TEMP t.28)
+MOVE(
+ TEMP t.29,
+ MUL(
+  TEMP t.29,
+  MEM(
+   TEMP %rbp, 
+   CONST -1016, 8)))
+MOVE(
+ TEMP t.29,
+ MUL(
+  TEMP t.29,
+  MEM(
+   TEMP %rbp, 
+   CONST -1008, 8)))
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1024, 8),
+ ADD(
+  MEM(
+   TEMP t.27, 
+   CONST 0, 8),
+  MUL(
+   TEMP t.29,
+   CONST 8)))
+MOVE(
+ TEMP t.30,
+ TEMP %rbp)
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1032, 8),
+ MEM(
+  TEMP t.30, 
+  CONST -1008, 8))
+MOVE(
+ TEMP t.31,
+ TEMP CheckOpen.2.1.1.j)
+BLT(
+ TEMP t.31,
+ CONST 0,
+ L.6, L.26)
+LABEL L.26
+BGE(
+ TEMP t.31,
+ MEM(
+  TEMP t.30, 
+  CONST -1016, 8),
+ L.6, L.27)
+LABEL L.27
+MOVE(
+ TEMP t.32,
+ TEMP t.31)
+MOVE(
+ TEMP t.32,
+ MUL(
+  TEMP t.32,
+  MEM(
+   TEMP %rbp, 
+   CONST -1032, 8)))
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1040, 8),
+ ADD(
+  MEM(
+   TEMP t.30, 
+   CONST -1024, 8),
+  MUL(
+   TEMP t.32,
+   CONST 8)))
+MOVE(
+ TEMP t.34,
+ TEMP %rbp)
+MOVE(
+ TEMP t.33,
+ TEMP CheckOpen.2.1.1.1.k)
+BLT(
+ TEMP t.33,
+ CONST 0,
+ L.6, L.28)
+LABEL L.28
+BGE(
+ TEMP t.33,
+ MEM(
+  TEMP t.34, 
+  CONST -1032, 8),
+ L.6, L.29)
+LABEL L.29
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.34, 
+    CONST -1040, 8),
+   MUL(
+    TEMP t.33,
+    CONST 8)), 
+  CONST 0, 8),
+ MUL(
+  MUL(
+   ADD(
+    TEMP CheckOpen.2.1.i,
+    CONST 1),
+   ADD(
+    TEMP CheckOpen.2.1.1.j,
+    CONST 1)),
+  ADD(
+   TEMP CheckOpen.2.1.1.1.k,
+   CONST 1)))
+MOVE(
+ MEM(
+  ADD(
+   ADD(
+    ADD(
+     TEMP %rbp,
+     ADD(
+      CONST -1000,
+      MUL(
+       TEMP CheckOpen.2.1.i,
+       CONST 200))),
+    MUL(
+     TEMP CheckOpen.2.1.1.j,
+     CONST 40)),
+   MUL(
+    TEMP CheckOpen.2.1.1.1.k,
+    CONST 8)), 
+  CONST 0, 8),
+ MUL(
+  MUL(
+   ADD(
+    TEMP CheckOpen.2.1.i,
+    CONST 1),
+   ADD(
+    TEMP CheckOpen.2.1.1.j,
+    CONST 1)),
+  ADD(
+   TEMP CheckOpen.2.1.1.1.k,
+   CONST 1)))
+MOVE(
+ TEMP t.23,
+ ADD(
+  TEMP t.23,
+  TEMP t.25))
+LABEL L.20
+BLE(
+ TEMP t.23,
+ TEMP t.24,
+ L.19, L.21)
+LABEL L.21
+MOVE(
+ TEMP t.20,
+ ADD(
+  TEMP t.20,
+  TEMP t.22))
+LABEL L.17
+BLE(
+ TEMP t.20,
+ TEMP t.21,
+ L.16, L.18)
+LABEL L.18
+MOVE(
+ TEMP t.17,
+ ADD(
+  TEMP t.17,
+  TEMP t.19))
+LABEL L.14
+BLE(
+ TEMP t.17,
+ TEMP t.18,
+ L.13, L.15)
+LABEL L.15
+MOVE(
+ TEMP t.35,
+ CONST 0)
+MOVE(
+ TEMP t.36,
+ CONST 4)
+MOVE(
+ TEMP t.37,
+ CONST 1)
+LABEL L.30
+MOVE(
+ TEMP CheckOpen.2.2.i,
+ TEMP t.35)
+MOVE(
+ TEMP t.38,
+ CONST 0)
+MOVE(
+ TEMP t.39,
+ CONST 4)
+MOVE(
+ TEMP t.40,
+ CONST 1)
+LABEL L.33
+MOVE(
+ TEMP CheckOpen.2.2.1.j,
+ TEMP t.38)
+MOVE(
+ TEMP t.41,
+ CONST 0)
+MOVE(
+ TEMP t.42,
+ CONST 4)
+MOVE(
+ TEMP t.43,
+ CONST 1)
+LABEL L.36
+MOVE(
+ TEMP CheckOpen.2.2.1.1.k,
+ TEMP t.41)
+MOVE(
+ TEMP t.44,
+ TEMP CheckOpen.2.a)
+BEQ(
+ TEMP t.44,
+ CONST 0,
+ L.22, L.42)
+LABEL L.42
+MOVE(
+ TEMP t.45,
+ TEMP t.44)
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1056, 8),
+ MEM(
+  TEMP t.45, 
+  CONST 16, 8))
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1048, 8),
+ MEM(
+  TEMP t.45, 
+  CONST 24, 8))
+MOVE(
+ TEMP t.46,
+ TEMP CheckOpen.2.2.i)
+BLT(
+ TEMP t.46,
+ CONST 0,
+ L.6, L.43)
+LABEL L.43
+BGE(
+ TEMP t.46,
+ MEM(
+  TEMP t.45, 
+  CONST 8, 8),
+ L.6, L.44)
+LABEL L.44
+MOVE(
+ TEMP t.47,
+ TEMP t.46)
+MOVE(
+ TEMP t.47,
+ MUL(
+  TEMP t.47,
+  MEM(
+   TEMP %rbp, 
+   CONST -1056, 8)))
+MOVE(
+ TEMP t.47,
+ MUL(
+  TEMP t.47,
+  MEM(
+   TEMP %rbp, 
+   CONST -1048, 8)))
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1064, 8),
+ ADD(
+  MEM(
+   TEMP t.45, 
+   CONST 0, 8),
+  MUL(
+   TEMP t.47,
+   CONST 8)))
+MOVE(
+ TEMP t.48,
+ TEMP %rbp)
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1072, 8),
+ MEM(
+  TEMP t.48, 
+  CONST -1048, 8))
+MOVE(
+ TEMP t.49,
+ TEMP CheckOpen.2.2.1.j)
+BLT(
+ TEMP t.49,
+ CONST 0,
+ L.6, L.45)
+LABEL L.45
+BGE(
+ TEMP t.49,
+ MEM(
+  TEMP t.48, 
+  CONST -1056, 8),
+ L.6, L.46)
+LABEL L.46
+MOVE(
+ TEMP t.50,
+ TEMP t.49)
+MOVE(
+ TEMP t.50,
+ MUL(
+  TEMP t.50,
+  MEM(
+   TEMP %rbp, 
+   CONST -1072, 8)))
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1080, 8),
+ ADD(
+  MEM(
+   TEMP t.48, 
+   CONST -1064, 8),
+  MUL(
+   TEMP t.50,
+   CONST 8)))
+MOVE(
+ TEMP t.52,
+ TEMP %rbp)
+MOVE(
+ TEMP t.51,
+ TEMP CheckOpen.2.2.1.1.k)
+BLT(
+ TEMP t.51,
+ CONST 0,
+ L.6, L.47)
+LABEL L.47
+BGE(
+ TEMP t.51,
+ MEM(
+  TEMP t.52, 
+  CONST -1072, 8),
+ L.6, L.48)
+LABEL L.48
+BNE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.52, 
+    CONST -1080, 8),
+   MUL(
+    TEMP t.51,
+    CONST 8)), 
+  CONST 0, 8),
+ MEM(
+  ADD(
+   ADD(
+    ADD(
+     TEMP %rbp,
+     ADD(
+      CONST -1000,
+      MUL(
+       TEMP CheckOpen.2.2.i,
+       CONST 200))),
+    MUL(
+     TEMP CheckOpen.2.2.1.j,
+     CONST 40)),
+   MUL(
+    TEMP CheckOpen.2.2.1.1.k,
+    CONST 8)), 
+  CONST 0, 8),
+ L.39, L.40)
+LABEL L.40
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 84))
+LABEL L.41
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 10))
+MOVE(
+ TEMP t.41,
+ ADD(
+  TEMP t.41,
+  TEMP t.43))
+LABEL L.37
+BLE(
+ TEMP t.41,
+ TEMP t.42,
+ L.36, L.38)
+LABEL L.38
+MOVE(
+ TEMP t.38,
+ ADD(
+  TEMP t.38,
+  TEMP t.40))
+LABEL L.34
+BLE(
+ TEMP t.38,
+ TEMP t.39,
+ L.33, L.35)
+LABEL L.35
+MOVE(
+ TEMP t.35,
+ ADD(
+  TEMP t.35,
+  TEMP t.37))
+LABEL L.31
+BLE(
+ TEMP t.35,
+ TEMP t.36,
+ L.30, L.52)
+LABEL L.52
+JUMP(
+ NAME L.32)
+LABEL L.39
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 78))
+JUMP(
+ NAME L.41)
+LABEL L.32
+# With procedure entry/exit:
+LABEL L.51
+MOVE(
+ TEMP t.1,
+ CONST 5)
+MOVE(
+ TEMP t.0,
+ CONST 0)
+BGE(
+ TEMP t.0,
+ TEMP t.1,
+ L.1, L.0)
+LABEL L.0
+MOVE(
+ TEMP t.3,
+ CONST 5)
+MOVE(
+ TEMP t.2,
+ CONST 0)
+BGE(
+ TEMP t.2,
+ TEMP t.3,
+ L.3, L.2)
+LABEL L.2
+MOVE(
+ TEMP t.5,
+ CONST 5)
+MOVE(
+ TEMP t.4,
+ CONST 0)
+BGE(
+ TEMP t.4,
+ TEMP t.5,
+ L.5, L.4)
+LABEL L.4
+MOVE(
+ MEM(
+  ADD(
+   ADD(
+    ADD(
+     TEMP %rbp,
+     MUL(
+      TEMP t.0,
+      CONST 200)),
+    MUL(
+     TEMP t.2,
+     CONST 40)),
+   MUL(
+    TEMP t.4,
+    CONST 8)), 
+  CONST -1000, 8),
+ CONST 0)
+MOVE(
+ TEMP t.4,
+ ADD(
+  TEMP t.4,
+  CONST 1))
+BLT(
+ TEMP t.4,
+ TEMP t.5,
+ L.4, L.5)
+LABEL L.5
+MOVE(
+ TEMP t.2,
+ ADD(
+  TEMP t.2,
+  CONST 1))
+BLT(
+ TEMP t.2,
+ TEMP t.3,
+ L.2, L.3)
+LABEL L.3
+MOVE(
+ TEMP t.0,
+ ADD(
+  TEMP t.0,
+  CONST 1))
+BLT(
+ TEMP t.0,
+ TEMP t.1,
+ L.0, L.1)
+LABEL L.1
+MOVE(
+ TEMP t.6,
+ CONST 5)
+BLT(
+ TEMP t.6,
+ CONST 0,
+ L.6, L.7)
+LABEL L.7
+MOVE(
+ TEMP t.7,
+ TEMP t.6)
+MOVE(
+ TEMP t.8,
+ CONST 5)
+BLT(
+ TEMP t.8,
+ CONST 0,
+ L.6, L.8)
+LABEL L.8
+MOVE(
+ TEMP t.9,
+ MUL(
+  TEMP t.8,
+  TEMP t.7))
+MOVE(
+ TEMP t.10,
+ CONST 5)
+BLT(
+ TEMP t.10,
+ CONST 0,
+ L.6, L.9)
+LABEL L.9
+MOVE(
+ TEMP t.11,
+ MUL(
+  TEMP t.10,
+  TEMP t.9))
+MOVE(
+ TEMP t.12,
+ CONST 32)
+MOVE(
+ TEMP t.12,
+ ADD(
+  TEMP t.12,
+  MUL(
+   TEMP t.11,
+   CONST 8)))
+MOVE(
+ TEMP t.13,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  TEMP t.12))
+MOVE(
+ MEM(
+  TEMP t.13, 
+  CONST 0, 8),
+ ADD(
+  TEMP t.13,
+  CONST 32))
+MOVE(
+ MEM(
+  TEMP t.13, 
+  CONST 8, 8),
+ TEMP t.6)
+MOVE(
+ MEM(
+  TEMP t.13, 
+  CONST 16, 8),
+ TEMP t.8)
+MOVE(
+ MEM(
+  TEMP t.13, 
+  CONST 24, 8),
+ TEMP t.10)
+MOVE(
+ TEMP t.15,
+ MEM(
+  TEMP t.13, 
+  CONST 8, 8))
+MOVE(
+ TEMP t.15,
+ MUL(
+  TEMP t.15,
+  MEM(
+   TEMP t.13, 
+   CONST 16, 8)))
+MOVE(
+ TEMP t.15,
+ MUL(
+  TEMP t.15,
+  MEM(
+   TEMP t.13, 
+   CONST 24, 8)))
+MOVE(
+ TEMP t.16,
+ MEM(
+  TEMP t.13, 
+  CONST 0, 8))
+MOVE(
+ TEMP t.14,
+ CONST 0)
+BGE(
+ TEMP t.14,
+ TEMP t.15,
+ L.12, L.10)
+LABEL L.10
+MOVE(
+ MEM(
+  ADD(
+   TEMP t.16,
+   MUL(
+    TEMP t.14,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.14,
+ ADD(
+  TEMP t.14,
+  CONST 1))
+LABEL L.11
+BLT(
+ TEMP t.14,
+ TEMP t.15,
+ L.10, L.12)
+LABEL L.12
+MOVE(
+ TEMP CheckOpen.2.a,
+ TEMP t.13)
+MOVE(
+ TEMP t.17,
+ CONST 0)
+MOVE(
+ TEMP t.18,
+ CONST 4)
+MOVE(
+ TEMP t.19,
+ CONST 1)
+LABEL L.13
+MOVE(
+ TEMP CheckOpen.2.1.i,
+ TEMP t.17)
+MOVE(
+ TEMP t.20,
+ CONST 0)
+MOVE(
+ TEMP t.21,
+ CONST 4)
+MOVE(
+ TEMP t.22,
+ CONST 1)
+LABEL L.16
+MOVE(
+ TEMP CheckOpen.2.1.1.j,
+ TEMP t.20)
+MOVE(
+ TEMP t.23,
+ CONST 0)
+MOVE(
+ TEMP t.24,
+ CONST 4)
+MOVE(
+ TEMP t.25,
+ CONST 1)
+LABEL L.19
+MOVE(
+ TEMP CheckOpen.2.1.1.1.k,
+ TEMP t.23)
+MOVE(
+ TEMP t.26,
+ TEMP CheckOpen.2.a)
+BEQ(
+ TEMP t.26,
+ CONST 0,
+ L.22, L.23)
+LABEL L.23
+MOVE(
+ TEMP t.27,
+ TEMP t.26)
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1016, 8),
+ MEM(
+  TEMP t.27, 
+  CONST 16, 8))
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1008, 8),
+ MEM(
+  TEMP t.27, 
+  CONST 24, 8))
+MOVE(
+ TEMP t.28,
+ TEMP CheckOpen.2.1.i)
+BLT(
+ TEMP t.28,
+ CONST 0,
+ L.6, L.24)
+LABEL L.24
+BGE(
+ TEMP t.28,
+ MEM(
+  TEMP t.27, 
+  CONST 8, 8),
+ L.6, L.25)
+LABEL L.25
+MOVE(
+ TEMP t.29,
+ TEMP t.28)
+MOVE(
+ TEMP t.29,
+ MUL(
+  TEMP t.29,
+  MEM(
+   TEMP %rbp, 
+   CONST -1016, 8)))
+MOVE(
+ TEMP t.29,
+ MUL(
+  TEMP t.29,
+  MEM(
+   TEMP %rbp, 
+   CONST -1008, 8)))
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1024, 8),
+ ADD(
+  MEM(
+   TEMP t.27, 
+   CONST 0, 8),
+  MUL(
+   TEMP t.29,
+   CONST 8)))
+MOVE(
+ TEMP t.30,
+ TEMP %rbp)
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1032, 8),
+ MEM(
+  TEMP t.30, 
+  CONST -1008, 8))
+MOVE(
+ TEMP t.31,
+ TEMP CheckOpen.2.1.1.j)
+BLT(
+ TEMP t.31,
+ CONST 0,
+ L.6, L.26)
+LABEL L.26
+BGE(
+ TEMP t.31,
+ MEM(
+  TEMP t.30, 
+  CONST -1016, 8),
+ L.6, L.27)
+LABEL L.27
+MOVE(
+ TEMP t.32,
+ TEMP t.31)
+MOVE(
+ TEMP t.32,
+ MUL(
+  TEMP t.32,
+  MEM(
+   TEMP %rbp, 
+   CONST -1032, 8)))
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1040, 8),
+ ADD(
+  MEM(
+   TEMP t.30, 
+   CONST -1024, 8),
+  MUL(
+   TEMP t.32,
+   CONST 8)))
+MOVE(
+ TEMP t.34,
+ TEMP %rbp)
+MOVE(
+ TEMP t.33,
+ TEMP CheckOpen.2.1.1.1.k)
+BLT(
+ TEMP t.33,
+ CONST 0,
+ L.6, L.28)
+LABEL L.28
+BGE(
+ TEMP t.33,
+ MEM(
+  TEMP t.34, 
+  CONST -1032, 8),
+ L.6, L.29)
+LABEL L.29
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.34, 
+    CONST -1040, 8),
+   MUL(
+    TEMP t.33,
+    CONST 8)), 
+  CONST 0, 8),
+ MUL(
+  MUL(
+   ADD(
+    TEMP CheckOpen.2.1.i,
+    CONST 1),
+   ADD(
+    TEMP CheckOpen.2.1.1.j,
+    CONST 1)),
+  ADD(
+   TEMP CheckOpen.2.1.1.1.k,
+   CONST 1)))
+MOVE(
+ MEM(
+  ADD(
+   ADD(
+    ADD(
+     TEMP %rbp,
+     ADD(
+      CONST -1000,
+      MUL(
+       TEMP CheckOpen.2.1.i,
+       CONST 200))),
+    MUL(
+     TEMP CheckOpen.2.1.1.j,
+     CONST 40)),
+   MUL(
+    TEMP CheckOpen.2.1.1.1.k,
+    CONST 8)), 
+  CONST 0, 8),
+ MUL(
+  MUL(
+   ADD(
+    TEMP CheckOpen.2.1.i,
+    CONST 1),
+   ADD(
+    TEMP CheckOpen.2.1.1.j,
+    CONST 1)),
+  ADD(
+   TEMP CheckOpen.2.1.1.1.k,
+   CONST 1)))
+MOVE(
+ TEMP t.23,
+ ADD(
+  TEMP t.23,
+  TEMP t.25))
+LABEL L.20
+BLE(
+ TEMP t.23,
+ TEMP t.24,
+ L.19, L.21)
+LABEL L.21
+MOVE(
+ TEMP t.20,
+ ADD(
+  TEMP t.20,
+  TEMP t.22))
+LABEL L.17
+BLE(
+ TEMP t.20,
+ TEMP t.21,
+ L.16, L.18)
+LABEL L.18
+MOVE(
+ TEMP t.17,
+ ADD(
+  TEMP t.17,
+  TEMP t.19))
+LABEL L.14
+BLE(
+ TEMP t.17,
+ TEMP t.18,
+ L.13, L.15)
+LABEL L.15
+MOVE(
+ TEMP t.35,
+ CONST 0)
+MOVE(
+ TEMP t.36,
+ CONST 4)
+MOVE(
+ TEMP t.37,
+ CONST 1)
+LABEL L.30
+MOVE(
+ TEMP CheckOpen.2.2.i,
+ TEMP t.35)
+MOVE(
+ TEMP t.38,
+ CONST 0)
+MOVE(
+ TEMP t.39,
+ CONST 4)
+MOVE(
+ TEMP t.40,
+ CONST 1)
+LABEL L.33
+MOVE(
+ TEMP CheckOpen.2.2.1.j,
+ TEMP t.38)
+MOVE(
+ TEMP t.41,
+ CONST 0)
+MOVE(
+ TEMP t.42,
+ CONST 4)
+MOVE(
+ TEMP t.43,
+ CONST 1)
+LABEL L.36
+MOVE(
+ TEMP CheckOpen.2.2.1.1.k,
+ TEMP t.41)
+MOVE(
+ TEMP t.44,
+ TEMP CheckOpen.2.a)
+BEQ(
+ TEMP t.44,
+ CONST 0,
+ L.22, L.42)
+LABEL L.42
+MOVE(
+ TEMP t.45,
+ TEMP t.44)
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1056, 8),
+ MEM(
+  TEMP t.45, 
+  CONST 16, 8))
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1048, 8),
+ MEM(
+  TEMP t.45, 
+  CONST 24, 8))
+MOVE(
+ TEMP t.46,
+ TEMP CheckOpen.2.2.i)
+BLT(
+ TEMP t.46,
+ CONST 0,
+ L.6, L.43)
+LABEL L.43
+BGE(
+ TEMP t.46,
+ MEM(
+  TEMP t.45, 
+  CONST 8, 8),
+ L.6, L.44)
+LABEL L.44
+MOVE(
+ TEMP t.47,
+ TEMP t.46)
+MOVE(
+ TEMP t.47,
+ MUL(
+  TEMP t.47,
+  MEM(
+   TEMP %rbp, 
+   CONST -1056, 8)))
+MOVE(
+ TEMP t.47,
+ MUL(
+  TEMP t.47,
+  MEM(
+   TEMP %rbp, 
+   CONST -1048, 8)))
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1064, 8),
+ ADD(
+  MEM(
+   TEMP t.45, 
+   CONST 0, 8),
+  MUL(
+   TEMP t.47,
+   CONST 8)))
+MOVE(
+ TEMP t.48,
+ TEMP %rbp)
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1072, 8),
+ MEM(
+  TEMP t.48, 
+  CONST -1048, 8))
+MOVE(
+ TEMP t.49,
+ TEMP CheckOpen.2.2.1.j)
+BLT(
+ TEMP t.49,
+ CONST 0,
+ L.6, L.45)
+LABEL L.45
+BGE(
+ TEMP t.49,
+ MEM(
+  TEMP t.48, 
+  CONST -1056, 8),
+ L.6, L.46)
+LABEL L.46
+MOVE(
+ TEMP t.50,
+ TEMP t.49)
+MOVE(
+ TEMP t.50,
+ MUL(
+  TEMP t.50,
+  MEM(
+   TEMP %rbp, 
+   CONST -1072, 8)))
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -1080, 8),
+ ADD(
+  MEM(
+   TEMP t.48, 
+   CONST -1064, 8),
+  MUL(
+   TEMP t.50,
+   CONST 8)))
+MOVE(
+ TEMP t.52,
+ TEMP %rbp)
+MOVE(
+ TEMP t.51,
+ TEMP CheckOpen.2.2.1.1.k)
+BLT(
+ TEMP t.51,
+ CONST 0,
+ L.6, L.47)
+LABEL L.47
+BGE(
+ TEMP t.51,
+ MEM(
+  TEMP t.52, 
+  CONST -1072, 8),
+ L.6, L.48)
+LABEL L.48
+BNE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.52, 
+    CONST -1080, 8),
+   MUL(
+    TEMP t.51,
+    CONST 8)), 
+  CONST 0, 8),
+ MEM(
+  ADD(
+   ADD(
+    ADD(
+     TEMP %rbp,
+     ADD(
+      CONST -1000,
+      MUL(
+       TEMP CheckOpen.2.2.i,
+       CONST 200))),
+    MUL(
+     TEMP CheckOpen.2.2.1.j,
+     CONST 40)),
+   MUL(
+    TEMP CheckOpen.2.2.1.1.k,
+    CONST 8)), 
+  CONST 0, 8),
+ L.39, L.40)
+LABEL L.40
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 84))
+LABEL L.41
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 10))
+MOVE(
+ TEMP t.41,
+ ADD(
+  TEMP t.41,
+  TEMP t.43))
+LABEL L.37
+BLE(
+ TEMP t.41,
+ TEMP t.42,
+ L.36, L.38)
+LABEL L.38
+MOVE(
+ TEMP t.38,
+ ADD(
+  TEMP t.38,
+  TEMP t.40))
+LABEL L.34
+BLE(
+ TEMP t.38,
+ TEMP t.39,
+ L.33, L.35)
+LABEL L.35
+MOVE(
+ TEMP t.35,
+ ADD(
+  TEMP t.35,
+  TEMP t.37))
+LABEL L.31
+BLE(
+ TEMP t.35,
+ TEMP t.36,
+ L.30, L.52)
+LABEL L.52
+JUMP(
+ NAME L.32)
+LABEL L.39
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 78))
+JUMP(
+ NAME L.41)
+LABEL L.32
+# Instructions:
+L.51:	# <- 
+	movabsq $5,t.53	# t.53 <- 
+	movq t.53,t.1	# t.1 := t.53 
+	movabsq $0,t.54	# t.54 <- 
+	movq t.54,t.0	# t.0 := t.54 
+	cmpq t.1,t.0	# <- t.0 t.1 
+	jge L.1	# <- 
+L.0:	# <- 
+	movabsq $5,t.55	# t.55 <- 
+	movq t.55,t.3	# t.3 := t.55 
+	movabsq $0,t.56	# t.56 <- 
+	movq t.56,t.2	# t.2 := t.56 
+	cmpq t.3,t.2	# <- t.2 t.3 
+	jge L.3	# <- 
+L.2:	# <- 
+	movabsq $5,t.57	# t.57 <- 
+	movq t.57,t.5	# t.5 := t.57 
+	movabsq $0,t.58	# t.58 <- 
+	movq t.58,t.4	# t.4 := t.58 
+	cmpq t.5,t.4	# <- t.4 t.5 
+	jge L.5	# <- 
+L.4:	# <- 
+	shlq $3,t.4	# t.4 <- t.4 
+	movq $40,t.60	# t.60 <- t.60 
+	imulq t.60, t.2	# t.2 <- t.2 t.60 
+	movq $200,t.63	# t.63 <- t.63 
+	imulq t.63, t.0	# t.0 <- t.0 t.63 
+	addq t.0, %rbp	# %rbp <- %rbp t.0 
+	addq t.2, %rbp	# %rbp <- %rbp t.2 
+	addq t.4, %rbp	# %rbp <- %rbp t.4 
+	movabsq $0,t.66	# t.66 <- 
+	movq t.66,-1000(%rbp)	# <- t.66 %rbp 
+	addq $1,t.4	# t.4 <- t.4 
+#	movq t.4,t.4	# t.4 := t.4 
+	cmpq t.5,t.4	# <- t.4 t.5 
+	jl L.4	# <- 
+L.5:	# <- 
+	addq $1,t.2	# t.2 <- t.2 
+#	movq t.2,t.2	# t.2 := t.2 
+	cmpq t.3,t.2	# <- t.2 t.3 
+	jl L.2	# <- 
+L.3:	# <- 
+	addq $1,t.0	# t.0 <- t.0 
+#	movq t.0,t.0	# t.0 := t.0 
+	cmpq t.1,t.0	# <- t.0 t.1 
+	jl L.0	# <- 
+L.1:	# <- 
+	movabsq $5,t.67	# t.67 <- 
+	movq t.67,t.6	# t.6 := t.67 
+	cmpq $0,t.6	# <- t.6 
+	jl L.6	# <- 
+L.7:	# <- 
+	movq t.6,t.7	# t.7 := t.6 
+	movabsq $5,t.68	# t.68 <- 
+	movq t.68,t.8	# t.8 := t.68 
+	cmpq $0,t.8	# <- t.8 
+	jl L.6	# <- 
+L.8:	# <- 
+	imulq t.7, t.8	# t.8 <- t.8 t.7 
+	movq t.8,t.9	# t.9 := t.8 
+	movabsq $5,t.70	# t.70 <- 
+	movq t.70,t.10	# t.10 := t.70 
+	cmpq $0,t.10	# <- t.10 
+	jl L.6	# <- 
+L.9:	# <- 
+	imulq t.9, t.10	# t.10 <- t.10 t.9 
+	movq t.10,t.11	# t.11 := t.10 
+	movabsq $32,t.72	# t.72 <- 
+	movq t.72,t.12	# t.12 := t.72 
+	shlq $3,t.11	# t.11 <- t.11 
+	addq t.11, t.12	# t.12 <- t.12 t.11 
+#	movq t.12,t.12	# t.12 := t.12 
+	movq t.12,%rdi	# %rdi := t.12 
+	call malloc	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	movq %rax,t.13	# t.13 := %rax 
+	addq $32,t.13	# t.13 <- t.13 
+	movq t.13,0(t.13)	# <- t.13 t.13 
+	movq t.6,8(t.13)	# <- t.6 t.13 
+	movq t.8,16(t.13)	# <- t.8 t.13 
+	movq t.10,24(t.13)	# <- t.10 t.13 
+	movq 8(t.13),t.74	# t.74 <- t.13 
+	movq t.74,t.15	# t.15 := t.74 
+	movq 16(t.13),t.75	# t.75 <- t.13 
+	imulq t.75, t.15	# t.15 <- t.15 t.75 
+#	movq t.15,t.15	# t.15 := t.15 
+	movq 24(t.13),t.77	# t.77 <- t.13 
+	imulq t.77, t.15	# t.15 <- t.15 t.77 
+#	movq t.15,t.15	# t.15 := t.15 
+	movq 0(t.13),t.79	# t.79 <- t.13 
+	movq t.79,t.16	# t.16 := t.79 
+	movabsq $0,t.80	# t.80 <- 
+	movq t.80,t.14	# t.14 := t.80 
+	cmpq t.15,t.14	# <- t.14 t.15 
+	jge L.12	# <- 
+L.10:	# <- 
+	shlq $3,t.14	# t.14 <- t.14 
+	addq t.14, t.16	# t.16 <- t.16 t.14 
+	movabsq $0,t.82	# t.82 <- 
+	movq t.82,0(t.16)	# <- t.82 t.16 
+	addq $1,t.14	# t.14 <- t.14 
+#	movq t.14,t.14	# t.14 := t.14 
+L.11:	# <- 
+	cmpq t.15,t.14	# <- t.14 t.15 
+	jl L.10	# <- 
+L.12:	# <- 
+	movq t.13,CheckOpen.2.a	# CheckOpen.2.a := t.13 
+	movabsq $0,t.83	# t.83 <- 
+	movq t.83,t.17	# t.17 := t.83 
+	movabsq $4,t.84	# t.84 <- 
+	movq t.84,t.18	# t.18 := t.84 
+	movabsq $1,t.85	# t.85 <- 
+	movq t.85,t.19	# t.19 := t.85 
+L.13:	# <- 
+	movq t.17,CheckOpen.2.1.i	# CheckOpen.2.1.i := t.17 
+	movabsq $0,t.86	# t.86 <- 
+	movq t.86,t.20	# t.20 := t.86 
+	movabsq $4,t.87	# t.87 <- 
+	movq t.87,t.21	# t.21 := t.87 
+	movabsq $1,t.88	# t.88 <- 
+	movq t.88,t.22	# t.22 := t.88 
+L.16:	# <- 
+	movq t.20,CheckOpen.2.1.1.j	# CheckOpen.2.1.1.j := t.20 
+	movabsq $0,t.89	# t.89 <- 
+	movq t.89,t.23	# t.23 := t.89 
+	movabsq $4,t.90	# t.90 <- 
+	movq t.90,t.24	# t.24 := t.90 
+	movabsq $1,t.91	# t.91 <- 
+	movq t.91,t.25	# t.25 := t.91 
+L.19:	# <- 
+	movq t.23,CheckOpen.2.1.1.1.k	# CheckOpen.2.1.1.1.k := t.23 
+	movq CheckOpen.2.a,t.26	# t.26 := CheckOpen.2.a 
+	cmpq $0,t.26	# <- t.26 
+	je L.22	# <- 
+L.23:	# <- 
+	movq t.26,t.27	# t.27 := t.26 
+	movq 16(t.27),t.92	# t.92 <- t.27 
+	movq t.92,-1016(%rbp)	# <- t.92 %rbp 
+	movq 24(t.27),t.93	# t.93 <- t.27 
+	movq t.93,-1008(%rbp)	# <- t.93 %rbp 
+	movq CheckOpen.2.1.i,t.28	# t.28 := CheckOpen.2.1.i 
+	cmpq $0,t.28	# <- t.28 
+	jl L.6	# <- 
+L.24:	# <- 
+	movq 8(t.27),t.94	# t.94 <- t.27 
+	cmpq t.94,t.28	# <- t.28 t.94 
+	jge L.6	# <- 
+L.25:	# <- 
+	movq t.28,t.29	# t.29 := t.28 
+	movq -1016(%rbp),t.95	# t.95 <- %rbp 
+	imulq t.95, t.29	# t.29 <- t.29 t.95 
+#	movq t.29,t.29	# t.29 := t.29 
+	movq -1008(%rbp),t.97	# t.97 <- %rbp 
+	imulq t.97, t.29	# t.29 <- t.29 t.97 
+#	movq t.29,t.29	# t.29 := t.29 
+	shlq $3,t.29	# t.29 <- t.29 
+	movq 0(t.27),t.100	# t.100 <- t.27 
+	addq t.29, t.100	# t.100 <- t.100 t.29 
+	movq t.100,-1024(%rbp)	# <- t.100 %rbp 
+	movq %rbp,t.30	# t.30 := %rbp 
+	movq -1008(t.30),t.101	# t.101 <- t.30 
+	movq t.101,-1032(%rbp)	# <- t.101 %rbp 
+	movq CheckOpen.2.1.1.j,t.31	# t.31 := CheckOpen.2.1.1.j 
+	cmpq $0,t.31	# <- t.31 
+	jl L.6	# <- 
+L.26:	# <- 
+	movq -1016(t.30),t.102	# t.102 <- t.30 
+	cmpq t.102,t.31	# <- t.31 t.102 
+	jge L.6	# <- 
+L.27:	# <- 
+	movq t.31,t.32	# t.32 := t.31 
+	movq -1032(%rbp),t.103	# t.103 <- %rbp 
+	imulq t.103, t.32	# t.32 <- t.32 t.103 
+#	movq t.32,t.32	# t.32 := t.32 
+	shlq $3,t.32	# t.32 <- t.32 
+	movq -1024(t.30),t.106	# t.106 <- t.30 
+	addq t.32, t.106	# t.106 <- t.106 t.32 
+	movq t.106,-1040(%rbp)	# <- t.106 %rbp 
+	movq %rbp,t.34	# t.34 := %rbp 
+	movq CheckOpen.2.1.1.1.k,t.33	# t.33 := CheckOpen.2.1.1.1.k 
+	cmpq $0,t.33	# <- t.33 
+	jl L.6	# <- 
+L.28:	# <- 
+	movq -1032(t.34),t.107	# t.107 <- t.34 
+	cmpq t.107,t.33	# <- t.33 t.107 
+	jge L.6	# <- 
+L.29:	# <- 
+	shlq $3,t.33	# t.33 <- t.33 
+	movq -1040(t.34),t.109	# t.109 <- t.34 
+	addq t.33, t.109	# t.109 <- t.109 t.33 
+	addq $1,CheckOpen.2.1.1.1.k	# CheckOpen.2.1.1.1.k <- CheckOpen.2.1.1.1.k 
+	addq $1,CheckOpen.2.1.1.j	# CheckOpen.2.1.1.j <- CheckOpen.2.1.1.j 
+	addq $1,CheckOpen.2.1.i	# CheckOpen.2.1.i <- CheckOpen.2.1.i 
+	imulq CheckOpen.2.1.1.j, CheckOpen.2.1.i	# CheckOpen.2.1.i <- CheckOpen.2.1.i CheckOpen.2.1.1.j 
+	imulq CheckOpen.2.1.1.1.k, CheckOpen.2.1.i	# CheckOpen.2.1.i <- CheckOpen.2.1.i CheckOpen.2.1.1.1.k 
+	movq CheckOpen.2.1.i,0(t.109)	# <- CheckOpen.2.1.i t.109 
+	shlq $3,CheckOpen.2.1.1.1.k	# CheckOpen.2.1.1.1.k <- CheckOpen.2.1.1.1.k 
+	movq $40,t.113	# t.113 <- t.113 
+	imulq t.113, CheckOpen.2.1.1.j	# CheckOpen.2.1.1.j <- CheckOpen.2.1.1.j t.113 
+	movq $200,t.116	# t.116 <- t.116 
+	imulq t.116, CheckOpen.2.1.i	# CheckOpen.2.1.i <- CheckOpen.2.1.i t.116 
+	addq $-1000,CheckOpen.2.1.i	# CheckOpen.2.1.i <- CheckOpen.2.1.i 
+	addq CheckOpen.2.1.i, %rbp	# %rbp <- %rbp CheckOpen.2.1.i 
+	addq CheckOpen.2.1.1.j, %rbp	# %rbp <- %rbp CheckOpen.2.1.1.j 
+	addq CheckOpen.2.1.1.1.k, %rbp	# %rbp <- %rbp CheckOpen.2.1.1.1.k 
+	addq $1,CheckOpen.2.1.1.1.k	# CheckOpen.2.1.1.1.k <- CheckOpen.2.1.1.1.k 
+	addq $1,CheckOpen.2.1.1.j	# CheckOpen.2.1.1.j <- CheckOpen.2.1.1.j 
+	addq $1,CheckOpen.2.1.i	# CheckOpen.2.1.i <- CheckOpen.2.1.i 
+	imulq CheckOpen.2.1.1.j, CheckOpen.2.1.i	# CheckOpen.2.1.i <- CheckOpen.2.1.i CheckOpen.2.1.1.j 
+	imulq CheckOpen.2.1.1.1.k, CheckOpen.2.1.i	# CheckOpen.2.1.i <- CheckOpen.2.1.i CheckOpen.2.1.1.1.k 
+	movq CheckOpen.2.1.i,0(%rbp)	# <- CheckOpen.2.1.i %rbp 
+	addq t.25, t.23	# t.23 <- t.23 t.25 
+#	movq t.23,t.23	# t.23 := t.23 
+L.20:	# <- 
+	cmpq t.24,t.23	# <- t.23 t.24 
+	jle L.19	# <- 
+L.21:	# <- 
+	addq t.22, t.20	# t.20 <- t.20 t.22 
+#	movq t.20,t.20	# t.20 := t.20 
+L.17:	# <- 
+	cmpq t.21,t.20	# <- t.20 t.21 
+	jle L.16	# <- 
+L.18:	# <- 
+	addq t.19, t.17	# t.17 <- t.17 t.19 
+#	movq t.17,t.17	# t.17 := t.17 
+L.14:	# <- 
+	cmpq t.18,t.17	# <- t.17 t.18 
+	jle L.13	# <- 
+L.15:	# <- 
+	movabsq $0,t.124	# t.124 <- 
+	movq t.124,t.35	# t.35 := t.124 
+	movabsq $4,t.125	# t.125 <- 
+	movq t.125,t.36	# t.36 := t.125 
+	movabsq $1,t.126	# t.126 <- 
+	movq t.126,t.37	# t.37 := t.126 
+L.30:	# <- 
+	movq t.35,CheckOpen.2.2.i	# CheckOpen.2.2.i := t.35 
+	movabsq $0,t.127	# t.127 <- 
+	movq t.127,t.38	# t.38 := t.127 
+	movabsq $4,t.128	# t.128 <- 
+	movq t.128,t.39	# t.39 := t.128 
+	movabsq $1,t.129	# t.129 <- 
+	movq t.129,t.40	# t.40 := t.129 
+L.33:	# <- 
+	movq t.38,CheckOpen.2.2.1.j	# CheckOpen.2.2.1.j := t.38 
+	movabsq $0,t.130	# t.130 <- 
+	movq t.130,t.41	# t.41 := t.130 
+	movabsq $4,t.131	# t.131 <- 
+	movq t.131,t.42	# t.42 := t.131 
+	movabsq $1,t.132	# t.132 <- 
+	movq t.132,t.43	# t.43 := t.132 
+L.36:	# <- 
+	movq t.41,CheckOpen.2.2.1.1.k	# CheckOpen.2.2.1.1.k := t.41 
+	movq CheckOpen.2.a,t.44	# t.44 := CheckOpen.2.a 
+	cmpq $0,t.44	# <- t.44 
+	je L.22	# <- 
+L.42:	# <- 
+	movq t.44,t.45	# t.45 := t.44 
+	movq 16(t.45),t.133	# t.133 <- t.45 
+	movq t.133,-1056(%rbp)	# <- t.133 %rbp 
+	movq 24(t.45),t.134	# t.134 <- t.45 
+	movq t.134,-1048(%rbp)	# <- t.134 %rbp 
+	movq CheckOpen.2.2.i,t.46	# t.46 := CheckOpen.2.2.i 
+	cmpq $0,t.46	# <- t.46 
+	jl L.6	# <- 
+L.43:	# <- 
+	movq 8(t.45),t.135	# t.135 <- t.45 
+	cmpq t.135,t.46	# <- t.46 t.135 
+	jge L.6	# <- 
+L.44:	# <- 
+	movq t.46,t.47	# t.47 := t.46 
+	movq -1056(%rbp),t.136	# t.136 <- %rbp 
+	imulq t.136, t.47	# t.47 <- t.47 t.136 
+#	movq t.47,t.47	# t.47 := t.47 
+	movq -1048(%rbp),t.138	# t.138 <- %rbp 
+	imulq t.138, t.47	# t.47 <- t.47 t.138 
+#	movq t.47,t.47	# t.47 := t.47 
+	shlq $3,t.47	# t.47 <- t.47 
+	movq 0(t.45),t.141	# t.141 <- t.45 
+	addq t.47, t.141	# t.141 <- t.141 t.47 
+	movq t.141,-1064(%rbp)	# <- t.141 %rbp 
+	movq %rbp,t.48	# t.48 := %rbp 
+	movq -1048(t.48),t.142	# t.142 <- t.48 
+	movq t.142,-1072(%rbp)	# <- t.142 %rbp 
+	movq CheckOpen.2.2.1.j,t.49	# t.49 := CheckOpen.2.2.1.j 
+	cmpq $0,t.49	# <- t.49 
+	jl L.6	# <- 
+L.45:	# <- 
+	movq -1056(t.48),t.143	# t.143 <- t.48 
+	cmpq t.143,t.49	# <- t.49 t.143 
+	jge L.6	# <- 
+L.46:	# <- 
+	movq t.49,t.50	# t.50 := t.49 
+	movq -1072(%rbp),t.144	# t.144 <- %rbp 
+	imulq t.144, t.50	# t.50 <- t.50 t.144 
+#	movq t.50,t.50	# t.50 := t.50 
+	shlq $3,t.50	# t.50 <- t.50 
+	movq -1064(t.48),t.147	# t.147 <- t.48 
+	addq t.50, t.147	# t.147 <- t.147 t.50 
+	movq t.147,-1080(%rbp)	# <- t.147 %rbp 
+	movq %rbp,t.52	# t.52 := %rbp 
+	movq CheckOpen.2.2.1.1.k,t.51	# t.51 := CheckOpen.2.2.1.1.k 
+	cmpq $0,t.51	# <- t.51 
+	jl L.6	# <- 
+L.47:	# <- 
+	movq -1072(t.52),t.148	# t.148 <- t.52 
+	cmpq t.148,t.51	# <- t.51 t.148 
+	jge L.6	# <- 
+L.48:	# <- 
+	shlq $3,t.51	# t.51 <- t.51 
+	movq -1080(t.52),t.151	# t.151 <- t.52 
+	addq t.51, t.151	# t.151 <- t.151 t.51 
+	movq 0(t.151),t.149	# t.149 <- t.151 
+	shlq $3,CheckOpen.2.2.1.1.k	# CheckOpen.2.2.1.1.k <- CheckOpen.2.2.1.1.k 
+	movq $40,t.154	# t.154 <- t.154 
+	imulq t.154, CheckOpen.2.2.1.j	# CheckOpen.2.2.1.j <- CheckOpen.2.2.1.j t.154 
+	movq $200,t.157	# t.157 <- t.157 
+	imulq t.157, CheckOpen.2.2.i	# CheckOpen.2.2.i <- CheckOpen.2.2.i t.157 
+	addq $-1000,CheckOpen.2.2.i	# CheckOpen.2.2.i <- CheckOpen.2.2.i 
+	addq CheckOpen.2.2.i, %rbp	# %rbp <- %rbp CheckOpen.2.2.i 
+	addq CheckOpen.2.2.1.j, %rbp	# %rbp <- %rbp CheckOpen.2.2.1.j 
+	addq CheckOpen.2.2.1.1.k, %rbp	# %rbp <- %rbp CheckOpen.2.2.1.1.k 
+	movq 0(%rbp),t.152	# t.152 <- %rbp 
+	cmpq t.152,t.149	# <- t.149 t.152 
+	jne L.39	# <- 
+L.40:	# <- 
+	movabsq $84,t.160	# t.160 <- 
+	movq t.160,%rdi	# %rdi := t.160 
+	call putchar	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+L.41:	# <- 
+	movabsq $10,t.161	# t.161 <- 
+	movq t.161,%rdi	# %rdi := t.161 
+	call putchar	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	addq t.43, t.41	# t.41 <- t.41 t.43 
+#	movq t.41,t.41	# t.41 := t.41 
+L.37:	# <- 
+	cmpq t.42,t.41	# <- t.41 t.42 
+	jle L.36	# <- 
+L.38:	# <- 
+	addq t.40, t.38	# t.38 <- t.38 t.40 
+#	movq t.38,t.38	# t.38 := t.38 
+L.34:	# <- 
+	cmpq t.39,t.38	# <- t.38 t.39 
+	jle L.33	# <- 
+L.35:	# <- 
+	addq t.37, t.35	# t.35 <- t.35 t.37 
+#	movq t.35,t.35	# t.35 := t.35 
+L.31:	# <- 
+	cmpq t.36,t.35	# <- t.35 t.36 
+	jle L.30	# <- 
+L.52:	# <- 
+	jmpq L.32	# <- : goto L.32 
+L.39:	# <- 
+	movabsq $78,t.165	# t.165 <- 
+	movq t.165,%rdi	# %rdi := t.165 
+	call putchar	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	jmpq L.41	# <- : goto L.41 
+L.32:	# <- 
+# Control Flow Graph:
+0: t.53 t.1 t.54 t.0 <- ; goto 1 
+1: t.55 t.3 t.56 t.2 <- ; goto 2 
+2: t.57 t.5 t.58 t.4 <- ; goto 3 
+3: t.4 t.60 t.2 t.63 t.0 %rbp t.66 <- t.4 t.60 t.2 t.63 t.0 %rbp t.5 ; goto 4 
+4: t.2 <- t.2 t.3 ; goto 5 
+5: t.0 <- t.0 t.1 ; goto 6 
+6: t.67 t.6 <- ; goto 7 
+7: t.7 t.68 t.8 <- t.6 ; goto 8 
+8: t.8 t.9 t.70 t.10 <- t.8 t.7 ; goto 9 
+9: t.10 t.11 t.72 t.12 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.13 t.74 t.15 t.75 t.77 t.79 t.16 t.80 t.14 <- t.10 t.9 t.6 t.8 ; goto 10 
+10: t.14 t.16 t.82 <- t.14 t.16 ; goto 11 
+11: <- t.14 t.15 ; goto 12 
+12: CheckOpen.2.a t.83 t.17 t.84 t.18 t.85 t.19 <- t.13 ; goto 13 
+13: CheckOpen.2.1.i t.86 t.20 t.87 t.21 t.88 t.22 <- t.17 ; goto 14 
+14: CheckOpen.2.1.1.j t.89 t.23 t.90 t.24 t.91 t.25 <- t.20 ; goto 15 
+15: CheckOpen.2.1.1.1.k t.26 <- t.23 CheckOpen.2.a ; goto 16 
+16: t.27 t.92 t.93 t.28 <- t.26 %rbp CheckOpen.2.1.i ; goto 17 
+17: t.94 <- t.27 t.28 ; goto 18 
+18: t.29 t.95 t.97 t.100 t.30 t.101 t.31 <- t.28 %rbp t.27 CheckOpen.2.1.1.j ; goto 19 
+19: t.102 <- t.30 t.31 ; goto 20 
+20: t.32 t.103 t.106 t.34 t.33 <- t.31 %rbp t.30 CheckOpen.2.1.1.1.k ; goto 21 
+21: t.107 <- t.34 t.33 ; goto 22 
+22: t.33 t.109 CheckOpen.2.1.1.1.k CheckOpen.2.1.1.j CheckOpen.2.1.i t.113 t.116 %rbp t.23 <- t.33 t.34 CheckOpen.2.1.1.1.k CheckOpen.2.1.1.j CheckOpen.2.1.i t.113 t.116 %rbp t.23 t.25 ; goto 23 
+23: <- t.23 t.24 ; goto 24 
+24: t.20 <- t.20 t.22 ; goto 25 
+25: <- t.20 t.21 ; goto 26 
+26: t.17 <- t.17 t.19 ; goto 27 
+27: <- t.17 t.18 ; goto 28 
+28: t.124 t.35 t.125 t.36 t.126 t.37 <- ; goto 29 
+29: CheckOpen.2.2.i t.127 t.38 t.128 t.39 t.129 t.40 <- t.35 ; goto 30 
+30: CheckOpen.2.2.1.j t.130 t.41 t.131 t.42 t.132 t.43 <- t.38 ; goto 31 
+31: CheckOpen.2.2.1.1.k t.44 <- t.41 CheckOpen.2.a ; goto 32 
+32: t.45 t.133 t.134 t.46 <- t.44 %rbp CheckOpen.2.2.i ; goto 33 
+33: t.135 <- t.45 t.46 ; goto 34 
+34: t.47 t.136 t.138 t.141 t.48 t.142 t.49 <- t.46 %rbp t.45 CheckOpen.2.2.1.j ; goto 35 
+35: t.143 <- t.48 t.49 ; goto 36 
+36: t.50 t.144 t.147 t.52 t.51 <- t.49 %rbp t.48 CheckOpen.2.2.1.1.k ; goto 37 
+37: t.148 <- t.52 t.51 ; goto 38 
+38: t.51 t.151 t.149 CheckOpen.2.2.1.1.k t.154 CheckOpen.2.2.1.j t.157 CheckOpen.2.2.i %rbp t.152 <- t.51 t.52 CheckOpen.2.2.1.1.k t.154 CheckOpen.2.2.1.j t.157 CheckOpen.2.2.i %rbp ; goto 39 
+39: t.160 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- ; goto 40 
+40: t.161 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.41 <- t.41 t.43 ; goto 41 
+41: <- t.41 t.42 ; goto 42 
+42: t.38 <- t.38 t.40 ; goto 43 
+43: <- t.38 t.39 ; goto 44 
+44: t.35 <- t.35 t.37 ; goto 45 
+45: <- t.35 t.36 ; goto 46 
+46: <- ; goto 48 
+47: t.165 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- ; goto 40 
+48: <- %rsp %rbp ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+t.53: t.60 t.63 %rbp t.113 t.116 t.154 t.157 %rsp 
+t.1: t.0 t.54 t.60 t.63 %rbp t.113 t.116 t.154 t.157 %rsp t.2 t.56 t.3 t.55 t.4 t.58 t.5 t.57 t.66 
+t.54: t.60 t.63 %rbp t.1 t.113 t.116 t.154 t.157 %rsp 
+t.0: t.60 t.63 %rbp t.1 t.113 t.116 t.154 t.157 %rsp t.2 t.56 t.3 t.55 t.4 t.58 t.5 t.57 t.66 
+t.55: t.60 t.63 t.0 %rbp t.1 t.113 t.116 t.154 t.157 %rsp 
+t.3: t.2 t.56 t.60 t.63 t.0 %rbp t.1 t.113 t.116 t.154 t.157 %rsp t.4 t.58 t.5 t.57 t.66 
+t.56: t.60 t.63 t.0 %rbp t.3 t.1 t.113 t.116 t.154 t.157 %rsp 
+t.2: t.60 t.63 t.0 %rbp t.3 t.1 t.113 t.116 t.154 t.157 %rsp t.4 t.58 t.5 t.57 t.66 
+t.57: t.60 t.2 t.63 t.0 %rbp t.3 t.1 t.113 t.116 t.154 t.157 %rsp 
+t.5: t.4 t.58 t.60 t.2 t.63 t.0 %rbp t.3 t.1 t.113 t.116 t.154 t.157 %rsp t.66 
+t.58: t.60 t.2 t.63 t.0 %rbp t.5 t.3 t.1 t.113 t.116 t.154 t.157 %rsp 
+t.4: t.60 t.2 t.63 t.0 %rbp t.5 t.3 t.1 t.113 t.116 t.154 t.157 %rsp t.66 
+t.60: t.0 t.54 t.1 t.53 t.2 t.56 t.3 t.55 t.4 t.58 t.5 t.57 t.113 t.116 t.154 t.157 %rsp %rbp t.63 
+t.63: t.0 t.54 t.1 t.53 t.2 t.56 t.3 t.55 t.4 t.58 t.5 t.57 t.113 t.116 t.154 t.157 %rsp %rbp t.60 
+t.66: t.2 t.3 t.0 t.1 %rbp t.113 t.116 t.154 t.157 %rsp t.5 t.4 
+t.67: %rbp t.113 t.116 t.154 t.157 %rsp 
+t.6: %rbp t.113 t.116 t.154 t.157 %rsp t.8 t.68 t.10 t.70 t.9 t.13 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.12 t.11 t.72 
+t.7: t.8 t.68 %rbp t.113 t.116 t.154 t.157 %rsp 
+t.68: t.7 t.6 %rbp t.113 t.116 t.154 t.157 %rsp 
+t.8: t.7 t.6 %rbp t.113 t.116 t.154 t.157 %rsp t.10 t.70 t.13 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.12 t.11 t.72 
+t.9: t.10 t.70 t.6 %rbp t.113 t.116 t.154 t.157 %rsp 
+t.70: t.9 t.6 t.8 %rbp t.113 t.116 t.154 t.157 %rsp 
+t.10: t.9 t.6 t.8 %rbp t.113 t.116 t.154 t.157 %rsp t.13 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.12 t.11 t.72 
+t.11: %rbp t.113 t.116 t.154 t.157 %rsp t.10 t.8 t.6 t.12 t.72 
+t.72: %rbp t.113 t.116 t.154 t.157 %rsp t.10 t.8 t.6 t.11 
+t.12: %rbp t.113 t.116 t.154 t.157 %rsp t.10 t.8 t.6 t.11 
+t.13: t.14 t.80 t.16 t.79 t.15 t.77 t.75 t.74 %rbp t.113 t.116 t.154 t.157 %rsp t.10 t.8 t.6 t.82 
+t.74: t.13 %rbp t.113 t.116 t.154 t.157 %rsp 
+t.15: t.14 t.80 t.16 t.79 t.13 %rbp t.113 t.116 t.154 t.157 %rsp t.77 t.75 t.82 
+t.75: t.13 %rbp t.113 t.116 t.154 t.157 %rsp t.15 
+t.77: t.13 %rbp t.113 t.116 t.154 t.157 %rsp t.15 
+t.79: t.15 t.13 %rbp t.113 t.116 t.154 t.157 %rsp 
+t.16: t.14 t.80 t.15 t.13 %rbp t.113 t.116 t.154 t.157 %rsp t.82 
+t.80: t.16 t.15 t.13 %rbp t.113 t.116 t.154 t.157 %rsp 
+t.14: t.16 t.15 t.13 %rbp t.113 t.116 t.154 t.157 %rsp t.82 
+t.82: t.15 t.13 %rbp t.113 t.116 t.154 t.157 %rsp t.14 t.16 
+CheckOpen.2.a: t.19 t.85 t.18 t.84 t.17 t.83 %rbp t.113 t.116 t.154 t.157 %rsp t.22 t.88 t.21 t.87 t.20 t.86 CheckOpen.2.1.i t.25 t.91 t.24 t.90 t.23 t.89 CheckOpen.2.1.1.j CheckOpen.2.1.1.1.k t.28 t.93 t.92 t.27 t.94 t.31 t.101 t.30 t.100 t.29 t.97 t.95 t.102 t.33 t.34 t.106 t.32 t.103 t.107 t.109 t.37 t.126 t.36 t.125 t.35 t.124 t.40 t.129 t.39 t.128 t.38 t.127 CheckOpen.2.2.i t.43 t.132 t.42 t.131 t.41 t.130 CheckOpen.2.2.1.j CheckOpen.2.2.1.1.k 
+t.83: CheckOpen.2.a %rbp t.113 t.116 t.154 t.157 %rsp 
+t.17: t.19 t.85 t.18 t.84 CheckOpen.2.a %rbp t.113 t.116 t.154 t.157 %rsp t.22 t.88 t.21 t.87 t.20 t.86 t.25 t.91 t.24 t.90 t.23 t.89 CheckOpen.2.1.1.j t.26 CheckOpen.2.1.1.1.k t.28 t.93 t.92 t.27 t.94 t.31 t.101 t.30 t.100 t.29 t.97 t.95 t.102 t.33 t.34 t.106 t.32 t.103 t.107 CheckOpen.2.1.i t.109 
+t.84: t.17 CheckOpen.2.a %rbp t.113 t.116 t.154 t.157 %rsp 
+t.18: t.19 t.85 t.17 CheckOpen.2.a %rbp t.113 t.116 t.154 t.157 %rsp t.22 t.88 t.21 t.87 t.20 t.86 CheckOpen.2.1.i t.25 t.91 t.24 t.90 t.23 t.89 CheckOpen.2.1.1.j t.26 CheckOpen.2.1.1.1.k t.28 t.93 t.92 t.27 t.94 t.31 t.101 t.30 t.100 t.29 t.97 t.95 t.102 t.33 t.34 t.106 t.32 t.103 t.107 t.109 
+t.85: t.17 CheckOpen.2.a %rbp t.113 t.116 t.18 t.154 t.157 %rsp 
+t.19: t.17 CheckOpen.2.a %rbp t.113 t.116 t.18 t.154 t.157 %rsp t.22 t.88 t.21 t.87 t.20 t.86 CheckOpen.2.1.i t.25 t.91 t.24 t.90 t.23 t.89 CheckOpen.2.1.1.j t.26 CheckOpen.2.1.1.1.k t.28 t.93 t.92 t.27 t.94 t.31 t.101 t.30 t.100 t.29 t.97 t.95 t.102 t.33 t.34 t.106 t.32 t.103 t.107 t.109 
+CheckOpen.2.1.i: t.22 t.88 t.21 t.87 t.20 t.86 CheckOpen.2.a %rbp t.113 t.116 t.19 t.18 t.154 t.157 %rsp t.25 t.91 t.24 t.90 t.23 t.89 CheckOpen.2.1.1.j t.26 CheckOpen.2.1.1.1.k t.93 t.92 t.27 t.94 t.31 t.101 t.30 t.100 t.29 t.97 t.95 t.102 t.33 t.34 t.106 t.32 t.103 t.107 t.17 t.109 
+t.86: CheckOpen.2.a %rbp CheckOpen.2.1.i t.113 t.116 t.17 t.19 t.18 t.154 t.157 %rsp 
+t.20: t.22 t.88 t.21 t.87 CheckOpen.2.a %rbp CheckOpen.2.1.i t.113 t.116 t.17 t.19 t.18 t.154 t.157 %rsp t.25 t.91 t.24 t.90 t.23 t.89 t.26 CheckOpen.2.1.1.1.k t.28 t.93 t.92 t.27 t.94 t.31 t.101 t.30 t.100 t.29 t.97 t.95 t.102 t.33 t.34 t.106 t.32 t.103 t.107 CheckOpen.2.1.1.j t.109 
+t.87: t.20 CheckOpen.2.a %rbp CheckOpen.2.1.i t.113 t.116 t.17 t.19 t.18 t.154 t.157 %rsp 
+t.21: t.22 t.88 t.20 CheckOpen.2.a %rbp CheckOpen.2.1.i t.113 t.116 t.17 t.19 t.18 t.154 t.157 %rsp t.25 t.91 t.24 t.90 t.23 t.89 CheckOpen.2.1.1.j t.26 CheckOpen.2.1.1.1.k t.28 t.93 t.92 t.27 t.94 t.31 t.101 t.30 t.100 t.29 t.97 t.95 t.102 t.33 t.34 t.106 t.32 t.103 t.107 t.109 
+t.88: t.20 CheckOpen.2.a %rbp CheckOpen.2.1.i t.113 t.116 t.21 t.17 t.19 t.18 t.154 t.157 %rsp 
+t.22: t.20 CheckOpen.2.a %rbp CheckOpen.2.1.i t.113 t.116 t.21 t.17 t.19 t.18 t.154 t.157 %rsp t.25 t.91 t.24 t.90 t.23 t.89 CheckOpen.2.1.1.j t.26 CheckOpen.2.1.1.1.k t.28 t.93 t.92 t.27 t.94 t.31 t.101 t.30 t.100 t.29 t.97 t.95 t.102 t.33 t.34 t.106 t.32 t.103 t.107 t.109 
+CheckOpen.2.1.1.j: t.25 t.91 t.24 t.90 t.23 t.89 CheckOpen.2.a %rbp CheckOpen.2.1.i t.113 t.116 t.22 t.21 t.17 t.19 t.18 t.154 t.157 %rsp t.26 CheckOpen.2.1.1.1.k t.28 t.93 t.92 t.27 t.94 t.101 t.30 t.100 t.29 t.97 t.95 t.102 t.33 t.34 t.106 t.32 t.103 t.107 t.20 t.109 
+t.89: CheckOpen.2.a %rbp CheckOpen.2.1.i CheckOpen.2.1.1.j t.113 t.116 t.20 t.22 t.21 t.17 t.19 t.18 t.154 t.157 %rsp 
+t.23: t.25 t.91 t.24 t.90 CheckOpen.2.a %rbp CheckOpen.2.1.i CheckOpen.2.1.1.j t.113 t.116 t.20 t.22 t.21 t.17 t.19 t.18 t.154 t.157 %rsp t.26 t.28 t.93 t.92 t.27 t.94 t.31 t.101 t.30 t.100 t.29 t.97 t.95 t.102 t.33 t.34 t.106 t.32 t.103 t.107 CheckOpen.2.1.1.1.k t.109 
+t.90: t.23 CheckOpen.2.a %rbp CheckOpen.2.1.i CheckOpen.2.1.1.j t.113 t.116 t.20 t.22 t.21 t.17 t.19 t.18 t.154 t.157 %rsp 
+t.24: t.25 t.91 t.23 CheckOpen.2.a %rbp CheckOpen.2.1.i CheckOpen.2.1.1.j t.113 t.116 t.20 t.22 t.21 t.17 t.19 t.18 t.154 t.157 %rsp t.26 CheckOpen.2.1.1.1.k t.28 t.93 t.92 t.27 t.94 t.31 t.101 t.30 t.100 t.29 t.97 t.95 t.102 t.33 t.34 t.106 t.32 t.103 t.107 t.109 
+t.91: t.23 CheckOpen.2.a %rbp CheckOpen.2.1.i CheckOpen.2.1.1.j t.113 t.116 t.24 t.20 t.22 t.21 t.17 t.19 t.18 t.154 t.157 %rsp 
+t.25: t.23 CheckOpen.2.a %rbp CheckOpen.2.1.i CheckOpen.2.1.1.j t.113 t.116 t.24 t.20 t.22 t.21 t.17 t.19 t.18 t.154 t.157 %rsp t.26 CheckOpen.2.1.1.1.k t.28 t.93 t.92 t.27 t.94 t.31 t.101 t.30 t.100 t.29 t.97 t.95 t.102 t.33 t.34 t.106 t.32 t.103 t.107 t.109 
+CheckOpen.2.1.1.1.k: t.26 %rbp CheckOpen.2.1.i CheckOpen.2.1.1.j t.113 t.116 t.25 t.24 t.20 t.22 t.21 t.17 t.19 t.18 CheckOpen.2.a t.154 t.157 %rsp t.28 t.93 t.92 t.27 t.94 t.31 t.101 t.30 t.100 t.29 t.97 t.95 t.102 t.34 t.106 t.32 t.103 t.107 t.23 t.109 t.33 
+t.26: %rbp CheckOpen.2.1.i CheckOpen.2.1.1.j CheckOpen.2.1.1.1.k t.113 t.116 t.23 t.25 t.24 t.20 t.22 t.21 t.17 t.19 t.18 t.154 t.157 %rsp 
+t.27: t.28 t.93 t.92 %rbp CheckOpen.2.1.1.j CheckOpen.2.1.1.1.k CheckOpen.2.1.i t.113 t.116 t.23 t.25 t.24 t.20 t.22 t.21 t.17 t.19 t.18 CheckOpen.2.a t.154 t.157 %rsp t.94 t.29 t.97 t.95 
+t.92: t.27 %rbp CheckOpen.2.1.1.j CheckOpen.2.1.1.1.k CheckOpen.2.1.i t.113 t.116 t.23 t.25 t.24 t.20 t.22 t.21 t.17 t.19 t.18 CheckOpen.2.a t.154 t.157 %rsp 
+t.93: t.27 %rbp CheckOpen.2.1.1.j CheckOpen.2.1.1.1.k CheckOpen.2.1.i t.113 t.116 t.23 t.25 t.24 t.20 t.22 t.21 t.17 t.19 t.18 CheckOpen.2.a t.154 t.157 %rsp 
+t.28: t.27 %rbp CheckOpen.2.1.1.j CheckOpen.2.1.1.1.k t.113 t.116 t.23 t.25 t.24 t.20 t.22 t.21 t.17 t.19 t.18 CheckOpen.2.a t.154 t.157 %rsp t.94 
+t.94: t.28 %rbp t.27 CheckOpen.2.1.1.j CheckOpen.2.1.1.1.k CheckOpen.2.1.i t.113 t.116 t.23 t.25 t.24 t.20 t.22 t.21 t.17 t.19 t.18 CheckOpen.2.a t.154 t.157 %rsp 
+t.29: t.100 %rbp CheckOpen.2.1.1.1.k CheckOpen.2.1.1.j CheckOpen.2.1.i t.113 t.116 t.23 t.25 t.24 t.20 t.22 t.21 t.17 t.19 t.18 CheckOpen.2.a t.154 t.157 %rsp t.27 t.97 t.95 
+t.95: %rbp CheckOpen.2.1.1.1.k CheckOpen.2.1.1.j CheckOpen.2.1.i t.113 t.116 t.23 t.25 t.24 t.20 t.22 t.21 t.17 t.19 t.18 CheckOpen.2.a t.154 t.157 %rsp t.27 t.29 
+t.97: %rbp CheckOpen.2.1.1.1.k CheckOpen.2.1.1.j CheckOpen.2.1.i t.113 t.116 t.23 t.25 t.24 t.20 t.22 t.21 t.17 t.19 t.18 CheckOpen.2.a t.154 t.157 %rsp t.27 t.29 
+t.100: %rbp CheckOpen.2.1.1.1.k CheckOpen.2.1.1.j CheckOpen.2.1.i t.113 t.116 t.23 t.25 t.24 t.20 t.22 t.21 t.17 t.19 t.18 CheckOpen.2.a t.154 t.157 %rsp t.29 
+t.30: t.31 t.101 CheckOpen.2.1.1.1.k CheckOpen.2.1.1.j CheckOpen.2.1.i t.113 t.116 t.23 t.25 t.24 t.20 t.22 t.21 t.17 t.19 t.18 CheckOpen.2.a t.154 t.157 %rsp t.102 t.32 t.103 
+t.101: t.30 %rbp CheckOpen.2.1.1.1.k CheckOpen.2.1.1.j CheckOpen.2.1.i t.113 t.116 t.23 t.25 t.24 t.20 t.22 t.21 t.17 t.19 t.18 CheckOpen.2.a t.154 t.157 %rsp 
+t.31: t.30 %rbp CheckOpen.2.1.1.1.k CheckOpen.2.1.i t.113 t.116 t.23 t.25 t.24 t.20 t.22 t.21 t.17 t.19 t.18 CheckOpen.2.a t.154 t.157 %rsp t.102 
+t.102: t.31 %rbp t.30 CheckOpen.2.1.1.1.k CheckOpen.2.1.1.j CheckOpen.2.1.i t.113 t.116 t.23 t.25 t.24 t.20 t.22 t.21 t.17 t.19 t.18 CheckOpen.2.a t.154 t.157 %rsp 
+t.32: t.106 CheckOpen.2.1.1.1.k CheckOpen.2.1.1.j CheckOpen.2.1.i t.113 t.116 %rbp t.23 t.25 t.24 t.20 t.22 t.21 t.17 t.19 t.18 CheckOpen.2.a t.154 t.157 %rsp t.30 t.103 
+t.103: CheckOpen.2.1.1.1.k CheckOpen.2.1.1.j CheckOpen.2.1.i t.113 t.116 %rbp t.23 t.25 t.24 t.20 t.22 t.21 t.17 t.19 t.18 CheckOpen.2.a t.154 t.157 %rsp t.30 t.32 
+t.106: CheckOpen.2.1.1.1.k CheckOpen.2.1.1.j CheckOpen.2.1.i t.113 t.116 %rbp t.23 t.25 t.24 t.20 t.22 t.21 t.17 t.19 t.18 CheckOpen.2.a t.154 t.157 %rsp t.32 
+t.34: t.33 CheckOpen.2.1.1.1.k CheckOpen.2.1.1.j CheckOpen.2.1.i t.113 t.116 t.23 t.25 t.24 t.20 t.22 t.21 t.17 t.19 t.18 CheckOpen.2.a t.154 t.157 %rsp t.107 
+t.33: t.34 CheckOpen.2.1.1.j CheckOpen.2.1.i t.113 t.116 %rbp t.23 t.25 t.24 t.20 t.22 t.21 t.17 t.19 t.18 CheckOpen.2.a t.154 t.157 %rsp t.107 t.109 CheckOpen.2.1.1.1.k 
+t.107: t.33 t.34 CheckOpen.2.1.1.1.k CheckOpen.2.1.1.j CheckOpen.2.1.i t.113 t.116 %rbp t.23 t.25 t.24 t.20 t.22 t.21 t.17 t.19 t.18 CheckOpen.2.a t.154 t.157 %rsp 
+t.109: CheckOpen.2.1.i CheckOpen.2.1.1.j CheckOpen.2.1.1.1.k t.24 t.20 t.22 t.21 t.17 t.19 t.18 CheckOpen.2.a t.154 t.157 %rsp t.23 t.25 %rbp t.116 t.113 t.33 
+t.113: t.0 t.54 t.1 t.53 t.2 t.56 t.3 t.55 t.4 t.58 t.5 t.57 t.66 %rbp t.63 t.60 t.6 t.67 t.8 t.68 t.7 t.10 t.70 t.9 t.14 t.80 t.16 t.79 t.15 t.77 t.75 t.74 t.13 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.12 t.11 t.72 t.82 t.19 t.85 t.18 t.84 t.17 t.83 CheckOpen.2.a t.22 t.88 t.21 t.87 t.20 t.86 CheckOpen.2.1.i t.25 t.91 t.24 t.90 t.23 t.89 CheckOpen.2.1.1.j t.26 CheckOpen.2.1.1.1.k t.28 t.93 t.92 t.27 t.94 t.31 t.101 t.30 t.100 t.29 t.97 t.95 t.102 t.33 t.34 t.106 t.32 t.103 t.107 t.154 t.157 %rsp t.116 t.109 
+t.116: t.0 t.54 t.1 t.53 t.2 t.56 t.3 t.55 t.4 t.58 t.5 t.57 t.66 %rbp t.63 t.60 t.6 t.67 t.8 t.68 t.7 t.10 t.70 t.9 t.14 t.80 t.16 t.79 t.15 t.77 t.75 t.74 t.13 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.12 t.11 t.72 t.82 t.19 t.85 t.18 t.84 t.17 t.83 CheckOpen.2.a t.22 t.88 t.21 t.87 t.20 t.86 CheckOpen.2.1.i t.25 t.91 t.24 t.90 t.23 t.89 CheckOpen.2.1.1.j t.26 CheckOpen.2.1.1.1.k t.28 t.93 t.92 t.27 t.94 t.31 t.101 t.30 t.100 t.29 t.97 t.95 t.102 t.33 t.34 t.106 t.32 t.103 t.107 t.154 t.157 %rsp t.113 t.109 
+t.124: CheckOpen.2.a %rbp t.154 t.157 %rsp 
+t.35: t.37 t.126 t.36 t.125 CheckOpen.2.a %rbp t.154 t.157 %rsp t.40 t.129 t.39 t.128 t.38 t.127 t.43 t.132 t.42 t.131 t.41 t.130 CheckOpen.2.2.1.j t.44 CheckOpen.2.2.1.1.k t.46 t.134 t.133 t.45 t.135 t.49 t.142 t.48 t.141 t.47 t.138 t.136 t.143 t.51 t.52 t.147 t.50 t.144 t.148 t.152 CheckOpen.2.2.i t.149 t.151 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.160 t.161 t.165 
+t.125: t.35 CheckOpen.2.a %rbp t.154 t.157 %rsp 
+t.36: t.37 t.126 t.35 CheckOpen.2.a %rbp t.154 t.157 %rsp t.40 t.129 t.39 t.128 t.38 t.127 CheckOpen.2.2.i t.43 t.132 t.42 t.131 t.41 t.130 CheckOpen.2.2.1.j t.44 CheckOpen.2.2.1.1.k t.46 t.134 t.133 t.45 t.135 t.49 t.142 t.48 t.141 t.47 t.138 t.136 t.143 t.51 t.52 t.147 t.50 t.144 t.148 t.152 t.149 t.151 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.160 t.161 t.165 
+t.126: t.35 CheckOpen.2.a %rbp t.154 t.157 t.36 %rsp 
+t.37: t.35 CheckOpen.2.a %rbp t.154 t.157 t.36 %rsp t.40 t.129 t.39 t.128 t.38 t.127 CheckOpen.2.2.i t.43 t.132 t.42 t.131 t.41 t.130 CheckOpen.2.2.1.j t.44 CheckOpen.2.2.1.1.k t.46 t.134 t.133 t.45 t.135 t.49 t.142 t.48 t.141 t.47 t.138 t.136 t.143 t.51 t.52 t.147 t.50 t.144 t.148 t.152 t.149 t.151 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.160 t.161 t.165 
+CheckOpen.2.2.i: t.40 t.129 t.39 t.128 t.38 t.127 CheckOpen.2.a %rbp t.154 t.157 t.37 t.36 %rsp t.43 t.132 t.42 t.131 t.41 t.130 CheckOpen.2.2.1.j t.44 CheckOpen.2.2.1.1.k t.134 t.133 t.45 t.135 t.49 t.142 t.48 t.141 t.47 t.138 t.136 t.143 t.51 t.52 t.147 t.50 t.144 t.148 t.35 t.149 t.151 
+t.127: CheckOpen.2.a %rbp CheckOpen.2.2.i t.154 t.157 t.35 t.37 t.36 %rsp 
+t.38: t.40 t.129 t.39 t.128 CheckOpen.2.a %rbp CheckOpen.2.2.i t.154 t.157 t.35 t.37 t.36 %rsp t.43 t.132 t.42 t.131 t.41 t.130 t.44 CheckOpen.2.2.1.1.k t.46 t.134 t.133 t.45 t.135 t.49 t.142 t.48 t.141 t.47 t.138 t.136 t.143 t.51 t.52 t.147 t.50 t.144 t.148 t.152 CheckOpen.2.2.1.j t.149 t.151 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.160 t.161 t.165 
+t.128: t.38 CheckOpen.2.a %rbp CheckOpen.2.2.i t.154 t.157 t.35 t.37 t.36 %rsp 
+t.39: t.40 t.129 t.38 CheckOpen.2.a %rbp CheckOpen.2.2.i t.154 t.157 t.35 t.37 t.36 %rsp t.43 t.132 t.42 t.131 t.41 t.130 CheckOpen.2.2.1.j t.44 CheckOpen.2.2.1.1.k t.46 t.134 t.133 t.45 t.135 t.49 t.142 t.48 t.141 t.47 t.138 t.136 t.143 t.51 t.52 t.147 t.50 t.144 t.148 t.152 t.149 t.151 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.160 t.161 t.165 
+t.129: t.38 CheckOpen.2.a %rbp CheckOpen.2.2.i t.154 t.157 t.39 t.35 t.37 t.36 %rsp 
+t.40: t.38 CheckOpen.2.a %rbp CheckOpen.2.2.i t.154 t.157 t.39 t.35 t.37 t.36 %rsp t.43 t.132 t.42 t.131 t.41 t.130 CheckOpen.2.2.1.j t.44 CheckOpen.2.2.1.1.k t.46 t.134 t.133 t.45 t.135 t.49 t.142 t.48 t.141 t.47 t.138 t.136 t.143 t.51 t.52 t.147 t.50 t.144 t.148 t.152 t.149 t.151 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.160 t.161 t.165 
+CheckOpen.2.2.1.j: t.43 t.132 t.42 t.131 t.41 t.130 CheckOpen.2.a %rbp CheckOpen.2.2.i t.154 t.157 t.40 t.39 t.35 t.37 t.36 %rsp t.44 CheckOpen.2.2.1.1.k t.46 t.134 t.133 t.45 t.135 t.142 t.48 t.141 t.47 t.138 t.136 t.143 t.51 t.52 t.147 t.50 t.144 t.148 t.38 t.149 t.151 
+t.130: CheckOpen.2.a %rbp CheckOpen.2.2.i CheckOpen.2.2.1.j t.154 t.157 t.38 t.40 t.39 t.35 t.37 t.36 %rsp 
+t.41: t.43 t.132 t.42 t.131 CheckOpen.2.a %rbp CheckOpen.2.2.i CheckOpen.2.2.1.j t.154 t.157 t.38 t.40 t.39 t.35 t.37 t.36 %rsp t.44 t.46 t.134 t.133 t.45 t.135 t.49 t.142 t.48 t.141 t.47 t.138 t.136 t.143 t.51 t.52 t.147 t.50 t.144 t.148 t.152 CheckOpen.2.2.1.1.k t.149 t.151 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.160 t.161 t.165 
+t.131: t.41 CheckOpen.2.a %rbp CheckOpen.2.2.i CheckOpen.2.2.1.j t.154 t.157 t.38 t.40 t.39 t.35 t.37 t.36 %rsp 
+t.42: t.43 t.132 t.41 CheckOpen.2.a %rbp CheckOpen.2.2.i CheckOpen.2.2.1.j t.154 t.157 t.38 t.40 t.39 t.35 t.37 t.36 %rsp t.44 CheckOpen.2.2.1.1.k t.46 t.134 t.133 t.45 t.135 t.49 t.142 t.48 t.141 t.47 t.138 t.136 t.143 t.51 t.52 t.147 t.50 t.144 t.148 t.152 t.149 t.151 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.160 t.161 t.165 
+t.132: t.41 CheckOpen.2.a %rbp CheckOpen.2.2.i CheckOpen.2.2.1.j t.154 t.157 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp 
+t.43: t.41 CheckOpen.2.a %rbp CheckOpen.2.2.i CheckOpen.2.2.1.j t.154 t.157 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp t.44 CheckOpen.2.2.1.1.k t.46 t.134 t.133 t.45 t.135 t.49 t.142 t.48 t.141 t.47 t.138 t.136 t.143 t.51 t.52 t.147 t.50 t.144 t.148 t.152 t.149 t.151 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.160 t.161 t.165 
+CheckOpen.2.2.1.1.k: t.44 %rbp CheckOpen.2.2.i CheckOpen.2.2.1.j t.154 t.157 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp CheckOpen.2.a t.46 t.134 t.133 t.45 t.135 t.49 t.142 t.48 t.141 t.47 t.138 t.136 t.143 t.52 t.147 t.50 t.144 t.148 t.41 t.149 t.151 t.51 
+t.44: %rbp CheckOpen.2.2.i CheckOpen.2.2.1.j CheckOpen.2.2.1.1.k t.154 t.157 t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp 
+t.45: t.46 t.134 t.133 %rbp CheckOpen.2.2.1.j CheckOpen.2.2.1.1.k t.154 t.157 CheckOpen.2.2.i t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp t.135 t.47 t.138 t.136 
+t.133: t.45 %rbp CheckOpen.2.2.1.j CheckOpen.2.2.1.1.k t.154 t.157 CheckOpen.2.2.i t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp 
+t.134: t.45 %rbp CheckOpen.2.2.1.j CheckOpen.2.2.1.1.k t.154 t.157 CheckOpen.2.2.i t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp 
+t.46: t.45 %rbp CheckOpen.2.2.1.j CheckOpen.2.2.1.1.k t.154 t.157 t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp t.135 
+t.135: t.46 %rbp t.45 CheckOpen.2.2.1.j CheckOpen.2.2.1.1.k t.154 t.157 CheckOpen.2.2.i t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp 
+t.47: t.141 %rbp CheckOpen.2.2.1.1.k t.154 CheckOpen.2.2.1.j t.157 CheckOpen.2.2.i t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp t.45 t.138 t.136 
+t.136: %rbp CheckOpen.2.2.1.1.k t.154 CheckOpen.2.2.1.j t.157 CheckOpen.2.2.i t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp t.45 t.47 
+t.138: %rbp CheckOpen.2.2.1.1.k t.154 CheckOpen.2.2.1.j t.157 CheckOpen.2.2.i t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp t.45 t.47 
+t.141: %rbp CheckOpen.2.2.1.1.k t.154 CheckOpen.2.2.1.j t.157 CheckOpen.2.2.i t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp t.47 
+t.48: t.49 t.142 CheckOpen.2.2.1.1.k t.154 CheckOpen.2.2.1.j t.157 CheckOpen.2.2.i t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp t.143 t.50 t.144 
+t.142: t.48 %rbp CheckOpen.2.2.1.1.k t.154 CheckOpen.2.2.1.j t.157 CheckOpen.2.2.i t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp 
+t.49: t.48 %rbp CheckOpen.2.2.1.1.k t.154 t.157 CheckOpen.2.2.i t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp t.143 
+t.143: t.49 %rbp t.48 CheckOpen.2.2.1.1.k t.154 CheckOpen.2.2.1.j t.157 CheckOpen.2.2.i t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp 
+t.50: t.147 CheckOpen.2.2.1.1.k t.154 CheckOpen.2.2.1.j t.157 CheckOpen.2.2.i %rbp t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp t.48 t.144 
+t.144: CheckOpen.2.2.1.1.k t.154 CheckOpen.2.2.1.j t.157 CheckOpen.2.2.i %rbp t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp t.48 t.50 
+t.147: CheckOpen.2.2.1.1.k t.154 CheckOpen.2.2.1.j t.157 CheckOpen.2.2.i %rbp t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp t.50 
+t.52: t.51 CheckOpen.2.2.1.1.k t.154 CheckOpen.2.2.1.j t.157 CheckOpen.2.2.i t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp t.148 
+t.51: t.52 t.154 CheckOpen.2.2.1.j t.157 CheckOpen.2.2.i %rbp t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp t.148 t.151 CheckOpen.2.2.1.1.k 
+t.148: t.51 t.52 CheckOpen.2.2.1.1.k t.154 CheckOpen.2.2.1.j t.157 CheckOpen.2.2.i %rbp t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp 
+t.151: t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp %rbp CheckOpen.2.2.i t.157 CheckOpen.2.2.1.j t.154 CheckOpen.2.2.1.1.k t.51 
+t.149: t.152 %rbp CheckOpen.2.2.i t.157 CheckOpen.2.2.1.j t.154 CheckOpen.2.2.1.1.k t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp 
+t.154: t.0 t.54 t.1 t.53 t.2 t.56 t.3 t.55 t.4 t.58 t.5 t.57 t.66 %rbp t.63 t.60 t.6 t.67 t.8 t.68 t.7 t.10 t.70 t.9 t.14 t.80 t.16 t.79 t.15 t.77 t.75 t.74 t.13 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.12 t.11 t.72 t.82 t.19 t.85 t.18 t.84 t.17 t.83 CheckOpen.2.a t.22 t.88 t.21 t.87 t.20 t.86 CheckOpen.2.1.i t.25 t.91 t.24 t.90 t.23 t.89 CheckOpen.2.1.1.j t.26 CheckOpen.2.1.1.1.k t.28 t.93 t.92 t.27 t.94 t.31 t.101 t.30 t.100 t.29 t.97 t.95 t.102 t.33 t.34 t.106 t.32 t.103 t.107 t.116 t.113 t.109 t.37 t.126 t.36 t.125 t.35 t.124 t.40 t.129 t.39 t.128 t.38 t.127 CheckOpen.2.2.i t.43 t.132 t.42 t.131 t.41 t.130 CheckOpen.2.2.1.j t.44 CheckOpen.2.2.1.1.k t.46 t.134 t.133 t.45 t.135 t.49 t.142 t.48 t.141 t.47 t.138 t.136 t.143 t.51 t.52 t.147 t.50 t.144 t.148 %rsp t.149 t.157 t.151 
+t.157: t.0 t.54 t.1 t.53 t.2 t.56 t.3 t.55 t.4 t.58 t.5 t.57 t.66 %rbp t.63 t.60 t.6 t.67 t.8 t.68 t.7 t.10 t.70 t.9 t.14 t.80 t.16 t.79 t.15 t.77 t.75 t.74 t.13 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.12 t.11 t.72 t.82 t.19 t.85 t.18 t.84 t.17 t.83 CheckOpen.2.a t.22 t.88 t.21 t.87 t.20 t.86 CheckOpen.2.1.i t.25 t.91 t.24 t.90 t.23 t.89 CheckOpen.2.1.1.j t.26 CheckOpen.2.1.1.1.k t.28 t.93 t.92 t.27 t.94 t.31 t.101 t.30 t.100 t.29 t.97 t.95 t.102 t.33 t.34 t.106 t.32 t.103 t.107 t.116 t.113 t.109 t.37 t.126 t.36 t.125 t.35 t.124 t.40 t.129 t.39 t.128 t.38 t.127 CheckOpen.2.2.i t.43 t.132 t.42 t.131 t.41 t.130 CheckOpen.2.2.1.j t.44 CheckOpen.2.2.1.1.k t.46 t.134 t.133 t.45 t.135 t.49 t.142 t.48 t.141 t.47 t.138 t.136 t.143 t.51 t.52 t.147 t.50 t.144 t.148 %rsp t.149 t.154 t.151 
+t.152: t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp %rbp t.149 
+t.160: t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp %rbp 
+t.161: t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp %rbp t.41 t.43 
+t.165: t.41 t.43 t.42 t.38 t.40 t.39 t.35 t.37 t.36 %rsp %rbp 
+%rdi <= t.165
+t.35 <= t.35
+t.38 <= t.38
+%rdi <= t.161
+t.41 <= t.41
+%rdi <= t.160
+t.50 <= t.49
+t.50 <= t.50
+t.52 <= %rbp
+t.51 <= CheckOpen.2.2.1.1.k
+t.47 <= t.46
+t.47 <= t.47
+t.47 <= t.47
+t.48 <= %rbp
+t.49 <= CheckOpen.2.2.1.j
+t.45 <= t.44
+t.46 <= CheckOpen.2.2.i
+CheckOpen.2.2.1.1.k <= t.41
+t.44 <= CheckOpen.2.a
+CheckOpen.2.2.1.j <= t.38
+t.41 <= t.130
+t.42 <= t.131
+t.43 <= t.132
+CheckOpen.2.2.i <= t.35
+t.38 <= t.127
+t.39 <= t.128
+t.40 <= t.129
+t.35 <= t.124
+t.36 <= t.125
+t.37 <= t.126
+t.17 <= t.17
+t.20 <= t.20
+t.23 <= t.23
+t.32 <= t.31
+t.32 <= t.32
+t.34 <= %rbp
+t.33 <= CheckOpen.2.1.1.1.k
+t.29 <= t.28
+t.29 <= t.29
+t.29 <= t.29
+t.30 <= %rbp
+t.31 <= CheckOpen.2.1.1.j
+t.27 <= t.26
+t.28 <= CheckOpen.2.1.i
+CheckOpen.2.1.1.1.k <= t.23
+t.26 <= CheckOpen.2.a
+CheckOpen.2.1.1.j <= t.20
+t.23 <= t.89
+t.24 <= t.90
+t.25 <= t.91
+CheckOpen.2.1.i <= t.17
+t.20 <= t.86
+t.21 <= t.87
+t.22 <= t.88
+CheckOpen.2.a <= t.13
+t.17 <= t.83
+t.18 <= t.84
+t.19 <= t.85
+t.14 <= t.14
+t.11 <= t.10
+t.12 <= t.72
+t.12 <= t.12
+%rdi <= t.12
+t.13 <= %rax
+t.15 <= t.74
+t.15 <= t.15
+t.15 <= t.15
+t.16 <= t.79
+t.14 <= t.80
+t.9 <= t.8
+t.10 <= t.70
+t.7 <= t.6
+t.8 <= t.68
+t.6 <= t.67
+t.0 <= t.0
+t.2 <= t.2
+t.4 <= t.4
+t.5 <= t.57
+t.4 <= t.58
+t.3 <= t.55
+t.2 <= t.56
+t.1 <= t.53
+t.0 <= t.54
+# Spills:
+t.40
+t.39
+t.37
+t.36
+t.109
+t.97
+t.95
+t.93
+t.92
+t.107
+t.102
+t.94
+t.32
+t.29
+t.116
+t.113
+t.157
+t.154

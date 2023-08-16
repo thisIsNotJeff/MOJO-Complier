@@ -1,0 +1,17 @@
+ line 0, column: error: value is not a constant expression
+ line 1, column: error: array length must be an integer expression
+Exception in thread "main" java.lang.ClassCastException: class mojo.Absyn$Expr$Bool cannot be cast to class mojo.Absyn$Expr$Int (mojo.Absyn$Expr$Bool and mojo.Absyn$Expr$Int are in unnamed module of loader 'app')
+	at mojo.Semant$5Visitor.visit(Semant.java:712)
+	at mojo.Semant$5Visitor.visit(Semant.java:579)
+	at mojo.Absyn$Type$Array.accept(Absyn.java:213)
+	at mojo.Semant.Check(Semant.java:817)
+	at mojo.Semant$1Visitor.visit(Semant.java:251)
+	at mojo.Semant$1Visitor.visit(Semant.java:66)
+	at mojo.Absyn$Value$Tipe.accept(Absyn.java:688)
+	at mojo.Semant.Check(Semant.java:260)
+	at mojo.Semant.Check(Semant.java:2956)
+	at mojo.Semant$1Visitor.visit(Semant.java:234)
+	at mojo.Semant$1Visitor.visit(Semant.java:66)
+	at mojo.Absyn$Value$Unit.accept(Absyn.java:639)
+	at mojo.Semant.Check(Semant.java:260)
+	at mojo.Semant.main(Semant.java:49)

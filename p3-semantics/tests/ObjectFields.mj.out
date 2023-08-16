@@ -1,0 +1,32 @@
+BEGIN _BUILTIN
+_BUILTIN.int=int
+_BUILTIN.bool=bool
+_BUILTIN.false:bool=false
+_BUILTIN.true:bool=true
+_BUILTIN.Null=^null
+_BUILTIN.nil:Null=0
+_BUILTIN.Refany=^null
+_BUILTIN.Address=^null
+_BUILTIN.Root=null
+object {
+}
+_BUILTIN.Text=^null
+_BUILTIN.First:(...)
+_BUILTIN.Last:(...)
+_BUILTIN.New:(...)
+_BUILTIN.Number:(...)
+BEGIN ObjectFields
+ObjectFields.A=Root
+object {
+0: x:int
+}
+ObjectFields.B=A
+object {
+4: x:int
+}
+ObjectFields.C=B
+object {
+8: x:int
+}
+END ObjectFields
+END _BUILTIN

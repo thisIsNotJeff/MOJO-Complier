@@ -1,0 +1,21 @@
+def putchar(x: int): int;
+
+type R = (x, y, z: int);
+
+def foo(): R {
+    var r: R;
+    r.x := 1;
+    r.y := 2;
+    r.z := 3;
+    return r;
+}
+
+{
+  var r := foo();
+  putchar('0' + r.x);
+  putchar('\n');
+  putchar('0' + r.y);
+  putchar('\n');
+  putchar('0' + r.z);
+  putchar('\n');
+}

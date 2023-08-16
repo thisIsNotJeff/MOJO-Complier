@@ -1,0 +1,7 @@
+ line 3, column 7: error: value is not a constant expression
+ line 43, column 19: error: undefined (Number)
+ line 44, column 7: error: undefined (putchar)
+ line 45, column 10: error: undefined (self)
+ line 46, column 9: error: undefined (putchar)
+ line 50, column 7: error: undefined (putchar)
+ line 52, column 5: error: undefined (putchar)

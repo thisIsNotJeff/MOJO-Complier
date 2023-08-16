@@ -1,0 +1,16 @@
+const bel = '\a';  /*  7 */
+const bs  = '\b';  /*  8 */
+const np  = '\f';  /* 12 */
+const nl  = '\n';  /* 10 */
+const cr  = '\r';  /* 13 */
+const ht  = '\t';  /*  9 */
+const vt  = '\v';  /* 11 */
+const backslash = '\\'; /* 92 */
+const quote = '\'';     /* 39 */
+const dquote = '\"';    /* 34 */
+const octal = '\177';
+const hex = '\xFF';
+const unicode1 = '\uFFFF';
+const unicode2 = '\UFFFFFFFF';
+
+const text = "\a\b\f\n\r\t\v\\\'\"\177\xFF\uFFFF\U0010FFFF";

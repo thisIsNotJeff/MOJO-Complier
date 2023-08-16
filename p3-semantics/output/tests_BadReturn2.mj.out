@@ -1,0 +1,25 @@
+BEGIN _BUILTIN
+_BUILTIN.int=int
+_BUILTIN.bool=bool
+_BUILTIN.false:bool=false
+_BUILTIN.true:bool=true
+_BUILTIN.Null=^null
+_BUILTIN.nil:Null=0
+_BUILTIN.Refany=^null
+_BUILTIN.Address=^null
+_BUILTIN.Root=null
+object {
+}
+_BUILTIN.Text=^null
+_BUILTIN.First:(...)
+_BUILTIN.Last:(...)
+_BUILTIN.New:(...)
+_BUILTIN.Number:(...)
+BEGIN BadReturn2
+BadReturn2.foo:():int
+BEGIN BadReturn2.1
+END BadReturn2.1
+BEGIN BadReturn2.foo
+END BadReturn2.foo
+END BadReturn2
+END _BUILTIN

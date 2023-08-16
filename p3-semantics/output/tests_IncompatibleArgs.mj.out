@@ -1,0 +1,27 @@
+BEGIN _BUILTIN
+_BUILTIN.int=int
+_BUILTIN.bool=bool
+_BUILTIN.false:bool=false
+_BUILTIN.true:bool=true
+_BUILTIN.Null=^null
+_BUILTIN.nil:Null=0
+_BUILTIN.Refany=^null
+_BUILTIN.Address=^null
+_BUILTIN.Root=null
+object {
+}
+_BUILTIN.Text=^null
+_BUILTIN.First:(...)
+_BUILTIN.Last:(...)
+_BUILTIN.New:(...)
+_BUILTIN.Number:(...)
+BEGIN IncompatibleArgs
+IncompatibleArgs.foo:(VALUE i:int)
+BEGIN IncompatibleArgs.1
+VALUE i:int
+END IncompatibleArgs.1
+BEGIN IncompatibleArgs.foo
+IncompatibleArgs.foo.i:int
+END IncompatibleArgs.foo
+END IncompatibleArgs
+END _BUILTIN

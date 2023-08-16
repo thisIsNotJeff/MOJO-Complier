@@ -1,0 +1,49 @@
+	.data
+	.balign 8
+AssignRecord.a:
+	.quad 0
+	.quad 0
+	.text
+AssignRecord:
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -16, 8),
+ CONST 0),
+MOVE(
+ MEM(
+  TEMP %rbp, 
+  CONST -8, 8),
+ CONST 0),
+MOVE(
+ MEM(
+  NAME AssignRecord.a, 
+  CONST 0, 8),
+ CONST 1),
+MOVE(
+ MEM(
+  NAME AssignRecord.a, 
+  CONST 8, 8),
+ CONST 2),
+EXP(
+ CALL(
+  NAME memcpy,
+  CONST 0,
+  ADD(
+   TEMP %rbp,
+   CONST -16),
+  NAME AssignRecord.a,
+  CONST 16)),
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  ADD(
+   MEM(
+    TEMP %rbp, 
+    CONST -16, 8),
+   MEM(
+    TEMP %rbp, 
+    CONST -8, 8))))
+
+

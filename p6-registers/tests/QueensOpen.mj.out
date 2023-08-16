@@ -1,0 +1,9244 @@
+	.data
+	.balign 8
+QueensOpen.Queens:
+	.quad QueensOpen.Init
+	.quad QueensOpen.Solve
+PROCEDURE QueensOpen.Init
+# Before canonicalization (trees):
+MOVE(
+ MEM(
+  ESEQ(
+   MOVE(
+    TEMP t.0,
+    TEMP QueensOpen.Init.self),
+   BEQ(
+    TEMP t.0,
+    CONST 0,
+    L.1, L.2),
+   LABEL L.2,
+   TEMP t.0), 
+  CONST 0, 8),
+ ESEQ(
+  MOVE(
+   TEMP t.1,
+   CONST 8),
+  BLT(
+   TEMP t.1,
+   CONST 0,
+   L.3, L.4),
+  LABEL L.4,
+  MOVE(
+   TEMP t.2,
+   TEMP t.1),
+  MOVE(
+   TEMP t.3,
+   CONST 16),
+  MOVE(
+   TEMP t.3,
+   ADD(
+    TEMP t.3,
+    MUL(
+     TEMP t.2,
+     CONST 8))),
+  MOVE(
+   TEMP t.4,
+   CALL(
+    NAME malloc,
+    CONST 0,
+    TEMP t.3)),
+  MOVE(
+   MEM(
+    TEMP t.4, 
+    CONST 0, 8),
+   ADD(
+    TEMP t.4,
+    CONST 16)),
+  MOVE(
+   MEM(
+    TEMP t.4, 
+    CONST 8, 8),
+   TEMP t.1),
+  MOVE(
+   TEMP t.6,
+   MEM(
+    TEMP t.4, 
+    CONST 8, 8)),
+  MOVE(
+   TEMP t.7,
+   MEM(
+    TEMP t.4, 
+    CONST 0, 8)),
+  MOVE(
+   TEMP t.5,
+   CONST 0),
+  BGE(
+   TEMP t.5,
+   TEMP t.6,
+   L.7, L.5),
+  LABEL L.5,
+  MOVE(
+   MEM(
+    ADD(
+     TEMP t.7,
+     MUL(
+      TEMP t.5,
+      CONST 8)), 
+    CONST 0, 8),
+   CONST 0),
+  MOVE(
+   TEMP t.5,
+   ADD(
+    TEMP t.5,
+    CONST 1)),
+  LABEL L.6,
+  BLT(
+   TEMP t.5,
+   TEMP t.6,
+   L.5, L.7),
+  LABEL L.7,
+  TEMP t.4)),
+MOVE(
+ MEM(
+  ESEQ(
+   MOVE(
+    TEMP t.8,
+    TEMP QueensOpen.Init.self),
+   BEQ(
+    TEMP t.8,
+    CONST 0,
+    L.1, L.8),
+   LABEL L.8,
+   TEMP t.8), 
+  CONST 8, 8),
+ ESEQ(
+  MOVE(
+   TEMP t.9,
+   CONST 8),
+  BLT(
+   TEMP t.9,
+   CONST 0,
+   L.3, L.9),
+  LABEL L.9,
+  MOVE(
+   TEMP t.10,
+   TEMP t.9),
+  MOVE(
+   TEMP t.11,
+   CONST 16),
+  MOVE(
+   TEMP t.11,
+   ADD(
+    TEMP t.11,
+    MUL(
+     TEMP t.10,
+     CONST 8))),
+  MOVE(
+   TEMP t.12,
+   CALL(
+    NAME malloc,
+    CONST 0,
+    TEMP t.11)),
+  MOVE(
+   MEM(
+    TEMP t.12, 
+    CONST 0, 8),
+   ADD(
+    TEMP t.12,
+    CONST 16)),
+  MOVE(
+   MEM(
+    TEMP t.12, 
+    CONST 8, 8),
+   TEMP t.9),
+  MOVE(
+   TEMP t.14,
+   MEM(
+    TEMP t.12, 
+    CONST 8, 8)),
+  MOVE(
+   TEMP t.15,
+   MEM(
+    TEMP t.12, 
+    CONST 0, 8)),
+  MOVE(
+   TEMP t.13,
+   CONST 0),
+  BGE(
+   TEMP t.13,
+   TEMP t.14,
+   L.12, L.10),
+  LABEL L.10,
+  MOVE(
+   MEM(
+    ADD(
+     TEMP t.15,
+     MUL(
+      TEMP t.13,
+      CONST 8)), 
+    CONST 0, 8),
+   CONST 0),
+  MOVE(
+   TEMP t.13,
+   ADD(
+    TEMP t.13,
+    CONST 1)),
+  LABEL L.11,
+  BLT(
+   TEMP t.13,
+   TEMP t.14,
+   L.10, L.12),
+  LABEL L.12,
+  TEMP t.12)),
+MOVE(
+ MEM(
+  ESEQ(
+   MOVE(
+    TEMP t.16,
+    TEMP QueensOpen.Init.self),
+   BEQ(
+    TEMP t.16,
+    CONST 0,
+    L.1, L.13),
+   LABEL L.13,
+   TEMP t.16), 
+  CONST 16, 8),
+ ESEQ(
+  MOVE(
+   TEMP t.17,
+   SUB(
+    ADD(
+     CONST 8,
+     CONST 8),
+    CONST 1)),
+  BLT(
+   TEMP t.17,
+   CONST 0,
+   L.3, L.14),
+  LABEL L.14,
+  MOVE(
+   TEMP t.18,
+   TEMP t.17),
+  MOVE(
+   TEMP t.19,
+   CONST 16),
+  MOVE(
+   TEMP t.19,
+   ADD(
+    TEMP t.19,
+    MUL(
+     TEMP t.18,
+     CONST 8))),
+  MOVE(
+   TEMP t.20,
+   CALL(
+    NAME malloc,
+    CONST 0,
+    TEMP t.19)),
+  MOVE(
+   MEM(
+    TEMP t.20, 
+    CONST 0, 8),
+   ADD(
+    TEMP t.20,
+    CONST 16)),
+  MOVE(
+   MEM(
+    TEMP t.20, 
+    CONST 8, 8),
+   TEMP t.17),
+  MOVE(
+   TEMP t.22,
+   MEM(
+    TEMP t.20, 
+    CONST 8, 8)),
+  MOVE(
+   TEMP t.23,
+   MEM(
+    TEMP t.20, 
+    CONST 0, 8)),
+  MOVE(
+   TEMP t.21,
+   CONST 0),
+  BGE(
+   TEMP t.21,
+   TEMP t.22,
+   L.17, L.15),
+  LABEL L.15,
+  MOVE(
+   MEM(
+    ADD(
+     TEMP t.23,
+     MUL(
+      TEMP t.21,
+      CONST 8)), 
+    CONST 0, 8),
+   CONST 0),
+  MOVE(
+   TEMP t.21,
+   ADD(
+    TEMP t.21,
+    CONST 1)),
+  LABEL L.16,
+  BLT(
+   TEMP t.21,
+   TEMP t.22,
+   L.15, L.17),
+  LABEL L.17,
+  TEMP t.20)),
+MOVE(
+ MEM(
+  ESEQ(
+   MOVE(
+    TEMP t.24,
+    TEMP QueensOpen.Init.self),
+   BEQ(
+    TEMP t.24,
+    CONST 0,
+    L.1, L.18),
+   LABEL L.18,
+   TEMP t.24), 
+  CONST 24, 8),
+ ESEQ(
+  MOVE(
+   TEMP t.25,
+   SUB(
+    ADD(
+     CONST 8,
+     CONST 8),
+    CONST 1)),
+  BLT(
+   TEMP t.25,
+   CONST 0,
+   L.3, L.19),
+  LABEL L.19,
+  MOVE(
+   TEMP t.26,
+   TEMP t.25),
+  MOVE(
+   TEMP t.27,
+   CONST 16),
+  MOVE(
+   TEMP t.27,
+   ADD(
+    TEMP t.27,
+    MUL(
+     TEMP t.26,
+     CONST 8))),
+  MOVE(
+   TEMP t.28,
+   CALL(
+    NAME malloc,
+    CONST 0,
+    TEMP t.27)),
+  MOVE(
+   MEM(
+    TEMP t.28, 
+    CONST 0, 8),
+   ADD(
+    TEMP t.28,
+    CONST 16)),
+  MOVE(
+   MEM(
+    TEMP t.28, 
+    CONST 8, 8),
+   TEMP t.25),
+  MOVE(
+   TEMP t.30,
+   MEM(
+    TEMP t.28, 
+    CONST 8, 8)),
+  MOVE(
+   TEMP t.31,
+   MEM(
+    TEMP t.28, 
+    CONST 0, 8)),
+  MOVE(
+   TEMP t.29,
+   CONST 0),
+  BGE(
+   TEMP t.29,
+   TEMP t.30,
+   L.22, L.20),
+  LABEL L.20,
+  MOVE(
+   MEM(
+    ADD(
+     TEMP t.31,
+     MUL(
+      TEMP t.29,
+      CONST 8)), 
+    CONST 0, 8),
+   CONST 0),
+  MOVE(
+   TEMP t.29,
+   ADD(
+    TEMP t.29,
+    CONST 1)),
+  LABEL L.21,
+  BLT(
+   TEMP t.29,
+   TEMP t.30,
+   L.20, L.22),
+  LABEL L.22,
+  TEMP t.28)),
+MOVE(
+ TEMP %rax,
+ TEMP QueensOpen.Init.self),
+JUMP(
+ NAME L.0),
+LABEL L.0
+# After canonicalization (trees):
+MOVE(
+ TEMP t.0,
+ TEMP QueensOpen.Init.self)
+BEQ(
+ TEMP t.0,
+ CONST 0,
+ L.1, L.2)
+LABEL L.2
+MOVE(
+ TEMP t.1,
+ CONST 8)
+BLT(
+ TEMP t.1,
+ CONST 0,
+ L.3, L.4)
+LABEL L.4
+MOVE(
+ TEMP t.2,
+ TEMP t.1)
+MOVE(
+ TEMP t.3,
+ CONST 16)
+MOVE(
+ TEMP t.3,
+ ADD(
+  TEMP t.3,
+  MUL(
+   TEMP t.2,
+   CONST 8)))
+MOVE(
+ TEMP t.4,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  TEMP t.3))
+MOVE(
+ MEM(
+  TEMP t.4, 
+  CONST 0, 8),
+ ADD(
+  TEMP t.4,
+  CONST 16))
+MOVE(
+ MEM(
+  TEMP t.4, 
+  CONST 8, 8),
+ TEMP t.1)
+MOVE(
+ TEMP t.6,
+ MEM(
+  TEMP t.4, 
+  CONST 8, 8))
+MOVE(
+ TEMP t.7,
+ MEM(
+  TEMP t.4, 
+  CONST 0, 8))
+MOVE(
+ TEMP t.5,
+ CONST 0)
+BGE(
+ TEMP t.5,
+ TEMP t.6,
+ L.7, L.5)
+LABEL L.5
+MOVE(
+ MEM(
+  ADD(
+   TEMP t.7,
+   MUL(
+    TEMP t.5,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.5,
+ ADD(
+  TEMP t.5,
+  CONST 1))
+LABEL L.6
+BLT(
+ TEMP t.5,
+ TEMP t.6,
+ L.5, L.7)
+LABEL L.7
+MOVE(
+ MEM(
+  TEMP t.0, 
+  CONST 0, 8),
+ TEMP t.4)
+MOVE(
+ TEMP t.8,
+ TEMP QueensOpen.Init.self)
+BEQ(
+ TEMP t.8,
+ CONST 0,
+ L.1, L.8)
+LABEL L.8
+MOVE(
+ TEMP t.9,
+ CONST 8)
+BLT(
+ TEMP t.9,
+ CONST 0,
+ L.3, L.9)
+LABEL L.9
+MOVE(
+ TEMP t.10,
+ TEMP t.9)
+MOVE(
+ TEMP t.11,
+ CONST 16)
+MOVE(
+ TEMP t.11,
+ ADD(
+  TEMP t.11,
+  MUL(
+   TEMP t.10,
+   CONST 8)))
+MOVE(
+ TEMP t.12,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  TEMP t.11))
+MOVE(
+ MEM(
+  TEMP t.12, 
+  CONST 0, 8),
+ ADD(
+  TEMP t.12,
+  CONST 16))
+MOVE(
+ MEM(
+  TEMP t.12, 
+  CONST 8, 8),
+ TEMP t.9)
+MOVE(
+ TEMP t.14,
+ MEM(
+  TEMP t.12, 
+  CONST 8, 8))
+MOVE(
+ TEMP t.15,
+ MEM(
+  TEMP t.12, 
+  CONST 0, 8))
+MOVE(
+ TEMP t.13,
+ CONST 0)
+BGE(
+ TEMP t.13,
+ TEMP t.14,
+ L.12, L.10)
+LABEL L.10
+MOVE(
+ MEM(
+  ADD(
+   TEMP t.15,
+   MUL(
+    TEMP t.13,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.13,
+ ADD(
+  TEMP t.13,
+  CONST 1))
+LABEL L.11
+BLT(
+ TEMP t.13,
+ TEMP t.14,
+ L.10, L.12)
+LABEL L.12
+MOVE(
+ MEM(
+  TEMP t.8, 
+  CONST 8, 8),
+ TEMP t.12)
+MOVE(
+ TEMP t.16,
+ TEMP QueensOpen.Init.self)
+BEQ(
+ TEMP t.16,
+ CONST 0,
+ L.1, L.13)
+LABEL L.13
+MOVE(
+ TEMP t.17,
+ SUB(
+  ADD(
+   CONST 8,
+   CONST 8),
+  CONST 1))
+BLT(
+ TEMP t.17,
+ CONST 0,
+ L.3, L.14)
+LABEL L.14
+MOVE(
+ TEMP t.18,
+ TEMP t.17)
+MOVE(
+ TEMP t.19,
+ CONST 16)
+MOVE(
+ TEMP t.19,
+ ADD(
+  TEMP t.19,
+  MUL(
+   TEMP t.18,
+   CONST 8)))
+MOVE(
+ TEMP t.20,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  TEMP t.19))
+MOVE(
+ MEM(
+  TEMP t.20, 
+  CONST 0, 8),
+ ADD(
+  TEMP t.20,
+  CONST 16))
+MOVE(
+ MEM(
+  TEMP t.20, 
+  CONST 8, 8),
+ TEMP t.17)
+MOVE(
+ TEMP t.22,
+ MEM(
+  TEMP t.20, 
+  CONST 8, 8))
+MOVE(
+ TEMP t.23,
+ MEM(
+  TEMP t.20, 
+  CONST 0, 8))
+MOVE(
+ TEMP t.21,
+ CONST 0)
+BGE(
+ TEMP t.21,
+ TEMP t.22,
+ L.17, L.15)
+LABEL L.15
+MOVE(
+ MEM(
+  ADD(
+   TEMP t.23,
+   MUL(
+    TEMP t.21,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.21,
+ ADD(
+  TEMP t.21,
+  CONST 1))
+LABEL L.16
+BLT(
+ TEMP t.21,
+ TEMP t.22,
+ L.15, L.17)
+LABEL L.17
+MOVE(
+ MEM(
+  TEMP t.16, 
+  CONST 16, 8),
+ TEMP t.20)
+MOVE(
+ TEMP t.24,
+ TEMP QueensOpen.Init.self)
+BEQ(
+ TEMP t.24,
+ CONST 0,
+ L.1, L.18)
+LABEL L.18
+MOVE(
+ TEMP t.25,
+ SUB(
+  ADD(
+   CONST 8,
+   CONST 8),
+  CONST 1))
+BLT(
+ TEMP t.25,
+ CONST 0,
+ L.3, L.19)
+LABEL L.19
+MOVE(
+ TEMP t.26,
+ TEMP t.25)
+MOVE(
+ TEMP t.27,
+ CONST 16)
+MOVE(
+ TEMP t.27,
+ ADD(
+  TEMP t.27,
+  MUL(
+   TEMP t.26,
+   CONST 8)))
+MOVE(
+ TEMP t.28,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  TEMP t.27))
+MOVE(
+ MEM(
+  TEMP t.28, 
+  CONST 0, 8),
+ ADD(
+  TEMP t.28,
+  CONST 16))
+MOVE(
+ MEM(
+  TEMP t.28, 
+  CONST 8, 8),
+ TEMP t.25)
+MOVE(
+ TEMP t.30,
+ MEM(
+  TEMP t.28, 
+  CONST 8, 8))
+MOVE(
+ TEMP t.31,
+ MEM(
+  TEMP t.28, 
+  CONST 0, 8))
+MOVE(
+ TEMP t.29,
+ CONST 0)
+BGE(
+ TEMP t.29,
+ TEMP t.30,
+ L.22, L.20)
+LABEL L.20
+MOVE(
+ MEM(
+  ADD(
+   TEMP t.31,
+   MUL(
+    TEMP t.29,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.29,
+ ADD(
+  TEMP t.29,
+  CONST 1))
+LABEL L.21
+BLT(
+ TEMP t.29,
+ TEMP t.30,
+ L.20, L.22)
+LABEL L.22
+MOVE(
+ MEM(
+  TEMP t.24, 
+  CONST 24, 8),
+ TEMP t.28)
+MOVE(
+ TEMP %rax,
+ TEMP QueensOpen.Init.self)
+JUMP(
+ NAME L.0)
+LABEL L.0
+# Basic Blocks:
+LABEL L.103
+MOVE(
+ TEMP t.0,
+ TEMP QueensOpen.Init.self)
+BEQ(
+ TEMP t.0,
+ CONST 0,
+ L.1, L.2)
+LABEL L.2
+MOVE(
+ TEMP t.1,
+ CONST 8)
+BLT(
+ TEMP t.1,
+ CONST 0,
+ L.3, L.4)
+LABEL L.4
+MOVE(
+ TEMP t.2,
+ TEMP t.1)
+MOVE(
+ TEMP t.3,
+ CONST 16)
+MOVE(
+ TEMP t.3,
+ ADD(
+  TEMP t.3,
+  MUL(
+   TEMP t.2,
+   CONST 8)))
+MOVE(
+ TEMP t.4,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  TEMP t.3))
+MOVE(
+ MEM(
+  TEMP t.4, 
+  CONST 0, 8),
+ ADD(
+  TEMP t.4,
+  CONST 16))
+MOVE(
+ MEM(
+  TEMP t.4, 
+  CONST 8, 8),
+ TEMP t.1)
+MOVE(
+ TEMP t.6,
+ MEM(
+  TEMP t.4, 
+  CONST 8, 8))
+MOVE(
+ TEMP t.7,
+ MEM(
+  TEMP t.4, 
+  CONST 0, 8))
+MOVE(
+ TEMP t.5,
+ CONST 0)
+BGE(
+ TEMP t.5,
+ TEMP t.6,
+ L.7, L.5)
+LABEL L.5
+MOVE(
+ MEM(
+  ADD(
+   TEMP t.7,
+   MUL(
+    TEMP t.5,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.5,
+ ADD(
+  TEMP t.5,
+  CONST 1))
+JUMP(
+ NAME L.6)
+LABEL L.6
+BLT(
+ TEMP t.5,
+ TEMP t.6,
+ L.5, L.7)
+LABEL L.7
+MOVE(
+ MEM(
+  TEMP t.0, 
+  CONST 0, 8),
+ TEMP t.4)
+MOVE(
+ TEMP t.8,
+ TEMP QueensOpen.Init.self)
+BEQ(
+ TEMP t.8,
+ CONST 0,
+ L.1, L.8)
+LABEL L.8
+MOVE(
+ TEMP t.9,
+ CONST 8)
+BLT(
+ TEMP t.9,
+ CONST 0,
+ L.3, L.9)
+LABEL L.9
+MOVE(
+ TEMP t.10,
+ TEMP t.9)
+MOVE(
+ TEMP t.11,
+ CONST 16)
+MOVE(
+ TEMP t.11,
+ ADD(
+  TEMP t.11,
+  MUL(
+   TEMP t.10,
+   CONST 8)))
+MOVE(
+ TEMP t.12,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  TEMP t.11))
+MOVE(
+ MEM(
+  TEMP t.12, 
+  CONST 0, 8),
+ ADD(
+  TEMP t.12,
+  CONST 16))
+MOVE(
+ MEM(
+  TEMP t.12, 
+  CONST 8, 8),
+ TEMP t.9)
+MOVE(
+ TEMP t.14,
+ MEM(
+  TEMP t.12, 
+  CONST 8, 8))
+MOVE(
+ TEMP t.15,
+ MEM(
+  TEMP t.12, 
+  CONST 0, 8))
+MOVE(
+ TEMP t.13,
+ CONST 0)
+BGE(
+ TEMP t.13,
+ TEMP t.14,
+ L.12, L.10)
+LABEL L.10
+MOVE(
+ MEM(
+  ADD(
+   TEMP t.15,
+   MUL(
+    TEMP t.13,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.13,
+ ADD(
+  TEMP t.13,
+  CONST 1))
+JUMP(
+ NAME L.11)
+LABEL L.11
+BLT(
+ TEMP t.13,
+ TEMP t.14,
+ L.10, L.12)
+LABEL L.12
+MOVE(
+ MEM(
+  TEMP t.8, 
+  CONST 8, 8),
+ TEMP t.12)
+MOVE(
+ TEMP t.16,
+ TEMP QueensOpen.Init.self)
+BEQ(
+ TEMP t.16,
+ CONST 0,
+ L.1, L.13)
+LABEL L.13
+MOVE(
+ TEMP t.17,
+ SUB(
+  ADD(
+   CONST 8,
+   CONST 8),
+  CONST 1))
+BLT(
+ TEMP t.17,
+ CONST 0,
+ L.3, L.14)
+LABEL L.14
+MOVE(
+ TEMP t.18,
+ TEMP t.17)
+MOVE(
+ TEMP t.19,
+ CONST 16)
+MOVE(
+ TEMP t.19,
+ ADD(
+  TEMP t.19,
+  MUL(
+   TEMP t.18,
+   CONST 8)))
+MOVE(
+ TEMP t.20,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  TEMP t.19))
+MOVE(
+ MEM(
+  TEMP t.20, 
+  CONST 0, 8),
+ ADD(
+  TEMP t.20,
+  CONST 16))
+MOVE(
+ MEM(
+  TEMP t.20, 
+  CONST 8, 8),
+ TEMP t.17)
+MOVE(
+ TEMP t.22,
+ MEM(
+  TEMP t.20, 
+  CONST 8, 8))
+MOVE(
+ TEMP t.23,
+ MEM(
+  TEMP t.20, 
+  CONST 0, 8))
+MOVE(
+ TEMP t.21,
+ CONST 0)
+BGE(
+ TEMP t.21,
+ TEMP t.22,
+ L.17, L.15)
+LABEL L.15
+MOVE(
+ MEM(
+  ADD(
+   TEMP t.23,
+   MUL(
+    TEMP t.21,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.21,
+ ADD(
+  TEMP t.21,
+  CONST 1))
+JUMP(
+ NAME L.16)
+LABEL L.16
+BLT(
+ TEMP t.21,
+ TEMP t.22,
+ L.15, L.17)
+LABEL L.17
+MOVE(
+ MEM(
+  TEMP t.16, 
+  CONST 16, 8),
+ TEMP t.20)
+MOVE(
+ TEMP t.24,
+ TEMP QueensOpen.Init.self)
+BEQ(
+ TEMP t.24,
+ CONST 0,
+ L.1, L.18)
+LABEL L.18
+MOVE(
+ TEMP t.25,
+ SUB(
+  ADD(
+   CONST 8,
+   CONST 8),
+  CONST 1))
+BLT(
+ TEMP t.25,
+ CONST 0,
+ L.3, L.19)
+LABEL L.19
+MOVE(
+ TEMP t.26,
+ TEMP t.25)
+MOVE(
+ TEMP t.27,
+ CONST 16)
+MOVE(
+ TEMP t.27,
+ ADD(
+  TEMP t.27,
+  MUL(
+   TEMP t.26,
+   CONST 8)))
+MOVE(
+ TEMP t.28,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  TEMP t.27))
+MOVE(
+ MEM(
+  TEMP t.28, 
+  CONST 0, 8),
+ ADD(
+  TEMP t.28,
+  CONST 16))
+MOVE(
+ MEM(
+  TEMP t.28, 
+  CONST 8, 8),
+ TEMP t.25)
+MOVE(
+ TEMP t.30,
+ MEM(
+  TEMP t.28, 
+  CONST 8, 8))
+MOVE(
+ TEMP t.31,
+ MEM(
+  TEMP t.28, 
+  CONST 0, 8))
+MOVE(
+ TEMP t.29,
+ CONST 0)
+BGE(
+ TEMP t.29,
+ TEMP t.30,
+ L.22, L.20)
+LABEL L.20
+MOVE(
+ MEM(
+  ADD(
+   TEMP t.31,
+   MUL(
+    TEMP t.29,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.29,
+ ADD(
+  TEMP t.29,
+  CONST 1))
+JUMP(
+ NAME L.21)
+LABEL L.21
+BLT(
+ TEMP t.29,
+ TEMP t.30,
+ L.20, L.22)
+LABEL L.22
+MOVE(
+ MEM(
+  TEMP t.24, 
+  CONST 24, 8),
+ TEMP t.28)
+MOVE(
+ TEMP %rax,
+ TEMP QueensOpen.Init.self)
+JUMP(
+ NAME L.0)
+LABEL L.0
+# Trace Scheduled:
+LABEL L.103
+MOVE(
+ TEMP t.0,
+ TEMP QueensOpen.Init.self)
+BEQ(
+ TEMP t.0,
+ CONST 0,
+ L.1, L.2)
+LABEL L.2
+MOVE(
+ TEMP t.1,
+ CONST 8)
+BLT(
+ TEMP t.1,
+ CONST 0,
+ L.3, L.4)
+LABEL L.4
+MOVE(
+ TEMP t.2,
+ TEMP t.1)
+MOVE(
+ TEMP t.3,
+ CONST 16)
+MOVE(
+ TEMP t.3,
+ ADD(
+  TEMP t.3,
+  MUL(
+   TEMP t.2,
+   CONST 8)))
+MOVE(
+ TEMP t.4,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  TEMP t.3))
+MOVE(
+ MEM(
+  TEMP t.4, 
+  CONST 0, 8),
+ ADD(
+  TEMP t.4,
+  CONST 16))
+MOVE(
+ MEM(
+  TEMP t.4, 
+  CONST 8, 8),
+ TEMP t.1)
+MOVE(
+ TEMP t.6,
+ MEM(
+  TEMP t.4, 
+  CONST 8, 8))
+MOVE(
+ TEMP t.7,
+ MEM(
+  TEMP t.4, 
+  CONST 0, 8))
+MOVE(
+ TEMP t.5,
+ CONST 0)
+BGE(
+ TEMP t.5,
+ TEMP t.6,
+ L.7, L.5)
+LABEL L.5
+MOVE(
+ MEM(
+  ADD(
+   TEMP t.7,
+   MUL(
+    TEMP t.5,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.5,
+ ADD(
+  TEMP t.5,
+  CONST 1))
+LABEL L.6
+BLT(
+ TEMP t.5,
+ TEMP t.6,
+ L.5, L.7)
+LABEL L.7
+MOVE(
+ MEM(
+  TEMP t.0, 
+  CONST 0, 8),
+ TEMP t.4)
+MOVE(
+ TEMP t.8,
+ TEMP QueensOpen.Init.self)
+BEQ(
+ TEMP t.8,
+ CONST 0,
+ L.1, L.8)
+LABEL L.8
+MOVE(
+ TEMP t.9,
+ CONST 8)
+BLT(
+ TEMP t.9,
+ CONST 0,
+ L.3, L.9)
+LABEL L.9
+MOVE(
+ TEMP t.10,
+ TEMP t.9)
+MOVE(
+ TEMP t.11,
+ CONST 16)
+MOVE(
+ TEMP t.11,
+ ADD(
+  TEMP t.11,
+  MUL(
+   TEMP t.10,
+   CONST 8)))
+MOVE(
+ TEMP t.12,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  TEMP t.11))
+MOVE(
+ MEM(
+  TEMP t.12, 
+  CONST 0, 8),
+ ADD(
+  TEMP t.12,
+  CONST 16))
+MOVE(
+ MEM(
+  TEMP t.12, 
+  CONST 8, 8),
+ TEMP t.9)
+MOVE(
+ TEMP t.14,
+ MEM(
+  TEMP t.12, 
+  CONST 8, 8))
+MOVE(
+ TEMP t.15,
+ MEM(
+  TEMP t.12, 
+  CONST 0, 8))
+MOVE(
+ TEMP t.13,
+ CONST 0)
+BGE(
+ TEMP t.13,
+ TEMP t.14,
+ L.12, L.10)
+LABEL L.10
+MOVE(
+ MEM(
+  ADD(
+   TEMP t.15,
+   MUL(
+    TEMP t.13,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.13,
+ ADD(
+  TEMP t.13,
+  CONST 1))
+LABEL L.11
+BLT(
+ TEMP t.13,
+ TEMP t.14,
+ L.10, L.12)
+LABEL L.12
+MOVE(
+ MEM(
+  TEMP t.8, 
+  CONST 8, 8),
+ TEMP t.12)
+MOVE(
+ TEMP t.16,
+ TEMP QueensOpen.Init.self)
+BEQ(
+ TEMP t.16,
+ CONST 0,
+ L.1, L.13)
+LABEL L.13
+MOVE(
+ TEMP t.17,
+ SUB(
+  ADD(
+   CONST 8,
+   CONST 8),
+  CONST 1))
+BLT(
+ TEMP t.17,
+ CONST 0,
+ L.3, L.14)
+LABEL L.14
+MOVE(
+ TEMP t.18,
+ TEMP t.17)
+MOVE(
+ TEMP t.19,
+ CONST 16)
+MOVE(
+ TEMP t.19,
+ ADD(
+  TEMP t.19,
+  MUL(
+   TEMP t.18,
+   CONST 8)))
+MOVE(
+ TEMP t.20,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  TEMP t.19))
+MOVE(
+ MEM(
+  TEMP t.20, 
+  CONST 0, 8),
+ ADD(
+  TEMP t.20,
+  CONST 16))
+MOVE(
+ MEM(
+  TEMP t.20, 
+  CONST 8, 8),
+ TEMP t.17)
+MOVE(
+ TEMP t.22,
+ MEM(
+  TEMP t.20, 
+  CONST 8, 8))
+MOVE(
+ TEMP t.23,
+ MEM(
+  TEMP t.20, 
+  CONST 0, 8))
+MOVE(
+ TEMP t.21,
+ CONST 0)
+BGE(
+ TEMP t.21,
+ TEMP t.22,
+ L.17, L.15)
+LABEL L.15
+MOVE(
+ MEM(
+  ADD(
+   TEMP t.23,
+   MUL(
+    TEMP t.21,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.21,
+ ADD(
+  TEMP t.21,
+  CONST 1))
+LABEL L.16
+BLT(
+ TEMP t.21,
+ TEMP t.22,
+ L.15, L.17)
+LABEL L.17
+MOVE(
+ MEM(
+  TEMP t.16, 
+  CONST 16, 8),
+ TEMP t.20)
+MOVE(
+ TEMP t.24,
+ TEMP QueensOpen.Init.self)
+BEQ(
+ TEMP t.24,
+ CONST 0,
+ L.1, L.18)
+LABEL L.18
+MOVE(
+ TEMP t.25,
+ SUB(
+  ADD(
+   CONST 8,
+   CONST 8),
+  CONST 1))
+BLT(
+ TEMP t.25,
+ CONST 0,
+ L.3, L.19)
+LABEL L.19
+MOVE(
+ TEMP t.26,
+ TEMP t.25)
+MOVE(
+ TEMP t.27,
+ CONST 16)
+MOVE(
+ TEMP t.27,
+ ADD(
+  TEMP t.27,
+  MUL(
+   TEMP t.26,
+   CONST 8)))
+MOVE(
+ TEMP t.28,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  TEMP t.27))
+MOVE(
+ MEM(
+  TEMP t.28, 
+  CONST 0, 8),
+ ADD(
+  TEMP t.28,
+  CONST 16))
+MOVE(
+ MEM(
+  TEMP t.28, 
+  CONST 8, 8),
+ TEMP t.25)
+MOVE(
+ TEMP t.30,
+ MEM(
+  TEMP t.28, 
+  CONST 8, 8))
+MOVE(
+ TEMP t.31,
+ MEM(
+  TEMP t.28, 
+  CONST 0, 8))
+MOVE(
+ TEMP t.29,
+ CONST 0)
+BGE(
+ TEMP t.29,
+ TEMP t.30,
+ L.22, L.20)
+LABEL L.20
+MOVE(
+ MEM(
+  ADD(
+   TEMP t.31,
+   MUL(
+    TEMP t.29,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.29,
+ ADD(
+  TEMP t.29,
+  CONST 1))
+LABEL L.21
+BLT(
+ TEMP t.29,
+ TEMP t.30,
+ L.20, L.22)
+LABEL L.22
+MOVE(
+ MEM(
+  TEMP t.24, 
+  CONST 24, 8),
+ TEMP t.28)
+MOVE(
+ TEMP %rax,
+ TEMP QueensOpen.Init.self)
+LABEL L.0
+# With procedure entry/exit:
+MOVE(
+ TEMP QueensOpen.Init.self,
+ TEMP %rdi)
+LABEL L.103
+MOVE(
+ TEMP t.0,
+ TEMP QueensOpen.Init.self)
+BEQ(
+ TEMP t.0,
+ CONST 0,
+ L.1, L.2)
+LABEL L.2
+MOVE(
+ TEMP t.1,
+ CONST 8)
+BLT(
+ TEMP t.1,
+ CONST 0,
+ L.3, L.4)
+LABEL L.4
+MOVE(
+ TEMP t.2,
+ TEMP t.1)
+MOVE(
+ TEMP t.3,
+ CONST 16)
+MOVE(
+ TEMP t.3,
+ ADD(
+  TEMP t.3,
+  MUL(
+   TEMP t.2,
+   CONST 8)))
+MOVE(
+ TEMP t.4,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  TEMP t.3))
+MOVE(
+ MEM(
+  TEMP t.4, 
+  CONST 0, 8),
+ ADD(
+  TEMP t.4,
+  CONST 16))
+MOVE(
+ MEM(
+  TEMP t.4, 
+  CONST 8, 8),
+ TEMP t.1)
+MOVE(
+ TEMP t.6,
+ MEM(
+  TEMP t.4, 
+  CONST 8, 8))
+MOVE(
+ TEMP t.7,
+ MEM(
+  TEMP t.4, 
+  CONST 0, 8))
+MOVE(
+ TEMP t.5,
+ CONST 0)
+BGE(
+ TEMP t.5,
+ TEMP t.6,
+ L.7, L.5)
+LABEL L.5
+MOVE(
+ MEM(
+  ADD(
+   TEMP t.7,
+   MUL(
+    TEMP t.5,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.5,
+ ADD(
+  TEMP t.5,
+  CONST 1))
+LABEL L.6
+BLT(
+ TEMP t.5,
+ TEMP t.6,
+ L.5, L.7)
+LABEL L.7
+MOVE(
+ MEM(
+  TEMP t.0, 
+  CONST 0, 8),
+ TEMP t.4)
+MOVE(
+ TEMP t.8,
+ TEMP QueensOpen.Init.self)
+BEQ(
+ TEMP t.8,
+ CONST 0,
+ L.1, L.8)
+LABEL L.8
+MOVE(
+ TEMP t.9,
+ CONST 8)
+BLT(
+ TEMP t.9,
+ CONST 0,
+ L.3, L.9)
+LABEL L.9
+MOVE(
+ TEMP t.10,
+ TEMP t.9)
+MOVE(
+ TEMP t.11,
+ CONST 16)
+MOVE(
+ TEMP t.11,
+ ADD(
+  TEMP t.11,
+  MUL(
+   TEMP t.10,
+   CONST 8)))
+MOVE(
+ TEMP t.12,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  TEMP t.11))
+MOVE(
+ MEM(
+  TEMP t.12, 
+  CONST 0, 8),
+ ADD(
+  TEMP t.12,
+  CONST 16))
+MOVE(
+ MEM(
+  TEMP t.12, 
+  CONST 8, 8),
+ TEMP t.9)
+MOVE(
+ TEMP t.14,
+ MEM(
+  TEMP t.12, 
+  CONST 8, 8))
+MOVE(
+ TEMP t.15,
+ MEM(
+  TEMP t.12, 
+  CONST 0, 8))
+MOVE(
+ TEMP t.13,
+ CONST 0)
+BGE(
+ TEMP t.13,
+ TEMP t.14,
+ L.12, L.10)
+LABEL L.10
+MOVE(
+ MEM(
+  ADD(
+   TEMP t.15,
+   MUL(
+    TEMP t.13,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.13,
+ ADD(
+  TEMP t.13,
+  CONST 1))
+LABEL L.11
+BLT(
+ TEMP t.13,
+ TEMP t.14,
+ L.10, L.12)
+LABEL L.12
+MOVE(
+ MEM(
+  TEMP t.8, 
+  CONST 8, 8),
+ TEMP t.12)
+MOVE(
+ TEMP t.16,
+ TEMP QueensOpen.Init.self)
+BEQ(
+ TEMP t.16,
+ CONST 0,
+ L.1, L.13)
+LABEL L.13
+MOVE(
+ TEMP t.17,
+ SUB(
+  ADD(
+   CONST 8,
+   CONST 8),
+  CONST 1))
+BLT(
+ TEMP t.17,
+ CONST 0,
+ L.3, L.14)
+LABEL L.14
+MOVE(
+ TEMP t.18,
+ TEMP t.17)
+MOVE(
+ TEMP t.19,
+ CONST 16)
+MOVE(
+ TEMP t.19,
+ ADD(
+  TEMP t.19,
+  MUL(
+   TEMP t.18,
+   CONST 8)))
+MOVE(
+ TEMP t.20,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  TEMP t.19))
+MOVE(
+ MEM(
+  TEMP t.20, 
+  CONST 0, 8),
+ ADD(
+  TEMP t.20,
+  CONST 16))
+MOVE(
+ MEM(
+  TEMP t.20, 
+  CONST 8, 8),
+ TEMP t.17)
+MOVE(
+ TEMP t.22,
+ MEM(
+  TEMP t.20, 
+  CONST 8, 8))
+MOVE(
+ TEMP t.23,
+ MEM(
+  TEMP t.20, 
+  CONST 0, 8))
+MOVE(
+ TEMP t.21,
+ CONST 0)
+BGE(
+ TEMP t.21,
+ TEMP t.22,
+ L.17, L.15)
+LABEL L.15
+MOVE(
+ MEM(
+  ADD(
+   TEMP t.23,
+   MUL(
+    TEMP t.21,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.21,
+ ADD(
+  TEMP t.21,
+  CONST 1))
+LABEL L.16
+BLT(
+ TEMP t.21,
+ TEMP t.22,
+ L.15, L.17)
+LABEL L.17
+MOVE(
+ MEM(
+  TEMP t.16, 
+  CONST 16, 8),
+ TEMP t.20)
+MOVE(
+ TEMP t.24,
+ TEMP QueensOpen.Init.self)
+BEQ(
+ TEMP t.24,
+ CONST 0,
+ L.1, L.18)
+LABEL L.18
+MOVE(
+ TEMP t.25,
+ SUB(
+  ADD(
+   CONST 8,
+   CONST 8),
+  CONST 1))
+BLT(
+ TEMP t.25,
+ CONST 0,
+ L.3, L.19)
+LABEL L.19
+MOVE(
+ TEMP t.26,
+ TEMP t.25)
+MOVE(
+ TEMP t.27,
+ CONST 16)
+MOVE(
+ TEMP t.27,
+ ADD(
+  TEMP t.27,
+  MUL(
+   TEMP t.26,
+   CONST 8)))
+MOVE(
+ TEMP t.28,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  TEMP t.27))
+MOVE(
+ MEM(
+  TEMP t.28, 
+  CONST 0, 8),
+ ADD(
+  TEMP t.28,
+  CONST 16))
+MOVE(
+ MEM(
+  TEMP t.28, 
+  CONST 8, 8),
+ TEMP t.25)
+MOVE(
+ TEMP t.30,
+ MEM(
+  TEMP t.28, 
+  CONST 8, 8))
+MOVE(
+ TEMP t.31,
+ MEM(
+  TEMP t.28, 
+  CONST 0, 8))
+MOVE(
+ TEMP t.29,
+ CONST 0)
+BGE(
+ TEMP t.29,
+ TEMP t.30,
+ L.22, L.20)
+LABEL L.20
+MOVE(
+ MEM(
+  ADD(
+   TEMP t.31,
+   MUL(
+    TEMP t.29,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.29,
+ ADD(
+  TEMP t.29,
+  CONST 1))
+LABEL L.21
+BLT(
+ TEMP t.29,
+ TEMP t.30,
+ L.20, L.22)
+LABEL L.22
+MOVE(
+ MEM(
+  TEMP t.24, 
+  CONST 24, 8),
+ TEMP t.28)
+MOVE(
+ TEMP %rax,
+ TEMP QueensOpen.Init.self)
+LABEL L.0
+# Instructions:
+	movq %rdi,QueensOpen.Init.self	# QueensOpen.Init.self := %rdi 
+L.103:	# <- 
+	movq QueensOpen.Init.self,t.0	# t.0 := QueensOpen.Init.self 
+	xorq t.96,t.96	# t.96 <- 
+	cmpq t.96,t.0	# <- t.0 t.96 
+	je L.1	# <- : goto L.1 L.2 
+L.2:	# <- 
+	movq $8,t.1	# t.1 <- 
+	xorq t.97,t.97	# t.97 <- 
+	cmpq t.97,t.1	# <- t.1 t.97 
+	jl L.3	# <- : goto L.3 L.4 
+L.4:	# <- 
+	movq t.1,t.2	# t.2 := t.1 
+	movq $16,t.3	# t.3 <- 
+	movq t.3,t.98	# t.98 := t.3 
+	movq t.2,t.99	# t.99 := t.2 
+	shlq $3,t.99	# t.99 <- t.99 
+	addq t.99,t.98	# t.98 <- t.99 t.98 
+	movq t.98,t.3	# t.3 := t.98 
+	movq t.3,%rdi	# %rdi := t.3 
+	call malloc	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	movq %rax,t.4	# t.4 := %rax 
+	movq t.4,t.100	# t.100 := t.4 
+	addq $16,t.100	# t.100 <- t.100 
+	movq t.100,0(t.4)	# <- t.100 t.4 
+	movq t.1,8(t.4)	# <- t.1 t.4 
+	movq 8(t.4),t.101	# t.101 <- t.4 
+	movq t.101,t.6	# t.6 := t.101 
+	movq 0(t.4),t.102	# t.102 <- t.4 
+	movq t.102,t.7	# t.7 := t.102 
+	xorq t.5,t.5	# t.5 <- 
+	cmpq t.6,t.5	# <- t.5 t.6 
+	jge L.7	# <- : goto L.7 L.5 
+L.5:	# <- 
+	movq t.7,t.103	# t.103 := t.7 
+	movq t.5,t.104	# t.104 := t.5 
+	shlq $3,t.104	# t.104 <- t.104 
+	addq t.104,t.103	# t.103 <- t.104 t.103 
+	movq $0,0(t.103)	# <- t.103 
+	movq t.5,t.105	# t.105 := t.5 
+	addq $1,t.105	# t.105 <- t.105 
+	movq t.105,t.5	# t.5 := t.105 
+L.6:	# <- 
+	cmpq t.6,t.5	# <- t.5 t.6 
+	jl L.5	# <- : goto L.5 L.7 
+L.7:	# <- 
+	movq t.4,0(t.0)	# <- t.4 t.0 
+	movq QueensOpen.Init.self,t.8	# t.8 := QueensOpen.Init.self 
+	xorq t.106,t.106	# t.106 <- 
+	cmpq t.106,t.8	# <- t.8 t.106 
+	je L.1	# <- : goto L.1 L.8 
+L.8:	# <- 
+	movq $8,t.9	# t.9 <- 
+	xorq t.107,t.107	# t.107 <- 
+	cmpq t.107,t.9	# <- t.9 t.107 
+	jl L.3	# <- : goto L.3 L.9 
+L.9:	# <- 
+	movq t.9,t.10	# t.10 := t.9 
+	movq $16,t.11	# t.11 <- 
+	movq t.11,t.108	# t.108 := t.11 
+	movq t.10,t.109	# t.109 := t.10 
+	shlq $3,t.109	# t.109 <- t.109 
+	addq t.109,t.108	# t.108 <- t.109 t.108 
+	movq t.108,t.11	# t.11 := t.108 
+	movq t.11,%rdi	# %rdi := t.11 
+	call malloc	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	movq %rax,t.12	# t.12 := %rax 
+	movq t.12,t.110	# t.110 := t.12 
+	addq $16,t.110	# t.110 <- t.110 
+	movq t.110,0(t.12)	# <- t.110 t.12 
+	movq t.9,8(t.12)	# <- t.9 t.12 
+	movq 8(t.12),t.111	# t.111 <- t.12 
+	movq t.111,t.14	# t.14 := t.111 
+	movq 0(t.12),t.112	# t.112 <- t.12 
+	movq t.112,t.15	# t.15 := t.112 
+	xorq t.13,t.13	# t.13 <- 
+	cmpq t.14,t.13	# <- t.13 t.14 
+	jge L.12	# <- : goto L.12 L.10 
+L.10:	# <- 
+	movq t.15,t.113	# t.113 := t.15 
+	movq t.13,t.114	# t.114 := t.13 
+	shlq $3,t.114	# t.114 <- t.114 
+	addq t.114,t.113	# t.113 <- t.114 t.113 
+	movq $0,0(t.113)	# <- t.113 
+	movq t.13,t.115	# t.115 := t.13 
+	addq $1,t.115	# t.115 <- t.115 
+	movq t.115,t.13	# t.13 := t.115 
+L.11:	# <- 
+	cmpq t.14,t.13	# <- t.13 t.14 
+	jl L.10	# <- : goto L.10 L.12 
+L.12:	# <- 
+	movq t.12,8(t.8)	# <- t.12 t.8 
+	movq QueensOpen.Init.self,t.16	# t.16 := QueensOpen.Init.self 
+	xorq t.116,t.116	# t.116 <- 
+	cmpq t.116,t.16	# <- t.16 t.116 
+	je L.1	# <- : goto L.1 L.13 
+L.13:	# <- 
+	movabsq $8,t.119	# t.119 <- 
+	movq t.119,t.118	# t.118 := t.119 
+	addq $8,t.118	# t.118 <- t.118 
+	movq t.118,t.117	# t.117 := t.118 
+	subq $1,t.117	# t.117 <- t.117 
+	movq t.117,t.17	# t.17 := t.117 
+	xorq t.120,t.120	# t.120 <- 
+	cmpq t.120,t.17	# <- t.17 t.120 
+	jl L.3	# <- : goto L.3 L.14 
+L.14:	# <- 
+	movq t.17,t.18	# t.18 := t.17 
+	movq $16,t.19	# t.19 <- 
+	movq t.19,t.121	# t.121 := t.19 
+	movq t.18,t.122	# t.122 := t.18 
+	shlq $3,t.122	# t.122 <- t.122 
+	addq t.122,t.121	# t.121 <- t.122 t.121 
+	movq t.121,t.19	# t.19 := t.121 
+	movq t.19,%rdi	# %rdi := t.19 
+	call malloc	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	movq %rax,t.20	# t.20 := %rax 
+	movq t.20,t.123	# t.123 := t.20 
+	addq $16,t.123	# t.123 <- t.123 
+	movq t.123,0(t.20)	# <- t.123 t.20 
+	movq t.17,8(t.20)	# <- t.17 t.20 
+	movq 8(t.20),t.124	# t.124 <- t.20 
+	movq t.124,t.22	# t.22 := t.124 
+	movq 0(t.20),t.125	# t.125 <- t.20 
+	movq t.125,t.23	# t.23 := t.125 
+	xorq t.21,t.21	# t.21 <- 
+	cmpq t.22,t.21	# <- t.21 t.22 
+	jge L.17	# <- : goto L.17 L.15 
+L.15:	# <- 
+	movq t.23,t.126	# t.126 := t.23 
+	movq t.21,t.127	# t.127 := t.21 
+	shlq $3,t.127	# t.127 <- t.127 
+	addq t.127,t.126	# t.126 <- t.127 t.126 
+	movq $0,0(t.126)	# <- t.126 
+	movq t.21,t.128	# t.128 := t.21 
+	addq $1,t.128	# t.128 <- t.128 
+	movq t.128,t.21	# t.21 := t.128 
+L.16:	# <- 
+	cmpq t.22,t.21	# <- t.21 t.22 
+	jl L.15	# <- : goto L.15 L.17 
+L.17:	# <- 
+	movq t.20,16(t.16)	# <- t.20 t.16 
+	movq QueensOpen.Init.self,t.24	# t.24 := QueensOpen.Init.self 
+	xorq t.129,t.129	# t.129 <- 
+	cmpq t.129,t.24	# <- t.24 t.129 
+	je L.1	# <- : goto L.1 L.18 
+L.18:	# <- 
+	movabsq $8,t.132	# t.132 <- 
+	movq t.132,t.131	# t.131 := t.132 
+	addq $8,t.131	# t.131 <- t.131 
+	movq t.131,t.130	# t.130 := t.131 
+	subq $1,t.130	# t.130 <- t.130 
+	movq t.130,t.25	# t.25 := t.130 
+	xorq t.133,t.133	# t.133 <- 
+	cmpq t.133,t.25	# <- t.25 t.133 
+	jl L.3	# <- : goto L.3 L.19 
+L.19:	# <- 
+	movq t.25,t.26	# t.26 := t.25 
+	movq $16,t.27	# t.27 <- 
+	movq t.27,t.134	# t.134 := t.27 
+	movq t.26,t.135	# t.135 := t.26 
+	shlq $3,t.135	# t.135 <- t.135 
+	addq t.135,t.134	# t.134 <- t.135 t.134 
+	movq t.134,t.27	# t.27 := t.134 
+	movq t.27,%rdi	# %rdi := t.27 
+	call malloc	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	movq %rax,t.28	# t.28 := %rax 
+	movq t.28,t.136	# t.136 := t.28 
+	addq $16,t.136	# t.136 <- t.136 
+	movq t.136,0(t.28)	# <- t.136 t.28 
+	movq t.25,8(t.28)	# <- t.25 t.28 
+	movq 8(t.28),t.137	# t.137 <- t.28 
+	movq t.137,t.30	# t.30 := t.137 
+	movq 0(t.28),t.138	# t.138 <- t.28 
+	movq t.138,t.31	# t.31 := t.138 
+	xorq t.29,t.29	# t.29 <- 
+	cmpq t.30,t.29	# <- t.29 t.30 
+	jge L.22	# <- : goto L.22 L.20 
+L.20:	# <- 
+	movq t.31,t.139	# t.139 := t.31 
+	movq t.29,t.140	# t.140 := t.29 
+	shlq $3,t.140	# t.140 <- t.140 
+	addq t.140,t.139	# t.139 <- t.140 t.139 
+	movq $0,0(t.139)	# <- t.139 
+	movq t.29,t.141	# t.141 := t.29 
+	addq $1,t.141	# t.141 <- t.141 
+	movq t.141,t.29	# t.29 := t.141 
+L.21:	# <- 
+	cmpq t.30,t.29	# <- t.29 t.30 
+	jl L.20	# <- : goto L.20 L.22 
+L.22:	# <- 
+	movq t.28,24(t.24)	# <- t.28 t.24 
+	movq QueensOpen.Init.self,%rax	# %rax := QueensOpen.Init.self 
+L.0:	# <- 
+# Control Flow Graph:
+0: QueensOpen.Init.self <- %rdi ; goto 1 
+1: t.0 t.96 <- QueensOpen.Init.self ; goto 2 
+2: t.1 t.97 <- ; goto 3 
+3: t.2 t.3 t.98 t.99 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.4 t.100 t.101 t.6 t.102 t.7 t.5 <- t.1 ; goto 6 4 
+4: t.103 t.104 t.105 t.5 <- t.7 t.5 ; goto 5 
+5: <- t.5 t.6 ; goto 4 6 
+6: t.8 t.106 <- t.4 t.0 QueensOpen.Init.self ; goto 7 
+7: t.9 t.107 <- ; goto 8 
+8: t.10 t.11 t.108 t.109 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.12 t.110 t.111 t.14 t.112 t.15 t.13 <- t.9 ; goto 11 9 
+9: t.113 t.114 t.115 t.13 <- t.15 t.13 ; goto 10 
+10: <- t.13 t.14 ; goto 9 11 
+11: t.16 t.116 <- t.12 t.8 QueensOpen.Init.self ; goto 12 
+12: t.119 t.118 t.117 t.17 t.120 <- ; goto 13 
+13: t.18 t.19 t.121 t.122 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.20 t.123 t.124 t.22 t.125 t.23 t.21 <- t.17 ; goto 16 14 
+14: t.126 t.127 t.128 t.21 <- t.23 t.21 ; goto 15 
+15: <- t.21 t.22 ; goto 14 16 
+16: t.24 t.129 <- t.20 t.16 QueensOpen.Init.self ; goto 17 
+17: t.132 t.131 t.130 t.25 t.133 <- ; goto 18 
+18: t.26 t.27 t.134 t.135 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.28 t.136 t.137 t.30 t.138 t.31 t.29 <- t.25 ; goto 21 19 
+19: t.139 t.140 t.141 t.29 <- t.31 t.29 ; goto 20 
+20: <- t.29 t.30 ; goto 19 21 
+21: %rax <- t.28 t.24 QueensOpen.Init.self ; goto 22 
+22: <- %rsp %rbp %rax ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+QueensOpen.Init.self: %rsp %rbp t.96 t.97 t.1 t.5 t.7 t.102 t.6 t.101 t.100 t.4 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.3 t.98 t.99 t.2 t.105 t.103 t.104 t.106 t.107 t.9 t.13 t.15 t.112 t.14 t.111 t.110 t.12 t.11 t.108 t.109 t.10 t.115 t.113 t.114 t.116 t.120 t.17 t.117 t.118 t.119 t.21 t.23 t.125 t.22 t.124 t.123 t.20 t.19 t.121 t.122 t.18 t.128 t.126 t.127 t.129 t.133 t.25 t.130 t.131 t.132 t.29 t.31 t.138 t.30 t.137 t.136 t.28 t.27 t.134 t.135 t.26 t.141 t.139 t.140 
+t.0: t.96 %rsp %rbp t.97 t.1 t.5 t.7 t.102 t.6 t.101 t.100 t.4 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.3 t.98 t.99 t.2 t.105 t.103 t.104 
+t.96: t.0 QueensOpen.Init.self %rsp %rbp 
+t.1: t.97 t.0 QueensOpen.Init.self %rsp %rbp t.100 t.4 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.3 t.98 t.99 
+t.97: t.1 t.0 QueensOpen.Init.self %rsp %rbp 
+t.2: t.98 t.3 t.0 QueensOpen.Init.self %rsp %rbp 
+t.3: t.0 QueensOpen.Init.self %rsp %rbp t.1 t.2 
+t.98: t.0 QueensOpen.Init.self %rsp %rbp t.1 t.99 t.2 
+t.99: t.0 QueensOpen.Init.self %rsp %rbp t.1 t.98 
+t.4: t.5 t.7 t.102 t.6 t.101 t.100 t.0 QueensOpen.Init.self %rsp %rbp t.1 t.105 t.103 t.104 
+t.100: t.4 t.0 QueensOpen.Init.self %rsp %rbp t.1 
+t.101: t.4 t.0 QueensOpen.Init.self %rsp %rbp 
+t.6: t.5 t.7 t.102 t.4 t.0 QueensOpen.Init.self %rsp %rbp t.105 t.103 t.104 
+t.102: t.4 t.0 QueensOpen.Init.self %rsp %rbp t.6 
+t.7: t.5 t.4 t.0 QueensOpen.Init.self %rsp %rbp t.6 t.105 t.103 t.104 
+t.5: t.4 t.0 QueensOpen.Init.self %rsp %rbp t.7 t.6 t.103 t.104 
+t.103: t.6 t.7 t.4 t.0 QueensOpen.Init.self %rsp %rbp t.5 t.104 
+t.104: t.6 t.7 t.4 t.0 QueensOpen.Init.self %rsp %rbp t.5 t.103 
+t.105: t.6 t.7 t.4 t.0 QueensOpen.Init.self %rsp %rbp 
+t.8: t.106 %rsp %rbp t.107 t.9 t.13 t.15 t.112 t.14 t.111 t.110 t.12 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.11 t.108 t.109 t.10 t.115 t.113 t.114 
+t.106: t.8 QueensOpen.Init.self %rsp %rbp 
+t.9: t.107 t.8 QueensOpen.Init.self %rsp %rbp t.110 t.12 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.11 t.108 t.109 
+t.107: t.9 t.8 QueensOpen.Init.self %rsp %rbp 
+t.10: t.108 t.11 t.8 QueensOpen.Init.self %rsp %rbp 
+t.11: t.8 QueensOpen.Init.self %rsp %rbp t.9 t.10 
+t.108: t.8 QueensOpen.Init.self %rsp %rbp t.9 t.109 t.10 
+t.109: t.8 QueensOpen.Init.self %rsp %rbp t.9 t.108 
+t.12: t.13 t.15 t.112 t.14 t.111 t.110 t.8 QueensOpen.Init.self %rsp %rbp t.9 t.115 t.113 t.114 
+t.110: t.12 t.8 QueensOpen.Init.self %rsp %rbp t.9 
+t.111: t.12 t.8 QueensOpen.Init.self %rsp %rbp 
+t.14: t.13 t.15 t.112 t.12 t.8 QueensOpen.Init.self %rsp %rbp t.115 t.113 t.114 
+t.112: t.12 t.8 QueensOpen.Init.self %rsp %rbp t.14 
+t.15: t.13 t.12 t.8 QueensOpen.Init.self %rsp %rbp t.14 t.115 t.113 t.114 
+t.13: t.12 t.8 QueensOpen.Init.self %rsp %rbp t.15 t.14 t.113 t.114 
+t.113: t.14 t.15 t.12 t.8 QueensOpen.Init.self %rsp %rbp t.13 t.114 
+t.114: t.14 t.15 t.12 t.8 QueensOpen.Init.self %rsp %rbp t.13 t.113 
+t.115: t.14 t.15 t.12 t.8 QueensOpen.Init.self %rsp %rbp 
+t.16: t.116 %rsp %rbp t.120 t.17 t.117 t.118 t.119 t.21 t.23 t.125 t.22 t.124 t.123 t.20 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.19 t.121 t.122 t.18 t.128 t.126 t.127 
+t.116: t.16 QueensOpen.Init.self %rsp %rbp 
+t.119: t.16 QueensOpen.Init.self %rsp %rbp 
+t.118: t.16 QueensOpen.Init.self %rsp %rbp 
+t.117: t.16 QueensOpen.Init.self %rsp %rbp 
+t.17: t.120 t.16 QueensOpen.Init.self %rsp %rbp t.123 t.20 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.19 t.121 t.122 
+t.120: t.17 t.16 QueensOpen.Init.self %rsp %rbp 
+t.18: t.121 t.19 t.16 QueensOpen.Init.self %rsp %rbp 
+t.19: t.16 QueensOpen.Init.self %rsp %rbp t.17 t.18 
+t.121: t.16 QueensOpen.Init.self %rsp %rbp t.17 t.122 t.18 
+t.122: t.16 QueensOpen.Init.self %rsp %rbp t.17 t.121 
+t.20: t.21 t.23 t.125 t.22 t.124 t.123 t.16 QueensOpen.Init.self %rsp %rbp t.17 t.128 t.126 t.127 
+t.123: t.20 t.16 QueensOpen.Init.self %rsp %rbp t.17 
+t.124: t.20 t.16 QueensOpen.Init.self %rsp %rbp 
+t.22: t.21 t.23 t.125 t.20 t.16 QueensOpen.Init.self %rsp %rbp t.128 t.126 t.127 
+t.125: t.20 t.16 QueensOpen.Init.self %rsp %rbp t.22 
+t.23: t.21 t.20 t.16 QueensOpen.Init.self %rsp %rbp t.22 t.128 t.126 t.127 
+t.21: t.20 t.16 QueensOpen.Init.self %rsp %rbp t.23 t.22 t.126 t.127 
+t.126: t.22 t.23 t.20 t.16 QueensOpen.Init.self %rsp %rbp t.21 t.127 
+t.127: t.22 t.23 t.20 t.16 QueensOpen.Init.self %rsp %rbp t.21 t.126 
+t.128: t.22 t.23 t.20 t.16 QueensOpen.Init.self %rsp %rbp 
+t.24: t.129 %rsp %rbp t.133 t.25 t.130 t.131 t.132 t.29 t.31 t.138 t.30 t.137 t.136 t.28 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.27 t.134 t.135 t.26 t.141 t.139 t.140 
+t.129: t.24 QueensOpen.Init.self %rsp %rbp 
+t.132: t.24 QueensOpen.Init.self %rsp %rbp 
+t.131: t.24 QueensOpen.Init.self %rsp %rbp 
+t.130: t.24 QueensOpen.Init.self %rsp %rbp 
+t.25: t.133 t.24 QueensOpen.Init.self %rsp %rbp t.136 t.28 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.27 t.134 t.135 
+t.133: t.25 t.24 QueensOpen.Init.self %rsp %rbp 
+t.26: t.134 t.27 t.24 QueensOpen.Init.self %rsp %rbp 
+t.27: t.24 QueensOpen.Init.self %rsp %rbp t.25 t.26 
+t.134: t.24 QueensOpen.Init.self %rsp %rbp t.25 t.135 t.26 
+t.135: t.24 QueensOpen.Init.self %rsp %rbp t.25 t.134 
+t.28: t.29 t.31 t.138 t.30 t.137 t.136 t.24 QueensOpen.Init.self %rsp %rbp t.25 t.141 t.139 t.140 
+t.136: t.28 t.24 QueensOpen.Init.self %rsp %rbp t.25 
+t.137: t.28 t.24 QueensOpen.Init.self %rsp %rbp 
+t.30: t.29 t.31 t.138 t.28 t.24 QueensOpen.Init.self %rsp %rbp t.141 t.139 t.140 
+t.138: t.28 t.24 QueensOpen.Init.self %rsp %rbp t.30 
+t.31: t.29 t.28 t.24 QueensOpen.Init.self %rsp %rbp t.30 t.141 t.139 t.140 
+t.29: t.28 t.24 QueensOpen.Init.self %rsp %rbp t.31 t.30 t.139 t.140 
+t.139: t.30 t.31 t.28 t.24 QueensOpen.Init.self %rsp %rbp t.29 t.140 
+t.140: t.30 t.31 t.28 t.24 QueensOpen.Init.self %rsp %rbp t.29 t.139 
+t.141: t.30 t.31 t.28 t.24 QueensOpen.Init.self %rsp %rbp 
+%rax <= QueensOpen.Init.self
+t.139 <= t.31
+t.140 <= t.29
+t.141 <= t.29
+t.29 <= t.141
+t.26 <= t.25
+t.134 <= t.27
+t.135 <= t.26
+t.27 <= t.134
+%rdi <= t.27
+t.28 <= %rax
+t.136 <= t.28
+t.30 <= t.137
+t.31 <= t.138
+t.131 <= t.132
+t.130 <= t.131
+t.25 <= t.130
+t.24 <= QueensOpen.Init.self
+t.126 <= t.23
+t.127 <= t.21
+t.128 <= t.21
+t.21 <= t.128
+t.18 <= t.17
+t.121 <= t.19
+t.122 <= t.18
+t.19 <= t.121
+%rdi <= t.19
+t.20 <= %rax
+t.123 <= t.20
+t.22 <= t.124
+t.23 <= t.125
+t.118 <= t.119
+t.117 <= t.118
+t.17 <= t.117
+t.16 <= QueensOpen.Init.self
+t.113 <= t.15
+t.114 <= t.13
+t.115 <= t.13
+t.13 <= t.115
+t.10 <= t.9
+t.108 <= t.11
+t.109 <= t.10
+t.11 <= t.108
+%rdi <= t.11
+t.12 <= %rax
+t.110 <= t.12
+t.14 <= t.111
+t.15 <= t.112
+t.8 <= QueensOpen.Init.self
+t.103 <= t.7
+t.104 <= t.5
+t.105 <= t.5
+t.5 <= t.105
+t.2 <= t.1
+t.98 <= t.3
+t.99 <= t.2
+t.3 <= t.98
+%rdi <= t.3
+t.4 <= %rax
+t.100 <= t.4
+t.6 <= t.101
+t.7 <= t.102
+t.0 <= QueensOpen.Init.self
+QueensOpen.Init.self <= %rdi
+# Register Allocation:
+%rax->%rax
+%rbx->%rbx
+%rcx->%rcx
+%rdx->%rdx
+%rsp->%rsp
+%rbp->%rbp
+%rsi->%rsi
+%rdi->%rdi
+%r8->%r8
+%r9->%r9
+%r10->%r10
+%r11->%r11
+%r12->%r12
+%r13->%r13
+%r14->%r14
+%r15->%r15
+QueensOpen.Init.self->%rbx
+t.0->%rbx
+t.96->%rax
+t.1->%r12
+t.97->%rax
+t.2->%r12
+t.3->%rdi
+t.98->%rdi
+t.99->%rax
+t.4->%rax
+t.100->%rcx
+t.101->%rdx
+t.6->%rdx
+t.102->%rcx
+t.7->%rcx
+t.5->%rsi
+t.103->%r8
+t.104->%rdi
+t.105->%rsi
+t.8->%rbx
+t.106->%rax
+t.9->%r12
+t.107->%rax
+t.10->%r12
+t.11->%rdi
+t.108->%rdi
+t.109->%rax
+t.12->%rax
+t.110->%rcx
+t.111->%rdx
+t.14->%rdx
+t.112->%rcx
+t.15->%rcx
+t.13->%rsi
+t.113->%r8
+t.114->%rdi
+t.115->%rsi
+t.16->%rbx
+t.116->%rax
+t.119->%r12
+t.118->%r12
+t.117->%r12
+t.17->%r12
+t.120->%rax
+t.18->%r12
+t.19->%rdi
+t.121->%rdi
+t.122->%rax
+t.20->%rax
+t.123->%rcx
+t.124->%rdx
+t.22->%rdx
+t.125->%rcx
+t.23->%rcx
+t.21->%rsi
+t.126->%r8
+t.127->%rdi
+t.128->%rsi
+t.24->%rbx
+t.129->%rax
+t.132->%r12
+t.131->%r12
+t.130->%r12
+t.25->%r12
+t.133->%rax
+t.26->%r12
+t.27->%rdi
+t.134->%rdi
+t.135->%rax
+t.28->%rax
+t.136->%rcx
+t.137->%rdx
+t.30->%rdx
+t.138->%rcx
+t.31->%rcx
+t.29->%rsi
+t.139->%r8
+t.140->%rdi
+t.141->%rsi
+# Assembly code:
+	.text
+QueensOpen.Init:
+	pushq %rbp
+	movq %rsp,%rbp
+	subq $16,%rsp
+	movq %r12, -16(%rbp)
+	movq %rbx, -8(%rbp)
+	movq %rdi,%rbx
+L.103:
+#	movq %rbx,%rbx
+	xorq %rax,%rax
+	cmpq %rax,%rbx
+	je L.1
+L.2:
+	movq $8,%r12
+	xorq %rax,%rax
+	cmpq %rax,%r12
+	jl L.3
+L.4:
+#	movq %r12,%r12
+	movq $16,%rdi
+#	movq %rdi,%rdi
+	movq %r12,%rax
+	shlq $3,%rax
+	addq %rax,%rdi
+#	movq %rdi,%rdi
+#	movq %rdi,%rdi
+	call malloc
+#	movq %rax,%rax
+	movq %rax,%rcx
+	addq $16,%rcx
+	movq %rcx,0(%rax)
+	movq %r12,8(%rax)
+	movq 8(%rax),%rdx
+#	movq %rdx,%rdx
+	movq 0(%rax),%rcx
+#	movq %rcx,%rcx
+	xorq %rsi,%rsi
+	cmpq %rdx,%rsi
+	jge L.7
+L.5:
+	movq %rcx,%r8
+	movq %rsi,%rdi
+	shlq $3,%rdi
+	addq %rdi,%r8
+	movq $0,0(%r8)
+#	movq %rsi,%rsi
+	addq $1,%rsi
+#	movq %rsi,%rsi
+L.6:
+	cmpq %rdx,%rsi
+	jl L.5
+L.7:
+	movq %rax,0(%rbx)
+#	movq %rbx,%rbx
+	xorq %rax,%rax
+	cmpq %rax,%rbx
+	je L.1
+L.8:
+	movq $8,%r12
+	xorq %rax,%rax
+	cmpq %rax,%r12
+	jl L.3
+L.9:
+#	movq %r12,%r12
+	movq $16,%rdi
+#	movq %rdi,%rdi
+	movq %r12,%rax
+	shlq $3,%rax
+	addq %rax,%rdi
+#	movq %rdi,%rdi
+#	movq %rdi,%rdi
+	call malloc
+#	movq %rax,%rax
+	movq %rax,%rcx
+	addq $16,%rcx
+	movq %rcx,0(%rax)
+	movq %r12,8(%rax)
+	movq 8(%rax),%rdx
+#	movq %rdx,%rdx
+	movq 0(%rax),%rcx
+#	movq %rcx,%rcx
+	xorq %rsi,%rsi
+	cmpq %rdx,%rsi
+	jge L.12
+L.10:
+	movq %rcx,%r8
+	movq %rsi,%rdi
+	shlq $3,%rdi
+	addq %rdi,%r8
+	movq $0,0(%r8)
+#	movq %rsi,%rsi
+	addq $1,%rsi
+#	movq %rsi,%rsi
+L.11:
+	cmpq %rdx,%rsi
+	jl L.10
+L.12:
+	movq %rax,8(%rbx)
+#	movq %rbx,%rbx
+	xorq %rax,%rax
+	cmpq %rax,%rbx
+	je L.1
+L.13:
+	movabsq $8,%r12
+#	movq %r12,%r12
+	addq $8,%r12
+#	movq %r12,%r12
+	subq $1,%r12
+#	movq %r12,%r12
+	xorq %rax,%rax
+	cmpq %rax,%r12
+	jl L.3
+L.14:
+#	movq %r12,%r12
+	movq $16,%rdi
+#	movq %rdi,%rdi
+	movq %r12,%rax
+	shlq $3,%rax
+	addq %rax,%rdi
+#	movq %rdi,%rdi
+#	movq %rdi,%rdi
+	call malloc
+#	movq %rax,%rax
+	movq %rax,%rcx
+	addq $16,%rcx
+	movq %rcx,0(%rax)
+	movq %r12,8(%rax)
+	movq 8(%rax),%rdx
+#	movq %rdx,%rdx
+	movq 0(%rax),%rcx
+#	movq %rcx,%rcx
+	xorq %rsi,%rsi
+	cmpq %rdx,%rsi
+	jge L.17
+L.15:
+	movq %rcx,%r8
+	movq %rsi,%rdi
+	shlq $3,%rdi
+	addq %rdi,%r8
+	movq $0,0(%r8)
+#	movq %rsi,%rsi
+	addq $1,%rsi
+#	movq %rsi,%rsi
+L.16:
+	cmpq %rdx,%rsi
+	jl L.15
+L.17:
+	movq %rax,16(%rbx)
+#	movq %rbx,%rbx
+	xorq %rax,%rax
+	cmpq %rax,%rbx
+	je L.1
+L.18:
+	movabsq $8,%r12
+#	movq %r12,%r12
+	addq $8,%r12
+#	movq %r12,%r12
+	subq $1,%r12
+#	movq %r12,%r12
+	xorq %rax,%rax
+	cmpq %rax,%r12
+	jl L.3
+L.19:
+#	movq %r12,%r12
+	movq $16,%rdi
+#	movq %rdi,%rdi
+	movq %r12,%rax
+	shlq $3,%rax
+	addq %rax,%rdi
+#	movq %rdi,%rdi
+#	movq %rdi,%rdi
+	call malloc
+#	movq %rax,%rax
+	movq %rax,%rcx
+	addq $16,%rcx
+	movq %rcx,0(%rax)
+	movq %r12,8(%rax)
+	movq 8(%rax),%rdx
+#	movq %rdx,%rdx
+	movq 0(%rax),%rcx
+#	movq %rcx,%rcx
+	xorq %rsi,%rsi
+	cmpq %rdx,%rsi
+	jge L.22
+L.20:
+	movq %rcx,%r8
+	movq %rsi,%rdi
+	shlq $3,%rdi
+	addq %rdi,%r8
+	movq $0,0(%r8)
+#	movq %rsi,%rsi
+	addq $1,%rsi
+#	movq %rsi,%rsi
+L.21:
+	cmpq %rdx,%rsi
+	jl L.20
+L.22:
+	movq %rax,24(%rbx)
+	movq %rbx,%rax
+L.0:
+#	returnSink
+	movq -8(%rbp),%rbx
+	movq -16(%rbp),%r12
+	addq $16,%rsp
+	popq %rbp
+	ret
+L.1:
+	call badPtr
+L.3:
+	call badSub
+END QueensOpen.Init
+PROCEDURE QueensOpen.Solve
+# Before canonicalization (trees):
+BEQ(
+ TEMP QueensOpen.Solve.c,
+ MEM(
+  ESEQ(
+   MOVE(
+    TEMP t.33,
+    MEM(
+     ESEQ(
+      MOVE(
+       TEMP t.32,
+       TEMP QueensOpen.Solve.self),
+      BEQ(
+       TEMP t.32,
+       CONST 0,
+       L.27, L.28),
+      LABEL L.28,
+      TEMP t.32), 
+     CONST 8, 8)),
+   BEQ(
+    TEMP t.33,
+    CONST 0,
+    L.27, L.29),
+   LABEL L.29,
+   TEMP t.33), 
+  CONST 8, 8),
+ L.24, L.25),
+LABEL L.24,
+EXP(
+ CALL(
+  NAME QueensOpen.Print,
+  CONST 0,
+  TEMP QueensOpen.Solve.self)),
+JUMP(
+ NAME L.26),
+LABEL L.25,
+MOVE(
+ TEMP t.34,
+ CONST 0),
+MOVE(
+ TEMP t.35,
+ SUB(
+  MEM(
+   ESEQ(
+    MOVE(
+     TEMP t.37,
+     MEM(
+      ESEQ(
+       MOVE(
+        TEMP t.36,
+        TEMP QueensOpen.Solve.self),
+       BEQ(
+        TEMP t.36,
+        CONST 0,
+        L.27, L.30),
+       LABEL L.30,
+       TEMP t.36), 
+      CONST 0, 8)),
+    BEQ(
+     TEMP t.37,
+     CONST 0,
+     L.27, L.31),
+    LABEL L.31,
+    TEMP t.37), 
+   CONST 8, 8),
+  CONST 1)),
+MOVE(
+ TEMP t.38,
+ CONST 1),
+JUMP(
+ NAME L.33),
+LABEL L.32,
+MOVE(
+ TEMP QueensOpen.Solve.1.r,
+ TEMP t.34),
+BEQ(
+ MEM(
+  ESEQ(
+   MOVE(
+    TEMP t.42,
+    ESEQ(
+     MOVE(
+      TEMP t.40,
+      MEM(
+       ESEQ(
+        MOVE(
+         TEMP t.39,
+         TEMP QueensOpen.Solve.self),
+        BEQ(
+         TEMP t.39,
+         CONST 0,
+         L.27, L.39),
+        LABEL L.39,
+        TEMP t.39), 
+       CONST 0, 8)),
+     BEQ(
+      TEMP t.40,
+      CONST 0,
+      L.27, L.40),
+     LABEL L.40,
+     TEMP t.40)),
+   ADD(
+    MEM(
+     TEMP t.42, 
+     CONST 0, 8),
+    MUL(
+     ESEQ(
+      MOVE(
+       TEMP t.41,
+       TEMP QueensOpen.Solve.1.r),
+      BLT(
+       TEMP t.41,
+       CONST 0,
+       L.41, L.42),
+      LABEL L.42,
+      BGE(
+       TEMP t.41,
+       MEM(
+        TEMP t.42, 
+        CONST 8, 8),
+       L.41, L.43),
+      LABEL L.43,
+      TEMP t.41),
+     CONST 8))), 
+  CONST 0, 8),
+ CONST 0,
+ L.38, L.36),
+LABEL L.38,
+BEQ(
+ MEM(
+  ESEQ(
+   MOVE(
+    TEMP t.46,
+    ESEQ(
+     MOVE(
+      TEMP t.44,
+      MEM(
+       ESEQ(
+        MOVE(
+         TEMP t.43,
+         TEMP QueensOpen.Solve.self),
+        BEQ(
+         TEMP t.43,
+         CONST 0,
+         L.27, L.44),
+        LABEL L.44,
+        TEMP t.43), 
+       CONST 16, 8)),
+     BEQ(
+      TEMP t.44,
+      CONST 0,
+      L.27, L.45),
+     LABEL L.45,
+     TEMP t.44)),
+   ADD(
+    MEM(
+     TEMP t.46, 
+     CONST 0, 8),
+    MUL(
+     ESEQ(
+      MOVE(
+       TEMP t.45,
+       ADD(
+        TEMP QueensOpen.Solve.1.r,
+        TEMP QueensOpen.Solve.c)),
+      BLT(
+       TEMP t.45,
+       CONST 0,
+       L.41, L.46),
+      LABEL L.46,
+      BGE(
+       TEMP t.45,
+       MEM(
+        TEMP t.46, 
+        CONST 8, 8),
+       L.41, L.47),
+      LABEL L.47,
+      TEMP t.45),
+     CONST 8))), 
+  CONST 0, 8),
+ CONST 0,
+ L.37, L.36),
+LABEL L.37,
+BEQ(
+ MEM(
+  ESEQ(
+   MOVE(
+    TEMP t.50,
+    ESEQ(
+     MOVE(
+      TEMP t.48,
+      MEM(
+       ESEQ(
+        MOVE(
+         TEMP t.47,
+         TEMP QueensOpen.Solve.self),
+        BEQ(
+         TEMP t.47,
+         CONST 0,
+         L.27, L.48),
+        LABEL L.48,
+        TEMP t.47), 
+       CONST 24, 8)),
+     BEQ(
+      TEMP t.48,
+      CONST 0,
+      L.27, L.49),
+     LABEL L.49,
+     TEMP t.48)),
+   ADD(
+    MEM(
+     TEMP t.50, 
+     CONST 0, 8),
+    MUL(
+     ESEQ(
+      MOVE(
+       TEMP t.49,
+       SUB(
+        ADD(
+         TEMP QueensOpen.Solve.1.r,
+         SUB(
+          CONST 8,
+          CONST 1)),
+        TEMP QueensOpen.Solve.c)),
+      BLT(
+       TEMP t.49,
+       CONST 0,
+       L.41, L.50),
+      LABEL L.50,
+      BGE(
+       TEMP t.49,
+       MEM(
+        TEMP t.50, 
+        CONST 8, 8),
+       L.41, L.51),
+      LABEL L.51,
+      TEMP t.49),
+     CONST 8))), 
+  CONST 0, 8),
+ CONST 0,
+ L.35, L.36),
+LABEL L.35,
+MOVE(
+ MEM(
+  ESEQ(
+   MOVE(
+    TEMP t.54,
+    ESEQ(
+     MOVE(
+      TEMP t.52,
+      MEM(
+       ESEQ(
+        MOVE(
+         TEMP t.51,
+         TEMP QueensOpen.Solve.self),
+        BEQ(
+         TEMP t.51,
+         CONST 0,
+         L.27, L.52),
+        LABEL L.52,
+        TEMP t.51), 
+       CONST 0, 8)),
+     BEQ(
+      TEMP t.52,
+      CONST 0,
+      L.27, L.53),
+     LABEL L.53,
+     TEMP t.52)),
+   ADD(
+    MEM(
+     TEMP t.54, 
+     CONST 0, 8),
+    MUL(
+     ESEQ(
+      MOVE(
+       TEMP t.53,
+       TEMP QueensOpen.Solve.1.r),
+      BLT(
+       TEMP t.53,
+       CONST 0,
+       L.41, L.54),
+      LABEL L.54,
+      BGE(
+       TEMP t.53,
+       MEM(
+        TEMP t.54, 
+        CONST 8, 8),
+       L.41, L.55),
+      LABEL L.55,
+      TEMP t.53),
+     CONST 8))), 
+  CONST 0, 8),
+ CONST 1),
+MOVE(
+ MEM(
+  ESEQ(
+   MOVE(
+    TEMP t.58,
+    ESEQ(
+     MOVE(
+      TEMP t.56,
+      MEM(
+       ESEQ(
+        MOVE(
+         TEMP t.55,
+         TEMP QueensOpen.Solve.self),
+        BEQ(
+         TEMP t.55,
+         CONST 0,
+         L.27, L.56),
+        LABEL L.56,
+        TEMP t.55), 
+       CONST 16, 8)),
+     BEQ(
+      TEMP t.56,
+      CONST 0,
+      L.27, L.57),
+     LABEL L.57,
+     TEMP t.56)),
+   ADD(
+    MEM(
+     TEMP t.58, 
+     CONST 0, 8),
+    MUL(
+     ESEQ(
+      MOVE(
+       TEMP t.57,
+       ADD(
+        TEMP QueensOpen.Solve.1.r,
+        TEMP QueensOpen.Solve.c)),
+      BLT(
+       TEMP t.57,
+       CONST 0,
+       L.41, L.58),
+      LABEL L.58,
+      BGE(
+       TEMP t.57,
+       MEM(
+        TEMP t.58, 
+        CONST 8, 8),
+       L.41, L.59),
+      LABEL L.59,
+      TEMP t.57),
+     CONST 8))), 
+  CONST 0, 8),
+ CONST 1),
+MOVE(
+ MEM(
+  ESEQ(
+   MOVE(
+    TEMP t.62,
+    ESEQ(
+     MOVE(
+      TEMP t.60,
+      MEM(
+       ESEQ(
+        MOVE(
+         TEMP t.59,
+         TEMP QueensOpen.Solve.self),
+        BEQ(
+         TEMP t.59,
+         CONST 0,
+         L.27, L.60),
+        LABEL L.60,
+        TEMP t.59), 
+       CONST 24, 8)),
+     BEQ(
+      TEMP t.60,
+      CONST 0,
+      L.27, L.61),
+     LABEL L.61,
+     TEMP t.60)),
+   ADD(
+    MEM(
+     TEMP t.62, 
+     CONST 0, 8),
+    MUL(
+     ESEQ(
+      MOVE(
+       TEMP t.61,
+       SUB(
+        ADD(
+         TEMP QueensOpen.Solve.1.r,
+         SUB(
+          CONST 8,
+          CONST 1)),
+        TEMP QueensOpen.Solve.c)),
+      BLT(
+       TEMP t.61,
+       CONST 0,
+       L.41, L.62),
+      LABEL L.62,
+      BGE(
+       TEMP t.61,
+       MEM(
+        TEMP t.62, 
+        CONST 8, 8),
+       L.41, L.63),
+      LABEL L.63,
+      TEMP t.61),
+     CONST 8))), 
+  CONST 0, 8),
+ CONST 1),
+MOVE(
+ MEM(
+  ESEQ(
+   MOVE(
+    TEMP t.66,
+    ESEQ(
+     MOVE(
+      TEMP t.64,
+      MEM(
+       ESEQ(
+        MOVE(
+         TEMP t.63,
+         TEMP QueensOpen.Solve.self),
+        BEQ(
+         TEMP t.63,
+         CONST 0,
+         L.27, L.64),
+        LABEL L.64,
+        TEMP t.63), 
+       CONST 8, 8)),
+     BEQ(
+      TEMP t.64,
+      CONST 0,
+      L.27, L.65),
+     LABEL L.65,
+     TEMP t.64)),
+   ADD(
+    MEM(
+     TEMP t.66, 
+     CONST 0, 8),
+    MUL(
+     ESEQ(
+      MOVE(
+       TEMP t.65,
+       TEMP QueensOpen.Solve.c),
+      BLT(
+       TEMP t.65,
+       CONST 0,
+       L.41, L.66),
+      LABEL L.66,
+      BGE(
+       TEMP t.65,
+       MEM(
+        TEMP t.66, 
+        CONST 8, 8),
+       L.41, L.67),
+      LABEL L.67,
+      TEMP t.65),
+     CONST 8))), 
+  CONST 0, 8),
+ TEMP QueensOpen.Solve.1.r),
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP QueensOpen.Solve.self, 
+    CONST -8, 8), 
+   CONST 8, 8),
+  CONST 0,
+  TEMP QueensOpen.Solve.self,
+  ADD(
+   TEMP QueensOpen.Solve.c,
+   CONST 1))),
+MOVE(
+ MEM(
+  ESEQ(
+   MOVE(
+    TEMP t.70,
+    ESEQ(
+     MOVE(
+      TEMP t.68,
+      MEM(
+       ESEQ(
+        MOVE(
+         TEMP t.67,
+         TEMP QueensOpen.Solve.self),
+        BEQ(
+         TEMP t.67,
+         CONST 0,
+         L.27, L.68),
+        LABEL L.68,
+        TEMP t.67), 
+       CONST 0, 8)),
+     BEQ(
+      TEMP t.68,
+      CONST 0,
+      L.27, L.69),
+     LABEL L.69,
+     TEMP t.68)),
+   ADD(
+    MEM(
+     TEMP t.70, 
+     CONST 0, 8),
+    MUL(
+     ESEQ(
+      MOVE(
+       TEMP t.69,
+       TEMP QueensOpen.Solve.1.r),
+      BLT(
+       TEMP t.69,
+       CONST 0,
+       L.41, L.70),
+      LABEL L.70,
+      BGE(
+       TEMP t.69,
+       MEM(
+        TEMP t.70, 
+        CONST 8, 8),
+       L.41, L.71),
+      LABEL L.71,
+      TEMP t.69),
+     CONST 8))), 
+  CONST 0, 8),
+ CONST 0),
+MOVE(
+ MEM(
+  ESEQ(
+   MOVE(
+    TEMP t.74,
+    ESEQ(
+     MOVE(
+      TEMP t.72,
+      MEM(
+       ESEQ(
+        MOVE(
+         TEMP t.71,
+         TEMP QueensOpen.Solve.self),
+        BEQ(
+         TEMP t.71,
+         CONST 0,
+         L.27, L.72),
+        LABEL L.72,
+        TEMP t.71), 
+       CONST 16, 8)),
+     BEQ(
+      TEMP t.72,
+      CONST 0,
+      L.27, L.73),
+     LABEL L.73,
+     TEMP t.72)),
+   ADD(
+    MEM(
+     TEMP t.74, 
+     CONST 0, 8),
+    MUL(
+     ESEQ(
+      MOVE(
+       TEMP t.73,
+       ADD(
+        TEMP QueensOpen.Solve.1.r,
+        TEMP QueensOpen.Solve.c)),
+      BLT(
+       TEMP t.73,
+       CONST 0,
+       L.41, L.74),
+      LABEL L.74,
+      BGE(
+       TEMP t.73,
+       MEM(
+        TEMP t.74, 
+        CONST 8, 8),
+       L.41, L.75),
+      LABEL L.75,
+      TEMP t.73),
+     CONST 8))), 
+  CONST 0, 8),
+ CONST 0),
+MOVE(
+ MEM(
+  ESEQ(
+   MOVE(
+    TEMP t.78,
+    ESEQ(
+     MOVE(
+      TEMP t.76,
+      MEM(
+       ESEQ(
+        MOVE(
+         TEMP t.75,
+         TEMP QueensOpen.Solve.self),
+        BEQ(
+         TEMP t.75,
+         CONST 0,
+         L.27, L.76),
+        LABEL L.76,
+        TEMP t.75), 
+       CONST 24, 8)),
+     BEQ(
+      TEMP t.76,
+      CONST 0,
+      L.27, L.77),
+     LABEL L.77,
+     TEMP t.76)),
+   ADD(
+    MEM(
+     TEMP t.78, 
+     CONST 0, 8),
+    MUL(
+     ESEQ(
+      MOVE(
+       TEMP t.77,
+       SUB(
+        ADD(
+         TEMP QueensOpen.Solve.1.r,
+         SUB(
+          CONST 8,
+          CONST 1)),
+        TEMP QueensOpen.Solve.c)),
+      BLT(
+       TEMP t.77,
+       CONST 0,
+       L.41, L.78),
+      LABEL L.78,
+      BGE(
+       TEMP t.77,
+       MEM(
+        TEMP t.78, 
+        CONST 8, 8),
+       L.41, L.79),
+      LABEL L.79,
+      TEMP t.77),
+     CONST 8))), 
+  CONST 0, 8),
+ CONST 0),
+LABEL L.36,
+MOVE(
+ TEMP t.34,
+ ADD(
+  TEMP t.34,
+  TEMP t.38)),
+LABEL L.33,
+BLE(
+ TEMP t.34,
+ TEMP t.35,
+ L.32, L.34),
+LABEL L.34,
+LABEL L.26,
+LABEL L.23
+# After canonicalization (trees):
+MOVE(
+ TEMP t.32,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.32,
+ CONST 0,
+ L.27, L.28)
+LABEL L.28
+MOVE(
+ TEMP t.33,
+ MEM(
+  TEMP t.32, 
+  CONST 8, 8))
+BEQ(
+ TEMP t.33,
+ CONST 0,
+ L.27, L.29)
+LABEL L.29
+BEQ(
+ TEMP QueensOpen.Solve.c,
+ MEM(
+  TEMP t.33, 
+  CONST 8, 8),
+ L.24, L.25)
+LABEL L.24
+EXP(
+ CALL(
+  NAME QueensOpen.Print,
+  CONST 0,
+  TEMP QueensOpen.Solve.self))
+JUMP(
+ NAME L.26)
+LABEL L.25
+MOVE(
+ TEMP t.34,
+ CONST 0)
+MOVE(
+ TEMP t.36,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.36,
+ CONST 0,
+ L.27, L.30)
+LABEL L.30
+MOVE(
+ TEMP t.37,
+ MEM(
+  TEMP t.36, 
+  CONST 0, 8))
+BEQ(
+ TEMP t.37,
+ CONST 0,
+ L.27, L.31)
+LABEL L.31
+MOVE(
+ TEMP t.35,
+ SUB(
+  MEM(
+   TEMP t.37, 
+   CONST 8, 8),
+  CONST 1))
+MOVE(
+ TEMP t.38,
+ CONST 1)
+JUMP(
+ NAME L.33)
+LABEL L.32
+MOVE(
+ TEMP QueensOpen.Solve.1.r,
+ TEMP t.34)
+MOVE(
+ TEMP t.39,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.39,
+ CONST 0,
+ L.27, L.39)
+LABEL L.39
+MOVE(
+ TEMP t.40,
+ MEM(
+  TEMP t.39, 
+  CONST 0, 8))
+BEQ(
+ TEMP t.40,
+ CONST 0,
+ L.27, L.40)
+LABEL L.40
+MOVE(
+ TEMP t.42,
+ TEMP t.40)
+MOVE(
+ TEMP t.41,
+ TEMP QueensOpen.Solve.1.r)
+BLT(
+ TEMP t.41,
+ CONST 0,
+ L.41, L.42)
+LABEL L.42
+BGE(
+ TEMP t.41,
+ MEM(
+  TEMP t.42, 
+  CONST 8, 8),
+ L.41, L.43)
+LABEL L.43
+BEQ(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.42, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.41,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0,
+ L.38, L.36)
+LABEL L.38
+MOVE(
+ TEMP t.43,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.43,
+ CONST 0,
+ L.27, L.44)
+LABEL L.44
+MOVE(
+ TEMP t.44,
+ MEM(
+  TEMP t.43, 
+  CONST 16, 8))
+BEQ(
+ TEMP t.44,
+ CONST 0,
+ L.27, L.45)
+LABEL L.45
+MOVE(
+ TEMP t.46,
+ TEMP t.44)
+MOVE(
+ TEMP t.45,
+ ADD(
+  TEMP QueensOpen.Solve.1.r,
+  TEMP QueensOpen.Solve.c))
+BLT(
+ TEMP t.45,
+ CONST 0,
+ L.41, L.46)
+LABEL L.46
+BGE(
+ TEMP t.45,
+ MEM(
+  TEMP t.46, 
+  CONST 8, 8),
+ L.41, L.47)
+LABEL L.47
+BEQ(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.46, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.45,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0,
+ L.37, L.36)
+LABEL L.37
+MOVE(
+ TEMP t.47,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.47,
+ CONST 0,
+ L.27, L.48)
+LABEL L.48
+MOVE(
+ TEMP t.48,
+ MEM(
+  TEMP t.47, 
+  CONST 24, 8))
+BEQ(
+ TEMP t.48,
+ CONST 0,
+ L.27, L.49)
+LABEL L.49
+MOVE(
+ TEMP t.50,
+ TEMP t.48)
+MOVE(
+ TEMP t.49,
+ SUB(
+  ADD(
+   TEMP QueensOpen.Solve.1.r,
+   SUB(
+    CONST 8,
+    CONST 1)),
+  TEMP QueensOpen.Solve.c))
+BLT(
+ TEMP t.49,
+ CONST 0,
+ L.41, L.50)
+LABEL L.50
+BGE(
+ TEMP t.49,
+ MEM(
+  TEMP t.50, 
+  CONST 8, 8),
+ L.41, L.51)
+LABEL L.51
+BEQ(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.50, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.49,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0,
+ L.35, L.36)
+LABEL L.35
+MOVE(
+ TEMP t.51,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.51,
+ CONST 0,
+ L.27, L.52)
+LABEL L.52
+MOVE(
+ TEMP t.52,
+ MEM(
+  TEMP t.51, 
+  CONST 0, 8))
+BEQ(
+ TEMP t.52,
+ CONST 0,
+ L.27, L.53)
+LABEL L.53
+MOVE(
+ TEMP t.54,
+ TEMP t.52)
+MOVE(
+ TEMP t.53,
+ TEMP QueensOpen.Solve.1.r)
+BLT(
+ TEMP t.53,
+ CONST 0,
+ L.41, L.54)
+LABEL L.54
+BGE(
+ TEMP t.53,
+ MEM(
+  TEMP t.54, 
+  CONST 8, 8),
+ L.41, L.55)
+LABEL L.55
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.54, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.53,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 1)
+MOVE(
+ TEMP t.55,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.55,
+ CONST 0,
+ L.27, L.56)
+LABEL L.56
+MOVE(
+ TEMP t.56,
+ MEM(
+  TEMP t.55, 
+  CONST 16, 8))
+BEQ(
+ TEMP t.56,
+ CONST 0,
+ L.27, L.57)
+LABEL L.57
+MOVE(
+ TEMP t.58,
+ TEMP t.56)
+MOVE(
+ TEMP t.57,
+ ADD(
+  TEMP QueensOpen.Solve.1.r,
+  TEMP QueensOpen.Solve.c))
+BLT(
+ TEMP t.57,
+ CONST 0,
+ L.41, L.58)
+LABEL L.58
+BGE(
+ TEMP t.57,
+ MEM(
+  TEMP t.58, 
+  CONST 8, 8),
+ L.41, L.59)
+LABEL L.59
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.58, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.57,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 1)
+MOVE(
+ TEMP t.59,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.59,
+ CONST 0,
+ L.27, L.60)
+LABEL L.60
+MOVE(
+ TEMP t.60,
+ MEM(
+  TEMP t.59, 
+  CONST 24, 8))
+BEQ(
+ TEMP t.60,
+ CONST 0,
+ L.27, L.61)
+LABEL L.61
+MOVE(
+ TEMP t.62,
+ TEMP t.60)
+MOVE(
+ TEMP t.61,
+ SUB(
+  ADD(
+   TEMP QueensOpen.Solve.1.r,
+   SUB(
+    CONST 8,
+    CONST 1)),
+  TEMP QueensOpen.Solve.c))
+BLT(
+ TEMP t.61,
+ CONST 0,
+ L.41, L.62)
+LABEL L.62
+BGE(
+ TEMP t.61,
+ MEM(
+  TEMP t.62, 
+  CONST 8, 8),
+ L.41, L.63)
+LABEL L.63
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.62, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.61,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 1)
+MOVE(
+ TEMP t.63,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.63,
+ CONST 0,
+ L.27, L.64)
+LABEL L.64
+MOVE(
+ TEMP t.64,
+ MEM(
+  TEMP t.63, 
+  CONST 8, 8))
+BEQ(
+ TEMP t.64,
+ CONST 0,
+ L.27, L.65)
+LABEL L.65
+MOVE(
+ TEMP t.66,
+ TEMP t.64)
+MOVE(
+ TEMP t.65,
+ TEMP QueensOpen.Solve.c)
+BLT(
+ TEMP t.65,
+ CONST 0,
+ L.41, L.66)
+LABEL L.66
+BGE(
+ TEMP t.65,
+ MEM(
+  TEMP t.66, 
+  CONST 8, 8),
+ L.41, L.67)
+LABEL L.67
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.66, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.65,
+    CONST 8)), 
+  CONST 0, 8),
+ TEMP QueensOpen.Solve.1.r)
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP QueensOpen.Solve.self, 
+    CONST -8, 8), 
+   CONST 8, 8),
+  CONST 0,
+  TEMP QueensOpen.Solve.self,
+  ADD(
+   TEMP QueensOpen.Solve.c,
+   CONST 1)))
+MOVE(
+ TEMP t.67,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.67,
+ CONST 0,
+ L.27, L.68)
+LABEL L.68
+MOVE(
+ TEMP t.68,
+ MEM(
+  TEMP t.67, 
+  CONST 0, 8))
+BEQ(
+ TEMP t.68,
+ CONST 0,
+ L.27, L.69)
+LABEL L.69
+MOVE(
+ TEMP t.70,
+ TEMP t.68)
+MOVE(
+ TEMP t.69,
+ TEMP QueensOpen.Solve.1.r)
+BLT(
+ TEMP t.69,
+ CONST 0,
+ L.41, L.70)
+LABEL L.70
+BGE(
+ TEMP t.69,
+ MEM(
+  TEMP t.70, 
+  CONST 8, 8),
+ L.41, L.71)
+LABEL L.71
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.70, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.69,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.71,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.71,
+ CONST 0,
+ L.27, L.72)
+LABEL L.72
+MOVE(
+ TEMP t.72,
+ MEM(
+  TEMP t.71, 
+  CONST 16, 8))
+BEQ(
+ TEMP t.72,
+ CONST 0,
+ L.27, L.73)
+LABEL L.73
+MOVE(
+ TEMP t.74,
+ TEMP t.72)
+MOVE(
+ TEMP t.73,
+ ADD(
+  TEMP QueensOpen.Solve.1.r,
+  TEMP QueensOpen.Solve.c))
+BLT(
+ TEMP t.73,
+ CONST 0,
+ L.41, L.74)
+LABEL L.74
+BGE(
+ TEMP t.73,
+ MEM(
+  TEMP t.74, 
+  CONST 8, 8),
+ L.41, L.75)
+LABEL L.75
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.74, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.73,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.75,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.75,
+ CONST 0,
+ L.27, L.76)
+LABEL L.76
+MOVE(
+ TEMP t.76,
+ MEM(
+  TEMP t.75, 
+  CONST 24, 8))
+BEQ(
+ TEMP t.76,
+ CONST 0,
+ L.27, L.77)
+LABEL L.77
+MOVE(
+ TEMP t.78,
+ TEMP t.76)
+MOVE(
+ TEMP t.77,
+ SUB(
+  ADD(
+   TEMP QueensOpen.Solve.1.r,
+   SUB(
+    CONST 8,
+    CONST 1)),
+  TEMP QueensOpen.Solve.c))
+BLT(
+ TEMP t.77,
+ CONST 0,
+ L.41, L.78)
+LABEL L.78
+BGE(
+ TEMP t.77,
+ MEM(
+  TEMP t.78, 
+  CONST 8, 8),
+ L.41, L.79)
+LABEL L.79
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.78, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.77,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+LABEL L.36
+MOVE(
+ TEMP t.34,
+ ADD(
+  TEMP t.34,
+  TEMP t.38))
+LABEL L.33
+BLE(
+ TEMP t.34,
+ TEMP t.35,
+ L.32, L.34)
+LABEL L.34
+LABEL L.26
+LABEL L.23
+# Basic Blocks:
+LABEL L.104
+MOVE(
+ TEMP t.32,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.32,
+ CONST 0,
+ L.27, L.28)
+LABEL L.28
+MOVE(
+ TEMP t.33,
+ MEM(
+  TEMP t.32, 
+  CONST 8, 8))
+BEQ(
+ TEMP t.33,
+ CONST 0,
+ L.27, L.29)
+LABEL L.29
+BEQ(
+ TEMP QueensOpen.Solve.c,
+ MEM(
+  TEMP t.33, 
+  CONST 8, 8),
+ L.24, L.25)
+LABEL L.24
+EXP(
+ CALL(
+  NAME QueensOpen.Print,
+  CONST 0,
+  TEMP QueensOpen.Solve.self))
+JUMP(
+ NAME L.26)
+LABEL L.25
+MOVE(
+ TEMP t.34,
+ CONST 0)
+MOVE(
+ TEMP t.36,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.36,
+ CONST 0,
+ L.27, L.30)
+LABEL L.30
+MOVE(
+ TEMP t.37,
+ MEM(
+  TEMP t.36, 
+  CONST 0, 8))
+BEQ(
+ TEMP t.37,
+ CONST 0,
+ L.27, L.31)
+LABEL L.31
+MOVE(
+ TEMP t.35,
+ SUB(
+  MEM(
+   TEMP t.37, 
+   CONST 8, 8),
+  CONST 1))
+MOVE(
+ TEMP t.38,
+ CONST 1)
+JUMP(
+ NAME L.33)
+LABEL L.32
+MOVE(
+ TEMP QueensOpen.Solve.1.r,
+ TEMP t.34)
+MOVE(
+ TEMP t.39,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.39,
+ CONST 0,
+ L.27, L.39)
+LABEL L.39
+MOVE(
+ TEMP t.40,
+ MEM(
+  TEMP t.39, 
+  CONST 0, 8))
+BEQ(
+ TEMP t.40,
+ CONST 0,
+ L.27, L.40)
+LABEL L.40
+MOVE(
+ TEMP t.42,
+ TEMP t.40)
+MOVE(
+ TEMP t.41,
+ TEMP QueensOpen.Solve.1.r)
+BLT(
+ TEMP t.41,
+ CONST 0,
+ L.41, L.42)
+LABEL L.42
+BGE(
+ TEMP t.41,
+ MEM(
+  TEMP t.42, 
+  CONST 8, 8),
+ L.41, L.43)
+LABEL L.43
+BEQ(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.42, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.41,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0,
+ L.38, L.36)
+LABEL L.38
+MOVE(
+ TEMP t.43,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.43,
+ CONST 0,
+ L.27, L.44)
+LABEL L.44
+MOVE(
+ TEMP t.44,
+ MEM(
+  TEMP t.43, 
+  CONST 16, 8))
+BEQ(
+ TEMP t.44,
+ CONST 0,
+ L.27, L.45)
+LABEL L.45
+MOVE(
+ TEMP t.46,
+ TEMP t.44)
+MOVE(
+ TEMP t.45,
+ ADD(
+  TEMP QueensOpen.Solve.1.r,
+  TEMP QueensOpen.Solve.c))
+BLT(
+ TEMP t.45,
+ CONST 0,
+ L.41, L.46)
+LABEL L.46
+BGE(
+ TEMP t.45,
+ MEM(
+  TEMP t.46, 
+  CONST 8, 8),
+ L.41, L.47)
+LABEL L.47
+BEQ(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.46, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.45,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0,
+ L.37, L.36)
+LABEL L.37
+MOVE(
+ TEMP t.47,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.47,
+ CONST 0,
+ L.27, L.48)
+LABEL L.48
+MOVE(
+ TEMP t.48,
+ MEM(
+  TEMP t.47, 
+  CONST 24, 8))
+BEQ(
+ TEMP t.48,
+ CONST 0,
+ L.27, L.49)
+LABEL L.49
+MOVE(
+ TEMP t.50,
+ TEMP t.48)
+MOVE(
+ TEMP t.49,
+ SUB(
+  ADD(
+   TEMP QueensOpen.Solve.1.r,
+   SUB(
+    CONST 8,
+    CONST 1)),
+  TEMP QueensOpen.Solve.c))
+BLT(
+ TEMP t.49,
+ CONST 0,
+ L.41, L.50)
+LABEL L.50
+BGE(
+ TEMP t.49,
+ MEM(
+  TEMP t.50, 
+  CONST 8, 8),
+ L.41, L.51)
+LABEL L.51
+BEQ(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.50, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.49,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0,
+ L.35, L.36)
+LABEL L.35
+MOVE(
+ TEMP t.51,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.51,
+ CONST 0,
+ L.27, L.52)
+LABEL L.52
+MOVE(
+ TEMP t.52,
+ MEM(
+  TEMP t.51, 
+  CONST 0, 8))
+BEQ(
+ TEMP t.52,
+ CONST 0,
+ L.27, L.53)
+LABEL L.53
+MOVE(
+ TEMP t.54,
+ TEMP t.52)
+MOVE(
+ TEMP t.53,
+ TEMP QueensOpen.Solve.1.r)
+BLT(
+ TEMP t.53,
+ CONST 0,
+ L.41, L.54)
+LABEL L.54
+BGE(
+ TEMP t.53,
+ MEM(
+  TEMP t.54, 
+  CONST 8, 8),
+ L.41, L.55)
+LABEL L.55
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.54, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.53,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 1)
+MOVE(
+ TEMP t.55,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.55,
+ CONST 0,
+ L.27, L.56)
+LABEL L.56
+MOVE(
+ TEMP t.56,
+ MEM(
+  TEMP t.55, 
+  CONST 16, 8))
+BEQ(
+ TEMP t.56,
+ CONST 0,
+ L.27, L.57)
+LABEL L.57
+MOVE(
+ TEMP t.58,
+ TEMP t.56)
+MOVE(
+ TEMP t.57,
+ ADD(
+  TEMP QueensOpen.Solve.1.r,
+  TEMP QueensOpen.Solve.c))
+BLT(
+ TEMP t.57,
+ CONST 0,
+ L.41, L.58)
+LABEL L.58
+BGE(
+ TEMP t.57,
+ MEM(
+  TEMP t.58, 
+  CONST 8, 8),
+ L.41, L.59)
+LABEL L.59
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.58, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.57,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 1)
+MOVE(
+ TEMP t.59,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.59,
+ CONST 0,
+ L.27, L.60)
+LABEL L.60
+MOVE(
+ TEMP t.60,
+ MEM(
+  TEMP t.59, 
+  CONST 24, 8))
+BEQ(
+ TEMP t.60,
+ CONST 0,
+ L.27, L.61)
+LABEL L.61
+MOVE(
+ TEMP t.62,
+ TEMP t.60)
+MOVE(
+ TEMP t.61,
+ SUB(
+  ADD(
+   TEMP QueensOpen.Solve.1.r,
+   SUB(
+    CONST 8,
+    CONST 1)),
+  TEMP QueensOpen.Solve.c))
+BLT(
+ TEMP t.61,
+ CONST 0,
+ L.41, L.62)
+LABEL L.62
+BGE(
+ TEMP t.61,
+ MEM(
+  TEMP t.62, 
+  CONST 8, 8),
+ L.41, L.63)
+LABEL L.63
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.62, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.61,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 1)
+MOVE(
+ TEMP t.63,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.63,
+ CONST 0,
+ L.27, L.64)
+LABEL L.64
+MOVE(
+ TEMP t.64,
+ MEM(
+  TEMP t.63, 
+  CONST 8, 8))
+BEQ(
+ TEMP t.64,
+ CONST 0,
+ L.27, L.65)
+LABEL L.65
+MOVE(
+ TEMP t.66,
+ TEMP t.64)
+MOVE(
+ TEMP t.65,
+ TEMP QueensOpen.Solve.c)
+BLT(
+ TEMP t.65,
+ CONST 0,
+ L.41, L.66)
+LABEL L.66
+BGE(
+ TEMP t.65,
+ MEM(
+  TEMP t.66, 
+  CONST 8, 8),
+ L.41, L.67)
+LABEL L.67
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.66, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.65,
+    CONST 8)), 
+  CONST 0, 8),
+ TEMP QueensOpen.Solve.1.r)
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP QueensOpen.Solve.self, 
+    CONST -8, 8), 
+   CONST 8, 8),
+  CONST 0,
+  TEMP QueensOpen.Solve.self,
+  ADD(
+   TEMP QueensOpen.Solve.c,
+   CONST 1)))
+MOVE(
+ TEMP t.67,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.67,
+ CONST 0,
+ L.27, L.68)
+LABEL L.68
+MOVE(
+ TEMP t.68,
+ MEM(
+  TEMP t.67, 
+  CONST 0, 8))
+BEQ(
+ TEMP t.68,
+ CONST 0,
+ L.27, L.69)
+LABEL L.69
+MOVE(
+ TEMP t.70,
+ TEMP t.68)
+MOVE(
+ TEMP t.69,
+ TEMP QueensOpen.Solve.1.r)
+BLT(
+ TEMP t.69,
+ CONST 0,
+ L.41, L.70)
+LABEL L.70
+BGE(
+ TEMP t.69,
+ MEM(
+  TEMP t.70, 
+  CONST 8, 8),
+ L.41, L.71)
+LABEL L.71
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.70, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.69,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.71,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.71,
+ CONST 0,
+ L.27, L.72)
+LABEL L.72
+MOVE(
+ TEMP t.72,
+ MEM(
+  TEMP t.71, 
+  CONST 16, 8))
+BEQ(
+ TEMP t.72,
+ CONST 0,
+ L.27, L.73)
+LABEL L.73
+MOVE(
+ TEMP t.74,
+ TEMP t.72)
+MOVE(
+ TEMP t.73,
+ ADD(
+  TEMP QueensOpen.Solve.1.r,
+  TEMP QueensOpen.Solve.c))
+BLT(
+ TEMP t.73,
+ CONST 0,
+ L.41, L.74)
+LABEL L.74
+BGE(
+ TEMP t.73,
+ MEM(
+  TEMP t.74, 
+  CONST 8, 8),
+ L.41, L.75)
+LABEL L.75
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.74, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.73,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.75,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.75,
+ CONST 0,
+ L.27, L.76)
+LABEL L.76
+MOVE(
+ TEMP t.76,
+ MEM(
+  TEMP t.75, 
+  CONST 24, 8))
+BEQ(
+ TEMP t.76,
+ CONST 0,
+ L.27, L.77)
+LABEL L.77
+MOVE(
+ TEMP t.78,
+ TEMP t.76)
+MOVE(
+ TEMP t.77,
+ SUB(
+  ADD(
+   TEMP QueensOpen.Solve.1.r,
+   SUB(
+    CONST 8,
+    CONST 1)),
+  TEMP QueensOpen.Solve.c))
+BLT(
+ TEMP t.77,
+ CONST 0,
+ L.41, L.78)
+LABEL L.78
+BGE(
+ TEMP t.77,
+ MEM(
+  TEMP t.78, 
+  CONST 8, 8),
+ L.41, L.79)
+LABEL L.79
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.78, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.77,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+JUMP(
+ NAME L.36)
+LABEL L.36
+MOVE(
+ TEMP t.34,
+ ADD(
+  TEMP t.34,
+  TEMP t.38))
+JUMP(
+ NAME L.33)
+LABEL L.33
+BLE(
+ TEMP t.34,
+ TEMP t.35,
+ L.32, L.34)
+LABEL L.34
+JUMP(
+ NAME L.26)
+LABEL L.26
+JUMP(
+ NAME L.23)
+LABEL L.23
+# Trace Scheduled:
+LABEL L.104
+MOVE(
+ TEMP t.32,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.32,
+ CONST 0,
+ L.27, L.28)
+LABEL L.28
+MOVE(
+ TEMP t.33,
+ MEM(
+  TEMP t.32, 
+  CONST 8, 8))
+BEQ(
+ TEMP t.33,
+ CONST 0,
+ L.27, L.29)
+LABEL L.29
+BEQ(
+ TEMP QueensOpen.Solve.c,
+ MEM(
+  TEMP t.33, 
+  CONST 8, 8),
+ L.24, L.25)
+LABEL L.25
+MOVE(
+ TEMP t.34,
+ CONST 0)
+MOVE(
+ TEMP t.36,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.36,
+ CONST 0,
+ L.27, L.30)
+LABEL L.30
+MOVE(
+ TEMP t.37,
+ MEM(
+  TEMP t.36, 
+  CONST 0, 8))
+BEQ(
+ TEMP t.37,
+ CONST 0,
+ L.27, L.31)
+LABEL L.31
+MOVE(
+ TEMP t.35,
+ SUB(
+  MEM(
+   TEMP t.37, 
+   CONST 8, 8),
+  CONST 1))
+MOVE(
+ TEMP t.38,
+ CONST 1)
+LABEL L.33
+BLE(
+ TEMP t.34,
+ TEMP t.35,
+ L.32, L.34)
+LABEL L.34
+LABEL L.26
+JUMP(
+ NAME L.23)
+LABEL L.24
+EXP(
+ CALL(
+  NAME QueensOpen.Print,
+  CONST 0,
+  TEMP QueensOpen.Solve.self))
+JUMP(
+ NAME L.26)
+LABEL L.32
+MOVE(
+ TEMP QueensOpen.Solve.1.r,
+ TEMP t.34)
+MOVE(
+ TEMP t.39,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.39,
+ CONST 0,
+ L.27, L.39)
+LABEL L.39
+MOVE(
+ TEMP t.40,
+ MEM(
+  TEMP t.39, 
+  CONST 0, 8))
+BEQ(
+ TEMP t.40,
+ CONST 0,
+ L.27, L.40)
+LABEL L.40
+MOVE(
+ TEMP t.42,
+ TEMP t.40)
+MOVE(
+ TEMP t.41,
+ TEMP QueensOpen.Solve.1.r)
+BLT(
+ TEMP t.41,
+ CONST 0,
+ L.41, L.42)
+LABEL L.42
+BGE(
+ TEMP t.41,
+ MEM(
+  TEMP t.42, 
+  CONST 8, 8),
+ L.41, L.43)
+LABEL L.43
+BEQ(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.42, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.41,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0,
+ L.38, L.36)
+LABEL L.36
+MOVE(
+ TEMP t.34,
+ ADD(
+  TEMP t.34,
+  TEMP t.38))
+JUMP(
+ NAME L.33)
+LABEL L.38
+MOVE(
+ TEMP t.43,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.43,
+ CONST 0,
+ L.27, L.44)
+LABEL L.44
+MOVE(
+ TEMP t.44,
+ MEM(
+  TEMP t.43, 
+  CONST 16, 8))
+BEQ(
+ TEMP t.44,
+ CONST 0,
+ L.27, L.45)
+LABEL L.45
+MOVE(
+ TEMP t.46,
+ TEMP t.44)
+MOVE(
+ TEMP t.45,
+ ADD(
+  TEMP QueensOpen.Solve.1.r,
+  TEMP QueensOpen.Solve.c))
+BLT(
+ TEMP t.45,
+ CONST 0,
+ L.41, L.46)
+LABEL L.46
+BGE(
+ TEMP t.45,
+ MEM(
+  TEMP t.46, 
+  CONST 8, 8),
+ L.41, L.47)
+LABEL L.47
+BNE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.46, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.45,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0,
+ L.36, L.37)
+LABEL L.37
+MOVE(
+ TEMP t.47,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.47,
+ CONST 0,
+ L.27, L.48)
+LABEL L.48
+MOVE(
+ TEMP t.48,
+ MEM(
+  TEMP t.47, 
+  CONST 24, 8))
+BEQ(
+ TEMP t.48,
+ CONST 0,
+ L.27, L.49)
+LABEL L.49
+MOVE(
+ TEMP t.50,
+ TEMP t.48)
+MOVE(
+ TEMP t.49,
+ SUB(
+  ADD(
+   TEMP QueensOpen.Solve.1.r,
+   SUB(
+    CONST 8,
+    CONST 1)),
+  TEMP QueensOpen.Solve.c))
+BLT(
+ TEMP t.49,
+ CONST 0,
+ L.41, L.50)
+LABEL L.50
+BGE(
+ TEMP t.49,
+ MEM(
+  TEMP t.50, 
+  CONST 8, 8),
+ L.41, L.51)
+LABEL L.51
+BNE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.50, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.49,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0,
+ L.36, L.35)
+LABEL L.35
+MOVE(
+ TEMP t.51,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.51,
+ CONST 0,
+ L.27, L.52)
+LABEL L.52
+MOVE(
+ TEMP t.52,
+ MEM(
+  TEMP t.51, 
+  CONST 0, 8))
+BEQ(
+ TEMP t.52,
+ CONST 0,
+ L.27, L.53)
+LABEL L.53
+MOVE(
+ TEMP t.54,
+ TEMP t.52)
+MOVE(
+ TEMP t.53,
+ TEMP QueensOpen.Solve.1.r)
+BLT(
+ TEMP t.53,
+ CONST 0,
+ L.41, L.54)
+LABEL L.54
+BGE(
+ TEMP t.53,
+ MEM(
+  TEMP t.54, 
+  CONST 8, 8),
+ L.41, L.55)
+LABEL L.55
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.54, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.53,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 1)
+MOVE(
+ TEMP t.55,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.55,
+ CONST 0,
+ L.27, L.56)
+LABEL L.56
+MOVE(
+ TEMP t.56,
+ MEM(
+  TEMP t.55, 
+  CONST 16, 8))
+BEQ(
+ TEMP t.56,
+ CONST 0,
+ L.27, L.57)
+LABEL L.57
+MOVE(
+ TEMP t.58,
+ TEMP t.56)
+MOVE(
+ TEMP t.57,
+ ADD(
+  TEMP QueensOpen.Solve.1.r,
+  TEMP QueensOpen.Solve.c))
+BLT(
+ TEMP t.57,
+ CONST 0,
+ L.41, L.58)
+LABEL L.58
+BGE(
+ TEMP t.57,
+ MEM(
+  TEMP t.58, 
+  CONST 8, 8),
+ L.41, L.59)
+LABEL L.59
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.58, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.57,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 1)
+MOVE(
+ TEMP t.59,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.59,
+ CONST 0,
+ L.27, L.60)
+LABEL L.60
+MOVE(
+ TEMP t.60,
+ MEM(
+  TEMP t.59, 
+  CONST 24, 8))
+BEQ(
+ TEMP t.60,
+ CONST 0,
+ L.27, L.61)
+LABEL L.61
+MOVE(
+ TEMP t.62,
+ TEMP t.60)
+MOVE(
+ TEMP t.61,
+ SUB(
+  ADD(
+   TEMP QueensOpen.Solve.1.r,
+   SUB(
+    CONST 8,
+    CONST 1)),
+  TEMP QueensOpen.Solve.c))
+BLT(
+ TEMP t.61,
+ CONST 0,
+ L.41, L.62)
+LABEL L.62
+BGE(
+ TEMP t.61,
+ MEM(
+  TEMP t.62, 
+  CONST 8, 8),
+ L.41, L.63)
+LABEL L.63
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.62, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.61,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 1)
+MOVE(
+ TEMP t.63,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.63,
+ CONST 0,
+ L.27, L.64)
+LABEL L.64
+MOVE(
+ TEMP t.64,
+ MEM(
+  TEMP t.63, 
+  CONST 8, 8))
+BEQ(
+ TEMP t.64,
+ CONST 0,
+ L.27, L.65)
+LABEL L.65
+MOVE(
+ TEMP t.66,
+ TEMP t.64)
+MOVE(
+ TEMP t.65,
+ TEMP QueensOpen.Solve.c)
+BLT(
+ TEMP t.65,
+ CONST 0,
+ L.41, L.66)
+LABEL L.66
+BGE(
+ TEMP t.65,
+ MEM(
+  TEMP t.66, 
+  CONST 8, 8),
+ L.41, L.67)
+LABEL L.67
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.66, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.65,
+    CONST 8)), 
+  CONST 0, 8),
+ TEMP QueensOpen.Solve.1.r)
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP QueensOpen.Solve.self, 
+    CONST -8, 8), 
+   CONST 8, 8),
+  CONST 0,
+  TEMP QueensOpen.Solve.self,
+  ADD(
+   TEMP QueensOpen.Solve.c,
+   CONST 1)))
+MOVE(
+ TEMP t.67,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.67,
+ CONST 0,
+ L.27, L.68)
+LABEL L.68
+MOVE(
+ TEMP t.68,
+ MEM(
+  TEMP t.67, 
+  CONST 0, 8))
+BEQ(
+ TEMP t.68,
+ CONST 0,
+ L.27, L.69)
+LABEL L.69
+MOVE(
+ TEMP t.70,
+ TEMP t.68)
+MOVE(
+ TEMP t.69,
+ TEMP QueensOpen.Solve.1.r)
+BLT(
+ TEMP t.69,
+ CONST 0,
+ L.41, L.70)
+LABEL L.70
+BGE(
+ TEMP t.69,
+ MEM(
+  TEMP t.70, 
+  CONST 8, 8),
+ L.41, L.71)
+LABEL L.71
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.70, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.69,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.71,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.71,
+ CONST 0,
+ L.27, L.72)
+LABEL L.72
+MOVE(
+ TEMP t.72,
+ MEM(
+  TEMP t.71, 
+  CONST 16, 8))
+BEQ(
+ TEMP t.72,
+ CONST 0,
+ L.27, L.73)
+LABEL L.73
+MOVE(
+ TEMP t.74,
+ TEMP t.72)
+MOVE(
+ TEMP t.73,
+ ADD(
+  TEMP QueensOpen.Solve.1.r,
+  TEMP QueensOpen.Solve.c))
+BLT(
+ TEMP t.73,
+ CONST 0,
+ L.41, L.74)
+LABEL L.74
+BGE(
+ TEMP t.73,
+ MEM(
+  TEMP t.74, 
+  CONST 8, 8),
+ L.41, L.75)
+LABEL L.75
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.74, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.73,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.75,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.75,
+ CONST 0,
+ L.27, L.76)
+LABEL L.76
+MOVE(
+ TEMP t.76,
+ MEM(
+  TEMP t.75, 
+  CONST 24, 8))
+BEQ(
+ TEMP t.76,
+ CONST 0,
+ L.27, L.77)
+LABEL L.77
+MOVE(
+ TEMP t.78,
+ TEMP t.76)
+MOVE(
+ TEMP t.77,
+ SUB(
+  ADD(
+   TEMP QueensOpen.Solve.1.r,
+   SUB(
+    CONST 8,
+    CONST 1)),
+  TEMP QueensOpen.Solve.c))
+BLT(
+ TEMP t.77,
+ CONST 0,
+ L.41, L.78)
+LABEL L.78
+BGE(
+ TEMP t.77,
+ MEM(
+  TEMP t.78, 
+  CONST 8, 8),
+ L.41, L.79)
+LABEL L.79
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.78, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.77,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+JUMP(
+ NAME L.36)
+LABEL L.23
+# With procedure entry/exit:
+MOVE(
+ TEMP QueensOpen.Solve.self,
+ TEMP %rdi)
+MOVE(
+ TEMP QueensOpen.Solve.c,
+ TEMP %rsi)
+LABEL L.104
+MOVE(
+ TEMP t.32,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.32,
+ CONST 0,
+ L.27, L.28)
+LABEL L.28
+MOVE(
+ TEMP t.33,
+ MEM(
+  TEMP t.32, 
+  CONST 8, 8))
+BEQ(
+ TEMP t.33,
+ CONST 0,
+ L.27, L.29)
+LABEL L.29
+BEQ(
+ TEMP QueensOpen.Solve.c,
+ MEM(
+  TEMP t.33, 
+  CONST 8, 8),
+ L.24, L.25)
+LABEL L.25
+MOVE(
+ TEMP t.34,
+ CONST 0)
+MOVE(
+ TEMP t.36,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.36,
+ CONST 0,
+ L.27, L.30)
+LABEL L.30
+MOVE(
+ TEMP t.37,
+ MEM(
+  TEMP t.36, 
+  CONST 0, 8))
+BEQ(
+ TEMP t.37,
+ CONST 0,
+ L.27, L.31)
+LABEL L.31
+MOVE(
+ TEMP t.35,
+ SUB(
+  MEM(
+   TEMP t.37, 
+   CONST 8, 8),
+  CONST 1))
+MOVE(
+ TEMP t.38,
+ CONST 1)
+LABEL L.33
+BLE(
+ TEMP t.34,
+ TEMP t.35,
+ L.32, L.34)
+LABEL L.34
+LABEL L.26
+JUMP(
+ NAME L.23)
+LABEL L.24
+EXP(
+ CALL(
+  NAME QueensOpen.Print,
+  CONST 0,
+  TEMP QueensOpen.Solve.self))
+JUMP(
+ NAME L.26)
+LABEL L.32
+MOVE(
+ TEMP QueensOpen.Solve.1.r,
+ TEMP t.34)
+MOVE(
+ TEMP t.39,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.39,
+ CONST 0,
+ L.27, L.39)
+LABEL L.39
+MOVE(
+ TEMP t.40,
+ MEM(
+  TEMP t.39, 
+  CONST 0, 8))
+BEQ(
+ TEMP t.40,
+ CONST 0,
+ L.27, L.40)
+LABEL L.40
+MOVE(
+ TEMP t.42,
+ TEMP t.40)
+MOVE(
+ TEMP t.41,
+ TEMP QueensOpen.Solve.1.r)
+BLT(
+ TEMP t.41,
+ CONST 0,
+ L.41, L.42)
+LABEL L.42
+BGE(
+ TEMP t.41,
+ MEM(
+  TEMP t.42, 
+  CONST 8, 8),
+ L.41, L.43)
+LABEL L.43
+BEQ(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.42, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.41,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0,
+ L.38, L.36)
+LABEL L.36
+MOVE(
+ TEMP t.34,
+ ADD(
+  TEMP t.34,
+  TEMP t.38))
+JUMP(
+ NAME L.33)
+LABEL L.38
+MOVE(
+ TEMP t.43,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.43,
+ CONST 0,
+ L.27, L.44)
+LABEL L.44
+MOVE(
+ TEMP t.44,
+ MEM(
+  TEMP t.43, 
+  CONST 16, 8))
+BEQ(
+ TEMP t.44,
+ CONST 0,
+ L.27, L.45)
+LABEL L.45
+MOVE(
+ TEMP t.46,
+ TEMP t.44)
+MOVE(
+ TEMP t.45,
+ ADD(
+  TEMP QueensOpen.Solve.1.r,
+  TEMP QueensOpen.Solve.c))
+BLT(
+ TEMP t.45,
+ CONST 0,
+ L.41, L.46)
+LABEL L.46
+BGE(
+ TEMP t.45,
+ MEM(
+  TEMP t.46, 
+  CONST 8, 8),
+ L.41, L.47)
+LABEL L.47
+BNE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.46, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.45,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0,
+ L.36, L.37)
+LABEL L.37
+MOVE(
+ TEMP t.47,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.47,
+ CONST 0,
+ L.27, L.48)
+LABEL L.48
+MOVE(
+ TEMP t.48,
+ MEM(
+  TEMP t.47, 
+  CONST 24, 8))
+BEQ(
+ TEMP t.48,
+ CONST 0,
+ L.27, L.49)
+LABEL L.49
+MOVE(
+ TEMP t.50,
+ TEMP t.48)
+MOVE(
+ TEMP t.49,
+ SUB(
+  ADD(
+   TEMP QueensOpen.Solve.1.r,
+   SUB(
+    CONST 8,
+    CONST 1)),
+  TEMP QueensOpen.Solve.c))
+BLT(
+ TEMP t.49,
+ CONST 0,
+ L.41, L.50)
+LABEL L.50
+BGE(
+ TEMP t.49,
+ MEM(
+  TEMP t.50, 
+  CONST 8, 8),
+ L.41, L.51)
+LABEL L.51
+BNE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.50, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.49,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0,
+ L.36, L.35)
+LABEL L.35
+MOVE(
+ TEMP t.51,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.51,
+ CONST 0,
+ L.27, L.52)
+LABEL L.52
+MOVE(
+ TEMP t.52,
+ MEM(
+  TEMP t.51, 
+  CONST 0, 8))
+BEQ(
+ TEMP t.52,
+ CONST 0,
+ L.27, L.53)
+LABEL L.53
+MOVE(
+ TEMP t.54,
+ TEMP t.52)
+MOVE(
+ TEMP t.53,
+ TEMP QueensOpen.Solve.1.r)
+BLT(
+ TEMP t.53,
+ CONST 0,
+ L.41, L.54)
+LABEL L.54
+BGE(
+ TEMP t.53,
+ MEM(
+  TEMP t.54, 
+  CONST 8, 8),
+ L.41, L.55)
+LABEL L.55
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.54, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.53,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 1)
+MOVE(
+ TEMP t.55,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.55,
+ CONST 0,
+ L.27, L.56)
+LABEL L.56
+MOVE(
+ TEMP t.56,
+ MEM(
+  TEMP t.55, 
+  CONST 16, 8))
+BEQ(
+ TEMP t.56,
+ CONST 0,
+ L.27, L.57)
+LABEL L.57
+MOVE(
+ TEMP t.58,
+ TEMP t.56)
+MOVE(
+ TEMP t.57,
+ ADD(
+  TEMP QueensOpen.Solve.1.r,
+  TEMP QueensOpen.Solve.c))
+BLT(
+ TEMP t.57,
+ CONST 0,
+ L.41, L.58)
+LABEL L.58
+BGE(
+ TEMP t.57,
+ MEM(
+  TEMP t.58, 
+  CONST 8, 8),
+ L.41, L.59)
+LABEL L.59
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.58, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.57,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 1)
+MOVE(
+ TEMP t.59,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.59,
+ CONST 0,
+ L.27, L.60)
+LABEL L.60
+MOVE(
+ TEMP t.60,
+ MEM(
+  TEMP t.59, 
+  CONST 24, 8))
+BEQ(
+ TEMP t.60,
+ CONST 0,
+ L.27, L.61)
+LABEL L.61
+MOVE(
+ TEMP t.62,
+ TEMP t.60)
+MOVE(
+ TEMP t.61,
+ SUB(
+  ADD(
+   TEMP QueensOpen.Solve.1.r,
+   SUB(
+    CONST 8,
+    CONST 1)),
+  TEMP QueensOpen.Solve.c))
+BLT(
+ TEMP t.61,
+ CONST 0,
+ L.41, L.62)
+LABEL L.62
+BGE(
+ TEMP t.61,
+ MEM(
+  TEMP t.62, 
+  CONST 8, 8),
+ L.41, L.63)
+LABEL L.63
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.62, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.61,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 1)
+MOVE(
+ TEMP t.63,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.63,
+ CONST 0,
+ L.27, L.64)
+LABEL L.64
+MOVE(
+ TEMP t.64,
+ MEM(
+  TEMP t.63, 
+  CONST 8, 8))
+BEQ(
+ TEMP t.64,
+ CONST 0,
+ L.27, L.65)
+LABEL L.65
+MOVE(
+ TEMP t.66,
+ TEMP t.64)
+MOVE(
+ TEMP t.65,
+ TEMP QueensOpen.Solve.c)
+BLT(
+ TEMP t.65,
+ CONST 0,
+ L.41, L.66)
+LABEL L.66
+BGE(
+ TEMP t.65,
+ MEM(
+  TEMP t.66, 
+  CONST 8, 8),
+ L.41, L.67)
+LABEL L.67
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.66, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.65,
+    CONST 8)), 
+  CONST 0, 8),
+ TEMP QueensOpen.Solve.1.r)
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP QueensOpen.Solve.self, 
+    CONST -8, 8), 
+   CONST 8, 8),
+  CONST 0,
+  TEMP QueensOpen.Solve.self,
+  ADD(
+   TEMP QueensOpen.Solve.c,
+   CONST 1)))
+MOVE(
+ TEMP t.67,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.67,
+ CONST 0,
+ L.27, L.68)
+LABEL L.68
+MOVE(
+ TEMP t.68,
+ MEM(
+  TEMP t.67, 
+  CONST 0, 8))
+BEQ(
+ TEMP t.68,
+ CONST 0,
+ L.27, L.69)
+LABEL L.69
+MOVE(
+ TEMP t.70,
+ TEMP t.68)
+MOVE(
+ TEMP t.69,
+ TEMP QueensOpen.Solve.1.r)
+BLT(
+ TEMP t.69,
+ CONST 0,
+ L.41, L.70)
+LABEL L.70
+BGE(
+ TEMP t.69,
+ MEM(
+  TEMP t.70, 
+  CONST 8, 8),
+ L.41, L.71)
+LABEL L.71
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.70, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.69,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.71,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.71,
+ CONST 0,
+ L.27, L.72)
+LABEL L.72
+MOVE(
+ TEMP t.72,
+ MEM(
+  TEMP t.71, 
+  CONST 16, 8))
+BEQ(
+ TEMP t.72,
+ CONST 0,
+ L.27, L.73)
+LABEL L.73
+MOVE(
+ TEMP t.74,
+ TEMP t.72)
+MOVE(
+ TEMP t.73,
+ ADD(
+  TEMP QueensOpen.Solve.1.r,
+  TEMP QueensOpen.Solve.c))
+BLT(
+ TEMP t.73,
+ CONST 0,
+ L.41, L.74)
+LABEL L.74
+BGE(
+ TEMP t.73,
+ MEM(
+  TEMP t.74, 
+  CONST 8, 8),
+ L.41, L.75)
+LABEL L.75
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.74, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.73,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.75,
+ TEMP QueensOpen.Solve.self)
+BEQ(
+ TEMP t.75,
+ CONST 0,
+ L.27, L.76)
+LABEL L.76
+MOVE(
+ TEMP t.76,
+ MEM(
+  TEMP t.75, 
+  CONST 24, 8))
+BEQ(
+ TEMP t.76,
+ CONST 0,
+ L.27, L.77)
+LABEL L.77
+MOVE(
+ TEMP t.78,
+ TEMP t.76)
+MOVE(
+ TEMP t.77,
+ SUB(
+  ADD(
+   TEMP QueensOpen.Solve.1.r,
+   SUB(
+    CONST 8,
+    CONST 1)),
+  TEMP QueensOpen.Solve.c))
+BLT(
+ TEMP t.77,
+ CONST 0,
+ L.41, L.78)
+LABEL L.78
+BGE(
+ TEMP t.77,
+ MEM(
+  TEMP t.78, 
+  CONST 8, 8),
+ L.41, L.79)
+LABEL L.79
+MOVE(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.78, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.77,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+JUMP(
+ NAME L.36)
+LABEL L.23
+# Instructions:
+	movq %rdi,QueensOpen.Solve.self	# QueensOpen.Solve.self := %rdi 
+	movq %rsi,QueensOpen.Solve.c	# QueensOpen.Solve.c := %rsi 
+L.104:	# <- 
+	movq QueensOpen.Solve.self,t.32	# t.32 := QueensOpen.Solve.self 
+	xorq t.142,t.142	# t.142 <- 
+	cmpq t.142,t.32	# <- t.32 t.142 
+	je L.27	# <- : goto L.27 L.28 
+L.28:	# <- 
+	movq 8(t.32),t.143	# t.143 <- t.32 
+	movq t.143,t.33	# t.33 := t.143 
+	xorq t.144,t.144	# t.144 <- 
+	cmpq t.144,t.33	# <- t.33 t.144 
+	je L.27	# <- : goto L.27 L.29 
+L.29:	# <- 
+	movq 8(t.33),t.145	# t.145 <- t.33 
+	cmpq t.145,QueensOpen.Solve.c	# <- QueensOpen.Solve.c t.145 
+	je L.24	# <- : goto L.24 L.25 
+L.25:	# <- 
+	xorq t.34,t.34	# t.34 <- 
+	movq QueensOpen.Solve.self,t.36	# t.36 := QueensOpen.Solve.self 
+	xorq t.146,t.146	# t.146 <- 
+	cmpq t.146,t.36	# <- t.36 t.146 
+	je L.27	# <- : goto L.27 L.30 
+L.30:	# <- 
+	movq 0(t.36),t.147	# t.147 <- t.36 
+	movq t.147,t.37	# t.37 := t.147 
+	xorq t.148,t.148	# t.148 <- 
+	cmpq t.148,t.37	# <- t.37 t.148 
+	je L.27	# <- : goto L.27 L.31 
+L.31:	# <- 
+	movq 8(t.37),t.150	# t.150 <- t.37 
+	movq t.150,t.149	# t.149 := t.150 
+	subq $1,t.149	# t.149 <- t.149 
+	movq t.149,t.35	# t.35 := t.149 
+	movq $1,t.38	# t.38 <- 
+L.33:	# <- 
+	cmpq t.35,t.34	# <- t.34 t.35 
+	jle L.32	# <- : goto L.32 L.34 
+L.34:	# <- 
+L.26:	# <- 
+	jmp L.23	# <- : goto L.23 
+L.24:	# <- 
+	movq QueensOpen.Solve.self,%rdi	# %rdi := QueensOpen.Solve.self 
+	call QueensOpen.Print	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	jmp L.26	# <- : goto L.26 
+L.32:	# <- 
+	movq t.34,QueensOpen.Solve.1.r	# QueensOpen.Solve.1.r := t.34 
+	movq QueensOpen.Solve.self,t.39	# t.39 := QueensOpen.Solve.self 
+	xorq t.151,t.151	# t.151 <- 
+	cmpq t.151,t.39	# <- t.39 t.151 
+	je L.27	# <- : goto L.27 L.39 
+L.39:	# <- 
+	movq 0(t.39),t.152	# t.152 <- t.39 
+	movq t.152,t.40	# t.40 := t.152 
+	xorq t.153,t.153	# t.153 <- 
+	cmpq t.153,t.40	# <- t.40 t.153 
+	je L.27	# <- : goto L.27 L.40 
+L.40:	# <- 
+	movq t.40,t.42	# t.42 := t.40 
+	movq QueensOpen.Solve.1.r,t.41	# t.41 := QueensOpen.Solve.1.r 
+	xorq t.154,t.154	# t.154 <- 
+	cmpq t.154,t.41	# <- t.41 t.154 
+	jl L.41	# <- : goto L.41 L.42 
+L.42:	# <- 
+	movq 8(t.42),t.155	# t.155 <- t.42 
+	cmpq t.155,t.41	# <- t.41 t.155 
+	jge L.41	# <- : goto L.41 L.43 
+L.43:	# <- 
+	movq 0(t.42),t.157	# t.157 <- t.42 
+	movq t.157,t.156	# t.156 := t.157 
+	movq t.41,t.158	# t.158 := t.41 
+	shlq $3,t.158	# t.158 <- t.158 
+	addq t.158,t.156	# t.156 <- t.158 t.156 
+	movq 0(t.156),t.159	# t.159 <- t.156 
+	xorq t.160,t.160	# t.160 <- 
+	cmpq t.160,t.159	# <- t.159 t.160 
+	je L.38	# <- : goto L.38 L.36 
+L.36:	# <- 
+	movq t.34,t.161	# t.161 := t.34 
+	addq t.38,t.161	# t.161 <- t.38 t.161 
+	movq t.161,t.34	# t.34 := t.161 
+	jmp L.33	# <- : goto L.33 
+L.38:	# <- 
+	movq QueensOpen.Solve.self,t.43	# t.43 := QueensOpen.Solve.self 
+	xorq t.162,t.162	# t.162 <- 
+	cmpq t.162,t.43	# <- t.43 t.162 
+	je L.27	# <- : goto L.27 L.44 
+L.44:	# <- 
+	movq 16(t.43),t.163	# t.163 <- t.43 
+	movq t.163,t.44	# t.44 := t.163 
+	xorq t.164,t.164	# t.164 <- 
+	cmpq t.164,t.44	# <- t.44 t.164 
+	je L.27	# <- : goto L.27 L.45 
+L.45:	# <- 
+	movq t.44,t.46	# t.46 := t.44 
+	movq QueensOpen.Solve.1.r,t.165	# t.165 := QueensOpen.Solve.1.r 
+	addq QueensOpen.Solve.c,t.165	# t.165 <- QueensOpen.Solve.c t.165 
+	movq t.165,t.45	# t.45 := t.165 
+	xorq t.166,t.166	# t.166 <- 
+	cmpq t.166,t.45	# <- t.45 t.166 
+	jl L.41	# <- : goto L.41 L.46 
+L.46:	# <- 
+	movq 8(t.46),t.167	# t.167 <- t.46 
+	cmpq t.167,t.45	# <- t.45 t.167 
+	jge L.41	# <- : goto L.41 L.47 
+L.47:	# <- 
+	movq 0(t.46),t.169	# t.169 <- t.46 
+	movq t.169,t.168	# t.168 := t.169 
+	movq t.45,t.170	# t.170 := t.45 
+	shlq $3,t.170	# t.170 <- t.170 
+	addq t.170,t.168	# t.168 <- t.170 t.168 
+	movq 0(t.168),t.171	# t.171 <- t.168 
+	xorq t.172,t.172	# t.172 <- 
+	cmpq t.172,t.171	# <- t.171 t.172 
+	jne L.36	# <- : goto L.36 L.37 
+L.37:	# <- 
+	movq QueensOpen.Solve.self,t.47	# t.47 := QueensOpen.Solve.self 
+	xorq t.173,t.173	# t.173 <- 
+	cmpq t.173,t.47	# <- t.47 t.173 
+	je L.27	# <- : goto L.27 L.48 
+L.48:	# <- 
+	movq 24(t.47),t.174	# t.174 <- t.47 
+	movq t.174,t.48	# t.48 := t.174 
+	xorq t.175,t.175	# t.175 <- 
+	cmpq t.175,t.48	# <- t.48 t.175 
+	je L.27	# <- : goto L.27 L.49 
+L.49:	# <- 
+	movq t.48,t.50	# t.50 := t.48 
+	movq QueensOpen.Solve.1.r,t.177	# t.177 := QueensOpen.Solve.1.r 
+	movabsq $8,t.179	# t.179 <- 
+	movq t.179,t.178	# t.178 := t.179 
+	subq $1,t.178	# t.178 <- t.178 
+	addq t.178,t.177	# t.177 <- t.178 t.177 
+	movq t.177,t.176	# t.176 := t.177 
+	subq QueensOpen.Solve.c,t.176	# t.176 <- QueensOpen.Solve.c t.176 
+	movq t.176,t.49	# t.49 := t.176 
+	xorq t.180,t.180	# t.180 <- 
+	cmpq t.180,t.49	# <- t.49 t.180 
+	jl L.41	# <- : goto L.41 L.50 
+L.50:	# <- 
+	movq 8(t.50),t.181	# t.181 <- t.50 
+	cmpq t.181,t.49	# <- t.49 t.181 
+	jge L.41	# <- : goto L.41 L.51 
+L.51:	# <- 
+	movq 0(t.50),t.183	# t.183 <- t.50 
+	movq t.183,t.182	# t.182 := t.183 
+	movq t.49,t.184	# t.184 := t.49 
+	shlq $3,t.184	# t.184 <- t.184 
+	addq t.184,t.182	# t.182 <- t.184 t.182 
+	movq 0(t.182),t.185	# t.185 <- t.182 
+	xorq t.186,t.186	# t.186 <- 
+	cmpq t.186,t.185	# <- t.185 t.186 
+	jne L.36	# <- : goto L.36 L.35 
+L.35:	# <- 
+	movq QueensOpen.Solve.self,t.51	# t.51 := QueensOpen.Solve.self 
+	xorq t.187,t.187	# t.187 <- 
+	cmpq t.187,t.51	# <- t.51 t.187 
+	je L.27	# <- : goto L.27 L.52 
+L.52:	# <- 
+	movq 0(t.51),t.188	# t.188 <- t.51 
+	movq t.188,t.52	# t.52 := t.188 
+	xorq t.189,t.189	# t.189 <- 
+	cmpq t.189,t.52	# <- t.52 t.189 
+	je L.27	# <- : goto L.27 L.53 
+L.53:	# <- 
+	movq t.52,t.54	# t.54 := t.52 
+	movq QueensOpen.Solve.1.r,t.53	# t.53 := QueensOpen.Solve.1.r 
+	xorq t.190,t.190	# t.190 <- 
+	cmpq t.190,t.53	# <- t.53 t.190 
+	jl L.41	# <- : goto L.41 L.54 
+L.54:	# <- 
+	movq 8(t.54),t.191	# t.191 <- t.54 
+	cmpq t.191,t.53	# <- t.53 t.191 
+	jge L.41	# <- : goto L.41 L.55 
+L.55:	# <- 
+	movq 0(t.54),t.193	# t.193 <- t.54 
+	movq t.193,t.192	# t.192 := t.193 
+	movq t.53,t.194	# t.194 := t.53 
+	shlq $3,t.194	# t.194 <- t.194 
+	addq t.194,t.192	# t.192 <- t.194 t.192 
+	movq $1,0(t.192)	# <- t.192 
+	movq QueensOpen.Solve.self,t.55	# t.55 := QueensOpen.Solve.self 
+	xorq t.195,t.195	# t.195 <- 
+	cmpq t.195,t.55	# <- t.55 t.195 
+	je L.27	# <- : goto L.27 L.56 
+L.56:	# <- 
+	movq 16(t.55),t.196	# t.196 <- t.55 
+	movq t.196,t.56	# t.56 := t.196 
+	xorq t.197,t.197	# t.197 <- 
+	cmpq t.197,t.56	# <- t.56 t.197 
+	je L.27	# <- : goto L.27 L.57 
+L.57:	# <- 
+	movq t.56,t.58	# t.58 := t.56 
+	movq QueensOpen.Solve.1.r,t.198	# t.198 := QueensOpen.Solve.1.r 
+	addq QueensOpen.Solve.c,t.198	# t.198 <- QueensOpen.Solve.c t.198 
+	movq t.198,t.57	# t.57 := t.198 
+	xorq t.199,t.199	# t.199 <- 
+	cmpq t.199,t.57	# <- t.57 t.199 
+	jl L.41	# <- : goto L.41 L.58 
+L.58:	# <- 
+	movq 8(t.58),t.200	# t.200 <- t.58 
+	cmpq t.200,t.57	# <- t.57 t.200 
+	jge L.41	# <- : goto L.41 L.59 
+L.59:	# <- 
+	movq 0(t.58),t.202	# t.202 <- t.58 
+	movq t.202,t.201	# t.201 := t.202 
+	movq t.57,t.203	# t.203 := t.57 
+	shlq $3,t.203	# t.203 <- t.203 
+	addq t.203,t.201	# t.201 <- t.203 t.201 
+	movq $1,0(t.201)	# <- t.201 
+	movq QueensOpen.Solve.self,t.59	# t.59 := QueensOpen.Solve.self 
+	xorq t.204,t.204	# t.204 <- 
+	cmpq t.204,t.59	# <- t.59 t.204 
+	je L.27	# <- : goto L.27 L.60 
+L.60:	# <- 
+	movq 24(t.59),t.205	# t.205 <- t.59 
+	movq t.205,t.60	# t.60 := t.205 
+	xorq t.206,t.206	# t.206 <- 
+	cmpq t.206,t.60	# <- t.60 t.206 
+	je L.27	# <- : goto L.27 L.61 
+L.61:	# <- 
+	movq t.60,t.62	# t.62 := t.60 
+	movq QueensOpen.Solve.1.r,t.208	# t.208 := QueensOpen.Solve.1.r 
+	movabsq $8,t.210	# t.210 <- 
+	movq t.210,t.209	# t.209 := t.210 
+	subq $1,t.209	# t.209 <- t.209 
+	addq t.209,t.208	# t.208 <- t.209 t.208 
+	movq t.208,t.207	# t.207 := t.208 
+	subq QueensOpen.Solve.c,t.207	# t.207 <- QueensOpen.Solve.c t.207 
+	movq t.207,t.61	# t.61 := t.207 
+	xorq t.211,t.211	# t.211 <- 
+	cmpq t.211,t.61	# <- t.61 t.211 
+	jl L.41	# <- : goto L.41 L.62 
+L.62:	# <- 
+	movq 8(t.62),t.212	# t.212 <- t.62 
+	cmpq t.212,t.61	# <- t.61 t.212 
+	jge L.41	# <- : goto L.41 L.63 
+L.63:	# <- 
+	movq 0(t.62),t.214	# t.214 <- t.62 
+	movq t.214,t.213	# t.213 := t.214 
+	movq t.61,t.215	# t.215 := t.61 
+	shlq $3,t.215	# t.215 <- t.215 
+	addq t.215,t.213	# t.213 <- t.215 t.213 
+	movq $1,0(t.213)	# <- t.213 
+	movq QueensOpen.Solve.self,t.63	# t.63 := QueensOpen.Solve.self 
+	xorq t.216,t.216	# t.216 <- 
+	cmpq t.216,t.63	# <- t.63 t.216 
+	je L.27	# <- : goto L.27 L.64 
+L.64:	# <- 
+	movq 8(t.63),t.217	# t.217 <- t.63 
+	movq t.217,t.64	# t.64 := t.217 
+	xorq t.218,t.218	# t.218 <- 
+	cmpq t.218,t.64	# <- t.64 t.218 
+	je L.27	# <- : goto L.27 L.65 
+L.65:	# <- 
+	movq t.64,t.66	# t.66 := t.64 
+	movq QueensOpen.Solve.c,t.65	# t.65 := QueensOpen.Solve.c 
+	xorq t.219,t.219	# t.219 <- 
+	cmpq t.219,t.65	# <- t.65 t.219 
+	jl L.41	# <- : goto L.41 L.66 
+L.66:	# <- 
+	movq 8(t.66),t.220	# t.220 <- t.66 
+	cmpq t.220,t.65	# <- t.65 t.220 
+	jge L.41	# <- : goto L.41 L.67 
+L.67:	# <- 
+	movq 0(t.66),t.222	# t.222 <- t.66 
+	movq t.222,t.221	# t.221 := t.222 
+	movq t.65,t.223	# t.223 := t.65 
+	shlq $3,t.223	# t.223 <- t.223 
+	addq t.223,t.221	# t.221 <- t.223 t.221 
+	movq QueensOpen.Solve.1.r,0(t.221)	# <- QueensOpen.Solve.1.r t.221 
+	movq -8(QueensOpen.Solve.self),t.224	# t.224 <- QueensOpen.Solve.self 
+	movq 8(t.224),t.225	# t.225 <- t.224 
+	movq QueensOpen.Solve.self,%rdi	# %rdi := QueensOpen.Solve.self 
+	movq QueensOpen.Solve.c,t.226	# t.226 := QueensOpen.Solve.c 
+	addq $1,t.226	# t.226 <- t.226 
+	movq t.226,%rsi	# %rsi := t.226 
+	call *t.225	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- t.225 %rdi %rsi 
+	movq QueensOpen.Solve.self,t.67	# t.67 := QueensOpen.Solve.self 
+	xorq t.227,t.227	# t.227 <- 
+	cmpq t.227,t.67	# <- t.67 t.227 
+	je L.27	# <- : goto L.27 L.68 
+L.68:	# <- 
+	movq 0(t.67),t.228	# t.228 <- t.67 
+	movq t.228,t.68	# t.68 := t.228 
+	xorq t.229,t.229	# t.229 <- 
+	cmpq t.229,t.68	# <- t.68 t.229 
+	je L.27	# <- : goto L.27 L.69 
+L.69:	# <- 
+	movq t.68,t.70	# t.70 := t.68 
+	movq QueensOpen.Solve.1.r,t.69	# t.69 := QueensOpen.Solve.1.r 
+	xorq t.230,t.230	# t.230 <- 
+	cmpq t.230,t.69	# <- t.69 t.230 
+	jl L.41	# <- : goto L.41 L.70 
+L.70:	# <- 
+	movq 8(t.70),t.231	# t.231 <- t.70 
+	cmpq t.231,t.69	# <- t.69 t.231 
+	jge L.41	# <- : goto L.41 L.71 
+L.71:	# <- 
+	movq 0(t.70),t.233	# t.233 <- t.70 
+	movq t.233,t.232	# t.232 := t.233 
+	movq t.69,t.234	# t.234 := t.69 
+	shlq $3,t.234	# t.234 <- t.234 
+	addq t.234,t.232	# t.232 <- t.234 t.232 
+	movq $0,0(t.232)	# <- t.232 
+	movq QueensOpen.Solve.self,t.71	# t.71 := QueensOpen.Solve.self 
+	xorq t.235,t.235	# t.235 <- 
+	cmpq t.235,t.71	# <- t.71 t.235 
+	je L.27	# <- : goto L.27 L.72 
+L.72:	# <- 
+	movq 16(t.71),t.236	# t.236 <- t.71 
+	movq t.236,t.72	# t.72 := t.236 
+	xorq t.237,t.237	# t.237 <- 
+	cmpq t.237,t.72	# <- t.72 t.237 
+	je L.27	# <- : goto L.27 L.73 
+L.73:	# <- 
+	movq t.72,t.74	# t.74 := t.72 
+	movq QueensOpen.Solve.1.r,t.238	# t.238 := QueensOpen.Solve.1.r 
+	addq QueensOpen.Solve.c,t.238	# t.238 <- QueensOpen.Solve.c t.238 
+	movq t.238,t.73	# t.73 := t.238 
+	xorq t.239,t.239	# t.239 <- 
+	cmpq t.239,t.73	# <- t.73 t.239 
+	jl L.41	# <- : goto L.41 L.74 
+L.74:	# <- 
+	movq 8(t.74),t.240	# t.240 <- t.74 
+	cmpq t.240,t.73	# <- t.73 t.240 
+	jge L.41	# <- : goto L.41 L.75 
+L.75:	# <- 
+	movq 0(t.74),t.242	# t.242 <- t.74 
+	movq t.242,t.241	# t.241 := t.242 
+	movq t.73,t.243	# t.243 := t.73 
+	shlq $3,t.243	# t.243 <- t.243 
+	addq t.243,t.241	# t.241 <- t.243 t.241 
+	movq $0,0(t.241)	# <- t.241 
+	movq QueensOpen.Solve.self,t.75	# t.75 := QueensOpen.Solve.self 
+	xorq t.244,t.244	# t.244 <- 
+	cmpq t.244,t.75	# <- t.75 t.244 
+	je L.27	# <- : goto L.27 L.76 
+L.76:	# <- 
+	movq 24(t.75),t.245	# t.245 <- t.75 
+	movq t.245,t.76	# t.76 := t.245 
+	xorq t.246,t.246	# t.246 <- 
+	cmpq t.246,t.76	# <- t.76 t.246 
+	je L.27	# <- : goto L.27 L.77 
+L.77:	# <- 
+	movq t.76,t.78	# t.78 := t.76 
+	movq QueensOpen.Solve.1.r,t.248	# t.248 := QueensOpen.Solve.1.r 
+	movabsq $8,t.250	# t.250 <- 
+	movq t.250,t.249	# t.249 := t.250 
+	subq $1,t.249	# t.249 <- t.249 
+	addq t.249,t.248	# t.248 <- t.249 t.248 
+	movq t.248,t.247	# t.247 := t.248 
+	subq QueensOpen.Solve.c,t.247	# t.247 <- QueensOpen.Solve.c t.247 
+	movq t.247,t.77	# t.77 := t.247 
+	xorq t.251,t.251	# t.251 <- 
+	cmpq t.251,t.77	# <- t.77 t.251 
+	jl L.41	# <- : goto L.41 L.78 
+L.78:	# <- 
+	movq 8(t.78),t.252	# t.252 <- t.78 
+	cmpq t.252,t.77	# <- t.77 t.252 
+	jge L.41	# <- : goto L.41 L.79 
+L.79:	# <- 
+	movq 0(t.78),t.254	# t.254 <- t.78 
+	movq t.254,t.253	# t.253 := t.254 
+	movq t.77,t.255	# t.255 := t.77 
+	shlq $3,t.255	# t.255 <- t.255 
+	addq t.255,t.253	# t.253 <- t.255 t.253 
+	movq $0,0(t.253)	# <- t.253 
+	jmp L.36	# <- : goto L.36 
+L.23:	# <- 
+# Control Flow Graph:
+0: QueensOpen.Solve.self QueensOpen.Solve.c <- %rdi %rsi ; goto 1 
+1: t.32 t.142 <- QueensOpen.Solve.self ; goto 2 
+2: t.143 t.33 t.144 <- t.32 ; goto 3 
+3: t.145 <- t.33 QueensOpen.Solve.c ; goto 9 4 
+4: t.34 t.36 t.146 <- QueensOpen.Solve.self ; goto 5 
+5: t.147 t.37 t.148 <- t.36 ; goto 6 
+6: t.150 t.149 t.35 t.38 <- t.37 ; goto 7 
+7: <- t.34 t.35 ; goto 10 8 
+8: <- ; goto 55 
+9: %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- QueensOpen.Solve.self ; goto 8 
+10: QueensOpen.Solve.1.r t.39 t.151 <- t.34 QueensOpen.Solve.self ; goto 11 
+11: t.152 t.40 t.153 <- t.39 ; goto 12 
+12: t.42 t.41 t.154 <- t.40 QueensOpen.Solve.1.r ; goto 13 
+13: t.155 <- t.42 t.41 ; goto 14 
+14: t.157 t.156 t.158 t.159 t.160 <- t.42 t.41 ; goto 16 15 
+15: t.161 t.34 <- t.34 t.38 ; goto 7 
+16: t.43 t.162 <- QueensOpen.Solve.self ; goto 17 
+17: t.163 t.44 t.164 <- t.43 ; goto 18 
+18: t.46 t.165 t.45 t.166 <- t.44 QueensOpen.Solve.1.r QueensOpen.Solve.c ; goto 19 
+19: t.167 <- t.46 t.45 ; goto 20 
+20: t.169 t.168 t.170 t.171 t.172 <- t.46 t.45 ; goto 15 21 
+21: t.47 t.173 <- QueensOpen.Solve.self ; goto 22 
+22: t.174 t.48 t.175 <- t.47 ; goto 23 
+23: t.50 t.177 t.179 t.178 t.176 t.49 t.180 <- t.48 QueensOpen.Solve.1.r QueensOpen.Solve.c ; goto 24 
+24: t.181 <- t.50 t.49 ; goto 25 
+25: t.183 t.182 t.184 t.185 t.186 <- t.50 t.49 ; goto 15 26 
+26: t.51 t.187 <- QueensOpen.Solve.self ; goto 27 
+27: t.188 t.52 t.189 <- t.51 ; goto 28 
+28: t.54 t.53 t.190 <- t.52 QueensOpen.Solve.1.r ; goto 29 
+29: t.191 <- t.54 t.53 ; goto 30 
+30: t.193 t.192 t.194 t.55 t.195 <- t.54 t.53 QueensOpen.Solve.self ; goto 31 
+31: t.196 t.56 t.197 <- t.55 ; goto 32 
+32: t.58 t.198 t.57 t.199 <- t.56 QueensOpen.Solve.1.r QueensOpen.Solve.c ; goto 33 
+33: t.200 <- t.58 t.57 ; goto 34 
+34: t.202 t.201 t.203 t.59 t.204 <- t.58 t.57 QueensOpen.Solve.self ; goto 35 
+35: t.205 t.60 t.206 <- t.59 ; goto 36 
+36: t.62 t.208 t.210 t.209 t.207 t.61 t.211 <- t.60 QueensOpen.Solve.1.r QueensOpen.Solve.c ; goto 37 
+37: t.212 <- t.62 t.61 ; goto 38 
+38: t.214 t.213 t.215 t.63 t.216 <- t.62 t.61 QueensOpen.Solve.self ; goto 39 
+39: t.217 t.64 t.218 <- t.63 ; goto 40 
+40: t.66 t.65 t.219 <- t.64 QueensOpen.Solve.c ; goto 41 
+41: t.220 <- t.66 t.65 ; goto 42 
+42: t.222 t.221 t.223 t.224 t.225 %rdi t.226 %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.67 t.227 <- t.66 t.65 QueensOpen.Solve.1.r QueensOpen.Solve.self QueensOpen.Solve.c ; goto 43 
+43: t.228 t.68 t.229 <- t.67 ; goto 44 
+44: t.70 t.69 t.230 <- t.68 QueensOpen.Solve.1.r ; goto 45 
+45: t.231 <- t.70 t.69 ; goto 46 
+46: t.233 t.232 t.234 t.71 t.235 <- t.70 t.69 QueensOpen.Solve.self ; goto 47 
+47: t.236 t.72 t.237 <- t.71 ; goto 48 
+48: t.74 t.238 t.73 t.239 <- t.72 QueensOpen.Solve.1.r QueensOpen.Solve.c ; goto 49 
+49: t.240 <- t.74 t.73 ; goto 50 
+50: t.242 t.241 t.243 t.75 t.244 <- t.74 t.73 QueensOpen.Solve.self ; goto 51 
+51: t.245 t.76 t.246 <- t.75 ; goto 52 
+52: t.78 t.248 t.250 t.249 t.247 t.77 t.251 <- t.76 QueensOpen.Solve.1.r QueensOpen.Solve.c ; goto 53 
+53: t.252 <- t.78 t.77 ; goto 54 
+54: t.254 t.253 t.255 <- t.78 t.77 ; goto 15 
+55: <- %rsp %rbp ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+QueensOpen.Solve.self: QueensOpen.Solve.c %rsp %rbp %rsi t.142 t.144 t.33 t.143 t.145 t.146 t.34 t.148 t.37 t.147 t.38 t.35 t.149 t.150 t.151 QueensOpen.Solve.1.r t.153 t.40 t.152 t.154 t.41 t.42 t.155 t.160 t.159 t.156 t.158 t.157 t.161 t.162 t.164 t.44 t.163 t.166 t.45 t.165 t.46 t.167 t.172 t.171 t.168 t.170 t.169 t.173 t.175 t.48 t.174 t.180 t.49 t.176 t.177 t.178 t.179 t.50 t.181 t.186 t.185 t.182 t.184 t.183 t.187 t.189 t.52 t.188 t.190 t.53 t.54 t.191 t.195 t.192 t.194 t.193 t.197 t.56 t.196 t.199 t.57 t.198 t.58 t.200 t.204 t.201 t.203 t.202 t.206 t.60 t.205 t.211 t.61 t.207 t.208 t.209 t.210 t.62 t.212 t.216 t.213 t.215 t.214 t.218 t.64 t.217 t.219 t.65 t.66 t.220 t.227 %rdi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.226 t.225 t.224 t.221 t.223 t.222 t.229 t.68 t.228 t.230 t.69 t.70 t.231 t.235 t.232 t.234 t.233 t.237 t.72 t.236 t.239 t.73 t.238 t.74 t.240 t.244 t.241 t.243 t.242 t.246 t.76 t.245 t.251 t.77 t.247 t.248 t.249 t.250 t.78 t.252 t.253 t.255 t.254 
+QueensOpen.Solve.c: QueensOpen.Solve.self %rsp %rbp t.142 t.32 t.144 t.33 t.143 t.145 t.146 t.36 t.34 t.148 t.37 t.147 t.38 t.35 t.149 t.150 t.151 t.39 QueensOpen.Solve.1.r t.153 t.40 t.152 t.154 t.41 t.42 t.155 t.160 t.159 t.156 t.158 t.157 t.161 t.162 t.43 t.164 t.44 t.163 t.166 t.45 t.165 t.46 t.167 t.172 t.171 t.168 t.170 t.169 t.173 t.47 t.175 t.48 t.174 t.180 t.49 t.176 t.177 t.178 t.179 t.50 t.181 t.186 t.185 t.182 t.184 t.183 t.187 t.51 t.189 t.52 t.188 t.190 t.53 t.54 t.191 t.195 t.55 t.192 t.194 t.193 t.197 t.56 t.196 t.199 t.57 t.198 t.58 t.200 t.204 t.59 t.201 t.203 t.202 t.206 t.60 t.205 t.211 t.61 t.207 t.208 t.209 t.210 t.62 t.212 t.216 t.63 t.213 t.215 t.214 t.218 t.64 t.217 t.219 t.66 t.220 t.227 t.67 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.226 t.225 t.224 t.221 t.223 t.222 t.229 t.68 t.228 t.230 t.69 t.70 t.231 t.235 t.71 t.232 t.234 t.233 t.237 t.72 t.236 t.239 t.73 t.238 t.74 t.240 t.244 t.75 t.241 t.243 t.242 t.246 t.76 t.245 t.251 t.77 t.247 t.248 t.249 t.250 t.78 t.252 t.253 t.255 t.254 
+t.32: t.142 QueensOpen.Solve.c %rsp %rbp 
+t.142: t.32 QueensOpen.Solve.c QueensOpen.Solve.self %rsp %rbp 
+t.143: QueensOpen.Solve.c QueensOpen.Solve.self %rsp %rbp 
+t.33: t.144 QueensOpen.Solve.c QueensOpen.Solve.self %rsp %rbp 
+t.144: t.33 QueensOpen.Solve.c QueensOpen.Solve.self %rsp %rbp 
+t.145: QueensOpen.Solve.self QueensOpen.Solve.c %rsp %rbp 
+t.34: t.146 t.36 QueensOpen.Solve.self QueensOpen.Solve.c %rsp %rbp t.148 t.37 t.147 t.38 t.35 t.149 t.150 t.151 t.39 t.153 t.40 t.152 t.154 t.41 t.42 t.155 t.160 t.159 t.156 t.158 t.157 t.162 t.43 t.164 t.44 t.163 t.166 t.45 t.165 t.46 t.167 t.172 t.171 t.168 t.170 t.169 t.173 t.47 t.175 t.48 t.174 t.180 t.49 t.176 t.177 t.178 t.179 t.50 t.181 t.186 t.185 t.182 t.184 t.183 t.187 t.51 t.189 t.52 t.188 t.190 t.53 t.54 t.191 t.195 t.55 t.192 t.194 t.193 t.197 t.56 t.196 t.199 t.57 t.198 t.58 t.200 t.204 t.59 t.201 t.203 t.202 t.206 t.60 t.205 t.211 t.61 t.207 t.208 t.209 t.210 t.62 t.212 t.216 t.63 t.213 t.215 t.214 t.218 t.64 t.217 t.219 t.65 t.66 t.220 t.227 t.67 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.226 t.225 t.224 t.221 t.223 t.222 t.229 t.68 t.228 t.230 t.69 t.70 t.231 t.235 t.71 t.232 t.234 t.233 t.237 t.72 t.236 t.239 t.73 t.238 t.74 t.240 t.244 t.75 t.241 t.243 t.242 t.246 t.76 t.245 t.251 t.77 t.247 t.248 t.249 t.250 t.78 t.252 t.253 t.255 t.254 
+t.36: t.146 t.34 QueensOpen.Solve.c %rsp %rbp 
+t.146: t.36 t.34 QueensOpen.Solve.self QueensOpen.Solve.c %rsp %rbp 
+t.147: t.34 QueensOpen.Solve.self QueensOpen.Solve.c %rsp %rbp 
+t.37: t.148 t.34 QueensOpen.Solve.self QueensOpen.Solve.c %rsp %rbp 
+t.148: t.37 t.34 QueensOpen.Solve.self QueensOpen.Solve.c %rsp %rbp 
+t.150: t.34 QueensOpen.Solve.self QueensOpen.Solve.c %rsp %rbp 
+t.149: t.34 QueensOpen.Solve.self QueensOpen.Solve.c %rsp %rbp 
+t.35: t.38 t.34 QueensOpen.Solve.self QueensOpen.Solve.c %rsp %rbp t.151 t.39 QueensOpen.Solve.1.r t.153 t.40 t.152 t.154 t.41 t.42 t.155 t.160 t.159 t.156 t.158 t.157 t.161 t.162 t.43 t.164 t.44 t.163 t.166 t.45 t.165 t.46 t.167 t.172 t.171 t.168 t.170 t.169 t.173 t.47 t.175 t.48 t.174 t.180 t.49 t.176 t.177 t.178 t.179 t.50 t.181 t.186 t.185 t.182 t.184 t.183 t.187 t.51 t.189 t.52 t.188 t.190 t.53 t.54 t.191 t.195 t.55 t.192 t.194 t.193 t.197 t.56 t.196 t.199 t.57 t.198 t.58 t.200 t.204 t.59 t.201 t.203 t.202 t.206 t.60 t.205 t.211 t.61 t.207 t.208 t.209 t.210 t.62 t.212 t.216 t.63 t.213 t.215 t.214 t.218 t.64 t.217 t.219 t.65 t.66 t.220 t.227 t.67 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.226 t.225 t.224 t.221 t.223 t.222 t.229 t.68 t.228 t.230 t.69 t.70 t.231 t.235 t.71 t.232 t.234 t.233 t.237 t.72 t.236 t.239 t.73 t.238 t.74 t.240 t.244 t.75 t.241 t.243 t.242 t.246 t.76 t.245 t.251 t.77 t.247 t.248 t.249 t.250 t.78 t.252 t.253 t.255 t.254 
+t.38: t.34 t.35 QueensOpen.Solve.self QueensOpen.Solve.c %rsp %rbp t.151 t.39 QueensOpen.Solve.1.r t.153 t.40 t.152 t.154 t.41 t.42 t.155 t.160 t.159 t.156 t.158 t.157 t.161 t.162 t.43 t.164 t.44 t.163 t.166 t.45 t.165 t.46 t.167 t.172 t.171 t.168 t.170 t.169 t.173 t.47 t.175 t.48 t.174 t.180 t.49 t.176 t.177 t.178 t.179 t.50 t.181 t.186 t.185 t.182 t.184 t.183 t.187 t.51 t.189 t.52 t.188 t.190 t.53 t.54 t.191 t.195 t.55 t.192 t.194 t.193 t.197 t.56 t.196 t.199 t.57 t.198 t.58 t.200 t.204 t.59 t.201 t.203 t.202 t.206 t.60 t.205 t.211 t.61 t.207 t.208 t.209 t.210 t.62 t.212 t.216 t.63 t.213 t.215 t.214 t.218 t.64 t.217 t.219 t.65 t.66 t.220 t.227 t.67 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.226 t.225 t.224 t.221 t.223 t.222 t.229 t.68 t.228 t.230 t.69 t.70 t.231 t.235 t.71 t.232 t.234 t.233 t.237 t.72 t.236 t.239 t.73 t.238 t.74 t.240 t.244 t.75 t.241 t.243 t.242 t.246 t.76 t.245 t.251 t.77 t.247 t.248 t.249 t.250 t.78 t.252 t.253 t.255 t.254 
+QueensOpen.Solve.1.r: t.151 t.39 QueensOpen.Solve.self QueensOpen.Solve.c t.38 t.35 %rsp %rbp t.153 t.40 t.152 t.154 t.42 t.155 t.160 t.159 t.156 t.158 t.157 t.162 t.43 t.164 t.44 t.163 t.166 t.45 t.165 t.46 t.167 t.172 t.171 t.168 t.170 t.169 t.173 t.47 t.175 t.48 t.174 t.180 t.49 t.176 t.177 t.178 t.179 t.50 t.181 t.186 t.185 t.182 t.184 t.183 t.187 t.51 t.189 t.52 t.188 t.190 t.54 t.191 t.195 t.55 t.192 t.194 t.193 t.197 t.56 t.196 t.199 t.57 t.198 t.58 t.200 t.204 t.59 t.201 t.203 t.202 t.206 t.60 t.205 t.211 t.61 t.207 t.208 t.209 t.210 t.62 t.212 t.216 t.63 t.213 t.215 t.214 t.218 t.64 t.217 t.219 t.65 t.66 t.220 t.227 t.67 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.226 t.225 t.224 t.221 t.223 t.222 t.229 t.68 t.228 t.230 t.70 t.231 t.235 t.71 t.232 t.234 t.233 t.237 t.72 t.236 t.239 t.73 t.238 t.74 t.240 t.244 t.75 t.241 t.243 t.242 t.246 t.76 t.245 t.78 
+t.39: t.151 QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.151: t.39 QueensOpen.Solve.1.r QueensOpen.Solve.self QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.152: QueensOpen.Solve.1.r QueensOpen.Solve.self QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.40: t.153 QueensOpen.Solve.1.r QueensOpen.Solve.self QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.153: t.40 QueensOpen.Solve.1.r QueensOpen.Solve.self QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.42: t.154 t.41 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp t.155 
+t.41: t.154 t.42 QueensOpen.Solve.self QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp t.155 t.156 t.157 
+t.154: t.42 t.41 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.155: t.42 t.41 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.157: QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp t.41 
+t.156: QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp t.158 t.41 
+t.158: QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp t.156 
+t.159: t.160 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.160: QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp t.159 
+t.161: t.35 QueensOpen.Solve.self QueensOpen.Solve.c t.38 %rsp %rbp 
+t.43: t.162 QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.162: t.43 QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 QueensOpen.Solve.self t.35 %rsp %rbp 
+t.163: QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 QueensOpen.Solve.self t.35 %rsp %rbp 
+t.44: t.164 QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 QueensOpen.Solve.self t.35 %rsp %rbp 
+t.164: t.44 QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 QueensOpen.Solve.self t.35 %rsp %rbp 
+t.46: t.166 t.45 t.165 t.34 t.38 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.35 %rsp %rbp t.167 
+t.165: t.46 t.34 t.38 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.35 %rsp %rbp 
+t.45: t.166 t.46 t.34 t.38 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.35 %rsp %rbp t.167 t.168 t.169 
+t.166: t.46 t.45 t.34 t.38 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.35 %rsp %rbp 
+t.167: t.46 t.45 t.34 t.38 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.35 %rsp %rbp 
+t.169: t.34 t.38 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.35 %rsp %rbp t.45 
+t.168: t.34 t.38 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.35 %rsp %rbp t.170 t.45 
+t.170: t.34 t.38 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.35 %rsp %rbp t.168 
+t.171: t.172 t.34 t.38 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.35 %rsp %rbp 
+t.172: t.34 t.38 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.35 %rsp %rbp t.171 
+t.47: t.173 QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.173: t.47 QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 QueensOpen.Solve.self t.35 %rsp %rbp 
+t.174: QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 QueensOpen.Solve.self t.35 %rsp %rbp 
+t.48: t.175 QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 QueensOpen.Solve.self t.35 %rsp %rbp 
+t.175: t.48 QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 QueensOpen.Solve.self t.35 %rsp %rbp 
+t.50: t.180 t.49 t.176 t.177 t.178 t.179 t.34 t.38 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.35 %rsp %rbp t.181 
+t.177: t.50 t.34 t.38 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.35 %rsp %rbp t.178 t.179 
+t.179: t.50 t.34 t.38 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.35 %rsp %rbp t.177 
+t.178: t.50 t.34 t.38 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.35 %rsp %rbp t.177 
+t.176: t.50 t.34 t.38 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.35 %rsp %rbp 
+t.49: t.180 t.50 t.34 t.38 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.35 %rsp %rbp t.181 t.182 t.183 
+t.180: t.50 t.49 t.34 t.38 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.35 %rsp %rbp 
+t.181: t.50 t.49 t.34 t.38 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.35 %rsp %rbp 
+t.183: t.34 t.38 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.35 %rsp %rbp t.49 
+t.182: t.34 t.38 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.35 %rsp %rbp t.184 t.49 
+t.184: t.34 t.38 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.35 %rsp %rbp t.182 
+t.185: t.186 t.34 t.38 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.35 %rsp %rbp 
+t.186: t.34 t.38 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.35 %rsp %rbp t.185 
+t.51: t.187 QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.187: t.51 QueensOpen.Solve.1.r QueensOpen.Solve.self QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.188: QueensOpen.Solve.1.r QueensOpen.Solve.self QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.52: t.189 QueensOpen.Solve.1.r QueensOpen.Solve.self QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.189: t.52 QueensOpen.Solve.1.r QueensOpen.Solve.self QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.54: t.190 t.53 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp t.191 
+t.53: t.190 t.54 QueensOpen.Solve.self QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp t.191 t.192 t.193 
+t.190: t.54 t.53 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.191: t.54 t.53 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.193: QueensOpen.Solve.1.r QueensOpen.Solve.c QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp t.53 
+t.192: QueensOpen.Solve.1.r QueensOpen.Solve.c QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp t.194 t.53 
+t.194: QueensOpen.Solve.1.r QueensOpen.Solve.c QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp t.192 
+t.55: t.195 QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.195: t.55 QueensOpen.Solve.1.r QueensOpen.Solve.c QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp 
+t.196: QueensOpen.Solve.1.r QueensOpen.Solve.c QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp 
+t.56: t.197 QueensOpen.Solve.1.r QueensOpen.Solve.c QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp 
+t.197: t.56 QueensOpen.Solve.1.r QueensOpen.Solve.c QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp 
+t.58: t.199 t.57 t.198 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp t.200 
+t.198: t.58 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.57: t.199 t.58 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp t.200 t.201 t.202 
+t.199: t.58 t.57 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.200: t.58 t.57 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.202: QueensOpen.Solve.1.r QueensOpen.Solve.c QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp t.57 
+t.201: QueensOpen.Solve.1.r QueensOpen.Solve.c QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp t.203 t.57 
+t.203: QueensOpen.Solve.1.r QueensOpen.Solve.c QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp t.201 
+t.59: t.204 QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.204: t.59 QueensOpen.Solve.1.r QueensOpen.Solve.c QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp 
+t.205: QueensOpen.Solve.1.r QueensOpen.Solve.c QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp 
+t.60: t.206 QueensOpen.Solve.1.r QueensOpen.Solve.c QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp 
+t.206: t.60 QueensOpen.Solve.1.r QueensOpen.Solve.c QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp 
+t.62: t.211 t.61 t.207 t.208 t.209 t.210 QueensOpen.Solve.self QueensOpen.Solve.c QueensOpen.Solve.1.r t.34 t.38 t.35 %rsp %rbp t.212 
+t.208: t.62 QueensOpen.Solve.self QueensOpen.Solve.c QueensOpen.Solve.1.r t.34 t.38 t.35 %rsp %rbp t.209 t.210 
+t.210: t.62 QueensOpen.Solve.self QueensOpen.Solve.c QueensOpen.Solve.1.r t.34 t.38 t.35 %rsp %rbp t.208 
+t.209: t.62 QueensOpen.Solve.self QueensOpen.Solve.c QueensOpen.Solve.1.r t.34 t.38 t.35 %rsp %rbp t.208 
+t.207: t.62 QueensOpen.Solve.self QueensOpen.Solve.c QueensOpen.Solve.1.r t.34 t.38 t.35 %rsp %rbp 
+t.61: t.211 t.62 QueensOpen.Solve.self QueensOpen.Solve.c QueensOpen.Solve.1.r t.34 t.38 t.35 %rsp %rbp t.212 t.213 t.214 
+t.211: t.62 t.61 QueensOpen.Solve.self QueensOpen.Solve.c QueensOpen.Solve.1.r t.34 t.38 t.35 %rsp %rbp 
+t.212: t.62 t.61 QueensOpen.Solve.self QueensOpen.Solve.c QueensOpen.Solve.1.r t.34 t.38 t.35 %rsp %rbp 
+t.214: QueensOpen.Solve.c QueensOpen.Solve.1.r QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp t.61 
+t.213: QueensOpen.Solve.c QueensOpen.Solve.1.r QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp t.215 t.61 
+t.215: QueensOpen.Solve.c QueensOpen.Solve.1.r QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp t.213 
+t.63: t.216 QueensOpen.Solve.c QueensOpen.Solve.1.r t.34 t.38 t.35 %rsp %rbp 
+t.216: t.63 QueensOpen.Solve.c QueensOpen.Solve.1.r QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp 
+t.217: QueensOpen.Solve.c QueensOpen.Solve.1.r QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp 
+t.64: t.218 QueensOpen.Solve.c QueensOpen.Solve.1.r QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp 
+t.218: t.64 QueensOpen.Solve.c QueensOpen.Solve.1.r QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp 
+t.66: t.219 t.65 QueensOpen.Solve.1.r QueensOpen.Solve.self QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp t.220 
+t.65: t.219 t.66 QueensOpen.Solve.1.r QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp t.220 t.221 t.222 
+t.219: t.66 t.65 QueensOpen.Solve.1.r QueensOpen.Solve.self QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.220: t.66 t.65 QueensOpen.Solve.1.r QueensOpen.Solve.self QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.222: QueensOpen.Solve.1.r QueensOpen.Solve.self QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp t.65 
+t.221: QueensOpen.Solve.1.r QueensOpen.Solve.self QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp t.223 t.65 
+t.223: QueensOpen.Solve.1.r QueensOpen.Solve.self QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp t.221 
+t.224: QueensOpen.Solve.1.r QueensOpen.Solve.self QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.225: %rsi t.226 %rdi QueensOpen.Solve.1.r QueensOpen.Solve.self QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.226: QueensOpen.Solve.1.r QueensOpen.Solve.self QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp t.225 %rdi 
+t.67: t.227 QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.227: t.67 QueensOpen.Solve.1.r QueensOpen.Solve.self QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.228: QueensOpen.Solve.1.r QueensOpen.Solve.self QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.68: t.229 QueensOpen.Solve.1.r QueensOpen.Solve.self QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.229: t.68 QueensOpen.Solve.1.r QueensOpen.Solve.self QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.70: t.230 t.69 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp t.231 
+t.69: t.230 t.70 QueensOpen.Solve.self QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp t.231 t.232 t.233 
+t.230: t.70 t.69 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.231: t.70 t.69 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.233: QueensOpen.Solve.1.r QueensOpen.Solve.c QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp t.69 
+t.232: QueensOpen.Solve.1.r QueensOpen.Solve.c QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp t.234 t.69 
+t.234: QueensOpen.Solve.1.r QueensOpen.Solve.c QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp t.232 
+t.71: t.235 QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.235: t.71 QueensOpen.Solve.1.r QueensOpen.Solve.c QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp 
+t.236: QueensOpen.Solve.1.r QueensOpen.Solve.c QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp 
+t.72: t.237 QueensOpen.Solve.1.r QueensOpen.Solve.c QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp 
+t.237: t.72 QueensOpen.Solve.1.r QueensOpen.Solve.c QueensOpen.Solve.self t.34 t.38 t.35 %rsp %rbp 
+t.74: t.239 t.73 t.238 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp t.240 
+t.238: t.74 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.73: t.239 t.74 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp t.240 t.241 t.242 
+t.239: t.74 t.73 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.240: t.74 t.73 QueensOpen.Solve.self QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.242: QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 QueensOpen.Solve.self %rsp %rbp t.73 
+t.241: QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 QueensOpen.Solve.self %rsp %rbp t.243 t.73 
+t.243: QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 QueensOpen.Solve.self %rsp %rbp t.241 
+t.75: t.244 QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 %rsp %rbp 
+t.244: t.75 QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 QueensOpen.Solve.self %rsp %rbp 
+t.245: QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 QueensOpen.Solve.self %rsp %rbp 
+t.76: t.246 QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 QueensOpen.Solve.self %rsp %rbp 
+t.246: t.76 QueensOpen.Solve.1.r QueensOpen.Solve.c t.34 t.38 t.35 QueensOpen.Solve.self %rsp %rbp 
+t.78: t.251 t.77 t.247 t.248 t.249 t.250 t.34 t.38 t.35 QueensOpen.Solve.self QueensOpen.Solve.c %rsp %rbp QueensOpen.Solve.1.r t.252 
+t.248: t.78 t.34 t.38 t.35 QueensOpen.Solve.self QueensOpen.Solve.c %rsp %rbp t.249 t.250 
+t.250: t.78 t.34 t.38 t.35 QueensOpen.Solve.self QueensOpen.Solve.c %rsp %rbp t.248 
+t.249: t.78 t.34 t.38 t.35 QueensOpen.Solve.self QueensOpen.Solve.c %rsp %rbp t.248 
+t.247: t.78 t.34 t.38 t.35 QueensOpen.Solve.self QueensOpen.Solve.c %rsp %rbp 
+t.77: t.251 t.78 t.34 t.38 t.35 QueensOpen.Solve.self QueensOpen.Solve.c %rsp %rbp t.252 t.253 t.254 
+t.251: t.78 t.77 t.34 t.38 t.35 QueensOpen.Solve.self QueensOpen.Solve.c %rsp %rbp 
+t.252: t.78 t.77 t.34 t.38 t.35 QueensOpen.Solve.self QueensOpen.Solve.c %rsp %rbp 
+t.254: t.34 t.38 t.35 QueensOpen.Solve.self QueensOpen.Solve.c %rsp %rbp t.77 
+t.253: t.34 t.38 t.35 QueensOpen.Solve.self QueensOpen.Solve.c %rsp %rbp t.255 t.77 
+t.255: t.34 t.38 t.35 QueensOpen.Solve.self QueensOpen.Solve.c %rsp %rbp t.253 
+t.253 <= t.254
+t.255 <= t.77
+t.78 <= t.76
+t.248 <= QueensOpen.Solve.1.r
+t.249 <= t.250
+t.247 <= t.248
+t.77 <= t.247
+t.76 <= t.245
+t.241 <= t.242
+t.243 <= t.73
+t.75 <= QueensOpen.Solve.self
+t.74 <= t.72
+t.238 <= QueensOpen.Solve.1.r
+t.73 <= t.238
+t.72 <= t.236
+t.232 <= t.233
+t.234 <= t.69
+t.71 <= QueensOpen.Solve.self
+t.70 <= t.68
+t.69 <= QueensOpen.Solve.1.r
+t.68 <= t.228
+t.221 <= t.222
+t.223 <= t.65
+%rdi <= QueensOpen.Solve.self
+t.226 <= QueensOpen.Solve.c
+%rsi <= t.226
+t.67 <= QueensOpen.Solve.self
+t.66 <= t.64
+t.65 <= QueensOpen.Solve.c
+t.64 <= t.217
+t.213 <= t.214
+t.215 <= t.61
+t.63 <= QueensOpen.Solve.self
+t.62 <= t.60
+t.208 <= QueensOpen.Solve.1.r
+t.209 <= t.210
+t.207 <= t.208
+t.61 <= t.207
+t.60 <= t.205
+t.201 <= t.202
+t.203 <= t.57
+t.59 <= QueensOpen.Solve.self
+t.58 <= t.56
+t.198 <= QueensOpen.Solve.1.r
+t.57 <= t.198
+t.56 <= t.196
+t.192 <= t.193
+t.194 <= t.53
+t.55 <= QueensOpen.Solve.self
+t.54 <= t.52
+t.53 <= QueensOpen.Solve.1.r
+t.52 <= t.188
+t.51 <= QueensOpen.Solve.self
+t.182 <= t.183
+t.184 <= t.49
+t.50 <= t.48
+t.177 <= QueensOpen.Solve.1.r
+t.178 <= t.179
+t.176 <= t.177
+t.49 <= t.176
+t.48 <= t.174
+t.47 <= QueensOpen.Solve.self
+t.168 <= t.169
+t.170 <= t.45
+t.46 <= t.44
+t.165 <= QueensOpen.Solve.1.r
+t.45 <= t.165
+t.44 <= t.163
+t.43 <= QueensOpen.Solve.self
+t.161 <= t.34
+t.34 <= t.161
+t.156 <= t.157
+t.158 <= t.41
+t.42 <= t.40
+t.41 <= QueensOpen.Solve.1.r
+t.40 <= t.152
+QueensOpen.Solve.1.r <= t.34
+t.39 <= QueensOpen.Solve.self
+%rdi <= QueensOpen.Solve.self
+t.149 <= t.150
+t.35 <= t.149
+t.37 <= t.147
+t.36 <= QueensOpen.Solve.self
+t.33 <= t.143
+t.32 <= QueensOpen.Solve.self
+QueensOpen.Solve.self <= %rdi
+QueensOpen.Solve.c <= %rsi
+# Register Allocation:
+%rax->%rax
+%rbx->%rbx
+%rcx->%rcx
+%rdx->%rdx
+%rsp->%rsp
+%rbp->%rbp
+%rsi->%rsi
+%rdi->%rdi
+%r8->%r8
+%r9->%r9
+%r10->%r10
+%r11->%r11
+%r12->%r12
+%r13->%r13
+%r14->%r14
+%r15->%r15
+QueensOpen.Solve.self->%rbx
+QueensOpen.Solve.c->%r15
+t.32->%rbx
+t.142->%rax
+t.143->%rax
+t.33->%rax
+t.144->%rcx
+t.145->%rax
+t.34->%r14
+t.36->%rbx
+t.146->%rax
+t.147->%rax
+t.37->%rax
+t.148->%rcx
+t.150->%r12
+t.149->%r12
+t.35->%r12
+t.38->%r13
+QueensOpen.Solve.1.r->%r14
+t.39->%rbx
+t.151->%rax
+t.152->%rax
+t.40->%rax
+t.153->%rcx
+t.42->%rax
+t.41->%rcx
+t.154->%rdx
+t.155->%rdx
+t.157->%rax
+t.156->%rax
+t.158->%rcx
+t.159->%rcx
+t.160->%rax
+t.161->%r14
+t.43->%rbx
+t.162->%rax
+t.163->%rax
+t.44->%rax
+t.164->%rcx
+t.46->%rax
+t.165->%rcx
+t.45->%rcx
+t.166->%rdx
+t.167->%rdx
+t.169->%rax
+t.168->%rax
+t.170->%rcx
+t.171->%rcx
+t.172->%rax
+t.47->%rbx
+t.173->%rax
+t.174->%rax
+t.48->%rax
+t.175->%rcx
+t.50->%rax
+t.177->%rcx
+t.179->%rdx
+t.178->%rdx
+t.176->%rcx
+t.49->%rcx
+t.180->%rdx
+t.181->%rdx
+t.183->%rax
+t.182->%rax
+t.184->%rcx
+t.185->%rcx
+t.186->%rax
+t.51->%rbx
+t.187->%rax
+t.188->%rax
+t.52->%rax
+t.189->%rcx
+t.54->%rax
+t.53->%rcx
+t.190->%rdx
+t.191->%rdx
+t.193->%rax
+t.192->%rax
+t.194->%rcx
+t.55->%rbx
+t.195->%rax
+t.196->%rax
+t.56->%rax
+t.197->%rcx
+t.58->%rax
+t.198->%rcx
+t.57->%rcx
+t.199->%rdx
+t.200->%rdx
+t.202->%rax
+t.201->%rax
+t.203->%rcx
+t.59->%rbx
+t.204->%rax
+t.205->%rax
+t.60->%rax
+t.206->%rcx
+t.62->%rax
+t.208->%rcx
+t.210->%rdx
+t.209->%rdx
+t.207->%rcx
+t.61->%rcx
+t.211->%rdx
+t.212->%rdx
+t.214->%rax
+t.213->%rax
+t.215->%rcx
+t.63->%rbx
+t.216->%rax
+t.217->%rax
+t.64->%rax
+t.218->%rcx
+t.66->%rax
+t.65->%rcx
+t.219->%rdx
+t.220->%rdx
+t.222->%rax
+t.221->%rax
+t.223->%rcx
+t.224->%rax
+t.225->%rax
+t.226->%rsi
+t.67->%rbx
+t.227->%rax
+t.228->%rax
+t.68->%rax
+t.229->%rcx
+t.70->%rax
+t.69->%rcx
+t.230->%rdx
+t.231->%rdx
+t.233->%rax
+t.232->%rax
+t.234->%rcx
+t.71->%rbx
+t.235->%rax
+t.236->%rax
+t.72->%rax
+t.237->%rcx
+t.74->%rax
+t.238->%rcx
+t.73->%rcx
+t.239->%rdx
+t.240->%rdx
+t.242->%rax
+t.241->%rax
+t.243->%rcx
+t.75->%rbx
+t.244->%rax
+t.245->%rcx
+t.76->%rcx
+t.246->%rax
+t.78->%rcx
+t.248->%rax
+t.250->%rdx
+t.249->%rdx
+t.247->%rax
+t.77->%rax
+t.251->%rdx
+t.252->%rdx
+t.254->%rcx
+t.253->%rcx
+t.255->%rax
+# Assembly code:
+	.text
+QueensOpen.Solve:
+	pushq %rbp
+	movq %rsp,%rbp
+	subq $48,%rsp
+	movq %r15, -40(%rbp)
+	movq %r14, -32(%rbp)
+	movq %r13, -24(%rbp)
+	movq %r12, -16(%rbp)
+	movq %rbx, -8(%rbp)
+	movq %rdi,%rbx
+	movq %rsi,%r15
+L.104:
+#	movq %rbx,%rbx
+	xorq %rax,%rax
+	cmpq %rax,%rbx
+	je L.27
+L.28:
+	movq 8(%rbx),%rax
+#	movq %rax,%rax
+	xorq %rcx,%rcx
+	cmpq %rcx,%rax
+	je L.27
+L.29:
+	movq 8(%rax),%rax
+	cmpq %rax,%r15
+	je L.24
+L.25:
+	xorq %r14,%r14
+#	movq %rbx,%rbx
+	xorq %rax,%rax
+	cmpq %rax,%rbx
+	je L.27
+L.30:
+	movq 0(%rbx),%rax
+#	movq %rax,%rax
+	xorq %rcx,%rcx
+	cmpq %rcx,%rax
+	je L.27
+L.31:
+	movq 8(%rax),%r12
+#	movq %r12,%r12
+	subq $1,%r12
+#	movq %r12,%r12
+	movq $1,%r13
+L.33:
+	cmpq %r12,%r14
+	jle L.32
+L.34:
+L.26:
+	jmp L.23
+L.24:
+	movq %rbx,%rdi
+	call QueensOpen.Print
+	jmp L.26
+L.32:
+#	movq %r14,%r14
+#	movq %rbx,%rbx
+	xorq %rax,%rax
+	cmpq %rax,%rbx
+	je L.27
+L.39:
+	movq 0(%rbx),%rax
+#	movq %rax,%rax
+	xorq %rcx,%rcx
+	cmpq %rcx,%rax
+	je L.27
+L.40:
+#	movq %rax,%rax
+	movq %r14,%rcx
+	xorq %rdx,%rdx
+	cmpq %rdx,%rcx
+	jl L.41
+L.42:
+	movq 8(%rax),%rdx
+	cmpq %rdx,%rcx
+	jge L.41
+L.43:
+	movq 0(%rax),%rax
+#	movq %rax,%rax
+#	movq %rcx,%rcx
+	shlq $3,%rcx
+	addq %rcx,%rax
+	movq 0(%rax),%rcx
+	xorq %rax,%rax
+	cmpq %rax,%rcx
+	je L.38
+L.36:
+#	movq %r14,%r14
+	addq %r13,%r14
+#	movq %r14,%r14
+	jmp L.33
+L.38:
+#	movq %rbx,%rbx
+	xorq %rax,%rax
+	cmpq %rax,%rbx
+	je L.27
+L.44:
+	movq 16(%rbx),%rax
+#	movq %rax,%rax
+	xorq %rcx,%rcx
+	cmpq %rcx,%rax
+	je L.27
+L.45:
+#	movq %rax,%rax
+	movq %r14,%rcx
+	addq %r15,%rcx
+#	movq %rcx,%rcx
+	xorq %rdx,%rdx
+	cmpq %rdx,%rcx
+	jl L.41
+L.46:
+	movq 8(%rax),%rdx
+	cmpq %rdx,%rcx
+	jge L.41
+L.47:
+	movq 0(%rax),%rax
+#	movq %rax,%rax
+#	movq %rcx,%rcx
+	shlq $3,%rcx
+	addq %rcx,%rax
+	movq 0(%rax),%rcx
+	xorq %rax,%rax
+	cmpq %rax,%rcx
+	jne L.36
+L.37:
+#	movq %rbx,%rbx
+	xorq %rax,%rax
+	cmpq %rax,%rbx
+	je L.27
+L.48:
+	movq 24(%rbx),%rax
+#	movq %rax,%rax
+	xorq %rcx,%rcx
+	cmpq %rcx,%rax
+	je L.27
+L.49:
+#	movq %rax,%rax
+	movq %r14,%rcx
+	movabsq $8,%rdx
+#	movq %rdx,%rdx
+	subq $1,%rdx
+	addq %rdx,%rcx
+#	movq %rcx,%rcx
+	subq %r15,%rcx
+#	movq %rcx,%rcx
+	xorq %rdx,%rdx
+	cmpq %rdx,%rcx
+	jl L.41
+L.50:
+	movq 8(%rax),%rdx
+	cmpq %rdx,%rcx
+	jge L.41
+L.51:
+	movq 0(%rax),%rax
+#	movq %rax,%rax
+#	movq %rcx,%rcx
+	shlq $3,%rcx
+	addq %rcx,%rax
+	movq 0(%rax),%rcx
+	xorq %rax,%rax
+	cmpq %rax,%rcx
+	jne L.36
+L.35:
+#	movq %rbx,%rbx
+	xorq %rax,%rax
+	cmpq %rax,%rbx
+	je L.27
+L.52:
+	movq 0(%rbx),%rax
+#	movq %rax,%rax
+	xorq %rcx,%rcx
+	cmpq %rcx,%rax
+	je L.27
+L.53:
+#	movq %rax,%rax
+	movq %r14,%rcx
+	xorq %rdx,%rdx
+	cmpq %rdx,%rcx
+	jl L.41
+L.54:
+	movq 8(%rax),%rdx
+	cmpq %rdx,%rcx
+	jge L.41
+L.55:
+	movq 0(%rax),%rax
+#	movq %rax,%rax
+#	movq %rcx,%rcx
+	shlq $3,%rcx
+	addq %rcx,%rax
+	movq $1,0(%rax)
+#	movq %rbx,%rbx
+	xorq %rax,%rax
+	cmpq %rax,%rbx
+	je L.27
+L.56:
+	movq 16(%rbx),%rax
+#	movq %rax,%rax
+	xorq %rcx,%rcx
+	cmpq %rcx,%rax
+	je L.27
+L.57:
+#	movq %rax,%rax
+	movq %r14,%rcx
+	addq %r15,%rcx
+#	movq %rcx,%rcx
+	xorq %rdx,%rdx
+	cmpq %rdx,%rcx
+	jl L.41
+L.58:
+	movq 8(%rax),%rdx
+	cmpq %rdx,%rcx
+	jge L.41
+L.59:
+	movq 0(%rax),%rax
+#	movq %rax,%rax
+#	movq %rcx,%rcx
+	shlq $3,%rcx
+	addq %rcx,%rax
+	movq $1,0(%rax)
+#	movq %rbx,%rbx
+	xorq %rax,%rax
+	cmpq %rax,%rbx
+	je L.27
+L.60:
+	movq 24(%rbx),%rax
+#	movq %rax,%rax
+	xorq %rcx,%rcx
+	cmpq %rcx,%rax
+	je L.27
+L.61:
+#	movq %rax,%rax
+	movq %r14,%rcx
+	movabsq $8,%rdx
+#	movq %rdx,%rdx
+	subq $1,%rdx
+	addq %rdx,%rcx
+#	movq %rcx,%rcx
+	subq %r15,%rcx
+#	movq %rcx,%rcx
+	xorq %rdx,%rdx
+	cmpq %rdx,%rcx
+	jl L.41
+L.62:
+	movq 8(%rax),%rdx
+	cmpq %rdx,%rcx
+	jge L.41
+L.63:
+	movq 0(%rax),%rax
+#	movq %rax,%rax
+#	movq %rcx,%rcx
+	shlq $3,%rcx
+	addq %rcx,%rax
+	movq $1,0(%rax)
+#	movq %rbx,%rbx
+	xorq %rax,%rax
+	cmpq %rax,%rbx
+	je L.27
+L.64:
+	movq 8(%rbx),%rax
+#	movq %rax,%rax
+	xorq %rcx,%rcx
+	cmpq %rcx,%rax
+	je L.27
+L.65:
+#	movq %rax,%rax
+	movq %r15,%rcx
+	xorq %rdx,%rdx
+	cmpq %rdx,%rcx
+	jl L.41
+L.66:
+	movq 8(%rax),%rdx
+	cmpq %rdx,%rcx
+	jge L.41
+L.67:
+	movq 0(%rax),%rax
+#	movq %rax,%rax
+#	movq %rcx,%rcx
+	shlq $3,%rcx
+	addq %rcx,%rax
+	movq %r14,0(%rax)
+	movq -8(%rbx),%rax
+	movq 8(%rax),%rax
+	movq %rbx,%rdi
+	movq %r15,%rsi
+	addq $1,%rsi
+#	movq %rsi,%rsi
+	call *%rax
+#	movq %rbx,%rbx
+	xorq %rax,%rax
+	cmpq %rax,%rbx
+	je L.27
+L.68:
+	movq 0(%rbx),%rax
+#	movq %rax,%rax
+	xorq %rcx,%rcx
+	cmpq %rcx,%rax
+	je L.27
+L.69:
+#	movq %rax,%rax
+	movq %r14,%rcx
+	xorq %rdx,%rdx
+	cmpq %rdx,%rcx
+	jl L.41
+L.70:
+	movq 8(%rax),%rdx
+	cmpq %rdx,%rcx
+	jge L.41
+L.71:
+	movq 0(%rax),%rax
+#	movq %rax,%rax
+#	movq %rcx,%rcx
+	shlq $3,%rcx
+	addq %rcx,%rax
+	movq $0,0(%rax)
+#	movq %rbx,%rbx
+	xorq %rax,%rax
+	cmpq %rax,%rbx
+	je L.27
+L.72:
+	movq 16(%rbx),%rax
+#	movq %rax,%rax
+	xorq %rcx,%rcx
+	cmpq %rcx,%rax
+	je L.27
+L.73:
+#	movq %rax,%rax
+	movq %r14,%rcx
+	addq %r15,%rcx
+#	movq %rcx,%rcx
+	xorq %rdx,%rdx
+	cmpq %rdx,%rcx
+	jl L.41
+L.74:
+	movq 8(%rax),%rdx
+	cmpq %rdx,%rcx
+	jge L.41
+L.75:
+	movq 0(%rax),%rax
+#	movq %rax,%rax
+#	movq %rcx,%rcx
+	shlq $3,%rcx
+	addq %rcx,%rax
+	movq $0,0(%rax)
+#	movq %rbx,%rbx
+	xorq %rax,%rax
+	cmpq %rax,%rbx
+	je L.27
+L.76:
+	movq 24(%rbx),%rcx
+#	movq %rcx,%rcx
+	xorq %rax,%rax
+	cmpq %rax,%rcx
+	je L.27
+L.77:
+#	movq %rcx,%rcx
+	movq %r14,%rax
+	movabsq $8,%rdx
+#	movq %rdx,%rdx
+	subq $1,%rdx
+	addq %rdx,%rax
+#	movq %rax,%rax
+	subq %r15,%rax
+#	movq %rax,%rax
+	xorq %rdx,%rdx
+	cmpq %rdx,%rax
+	jl L.41
+L.78:
+	movq 8(%rcx),%rdx
+	cmpq %rdx,%rax
+	jge L.41
+L.79:
+	movq 0(%rcx),%rcx
+#	movq %rcx,%rcx
+#	movq %rax,%rax
+	shlq $3,%rax
+	addq %rax,%rcx
+	movq $0,0(%rcx)
+	jmp L.36
+L.23:
+#	returnSink
+	movq -8(%rbp),%rbx
+	movq -16(%rbp),%r12
+	movq -24(%rbp),%r13
+	movq -32(%rbp),%r14
+	movq -40(%rbp),%r15
+	addq $48,%rsp
+	popq %rbp
+	ret
+L.27:
+	call badPtr
+L.41:
+	call badSub
+END QueensOpen.Solve
+PROCEDURE QueensOpen.Print
+# Before canonicalization (trees):
+MOVE(
+ TEMP t.79,
+ CONST 0),
+MOVE(
+ TEMP t.80,
+ SUB(
+  MEM(
+   ESEQ(
+    MOVE(
+     TEMP t.82,
+     MEM(
+      ESEQ(
+       MOVE(
+        TEMP t.81,
+        TEMP QueensOpen.Print.self),
+       BEQ(
+        TEMP t.81,
+        CONST 0,
+        L.81, L.82),
+       LABEL L.82,
+       TEMP t.81), 
+      CONST 8, 8)),
+    BEQ(
+     TEMP t.82,
+     CONST 0,
+     L.81, L.83),
+    LABEL L.83,
+    TEMP t.82), 
+   CONST 8, 8),
+  CONST 1)),
+MOVE(
+ TEMP t.83,
+ CONST 1),
+JUMP(
+ NAME L.85),
+LABEL L.84,
+MOVE(
+ TEMP QueensOpen.Print.1.i,
+ TEMP t.79),
+MOVE(
+ TEMP t.84,
+ CONST 0),
+MOVE(
+ TEMP t.85,
+ SUB(
+  MEM(
+   ESEQ(
+    MOVE(
+     TEMP t.87,
+     MEM(
+      ESEQ(
+       MOVE(
+        TEMP t.86,
+        TEMP QueensOpen.Print.self),
+       BEQ(
+        TEMP t.86,
+        CONST 0,
+        L.81, L.87),
+       LABEL L.87,
+       TEMP t.86), 
+      CONST 0, 8)),
+    BEQ(
+     TEMP t.87,
+     CONST 0,
+     L.81, L.88),
+    LABEL L.88,
+    TEMP t.87), 
+   CONST 8, 8),
+  CONST 1)),
+MOVE(
+ TEMP t.88,
+ CONST 1),
+JUMP(
+ NAME L.90),
+LABEL L.89,
+MOVE(
+ TEMP QueensOpen.Print.1.1.j,
+ TEMP t.84),
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 32)),
+BEQ(
+ MEM(
+  ESEQ(
+   MOVE(
+    TEMP t.92,
+    ESEQ(
+     MOVE(
+      TEMP t.90,
+      MEM(
+       ESEQ(
+        MOVE(
+         TEMP t.89,
+         TEMP QueensOpen.Print.self),
+        BEQ(
+         TEMP t.89,
+         CONST 0,
+         L.81, L.96),
+        LABEL L.96,
+        TEMP t.89), 
+       CONST 8, 8)),
+     BEQ(
+      TEMP t.90,
+      CONST 0,
+      L.81, L.97),
+     LABEL L.97,
+     TEMP t.90)),
+   ADD(
+    MEM(
+     TEMP t.92, 
+     CONST 0, 8),
+    MUL(
+     ESEQ(
+      MOVE(
+       TEMP t.91,
+       TEMP QueensOpen.Print.1.i),
+      BLT(
+       TEMP t.91,
+       CONST 0,
+       L.92, L.98),
+      LABEL L.98,
+      BGE(
+       TEMP t.91,
+       MEM(
+        TEMP t.92, 
+        CONST 8, 8),
+       L.92, L.99),
+      LABEL L.99,
+      TEMP t.91),
+     CONST 8))), 
+  CONST 0, 8),
+ TEMP QueensOpen.Print.1.1.j,
+ L.93, L.94),
+LABEL L.93,
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 81)),
+JUMP(
+ NAME L.95),
+LABEL L.94,
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 46)),
+LABEL L.95,
+MOVE(
+ TEMP t.84,
+ ADD(
+  TEMP t.84,
+  TEMP t.88)),
+LABEL L.90,
+BLE(
+ TEMP t.84,
+ TEMP t.85,
+ L.89, L.91),
+LABEL L.91,
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 10)),
+MOVE(
+ TEMP t.79,
+ ADD(
+  TEMP t.79,
+  TEMP t.83)),
+LABEL L.85,
+BLE(
+ TEMP t.79,
+ TEMP t.80,
+ L.84, L.86),
+LABEL L.86,
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 10)),
+LABEL L.80
+# After canonicalization (trees):
+MOVE(
+ TEMP t.79,
+ CONST 0)
+MOVE(
+ TEMP t.81,
+ TEMP QueensOpen.Print.self)
+BEQ(
+ TEMP t.81,
+ CONST 0,
+ L.81, L.82)
+LABEL L.82
+MOVE(
+ TEMP t.82,
+ MEM(
+  TEMP t.81, 
+  CONST 8, 8))
+BEQ(
+ TEMP t.82,
+ CONST 0,
+ L.81, L.83)
+LABEL L.83
+MOVE(
+ TEMP t.80,
+ SUB(
+  MEM(
+   TEMP t.82, 
+   CONST 8, 8),
+  CONST 1))
+MOVE(
+ TEMP t.83,
+ CONST 1)
+JUMP(
+ NAME L.85)
+LABEL L.84
+MOVE(
+ TEMP QueensOpen.Print.1.i,
+ TEMP t.79)
+MOVE(
+ TEMP t.84,
+ CONST 0)
+MOVE(
+ TEMP t.86,
+ TEMP QueensOpen.Print.self)
+BEQ(
+ TEMP t.86,
+ CONST 0,
+ L.81, L.87)
+LABEL L.87
+MOVE(
+ TEMP t.87,
+ MEM(
+  TEMP t.86, 
+  CONST 0, 8))
+BEQ(
+ TEMP t.87,
+ CONST 0,
+ L.81, L.88)
+LABEL L.88
+MOVE(
+ TEMP t.85,
+ SUB(
+  MEM(
+   TEMP t.87, 
+   CONST 8, 8),
+  CONST 1))
+MOVE(
+ TEMP t.88,
+ CONST 1)
+JUMP(
+ NAME L.90)
+LABEL L.89
+MOVE(
+ TEMP QueensOpen.Print.1.1.j,
+ TEMP t.84)
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 32))
+MOVE(
+ TEMP t.89,
+ TEMP QueensOpen.Print.self)
+BEQ(
+ TEMP t.89,
+ CONST 0,
+ L.81, L.96)
+LABEL L.96
+MOVE(
+ TEMP t.90,
+ MEM(
+  TEMP t.89, 
+  CONST 8, 8))
+BEQ(
+ TEMP t.90,
+ CONST 0,
+ L.81, L.97)
+LABEL L.97
+MOVE(
+ TEMP t.92,
+ TEMP t.90)
+MOVE(
+ TEMP t.91,
+ TEMP QueensOpen.Print.1.i)
+BLT(
+ TEMP t.91,
+ CONST 0,
+ L.92, L.98)
+LABEL L.98
+BGE(
+ TEMP t.91,
+ MEM(
+  TEMP t.92, 
+  CONST 8, 8),
+ L.92, L.99)
+LABEL L.99
+BEQ(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.92, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.91,
+    CONST 8)), 
+  CONST 0, 8),
+ TEMP QueensOpen.Print.1.1.j,
+ L.93, L.94)
+LABEL L.93
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 81))
+JUMP(
+ NAME L.95)
+LABEL L.94
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 46))
+LABEL L.95
+MOVE(
+ TEMP t.84,
+ ADD(
+  TEMP t.84,
+  TEMP t.88))
+LABEL L.90
+BLE(
+ TEMP t.84,
+ TEMP t.85,
+ L.89, L.91)
+LABEL L.91
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 10))
+MOVE(
+ TEMP t.79,
+ ADD(
+  TEMP t.79,
+  TEMP t.83))
+LABEL L.85
+BLE(
+ TEMP t.79,
+ TEMP t.80,
+ L.84, L.86)
+LABEL L.86
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 10))
+LABEL L.80
+# Basic Blocks:
+LABEL L.105
+MOVE(
+ TEMP t.79,
+ CONST 0)
+MOVE(
+ TEMP t.81,
+ TEMP QueensOpen.Print.self)
+BEQ(
+ TEMP t.81,
+ CONST 0,
+ L.81, L.82)
+LABEL L.82
+MOVE(
+ TEMP t.82,
+ MEM(
+  TEMP t.81, 
+  CONST 8, 8))
+BEQ(
+ TEMP t.82,
+ CONST 0,
+ L.81, L.83)
+LABEL L.83
+MOVE(
+ TEMP t.80,
+ SUB(
+  MEM(
+   TEMP t.82, 
+   CONST 8, 8),
+  CONST 1))
+MOVE(
+ TEMP t.83,
+ CONST 1)
+JUMP(
+ NAME L.85)
+LABEL L.84
+MOVE(
+ TEMP QueensOpen.Print.1.i,
+ TEMP t.79)
+MOVE(
+ TEMP t.84,
+ CONST 0)
+MOVE(
+ TEMP t.86,
+ TEMP QueensOpen.Print.self)
+BEQ(
+ TEMP t.86,
+ CONST 0,
+ L.81, L.87)
+LABEL L.87
+MOVE(
+ TEMP t.87,
+ MEM(
+  TEMP t.86, 
+  CONST 0, 8))
+BEQ(
+ TEMP t.87,
+ CONST 0,
+ L.81, L.88)
+LABEL L.88
+MOVE(
+ TEMP t.85,
+ SUB(
+  MEM(
+   TEMP t.87, 
+   CONST 8, 8),
+  CONST 1))
+MOVE(
+ TEMP t.88,
+ CONST 1)
+JUMP(
+ NAME L.90)
+LABEL L.89
+MOVE(
+ TEMP QueensOpen.Print.1.1.j,
+ TEMP t.84)
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 32))
+MOVE(
+ TEMP t.89,
+ TEMP QueensOpen.Print.self)
+BEQ(
+ TEMP t.89,
+ CONST 0,
+ L.81, L.96)
+LABEL L.96
+MOVE(
+ TEMP t.90,
+ MEM(
+  TEMP t.89, 
+  CONST 8, 8))
+BEQ(
+ TEMP t.90,
+ CONST 0,
+ L.81, L.97)
+LABEL L.97
+MOVE(
+ TEMP t.92,
+ TEMP t.90)
+MOVE(
+ TEMP t.91,
+ TEMP QueensOpen.Print.1.i)
+BLT(
+ TEMP t.91,
+ CONST 0,
+ L.92, L.98)
+LABEL L.98
+BGE(
+ TEMP t.91,
+ MEM(
+  TEMP t.92, 
+  CONST 8, 8),
+ L.92, L.99)
+LABEL L.99
+BEQ(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.92, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.91,
+    CONST 8)), 
+  CONST 0, 8),
+ TEMP QueensOpen.Print.1.1.j,
+ L.93, L.94)
+LABEL L.93
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 81))
+JUMP(
+ NAME L.95)
+LABEL L.94
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 46))
+JUMP(
+ NAME L.95)
+LABEL L.95
+MOVE(
+ TEMP t.84,
+ ADD(
+  TEMP t.84,
+  TEMP t.88))
+JUMP(
+ NAME L.90)
+LABEL L.90
+BLE(
+ TEMP t.84,
+ TEMP t.85,
+ L.89, L.91)
+LABEL L.91
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 10))
+MOVE(
+ TEMP t.79,
+ ADD(
+  TEMP t.79,
+  TEMP t.83))
+JUMP(
+ NAME L.85)
+LABEL L.85
+BLE(
+ TEMP t.79,
+ TEMP t.80,
+ L.84, L.86)
+LABEL L.86
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 10))
+JUMP(
+ NAME L.80)
+LABEL L.80
+# Trace Scheduled:
+LABEL L.105
+MOVE(
+ TEMP t.79,
+ CONST 0)
+MOVE(
+ TEMP t.81,
+ TEMP QueensOpen.Print.self)
+BEQ(
+ TEMP t.81,
+ CONST 0,
+ L.81, L.82)
+LABEL L.82
+MOVE(
+ TEMP t.82,
+ MEM(
+  TEMP t.81, 
+  CONST 8, 8))
+BEQ(
+ TEMP t.82,
+ CONST 0,
+ L.81, L.83)
+LABEL L.83
+MOVE(
+ TEMP t.80,
+ SUB(
+  MEM(
+   TEMP t.82, 
+   CONST 8, 8),
+  CONST 1))
+MOVE(
+ TEMP t.83,
+ CONST 1)
+LABEL L.85
+BLE(
+ TEMP t.79,
+ TEMP t.80,
+ L.84, L.86)
+LABEL L.86
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 10))
+JUMP(
+ NAME L.80)
+LABEL L.84
+MOVE(
+ TEMP QueensOpen.Print.1.i,
+ TEMP t.79)
+MOVE(
+ TEMP t.84,
+ CONST 0)
+MOVE(
+ TEMP t.86,
+ TEMP QueensOpen.Print.self)
+BEQ(
+ TEMP t.86,
+ CONST 0,
+ L.81, L.87)
+LABEL L.87
+MOVE(
+ TEMP t.87,
+ MEM(
+  TEMP t.86, 
+  CONST 0, 8))
+BEQ(
+ TEMP t.87,
+ CONST 0,
+ L.81, L.88)
+LABEL L.88
+MOVE(
+ TEMP t.85,
+ SUB(
+  MEM(
+   TEMP t.87, 
+   CONST 8, 8),
+  CONST 1))
+MOVE(
+ TEMP t.88,
+ CONST 1)
+LABEL L.90
+BLE(
+ TEMP t.84,
+ TEMP t.85,
+ L.89, L.91)
+LABEL L.91
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 10))
+MOVE(
+ TEMP t.79,
+ ADD(
+  TEMP t.79,
+  TEMP t.83))
+JUMP(
+ NAME L.85)
+LABEL L.89
+MOVE(
+ TEMP QueensOpen.Print.1.1.j,
+ TEMP t.84)
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 32))
+MOVE(
+ TEMP t.89,
+ TEMP QueensOpen.Print.self)
+BEQ(
+ TEMP t.89,
+ CONST 0,
+ L.81, L.96)
+LABEL L.96
+MOVE(
+ TEMP t.90,
+ MEM(
+  TEMP t.89, 
+  CONST 8, 8))
+BEQ(
+ TEMP t.90,
+ CONST 0,
+ L.81, L.97)
+LABEL L.97
+MOVE(
+ TEMP t.92,
+ TEMP t.90)
+MOVE(
+ TEMP t.91,
+ TEMP QueensOpen.Print.1.i)
+BLT(
+ TEMP t.91,
+ CONST 0,
+ L.92, L.98)
+LABEL L.98
+BGE(
+ TEMP t.91,
+ MEM(
+  TEMP t.92, 
+  CONST 8, 8),
+ L.92, L.99)
+LABEL L.99
+BEQ(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.92, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.91,
+    CONST 8)), 
+  CONST 0, 8),
+ TEMP QueensOpen.Print.1.1.j,
+ L.93, L.94)
+LABEL L.94
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 46))
+LABEL L.95
+MOVE(
+ TEMP t.84,
+ ADD(
+  TEMP t.84,
+  TEMP t.88))
+JUMP(
+ NAME L.90)
+LABEL L.93
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 81))
+JUMP(
+ NAME L.95)
+LABEL L.80
+# With procedure entry/exit:
+MOVE(
+ TEMP QueensOpen.Print.self,
+ TEMP %rdi)
+LABEL L.105
+MOVE(
+ TEMP t.79,
+ CONST 0)
+MOVE(
+ TEMP t.81,
+ TEMP QueensOpen.Print.self)
+BEQ(
+ TEMP t.81,
+ CONST 0,
+ L.81, L.82)
+LABEL L.82
+MOVE(
+ TEMP t.82,
+ MEM(
+  TEMP t.81, 
+  CONST 8, 8))
+BEQ(
+ TEMP t.82,
+ CONST 0,
+ L.81, L.83)
+LABEL L.83
+MOVE(
+ TEMP t.80,
+ SUB(
+  MEM(
+   TEMP t.82, 
+   CONST 8, 8),
+  CONST 1))
+MOVE(
+ TEMP t.83,
+ CONST 1)
+LABEL L.85
+BLE(
+ TEMP t.79,
+ TEMP t.80,
+ L.84, L.86)
+LABEL L.86
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 10))
+JUMP(
+ NAME L.80)
+LABEL L.84
+MOVE(
+ TEMP QueensOpen.Print.1.i,
+ TEMP t.79)
+MOVE(
+ TEMP t.84,
+ CONST 0)
+MOVE(
+ TEMP t.86,
+ TEMP QueensOpen.Print.self)
+BEQ(
+ TEMP t.86,
+ CONST 0,
+ L.81, L.87)
+LABEL L.87
+MOVE(
+ TEMP t.87,
+ MEM(
+  TEMP t.86, 
+  CONST 0, 8))
+BEQ(
+ TEMP t.87,
+ CONST 0,
+ L.81, L.88)
+LABEL L.88
+MOVE(
+ TEMP t.85,
+ SUB(
+  MEM(
+   TEMP t.87, 
+   CONST 8, 8),
+  CONST 1))
+MOVE(
+ TEMP t.88,
+ CONST 1)
+LABEL L.90
+BLE(
+ TEMP t.84,
+ TEMP t.85,
+ L.89, L.91)
+LABEL L.91
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 10))
+MOVE(
+ TEMP t.79,
+ ADD(
+  TEMP t.79,
+  TEMP t.83))
+JUMP(
+ NAME L.85)
+LABEL L.89
+MOVE(
+ TEMP QueensOpen.Print.1.1.j,
+ TEMP t.84)
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 32))
+MOVE(
+ TEMP t.89,
+ TEMP QueensOpen.Print.self)
+BEQ(
+ TEMP t.89,
+ CONST 0,
+ L.81, L.96)
+LABEL L.96
+MOVE(
+ TEMP t.90,
+ MEM(
+  TEMP t.89, 
+  CONST 8, 8))
+BEQ(
+ TEMP t.90,
+ CONST 0,
+ L.81, L.97)
+LABEL L.97
+MOVE(
+ TEMP t.92,
+ TEMP t.90)
+MOVE(
+ TEMP t.91,
+ TEMP QueensOpen.Print.1.i)
+BLT(
+ TEMP t.91,
+ CONST 0,
+ L.92, L.98)
+LABEL L.98
+BGE(
+ TEMP t.91,
+ MEM(
+  TEMP t.92, 
+  CONST 8, 8),
+ L.92, L.99)
+LABEL L.99
+BEQ(
+ MEM(
+  ADD(
+   MEM(
+    TEMP t.92, 
+    CONST 0, 8),
+   MUL(
+    TEMP t.91,
+    CONST 8)), 
+  CONST 0, 8),
+ TEMP QueensOpen.Print.1.1.j,
+ L.93, L.94)
+LABEL L.94
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 46))
+LABEL L.95
+MOVE(
+ TEMP t.84,
+ ADD(
+  TEMP t.84,
+  TEMP t.88))
+JUMP(
+ NAME L.90)
+LABEL L.93
+EXP(
+ CALL(
+  NAME putchar,
+  CONST 0,
+  CONST 81))
+JUMP(
+ NAME L.95)
+LABEL L.80
+# Instructions:
+	movq %rdi,QueensOpen.Print.self	# QueensOpen.Print.self := %rdi 
+L.105:	# <- 
+	xorq t.79,t.79	# t.79 <- 
+	movq QueensOpen.Print.self,t.81	# t.81 := QueensOpen.Print.self 
+	xorq t.256,t.256	# t.256 <- 
+	cmpq t.256,t.81	# <- t.81 t.256 
+	je L.81	# <- : goto L.81 L.82 
+L.82:	# <- 
+	movq 8(t.81),t.257	# t.257 <- t.81 
+	movq t.257,t.82	# t.82 := t.257 
+	xorq t.258,t.258	# t.258 <- 
+	cmpq t.258,t.82	# <- t.82 t.258 
+	je L.81	# <- : goto L.81 L.83 
+L.83:	# <- 
+	movq 8(t.82),t.260	# t.260 <- t.82 
+	movq t.260,t.259	# t.259 := t.260 
+	subq $1,t.259	# t.259 <- t.259 
+	movq t.259,t.80	# t.80 := t.259 
+	movq $1,t.83	# t.83 <- 
+L.85:	# <- 
+	cmpq t.80,t.79	# <- t.79 t.80 
+	jle L.84	# <- : goto L.84 L.86 
+L.86:	# <- 
+	movabsq $10,t.261	# t.261 <- 
+	movq t.261,%rdi	# %rdi := t.261 
+	call putchar	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	jmp L.80	# <- : goto L.80 
+L.84:	# <- 
+	movq t.79,QueensOpen.Print.1.i	# QueensOpen.Print.1.i := t.79 
+	xorq t.84,t.84	# t.84 <- 
+	movq QueensOpen.Print.self,t.86	# t.86 := QueensOpen.Print.self 
+	xorq t.262,t.262	# t.262 <- 
+	cmpq t.262,t.86	# <- t.86 t.262 
+	je L.81	# <- : goto L.81 L.87 
+L.87:	# <- 
+	movq 0(t.86),t.263	# t.263 <- t.86 
+	movq t.263,t.87	# t.87 := t.263 
+	xorq t.264,t.264	# t.264 <- 
+	cmpq t.264,t.87	# <- t.87 t.264 
+	je L.81	# <- : goto L.81 L.88 
+L.88:	# <- 
+	movq 8(t.87),t.266	# t.266 <- t.87 
+	movq t.266,t.265	# t.265 := t.266 
+	subq $1,t.265	# t.265 <- t.265 
+	movq t.265,t.85	# t.85 := t.265 
+	movq $1,t.88	# t.88 <- 
+L.90:	# <- 
+	cmpq t.85,t.84	# <- t.84 t.85 
+	jle L.89	# <- : goto L.89 L.91 
+L.91:	# <- 
+	movabsq $10,t.267	# t.267 <- 
+	movq t.267,%rdi	# %rdi := t.267 
+	call putchar	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	movq t.79,t.268	# t.268 := t.79 
+	addq t.83,t.268	# t.268 <- t.83 t.268 
+	movq t.268,t.79	# t.79 := t.268 
+	jmp L.85	# <- : goto L.85 
+L.89:	# <- 
+	movq t.84,QueensOpen.Print.1.1.j	# QueensOpen.Print.1.1.j := t.84 
+	movabsq $32,t.269	# t.269 <- 
+	movq t.269,%rdi	# %rdi := t.269 
+	call putchar	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	movq QueensOpen.Print.self,t.89	# t.89 := QueensOpen.Print.self 
+	xorq t.270,t.270	# t.270 <- 
+	cmpq t.270,t.89	# <- t.89 t.270 
+	je L.81	# <- : goto L.81 L.96 
+L.96:	# <- 
+	movq 8(t.89),t.271	# t.271 <- t.89 
+	movq t.271,t.90	# t.90 := t.271 
+	xorq t.272,t.272	# t.272 <- 
+	cmpq t.272,t.90	# <- t.90 t.272 
+	je L.81	# <- : goto L.81 L.97 
+L.97:	# <- 
+	movq t.90,t.92	# t.92 := t.90 
+	movq QueensOpen.Print.1.i,t.91	# t.91 := QueensOpen.Print.1.i 
+	xorq t.273,t.273	# t.273 <- 
+	cmpq t.273,t.91	# <- t.91 t.273 
+	jl L.92	# <- : goto L.92 L.98 
+L.98:	# <- 
+	movq 8(t.92),t.274	# t.274 <- t.92 
+	cmpq t.274,t.91	# <- t.91 t.274 
+	jge L.92	# <- : goto L.92 L.99 
+L.99:	# <- 
+	movq 0(t.92),t.276	# t.276 <- t.92 
+	movq t.276,t.275	# t.275 := t.276 
+	movq t.91,t.277	# t.277 := t.91 
+	shlq $3,t.277	# t.277 <- t.277 
+	addq t.277,t.275	# t.275 <- t.277 t.275 
+	movq 0(t.275),t.278	# t.278 <- t.275 
+	cmpq QueensOpen.Print.1.1.j,t.278	# <- t.278 QueensOpen.Print.1.1.j 
+	je L.93	# <- : goto L.93 L.94 
+L.94:	# <- 
+	movabsq $46,t.279	# t.279 <- 
+	movq t.279,%rdi	# %rdi := t.279 
+	call putchar	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+L.95:	# <- 
+	movq t.84,t.280	# t.280 := t.84 
+	addq t.88,t.280	# t.280 <- t.88 t.280 
+	movq t.280,t.84	# t.84 := t.280 
+	jmp L.90	# <- : goto L.90 
+L.93:	# <- 
+	movabsq $81,t.281	# t.281 <- 
+	movq t.281,%rdi	# %rdi := t.281 
+	call putchar	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	jmp L.95	# <- : goto L.95 
+L.80:	# <- 
+# Control Flow Graph:
+0: QueensOpen.Print.self <- %rdi ; goto 1 
+1: t.79 t.81 t.256 <- QueensOpen.Print.self ; goto 2 
+2: t.257 t.82 t.258 <- t.81 ; goto 3 
+3: t.260 t.259 t.80 t.83 <- t.82 ; goto 4 
+4: <- t.79 t.80 ; goto 6 5 
+5: t.261 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- ; goto 19 
+6: QueensOpen.Print.1.i t.84 t.86 t.262 <- t.79 QueensOpen.Print.self ; goto 7 
+7: t.263 t.87 t.264 <- t.86 ; goto 8 
+8: t.266 t.265 t.85 t.88 <- t.87 ; goto 9 
+9: <- t.84 t.85 ; goto 11 10 
+10: t.267 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.268 t.79 <- t.79 t.83 ; goto 4 
+11: QueensOpen.Print.1.1.j t.269 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.89 t.270 <- t.84 QueensOpen.Print.self ; goto 12 
+12: t.271 t.90 t.272 <- t.89 ; goto 13 
+13: t.92 t.91 t.273 <- t.90 QueensOpen.Print.1.i ; goto 14 
+14: t.274 <- t.92 t.91 ; goto 15 
+15: t.276 t.275 t.277 t.278 <- t.92 t.91 QueensOpen.Print.1.1.j ; goto 18 16 
+16: t.279 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- ; goto 17 
+17: t.280 t.84 <- t.84 t.88 ; goto 9 
+18: t.281 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- ; goto 17 
+19: <- %rsp %rbp ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+QueensOpen.Print.self: %rsp %rbp t.256 t.79 t.258 t.82 t.257 t.83 t.80 t.259 t.260 t.262 t.84 QueensOpen.Print.1.i t.264 t.87 t.263 t.88 t.85 t.265 t.266 t.268 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.267 t.270 t.269 QueensOpen.Print.1.1.j t.272 t.90 t.271 t.273 t.91 t.92 t.274 t.278 t.275 t.277 t.276 t.279 t.280 t.281 
+t.79: t.256 t.81 QueensOpen.Print.self %rsp %rbp t.258 t.82 t.257 t.83 t.80 t.259 t.260 t.262 t.86 t.84 t.264 t.87 t.263 t.88 t.85 t.265 t.266 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.267 t.270 t.89 t.269 QueensOpen.Print.1.1.j t.272 t.90 t.271 t.273 t.91 t.92 t.274 t.278 t.275 t.277 t.276 t.279 t.280 t.281 
+t.81: t.256 t.79 %rsp %rbp 
+t.256: t.81 t.79 QueensOpen.Print.self %rsp %rbp 
+t.257: t.79 QueensOpen.Print.self %rsp %rbp 
+t.82: t.258 t.79 QueensOpen.Print.self %rsp %rbp 
+t.258: t.82 t.79 QueensOpen.Print.self %rsp %rbp 
+t.260: t.79 QueensOpen.Print.self %rsp %rbp 
+t.259: t.79 QueensOpen.Print.self %rsp %rbp 
+t.80: t.83 t.79 QueensOpen.Print.self %rsp %rbp t.262 t.86 t.84 QueensOpen.Print.1.i t.264 t.87 t.263 t.88 t.85 t.265 t.266 t.268 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.267 t.270 t.89 t.269 QueensOpen.Print.1.1.j t.272 t.90 t.271 t.273 t.91 t.92 t.274 t.278 t.275 t.277 t.276 t.279 t.280 t.281 
+t.83: t.79 t.80 QueensOpen.Print.self %rsp %rbp t.262 t.86 t.84 QueensOpen.Print.1.i t.264 t.87 t.263 t.88 t.85 t.265 t.266 t.268 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.267 t.270 t.89 t.269 QueensOpen.Print.1.1.j t.272 t.90 t.271 t.273 t.91 t.92 t.274 t.278 t.275 t.277 t.276 t.279 t.280 t.281 
+t.261: %rsp %rbp 
+QueensOpen.Print.1.i: t.262 t.86 t.84 QueensOpen.Print.self t.83 t.80 %rsp %rbp t.264 t.87 t.263 t.88 t.85 t.265 t.266 t.270 t.89 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.269 QueensOpen.Print.1.1.j t.272 t.90 t.271 t.273 t.92 t.274 t.278 t.275 t.277 t.276 t.279 t.280 t.281 
+t.84: t.262 t.86 QueensOpen.Print.self QueensOpen.Print.1.i t.79 t.83 t.80 %rsp %rbp t.264 t.87 t.263 t.88 t.85 t.265 t.266 t.270 t.89 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.269 t.272 t.90 t.271 t.273 t.91 t.92 t.274 t.278 t.275 t.277 t.276 t.279 t.281 
+t.86: t.262 t.84 QueensOpen.Print.1.i t.79 t.83 t.80 %rsp %rbp 
+t.262: t.86 t.84 QueensOpen.Print.self QueensOpen.Print.1.i t.79 t.83 t.80 %rsp %rbp 
+t.263: t.84 QueensOpen.Print.self QueensOpen.Print.1.i t.79 t.83 t.80 %rsp %rbp 
+t.87: t.264 t.84 QueensOpen.Print.self QueensOpen.Print.1.i t.79 t.83 t.80 %rsp %rbp 
+t.264: t.87 t.84 QueensOpen.Print.self QueensOpen.Print.1.i t.79 t.83 t.80 %rsp %rbp 
+t.266: t.84 QueensOpen.Print.self QueensOpen.Print.1.i t.79 t.83 t.80 %rsp %rbp 
+t.265: t.84 QueensOpen.Print.self QueensOpen.Print.1.i t.79 t.83 t.80 %rsp %rbp 
+t.85: t.88 t.84 QueensOpen.Print.self QueensOpen.Print.1.i t.79 t.83 t.80 %rsp %rbp t.270 t.89 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.269 QueensOpen.Print.1.1.j t.272 t.90 t.271 t.273 t.91 t.92 t.274 t.278 t.275 t.277 t.276 t.279 t.280 t.281 
+t.88: t.84 t.85 QueensOpen.Print.self QueensOpen.Print.1.i t.79 t.83 t.80 %rsp %rbp t.270 t.89 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.269 QueensOpen.Print.1.1.j t.272 t.90 t.271 t.273 t.91 t.92 t.274 t.278 t.275 t.277 t.276 t.279 t.280 t.281 
+t.267: t.80 QueensOpen.Print.self t.83 %rsp %rbp t.79 
+t.268: t.80 QueensOpen.Print.self t.83 %rsp %rbp 
+QueensOpen.Print.1.1.j: t.270 t.89 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.269 QueensOpen.Print.1.i t.88 t.85 QueensOpen.Print.self t.79 t.83 t.80 %rsp %rbp t.272 t.90 t.271 t.273 t.91 t.92 t.274 t.278 t.275 t.277 t.276 
+t.269: QueensOpen.Print.1.i QueensOpen.Print.1.1.j t.84 t.88 t.85 QueensOpen.Print.self t.79 t.83 t.80 %rsp %rbp 
+t.89: t.270 QueensOpen.Print.1.i QueensOpen.Print.1.1.j t.84 t.88 t.85 t.79 t.83 t.80 %rsp %rbp 
+t.270: t.89 QueensOpen.Print.1.i QueensOpen.Print.1.1.j t.84 t.88 t.85 QueensOpen.Print.self t.79 t.83 t.80 %rsp %rbp 
+t.271: QueensOpen.Print.1.i QueensOpen.Print.1.1.j t.84 t.88 t.85 QueensOpen.Print.self t.79 t.83 t.80 %rsp %rbp 
+t.90: t.272 QueensOpen.Print.1.i QueensOpen.Print.1.1.j t.84 t.88 t.85 QueensOpen.Print.self t.79 t.83 t.80 %rsp %rbp 
+t.272: t.90 QueensOpen.Print.1.i QueensOpen.Print.1.1.j t.84 t.88 t.85 QueensOpen.Print.self t.79 t.83 t.80 %rsp %rbp 
+t.92: t.273 t.91 QueensOpen.Print.1.1.j t.84 t.88 t.85 QueensOpen.Print.self QueensOpen.Print.1.i t.79 t.83 t.80 %rsp %rbp t.274 
+t.91: t.273 t.92 QueensOpen.Print.1.1.j t.84 t.88 t.85 QueensOpen.Print.self t.79 t.83 t.80 %rsp %rbp t.274 t.275 t.276 
+t.273: t.92 t.91 QueensOpen.Print.1.1.j t.84 t.88 t.85 QueensOpen.Print.self QueensOpen.Print.1.i t.79 t.83 t.80 %rsp %rbp 
+t.274: t.92 t.91 QueensOpen.Print.1.1.j t.84 t.88 t.85 QueensOpen.Print.self QueensOpen.Print.1.i t.79 t.83 t.80 %rsp %rbp 
+t.276: t.84 t.88 t.85 QueensOpen.Print.self QueensOpen.Print.1.i t.79 t.83 t.80 %rsp %rbp QueensOpen.Print.1.1.j t.91 
+t.275: t.84 t.88 t.85 QueensOpen.Print.self QueensOpen.Print.1.i t.79 t.83 t.80 %rsp %rbp QueensOpen.Print.1.1.j t.277 t.91 
+t.277: t.84 t.88 t.85 QueensOpen.Print.self QueensOpen.Print.1.i t.79 t.83 t.80 %rsp %rbp QueensOpen.Print.1.1.j t.275 
+t.278: t.84 t.88 t.85 QueensOpen.Print.self QueensOpen.Print.1.i t.79 t.83 t.80 %rsp %rbp QueensOpen.Print.1.1.j 
+t.279: t.84 t.88 t.85 QueensOpen.Print.self QueensOpen.Print.1.i t.79 t.83 t.80 %rsp %rbp 
+t.280: t.85 QueensOpen.Print.self QueensOpen.Print.1.i t.88 t.79 t.83 t.80 %rsp %rbp 
+t.281: t.84 t.88 t.85 QueensOpen.Print.self QueensOpen.Print.1.i t.79 t.83 t.80 %rsp %rbp 
+%rdi <= t.281
+t.280 <= t.84
+t.84 <= t.280
+%rdi <= t.279
+t.275 <= t.276
+t.277 <= t.91
+t.92 <= t.90
+t.91 <= QueensOpen.Print.1.i
+t.90 <= t.271
+QueensOpen.Print.1.1.j <= t.84
+%rdi <= t.269
+t.89 <= QueensOpen.Print.self
+%rdi <= t.267
+t.268 <= t.79
+t.79 <= t.268
+t.265 <= t.266
+t.85 <= t.265
+t.87 <= t.263
+QueensOpen.Print.1.i <= t.79
+t.86 <= QueensOpen.Print.self
+%rdi <= t.261
+t.259 <= t.260
+t.80 <= t.259
+t.82 <= t.257
+t.81 <= QueensOpen.Print.self
+QueensOpen.Print.self <= %rdi
+# Spills:
+t.83
+t.80
+# Instructions (after spilling):
+	movq %rdi,QueensOpen.Print.self
+L.105:
+	xorq t.79,t.79
+	movq QueensOpen.Print.self,t.81
+	xorq t.256,t.256
+	cmpq t.256,t.81
+	je L.81
+L.82:
+	movq 8(t.81),t.257
+	movq t.257,t.82
+	xorq t.258,t.258
+	cmpq t.258,t.82
+	je L.81
+L.83:
+	movq 8(t.82),t.260
+	movq t.260,t.259
+	subq $1,t.259
+	movq t.259,t.285
+	movq t.285,-16(%rbp)
+	movq $1,t.282
+	movq t.282,-8(%rbp)
+L.85:
+	movq -16(%rbp),t.287
+	movq t.287,t.286
+	cmpq t.286,t.79
+	jle L.84
+L.86:
+	movabsq $10,t.261
+	movq t.261,%rdi
+	call putchar
+	jmp L.80
+L.84:
+	movq t.79,QueensOpen.Print.1.i
+	xorq t.84,t.84
+	movq QueensOpen.Print.self,t.86
+	xorq t.262,t.262
+	cmpq t.262,t.86
+	je L.81
+L.87:
+	movq 0(t.86),t.263
+	movq t.263,t.87
+	xorq t.264,t.264
+	cmpq t.264,t.87
+	je L.81
+L.88:
+	movq 8(t.87),t.266
+	movq t.266,t.265
+	subq $1,t.265
+	movq t.265,t.85
+	movq $1,t.88
+L.90:
+	cmpq t.85,t.84
+	jle L.89
+L.91:
+	movabsq $10,t.267
+	movq t.267,%rdi
+	call putchar
+	movq t.79,t.268
+	movq -8(%rbp),t.284
+	movq t.284,t.283
+	addq t.283,t.268
+	movq t.268,t.79
+	jmp L.85
+L.89:
+	movq t.84,QueensOpen.Print.1.1.j
+	movabsq $32,t.269
+	movq t.269,%rdi
+	call putchar
+	movq QueensOpen.Print.self,t.89
+	xorq t.270,t.270
+	cmpq t.270,t.89
+	je L.81
+L.96:
+	movq 8(t.89),t.271
+	movq t.271,t.90
+	xorq t.272,t.272
+	cmpq t.272,t.90
+	je L.81
+L.97:
+	movq t.90,t.92
+	movq QueensOpen.Print.1.i,t.91
+	xorq t.273,t.273
+	cmpq t.273,t.91
+	jl L.92
+L.98:
+	movq 8(t.92),t.274
+	cmpq t.274,t.91
+	jge L.92
+L.99:
+	movq 0(t.92),t.276
+	movq t.276,t.275
+	movq t.91,t.277
+	shlq $3,t.277
+	addq t.277,t.275
+	movq 0(t.275),t.278
+	cmpq QueensOpen.Print.1.1.j,t.278
+	je L.93
+L.94:
+	movabsq $46,t.279
+	movq t.279,%rdi
+	call putchar
+L.95:
+	movq t.84,t.280
+	addq t.88,t.280
+	movq t.280,t.84
+	jmp L.90
+L.93:
+	movabsq $81,t.281
+	movq t.281,%rdi
+	call putchar
+	jmp L.95
+L.80:
+#	returnSink
+# Control Flow Graph:
+0: QueensOpen.Print.self <- %rdi ; goto 1 
+1: t.79 t.81 t.256 <- QueensOpen.Print.self ; goto 2 
+2: t.257 t.82 t.258 <- t.81 ; goto 3 
+3: t.260 t.259 t.285 t.282 <- t.82 %rbp ; goto 4 
+4: t.287 t.286 <- %rbp t.79 ; goto 6 5 
+5: t.261 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- ; goto 19 
+6: QueensOpen.Print.1.i t.84 t.86 t.262 <- t.79 QueensOpen.Print.self ; goto 7 
+7: t.263 t.87 t.264 <- t.86 ; goto 8 
+8: t.266 t.265 t.85 t.88 <- t.87 ; goto 9 
+9: <- t.84 t.85 ; goto 11 10 
+10: t.267 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.268 t.284 t.283 t.79 <- t.79 %rbp ; goto 4 
+11: QueensOpen.Print.1.1.j t.269 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.89 t.270 <- t.84 QueensOpen.Print.self ; goto 12 
+12: t.271 t.90 t.272 <- t.89 ; goto 13 
+13: t.92 t.91 t.273 <- t.90 QueensOpen.Print.1.i ; goto 14 
+14: t.274 <- t.92 t.91 ; goto 15 
+15: t.276 t.275 t.277 t.278 <- t.92 t.91 QueensOpen.Print.1.1.j ; goto 18 16 
+16: t.279 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- ; goto 17 
+17: t.280 t.84 <- t.84 t.88 ; goto 9 
+18: t.281 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- ; goto 17 
+19: <- %rsp %rbp ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+QueensOpen.Print.self: %rbp %rsp t.256 t.79 t.258 t.82 t.257 t.282 t.285 t.259 t.260 t.286 t.287 t.262 t.84 QueensOpen.Print.1.i t.264 t.87 t.263 t.88 t.85 t.265 t.266 t.268 t.283 t.284 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.267 t.270 t.269 QueensOpen.Print.1.1.j t.272 t.90 t.271 t.273 t.91 t.92 t.274 t.278 t.275 t.277 t.276 t.279 t.280 t.281 
+t.79: t.256 t.81 %rbp QueensOpen.Print.self %rsp t.258 t.82 t.257 t.282 t.285 t.259 t.260 t.286 t.287 t.262 t.86 t.84 t.264 t.87 t.263 t.88 t.85 t.265 t.266 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.267 t.270 t.89 t.269 QueensOpen.Print.1.1.j t.272 t.90 t.271 t.273 t.91 t.92 t.274 t.278 t.275 t.277 t.276 t.279 t.280 t.281 
+t.81: t.256 %rbp t.79 %rsp 
+t.256: t.81 %rbp t.79 QueensOpen.Print.self %rsp 
+t.257: %rbp t.79 QueensOpen.Print.self %rsp 
+t.82: t.258 %rbp t.79 QueensOpen.Print.self %rsp 
+t.258: t.82 %rbp t.79 QueensOpen.Print.self %rsp 
+t.260: %rbp t.79 QueensOpen.Print.self %rsp 
+t.259: %rbp t.79 QueensOpen.Print.self %rsp 
+t.285: %rbp t.79 QueensOpen.Print.self %rsp 
+t.282: %rbp t.79 QueensOpen.Print.self %rsp 
+t.287: t.79 QueensOpen.Print.self %rbp %rsp 
+t.286: t.79 QueensOpen.Print.self %rbp %rsp 
+t.261: %rsp %rbp 
+QueensOpen.Print.1.i: t.262 t.86 t.84 QueensOpen.Print.self %rbp %rsp t.264 t.87 t.263 t.88 t.85 t.265 t.266 t.270 t.89 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.269 QueensOpen.Print.1.1.j t.272 t.90 t.271 t.273 t.92 t.274 t.278 t.275 t.277 t.276 t.279 t.280 t.281 
+t.84: t.262 t.86 QueensOpen.Print.self QueensOpen.Print.1.i t.79 %rbp %rsp t.264 t.87 t.263 t.88 t.85 t.265 t.266 t.270 t.89 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.269 t.272 t.90 t.271 t.273 t.91 t.92 t.274 t.278 t.275 t.277 t.276 t.279 t.281 
+t.86: t.262 t.84 QueensOpen.Print.1.i t.79 %rbp %rsp 
+t.262: t.86 t.84 QueensOpen.Print.self QueensOpen.Print.1.i t.79 %rbp %rsp 
+t.263: t.84 QueensOpen.Print.self QueensOpen.Print.1.i t.79 %rbp %rsp 
+t.87: t.264 t.84 QueensOpen.Print.self QueensOpen.Print.1.i t.79 %rbp %rsp 
+t.264: t.87 t.84 QueensOpen.Print.self QueensOpen.Print.1.i t.79 %rbp %rsp 
+t.266: t.84 QueensOpen.Print.self QueensOpen.Print.1.i t.79 %rbp %rsp 
+t.265: t.84 QueensOpen.Print.self QueensOpen.Print.1.i t.79 %rbp %rsp 
+t.85: t.88 t.84 QueensOpen.Print.self QueensOpen.Print.1.i t.79 %rbp %rsp t.270 t.89 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.269 QueensOpen.Print.1.1.j t.272 t.90 t.271 t.273 t.91 t.92 t.274 t.278 t.275 t.277 t.276 t.279 t.280 t.281 
+t.88: t.84 t.85 QueensOpen.Print.self QueensOpen.Print.1.i t.79 %rbp %rsp t.270 t.89 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.269 QueensOpen.Print.1.1.j t.272 t.90 t.271 t.273 t.91 t.92 t.274 t.278 t.275 t.277 t.276 t.279 t.280 t.281 
+t.267: %rbp QueensOpen.Print.self %rsp t.79 
+t.268: %rbp QueensOpen.Print.self %rsp t.283 t.284 
+t.284: %rbp QueensOpen.Print.self %rsp t.268 
+t.283: %rbp QueensOpen.Print.self %rsp t.268 
+QueensOpen.Print.1.1.j: t.270 t.89 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.269 QueensOpen.Print.1.i t.88 t.85 QueensOpen.Print.self t.79 %rbp %rsp t.272 t.90 t.271 t.273 t.91 t.92 t.274 t.278 t.275 t.277 t.276 
+t.269: QueensOpen.Print.1.i QueensOpen.Print.1.1.j t.84 t.88 t.85 QueensOpen.Print.self t.79 %rbp %rsp 
+t.89: t.270 QueensOpen.Print.1.i QueensOpen.Print.1.1.j t.84 t.88 t.85 t.79 %rbp %rsp 
+t.270: t.89 QueensOpen.Print.1.i QueensOpen.Print.1.1.j t.84 t.88 t.85 QueensOpen.Print.self t.79 %rbp %rsp 
+t.271: QueensOpen.Print.1.i QueensOpen.Print.1.1.j t.84 t.88 t.85 QueensOpen.Print.self t.79 %rbp %rsp 
+t.90: t.272 QueensOpen.Print.1.i QueensOpen.Print.1.1.j t.84 t.88 t.85 QueensOpen.Print.self t.79 %rbp %rsp 
+t.272: t.90 QueensOpen.Print.1.i QueensOpen.Print.1.1.j t.84 t.88 t.85 QueensOpen.Print.self t.79 %rbp %rsp 
+t.92: t.273 t.91 QueensOpen.Print.1.1.j t.84 t.88 t.85 QueensOpen.Print.self QueensOpen.Print.1.i t.79 %rbp %rsp t.274 
+t.91: t.273 t.92 QueensOpen.Print.1.1.j t.84 t.88 t.85 QueensOpen.Print.self t.79 %rbp %rsp t.274 t.275 t.276 
+t.273: t.92 t.91 QueensOpen.Print.1.1.j t.84 t.88 t.85 QueensOpen.Print.self QueensOpen.Print.1.i t.79 %rbp %rsp 
+t.274: t.92 t.91 QueensOpen.Print.1.1.j t.84 t.88 t.85 QueensOpen.Print.self QueensOpen.Print.1.i t.79 %rbp %rsp 
+t.276: t.84 t.88 t.85 QueensOpen.Print.self QueensOpen.Print.1.i t.79 %rbp %rsp QueensOpen.Print.1.1.j t.91 
+t.275: t.84 t.88 t.85 QueensOpen.Print.self QueensOpen.Print.1.i t.79 %rbp %rsp QueensOpen.Print.1.1.j t.277 t.91 
+t.277: t.84 t.88 t.85 QueensOpen.Print.self QueensOpen.Print.1.i t.79 %rbp %rsp QueensOpen.Print.1.1.j t.275 
+t.278: t.84 t.88 t.85 QueensOpen.Print.self QueensOpen.Print.1.i t.79 %rbp %rsp QueensOpen.Print.1.1.j 
+t.279: t.84 t.88 t.85 QueensOpen.Print.self QueensOpen.Print.1.i t.79 %rbp %rsp 
+t.280: t.85 QueensOpen.Print.self QueensOpen.Print.1.i t.88 t.79 %rbp %rsp 
+t.281: t.84 t.88 t.85 QueensOpen.Print.self QueensOpen.Print.1.i t.79 %rbp %rsp 
+%rdi <= t.281
+t.280 <= t.84
+t.84 <= t.280
+%rdi <= t.279
+t.275 <= t.276
+t.277 <= t.91
+t.92 <= t.90
+t.91 <= QueensOpen.Print.1.i
+t.90 <= t.271
+QueensOpen.Print.1.1.j <= t.84
+%rdi <= t.269
+t.89 <= QueensOpen.Print.self
+%rdi <= t.267
+t.268 <= t.79
+t.283 <= t.284
+t.79 <= t.268
+t.265 <= t.266
+t.85 <= t.265
+t.87 <= t.263
+QueensOpen.Print.1.i <= t.79
+t.86 <= QueensOpen.Print.self
+%rdi <= t.261
+t.286 <= t.287
+t.259 <= t.260
+t.285 <= t.259
+t.82 <= t.257
+t.81 <= QueensOpen.Print.self
+QueensOpen.Print.self <= %rdi
+# Register Allocation:
+%rax->%rax
+%rbx->%rbx
+%rcx->%rcx
+%rdx->%rdx
+%rsp->%rsp
+%rbp->%rbp
+%rsi->%rsi
+%rdi->%rdi
+%r8->%r8
+%r9->%r9
+%r10->%r10
+%r11->%r11
+%r12->%r12
+%r13->%r13
+%r14->%r14
+%r15->%r15
+QueensOpen.Print.self->%r14
+t.79->%r12
+t.81->%rax
+t.256->%rbx
+t.257->%rax
+t.82->%rax
+t.258->%rbx
+t.260->%rax
+t.259->%rax
+t.285->%rax
+t.282->%rax
+t.287->%rax
+t.286->%rax
+t.261->%rdi
+QueensOpen.Print.1.i->%r12
+t.84->%rbx
+t.86->%rax
+t.262->%rcx
+t.263->%rax
+t.87->%rax
+t.264->%rcx
+t.266->%rax
+t.265->%rax
+t.85->%r15
+t.88->%r13
+t.267->%rdi
+t.268->%rax
+t.284->%rbx
+t.283->%rbx
+QueensOpen.Print.1.1.j->%rbx
+t.269->%rdi
+t.89->%rax
+t.270->%rcx
+t.271->%rax
+t.90->%rax
+t.272->%rcx
+t.92->%rax
+t.91->%rcx
+t.273->%rdx
+t.274->%rdx
+t.276->%rax
+t.275->%rax
+t.277->%rcx
+t.278->%rax
+t.279->%rdi
+t.280->%rax
+t.281->%rdi
+# Assembly code:
+	.text
+QueensOpen.Print:
+	pushq %rbp
+	movq %rsp,%rbp
+	subq $64,%rsp
+	movq %r15, -56(%rbp)
+	movq %r14, -48(%rbp)
+	movq %r13, -40(%rbp)
+	movq %r12, -32(%rbp)
+	movq %rbx, -24(%rbp)
+	movq %rdi,%r14
+L.105:
+	xorq %r12,%r12
+	movq %r14,%rax
+	xorq %rbx,%rbx
+	cmpq %rbx,%rax
+	je L.81
+L.82:
+	movq 8(%rax),%rax
+#	movq %rax,%rax
+	xorq %rbx,%rbx
+	cmpq %rbx,%rax
+	je L.81
+L.83:
+	movq 8(%rax),%rax
+#	movq %rax,%rax
+	subq $1,%rax
+#	movq %rax,%rax
+	movq %rax,-16(%rbp)
+	movq $1,%rax
+	movq %rax,-8(%rbp)
+L.85:
+	movq -16(%rbp),%rax
+#	movq %rax,%rax
+	cmpq %rax,%r12
+	jle L.84
+L.86:
+	movabsq $10,%rdi
+#	movq %rdi,%rdi
+	call putchar
+	jmp L.80
+L.84:
+#	movq %r12,%r12
+	xorq %rbx,%rbx
+	movq %r14,%rax
+	xorq %rcx,%rcx
+	cmpq %rcx,%rax
+	je L.81
+L.87:
+	movq 0(%rax),%rax
+#	movq %rax,%rax
+	xorq %rcx,%rcx
+	cmpq %rcx,%rax
+	je L.81
+L.88:
+	movq 8(%rax),%rax
+#	movq %rax,%rax
+	subq $1,%rax
+	movq %rax,%r15
+	movq $1,%r13
+L.90:
+	cmpq %r15,%rbx
+	jle L.89
+L.91:
+	movabsq $10,%rdi
+#	movq %rdi,%rdi
+	call putchar
+	movq %r12,%rax
+	movq -8(%rbp),%rbx
+#	movq %rbx,%rbx
+	addq %rbx,%rax
+	movq %rax,%r12
+	jmp L.85
+L.89:
+#	movq %rbx,%rbx
+	movabsq $32,%rdi
+#	movq %rdi,%rdi
+	call putchar
+	movq %r14,%rax
+	xorq %rcx,%rcx
+	cmpq %rcx,%rax
+	je L.81
+L.96:
+	movq 8(%rax),%rax
+#	movq %rax,%rax
+	xorq %rcx,%rcx
+	cmpq %rcx,%rax
+	je L.81
+L.97:
+#	movq %rax,%rax
+	movq %r12,%rcx
+	xorq %rdx,%rdx
+	cmpq %rdx,%rcx
+	jl L.92
+L.98:
+	movq 8(%rax),%rdx
+	cmpq %rdx,%rcx
+	jge L.92
+L.99:
+	movq 0(%rax),%rax
+#	movq %rax,%rax
+#	movq %rcx,%rcx
+	shlq $3,%rcx
+	addq %rcx,%rax
+	movq 0(%rax),%rax
+	cmpq %rbx,%rax
+	je L.93
+L.94:
+	movabsq $46,%rdi
+#	movq %rdi,%rdi
+	call putchar
+L.95:
+	movq %rbx,%rax
+	addq %r13,%rax
+	movq %rax,%rbx
+	jmp L.90
+L.93:
+	movabsq $81,%rdi
+#	movq %rdi,%rdi
+	call putchar
+	jmp L.95
+L.80:
+#	returnSink
+	movq -24(%rbp),%rbx
+	movq -32(%rbp),%r12
+	movq -40(%rbp),%r13
+	movq -48(%rbp),%r14
+	movq -56(%rbp),%r15
+	addq $64,%rsp
+	popq %rbp
+	ret
+L.81:
+	call badPtr
+L.92:
+	call badSub
+END QueensOpen.Print
+PROCEDURE QueensOpen
+# Before canonicalization (trees):
+EXP(
+ CALL(
+  ESEQ(
+   MOVE(
+    TEMP t.95,
+    CALL(
+     ESEQ(
+      MOVE(
+       TEMP t.94,
+       ESEQ(
+        MOVE(
+         TEMP t.93,
+         CALL(
+          NAME malloc,
+          CONST 0,
+          CONST 40)),
+        MOVE(
+         TEMP t.93,
+         ADD(
+          TEMP t.93,
+          CONST 8)),
+        MOVE(
+         MEM(
+          TEMP t.93, 
+          CONST -8, 8),
+         NAME QueensOpen.Queens),
+        MOVE(
+         MEM(
+          TEMP t.93, 
+          CONST 0, 8),
+         CONST 0),
+        MOVE(
+         MEM(
+          TEMP t.93, 
+          CONST 8, 8),
+         CONST 0),
+        MOVE(
+         MEM(
+          TEMP t.93, 
+          CONST 16, 8),
+         CONST 0),
+        MOVE(
+         MEM(
+          TEMP t.93, 
+          CONST 24, 8),
+         CONST 0),
+        TEMP t.93)),
+      MEM(
+       MEM(
+        TEMP t.94, 
+        CONST -8, 8), 
+       CONST 0, 8)),
+     CONST 0,
+     TEMP t.94)),
+   MEM(
+    MEM(
+     TEMP t.95, 
+     CONST -8, 8), 
+    CONST 8, 8)),
+  CONST 0,
+  TEMP t.95,
+  CONST 0))
+# After canonicalization (trees):
+MOVE(
+ TEMP t.93,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  CONST 40))
+MOVE(
+ TEMP t.93,
+ ADD(
+  TEMP t.93,
+  CONST 8))
+MOVE(
+ MEM(
+  TEMP t.93, 
+  CONST -8, 8),
+ NAME QueensOpen.Queens)
+MOVE(
+ MEM(
+  TEMP t.93, 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ MEM(
+  TEMP t.93, 
+  CONST 8, 8),
+ CONST 0)
+MOVE(
+ MEM(
+  TEMP t.93, 
+  CONST 16, 8),
+ CONST 0)
+MOVE(
+ MEM(
+  TEMP t.93, 
+  CONST 24, 8),
+ CONST 0)
+MOVE(
+ TEMP t.94,
+ TEMP t.93)
+MOVE(
+ TEMP t.95,
+ CALL(
+  MEM(
+   MEM(
+    TEMP t.94, 
+    CONST -8, 8), 
+   CONST 0, 8),
+  CONST 0,
+  TEMP t.94))
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP t.95, 
+    CONST -8, 8), 
+   CONST 8, 8),
+  CONST 0,
+  TEMP t.95,
+  CONST 0))
+# Basic Blocks:
+LABEL L.106
+MOVE(
+ TEMP t.93,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  CONST 40))
+MOVE(
+ TEMP t.93,
+ ADD(
+  TEMP t.93,
+  CONST 8))
+MOVE(
+ MEM(
+  TEMP t.93, 
+  CONST -8, 8),
+ NAME QueensOpen.Queens)
+MOVE(
+ MEM(
+  TEMP t.93, 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ MEM(
+  TEMP t.93, 
+  CONST 8, 8),
+ CONST 0)
+MOVE(
+ MEM(
+  TEMP t.93, 
+  CONST 16, 8),
+ CONST 0)
+MOVE(
+ MEM(
+  TEMP t.93, 
+  CONST 24, 8),
+ CONST 0)
+MOVE(
+ TEMP t.94,
+ TEMP t.93)
+MOVE(
+ TEMP t.95,
+ CALL(
+  MEM(
+   MEM(
+    TEMP t.94, 
+    CONST -8, 8), 
+   CONST 0, 8),
+  CONST 0,
+  TEMP t.94))
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP t.95, 
+    CONST -8, 8), 
+   CONST 8, 8),
+  CONST 0,
+  TEMP t.95,
+  CONST 0))
+# Trace Scheduled:
+LABEL L.106
+MOVE(
+ TEMP t.93,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  CONST 40))
+MOVE(
+ TEMP t.93,
+ ADD(
+  TEMP t.93,
+  CONST 8))
+MOVE(
+ MEM(
+  TEMP t.93, 
+  CONST -8, 8),
+ NAME QueensOpen.Queens)
+MOVE(
+ MEM(
+  TEMP t.93, 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ MEM(
+  TEMP t.93, 
+  CONST 8, 8),
+ CONST 0)
+MOVE(
+ MEM(
+  TEMP t.93, 
+  CONST 16, 8),
+ CONST 0)
+MOVE(
+ MEM(
+  TEMP t.93, 
+  CONST 24, 8),
+ CONST 0)
+MOVE(
+ TEMP t.94,
+ TEMP t.93)
+MOVE(
+ TEMP t.95,
+ CALL(
+  MEM(
+   MEM(
+    TEMP t.94, 
+    CONST -8, 8), 
+   CONST 0, 8),
+  CONST 0,
+  TEMP t.94))
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP t.95, 
+    CONST -8, 8), 
+   CONST 8, 8),
+  CONST 0,
+  TEMP t.95,
+  CONST 0))
+# With procedure entry/exit:
+LABEL L.106
+MOVE(
+ TEMP t.93,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  CONST 40))
+MOVE(
+ TEMP t.93,
+ ADD(
+  TEMP t.93,
+  CONST 8))
+MOVE(
+ MEM(
+  TEMP t.93, 
+  CONST -8, 8),
+ NAME QueensOpen.Queens)
+MOVE(
+ MEM(
+  TEMP t.93, 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ MEM(
+  TEMP t.93, 
+  CONST 8, 8),
+ CONST 0)
+MOVE(
+ MEM(
+  TEMP t.93, 
+  CONST 16, 8),
+ CONST 0)
+MOVE(
+ MEM(
+  TEMP t.93, 
+  CONST 24, 8),
+ CONST 0)
+MOVE(
+ TEMP t.94,
+ TEMP t.93)
+MOVE(
+ TEMP t.95,
+ CALL(
+  MEM(
+   MEM(
+    TEMP t.94, 
+    CONST -8, 8), 
+   CONST 0, 8),
+  CONST 0,
+  TEMP t.94))
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP t.95, 
+    CONST -8, 8), 
+   CONST 8, 8),
+  CONST 0,
+  TEMP t.95,
+  CONST 0))
+# Instructions:
+L.106:	# <- 
+	movabsq $40,t.288	# t.288 <- 
+	movq t.288,%rdi	# %rdi := t.288 
+	call malloc	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	movq %rax,t.93	# t.93 := %rax 
+	movq t.93,t.289	# t.289 := t.93 
+	addq $8,t.289	# t.289 <- t.289 
+	movq t.289,t.93	# t.93 := t.289 
+	leaq QueensOpen.Queens(%rip),t.290	# t.290 <- 
+	movq t.290,-8(t.93)	# <- t.290 t.93 
+	movq $0,0(t.93)	# <- t.93 
+	movq $0,8(t.93)	# <- t.93 
+	movq $0,16(t.93)	# <- t.93 
+	movq $0,24(t.93)	# <- t.93 
+	movq t.93,t.94	# t.94 := t.93 
+	movq -8(t.94),t.291	# t.291 <- t.94 
+	movq 0(t.291),t.292	# t.292 <- t.291 
+	movq t.94,%rdi	# %rdi := t.94 
+	call *t.292	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- t.292 %rdi 
+	movq %rax,t.95	# t.95 := %rax 
+	movq -8(t.95),t.293	# t.293 <- t.95 
+	movq 8(t.293),t.294	# t.294 <- t.293 
+	movq t.95,%rdi	# %rdi := t.95 
+	xorq t.295,t.295	# t.295 <- 
+	movq t.295,%rsi	# %rsi := t.295 
+	call *t.294	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- t.294 %rdi %rsi 
+# Control Flow Graph:
+0: t.288 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.93 t.289 t.290 t.94 t.291 t.292 t.95 t.293 t.294 t.295 <- %rsp %rbp ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+t.288: %rsp %rbp 
+t.93: t.290 %rsp %rbp 
+t.289: %rsp %rbp 
+t.290: %rsp %rbp t.93 
+t.94: t.292 t.291 %rsp %rbp 
+t.291: %rsp %rbp t.94 
+t.292: %rdi %rsp %rbp t.94 
+t.95: t.294 t.293 %rsp %rbp 
+t.293: %rsp %rbp t.95 
+t.294: %rsi t.295 %rdi %rsp %rbp t.95 
+t.295: %rsp %rbp t.294 %rdi 
+%rdi <= t.288
+t.93 <= %rax
+t.289 <= t.93
+t.93 <= t.289
+t.94 <= t.93
+%rdi <= t.94
+t.95 <= %rax
+%rdi <= t.95
+%rsi <= t.295
+# Register Allocation:
+%rax->%rax
+%rbx->%rbx
+%rcx->%rcx
+%rdx->%rdx
+%rsp->%rsp
+%rbp->%rbp
+%rsi->%rsi
+%rdi->%rdi
+%r8->%r8
+%r9->%r9
+%r10->%r10
+%r11->%r11
+%r12->%r12
+%r13->%r13
+%r14->%r14
+%r15->%r15
+t.288->%rdi
+t.93->%rax
+t.289->%rax
+t.290->%rbx
+t.94->%rax
+t.291->%rbx
+t.292->%rbx
+t.95->%rax
+t.293->%rbx
+t.294->%rbx
+t.295->%rsi
+# Assembly code:
+	.text
+QueensOpen:
+	pushq %rbp
+	movq %rsp,%rbp
+	subq $16,%rsp
+	movq %rbx, -8(%rbp)
+L.106:
+	movabsq $40,%rdi
+#	movq %rdi,%rdi
+	call malloc
+#	movq %rax,%rax
+#	movq %rax,%rax
+	addq $8,%rax
+#	movq %rax,%rax
+	leaq QueensOpen.Queens(%rip),%rbx
+	movq %rbx,-8(%rax)
+	movq $0,0(%rax)
+	movq $0,8(%rax)
+	movq $0,16(%rax)
+	movq $0,24(%rax)
+#	movq %rax,%rax
+	movq -8(%rax),%rbx
+	movq 0(%rbx),%rbx
+	movq %rax,%rdi
+	call *%rbx
+#	movq %rax,%rax
+	movq -8(%rax),%rbx
+	movq 8(%rbx),%rbx
+	movq %rax,%rdi
+	xorq %rsi,%rsi
+#	movq %rsi,%rsi
+	call *%rbx
+#	returnSink
+	movq -8(%rbp),%rbx
+	addq $16,%rsp
+	popq %rbp
+	ret
+L.100:
+	call badSub
+END QueensOpen
+PROCEDURE main
+# Before canonicalization (trees):
+EXP(
+ CALL(
+  NAME QueensOpen,
+  CONST 0))
+# After canonicalization (trees):
+EXP(
+ CALL(
+  NAME QueensOpen,
+  CONST 0))
+# Basic Blocks:
+LABEL L.107
+EXP(
+ CALL(
+  NAME QueensOpen,
+  CONST 0))
+# Trace Scheduled:
+LABEL L.107
+EXP(
+ CALL(
+  NAME QueensOpen,
+  CONST 0))
+# With procedure entry/exit:
+LABEL L.107
+EXP(
+ CALL(
+  NAME QueensOpen,
+  CONST 0))
+# Instructions:
+L.107:	# <- 
+	call QueensOpen	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- 
+# Control Flow Graph:
+0: %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rsp %rbp ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+# Register Allocation:
+%rax->%rax
+%rbx->%rbx
+%rcx->%rcx
+%rdx->%rdx
+%rsp->%rsp
+%rbp->%rbp
+%rsi->%rsi
+%rdi->%rdi
+%r8->%r8
+%r9->%r9
+%r10->%r10
+%r11->%r11
+%r12->%r12
+%r13->%r13
+%r14->%r14
+%r15->%r15
+# Assembly code:
+	.globl main
+	.text
+main:
+	pushq %rbp
+	movq %rsp,%rbp
+L.107:
+	call QueensOpen
+#	returnSink
+	popq %rbp
+	ret
+END main
+	.data
+	.balign 8
+L.101:	.asciz	"Attempt to use a null pointer"
+PROCEDURE badPtr
+# Before canonicalization (trees):
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.101)),
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# After canonicalization (trees):
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.101))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Basic Blocks:
+LABEL L.108
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.101))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Trace Scheduled:
+LABEL L.108
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.101))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# With procedure entry/exit:
+LABEL L.108
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.101))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Instructions:
+L.108:	# <- 
+	leaq L.101(%rip),t.296	# t.296 <- 
+	movq t.296,%rdi	# %rdi := t.296 
+	call puts	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	movabsq $1,t.297	# t.297 <- 
+	movq t.297,%rdi	# %rdi := t.297 
+	call exit	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+# Control Flow Graph:
+0: t.296 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.297 <- %rsp %rbp ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+t.296: %rsp %rbp 
+t.297: %rsp %rbp 
+%rdi <= t.296
+%rdi <= t.297
+# Register Allocation:
+%rax->%rax
+%rbx->%rbx
+%rcx->%rcx
+%rdx->%rdx
+%rsp->%rsp
+%rbp->%rbp
+%rsi->%rsi
+%rdi->%rdi
+%r8->%r8
+%r9->%r9
+%r10->%r10
+%r11->%r11
+%r12->%r12
+%r13->%r13
+%r14->%r14
+%r15->%r15
+t.296->%rdi
+t.297->%rdi
+# Assembly code:
+	.text
+badPtr:
+	pushq %rbp
+	movq %rsp,%rbp
+L.108:
+	leaq L.101(%rip),%rdi
+#	movq %rdi,%rdi
+	call puts
+	movabsq $1,%rdi
+#	movq %rdi,%rdi
+	call exit
+#	returnSink
+	popq %rbp
+	ret
+END badPtr
+	.data
+	.balign 8
+L.102:	.asciz	"Subscript out of bounds"
+PROCEDURE badSub
+# Before canonicalization (trees):
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.102)),
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# After canonicalization (trees):
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.102))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Basic Blocks:
+LABEL L.109
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.102))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Trace Scheduled:
+LABEL L.109
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.102))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# With procedure entry/exit:
+LABEL L.109
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.102))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Instructions:
+L.109:	# <- 
+	leaq L.102(%rip),t.298	# t.298 <- 
+	movq t.298,%rdi	# %rdi := t.298 
+	call puts	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	movabsq $1,t.299	# t.299 <- 
+	movq t.299,%rdi	# %rdi := t.299 
+	call exit	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+# Control Flow Graph:
+0: t.298 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.299 <- %rsp %rbp ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+t.298: %rsp %rbp 
+t.299: %rsp %rbp 
+%rdi <= t.298
+%rdi <= t.299
+# Register Allocation:
+%rax->%rax
+%rbx->%rbx
+%rcx->%rcx
+%rdx->%rdx
+%rsp->%rsp
+%rbp->%rbp
+%rsi->%rsi
+%rdi->%rdi
+%r8->%r8
+%r9->%r9
+%r10->%r10
+%r11->%r11
+%r12->%r12
+%r13->%r13
+%r14->%r14
+%r15->%r15
+t.298->%rdi
+t.299->%rdi
+# Assembly code:
+	.text
+badSub:
+	pushq %rbp
+	movq %rsp,%rbp
+L.109:
+	leaq L.102(%rip),%rdi
+#	movq %rdi,%rdi
+	call puts
+	movabsq $1,%rdi
+#	movq %rdi,%rdi
+	call exit
+#	returnSink
+	popq %rbp
+	ret
+END badSub

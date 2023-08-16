@@ -1,0 +1,4 @@
+ line 8, column 23: error: no method to override in supertype (p)
+ line 9, column 22: error: no method to override in supertype (p)
+ line 10, column 23: error: no method to override in supertype (p)
+ line 11, column 22: error: no method to override in supertype (p)

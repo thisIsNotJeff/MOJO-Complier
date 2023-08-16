@@ -1,0 +1,17 @@
+"break" break
+"else" else
+"if" if
+"override" override
+"struct" struct
+"var" var
+"class" class
+"extends" extends
+"loop" loop
+"proc" proc
+"type" type
+"while" while
+"const" const
+"for" for
+"method" method
+"return" return
+"until" until

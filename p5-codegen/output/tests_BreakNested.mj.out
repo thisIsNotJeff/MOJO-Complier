@@ -1,0 +1,471 @@
+PROCEDURE BreakNested
+# Before canonicalization (trees):
+JUMP(
+ NAME L.0),
+LABEL L.1,
+JUMP(
+ NAME L.3),
+LABEL L.4,
+JUMP(
+ NAME L.5),
+LABEL L.3,
+JUMP(
+ NAME L.4),
+LABEL L.5,
+JUMP(
+ NAME L.2),
+LABEL L.0,
+JUMP(
+ NAME L.1),
+LABEL L.2
+# After canonicalization (trees):
+JUMP(
+ NAME L.0)
+LABEL L.1
+JUMP(
+ NAME L.3)
+LABEL L.4
+JUMP(
+ NAME L.5)
+LABEL L.3
+JUMP(
+ NAME L.4)
+LABEL L.5
+JUMP(
+ NAME L.2)
+LABEL L.0
+JUMP(
+ NAME L.1)
+LABEL L.2
+# Basic Blocks:
+LABEL L.8
+JUMP(
+ NAME L.0)
+LABEL L.1
+JUMP(
+ NAME L.3)
+LABEL L.4
+JUMP(
+ NAME L.5)
+LABEL L.3
+JUMP(
+ NAME L.4)
+LABEL L.5
+JUMP(
+ NAME L.2)
+LABEL L.0
+JUMP(
+ NAME L.1)
+LABEL L.2
+# Trace Scheduled:
+LABEL L.8
+LABEL L.0
+LABEL L.1
+LABEL L.3
+LABEL L.4
+LABEL L.5
+LABEL L.2
+# With procedure entry/exit:
+LABEL L.8
+LABEL L.0
+LABEL L.1
+LABEL L.3
+LABEL L.4
+LABEL L.5
+LABEL L.2
+# Instructions:
+L.8:	# <- 
+L.0:	# <- 
+L.1:	# <- 
+L.3:	# <- 
+L.4:	# <- 
+L.5:	# <- 
+L.2:	# <- 
+# Control Flow Graph:
+0: <- %rsp %rbp ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+# Register Allocation:
+%rax->%rax
+%rbx->%rbx
+%rcx->%rcx
+%rdx->%rdx
+%rsp->%rsp
+%rbp->%rbp
+%rsi->%rsi
+%rdi->%rdi
+%r8->%r8
+%r9->%r9
+%r10->%r10
+%r11->%r11
+%r12->%r12
+%r13->%r13
+%r14->%r14
+%r15->%r15
+# Assembly code:
+	.text
+BreakNested:
+	pushq %rbp
+	movq %rsp,%rbp
+L.8:
+L.0:
+L.1:
+L.3:
+L.4:
+L.5:
+L.2:
+#	returnSink
+	popq %rbp
+	ret
+END BreakNested
+PROCEDURE main
+# Before canonicalization (trees):
+EXP(
+ CALL(
+  NAME BreakNested,
+  CONST 0))
+# After canonicalization (trees):
+EXP(
+ CALL(
+  NAME BreakNested,
+  CONST 0))
+# Basic Blocks:
+LABEL L.9
+EXP(
+ CALL(
+  NAME BreakNested,
+  CONST 0))
+# Trace Scheduled:
+LABEL L.9
+EXP(
+ CALL(
+  NAME BreakNested,
+  CONST 0))
+# With procedure entry/exit:
+LABEL L.9
+EXP(
+ CALL(
+  NAME BreakNested,
+  CONST 0))
+# Instructions:
+L.9:	# <- 
+	call BreakNested	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- 
+# Control Flow Graph:
+0: %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rsp %rbp ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+# Register Allocation:
+%rax->%rax
+%rbx->%rbx
+%rcx->%rcx
+%rdx->%rdx
+%rsp->%rsp
+%rbp->%rbp
+%rsi->%rsi
+%rdi->%rdi
+%r8->%r8
+%r9->%r9
+%r10->%r10
+%r11->%r11
+%r12->%r12
+%r13->%r13
+%r14->%r14
+%r15->%r15
+# Assembly code:
+	.globl main
+	.text
+main:
+	pushq %rbp
+	movq %rsp,%rbp
+L.9:
+	call BreakNested
+#	returnSink
+	popq %rbp
+	ret
+END main
+	.data
+	.balign 8
+L.6:	.asciz	"Attempt to use a null pointer"
+PROCEDURE badPtr
+# Before canonicalization (trees):
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.6)),
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# After canonicalization (trees):
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.6))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Basic Blocks:
+LABEL L.10
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.6))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Trace Scheduled:
+LABEL L.10
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.6))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# With procedure entry/exit:
+LABEL L.10
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.6))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Instructions:
+L.10:	# <- 
+	leaq L.6(%rip),t.0	# t.0 <- 
+	movq t.0,%rdi	# %rdi := t.0 
+	call puts	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	movabsq $1,t.1	# t.1 <- 
+	movq t.1,%rdi	# %rdi := t.1 
+	call exit	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+# Control Flow Graph:
+0: t.0 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.1 <- %rsp %rbp ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+t.0: %rsp %rbp 
+t.1: %rsp %rbp 
+%rdi <= t.0
+%rdi <= t.1
+# Register Allocation:
+%rax->%rax
+%rbx->%rbx
+%rcx->%rcx
+%rdx->%rdx
+%rsp->%rsp
+%rbp->%rbp
+%rsi->%rsi
+%rdi->%rdi
+%r8->%r8
+%r9->%r9
+%r10->%r10
+%r11->%r11
+%r12->%r12
+%r13->%r13
+%r14->%r14
+%r15->%r15
+t.0->%rax
+t.1->%rax
+# Assembly code:
+	.text
+badPtr:
+	pushq %rbp
+	movq %rsp,%rbp
+L.10:
+	leaq L.6(%rip),%rax
+	movq %rax,%rdi
+	call puts
+	movabsq $1,%rax
+	movq %rax,%rdi
+	call exit
+#	returnSink
+	popq %rbp
+	ret
+END badPtr
+	.data
+	.balign 8
+L.7:	.asciz	"Subscript out of bounds"
+PROCEDURE badSub
+# Before canonicalization (trees):
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.7)),
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# After canonicalization (trees):
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.7))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Basic Blocks:
+LABEL L.11
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.7))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Trace Scheduled:
+LABEL L.11
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.7))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# With procedure entry/exit:
+LABEL L.11
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.7))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Instructions:
+L.11:	# <- 
+	leaq L.7(%rip),t.2	# t.2 <- 
+	movq t.2,%rdi	# %rdi := t.2 
+	call puts	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	movabsq $1,t.3	# t.3 <- 
+	movq t.3,%rdi	# %rdi := t.3 
+	call exit	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+# Control Flow Graph:
+0: t.2 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.3 <- %rsp %rbp ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+t.2: %rsp %rbp 
+t.3: %rsp %rbp 
+%rdi <= t.2
+%rdi <= t.3
+# Register Allocation:
+%rax->%rax
+%rbx->%rbx
+%rcx->%rcx
+%rdx->%rdx
+%rsp->%rsp
+%rbp->%rbp
+%rsi->%rsi
+%rdi->%rdi
+%r8->%r8
+%r9->%r9
+%r10->%r10
+%r11->%r11
+%r12->%r12
+%r13->%r13
+%r14->%r14
+%r15->%r15
+t.2->%rax
+t.3->%rax
+# Assembly code:
+	.text
+badSub:
+	pushq %rbp
+	movq %rsp,%rbp
+L.11:
+	leaq L.7(%rip),%rax
+	movq %rax,%rdi
+	call puts
+	movabsq $1,%rax
+	movq %rax,%rdi
+	call exit
+#	returnSink
+	popq %rbp
+	ret
+END badSub

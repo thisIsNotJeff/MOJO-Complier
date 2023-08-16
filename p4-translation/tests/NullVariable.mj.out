@@ -1,0 +1,7 @@
+	.data
+	.balign 8
+NullVariable.v:
+	.quad 0
+	.text
+NullVariable:
+

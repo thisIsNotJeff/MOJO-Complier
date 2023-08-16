@@ -1,0 +1,4 @@
+def puts(t: Text): int;
+{
+  puts("Hello World");
+}

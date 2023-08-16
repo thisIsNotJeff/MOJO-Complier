@@ -1,0 +1,6 @@
+ line 2, column 7: error: value is not a constant expression
+Exception in thread "main" java.util.ConcurrentModificationException
+	at java.base/java.util.LinkedList$ListItr.checkForComodification(LinkedList.java:970)
+	at java.base/java.util.LinkedList$ListItr.next(LinkedList.java:892)
+	at mojo.Semant.print(Semant.java:3002)
+	at mojo.Semant.main(Semant.java:50)

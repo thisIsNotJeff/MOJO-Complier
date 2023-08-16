@@ -1,0 +1,34 @@
+BEGIN _BUILTIN
+_BUILTIN.int=int
+_BUILTIN.bool=bool
+_BUILTIN.false:bool=false
+_BUILTIN.true:bool=true
+_BUILTIN.Null=^null
+_BUILTIN.nil:Null=0
+_BUILTIN.Refany=^null
+_BUILTIN.Address=^null
+_BUILTIN.Root=null
+object {
+}
+_BUILTIN.Text=^null
+_BUILTIN.First:(...)
+_BUILTIN.Last:(...)
+_BUILTIN.New:(...)
+_BUILTIN.Number:(...)
+BEGIN MethodExpr
+MethodExpr.T=Root
+object {
+0: foo:()=null
+}
+MethodExpr.foo:null=T.foo
+BEGIN MethodExpr.1
+END MethodExpr.1
+BEGIN MethodExpr.2
+foo:()=null
+END MethodExpr.2
+BEGIN MethodExpr.3
+END MethodExpr.3
+BEGIN MethodExpr.5
+VALUE _self_:T
+END MethodExpr.5
+END MethodExpr

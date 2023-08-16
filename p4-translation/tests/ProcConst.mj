@@ -1,0 +1,6 @@
+const foo = Foo;
+def Foo() {}
+{
+  const bar = Bar;
+  def Bar() {}
+}

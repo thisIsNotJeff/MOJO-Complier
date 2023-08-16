@@ -1,0 +1,86 @@
+BEGIN _BUILTIN
+_BUILTIN.int=int
+_BUILTIN.bool=bool
+_BUILTIN.false:bool=false
+_BUILTIN.true:bool=true
+_BUILTIN.Null=^null
+_BUILTIN.nil:Null=0
+_BUILTIN.Refany=^null
+_BUILTIN.Address=^null
+_BUILTIN.Root=null
+object {
+}
+_BUILTIN.Text=^null
+_BUILTIN.First:(...)
+_BUILTIN.Last:(...)
+_BUILTIN.New:(...)
+_BUILTIN.Number:(...)
+BEGIN Override3
+Override3.A=Root
+object {
+0: a:int
+0: p:()=null
+}
+Override3.AB=A
+object {
+4: b:int
+}
+Override3.Pa:(VALUE self:A)
+Override3.Pab:(VALUE self:AB)
+Override3.T1=AB
+object {
+-1: p:null=Override3.Pab:(VALUE self:AB)
+}
+Override3.T2=A
+object {
+-1: p:null=Override3.Pa:(VALUE self:A)
+}
+Override3.T3=AB
+object {
+-1: p:null=Override3.Pa:(VALUE self:A)
+}
+Override3.T4=A
+object {
+-1: p:null=Override3.Pab:(VALUE self:AB)
+}
+BEGIN Override3.1
+a:int
+END Override3.1
+BEGIN Override3.2
+p:()=null
+END Override3.2
+BEGIN Override3.3
+END Override3.3
+BEGIN Override3.5
+b:int
+END Override3.5
+BEGIN Override3.6
+END Override3.6
+BEGIN Override3.7
+VALUE self:A
+END Override3.7
+BEGIN Override3.8
+VALUE self:AB
+END Override3.8
+BEGIN Override3.9
+END Override3.9
+BEGIN Override3.10
+p:null=Override3.Pab:(VALUE self:AB)
+END Override3.10
+BEGIN Override3.11
+END Override3.11
+BEGIN Override3.12
+p:null=Override3.Pa:(VALUE self:A)
+END Override3.12
+BEGIN Override3.13
+END Override3.13
+BEGIN Override3.14
+p:null=Override3.Pa:(VALUE self:A)
+END Override3.14
+BEGIN Override3.15
+END Override3.15
+BEGIN Override3.16
+p:null=Override3.Pab:(VALUE self:AB)
+END Override3.16
+END Override3
+END _BUILTIN

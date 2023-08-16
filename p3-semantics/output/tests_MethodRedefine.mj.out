@@ -1,0 +1,42 @@
+BEGIN _BUILTIN
+_BUILTIN.int=int
+_BUILTIN.bool=bool
+_BUILTIN.false:bool=false
+_BUILTIN.true:bool=true
+_BUILTIN.Null=^null
+_BUILTIN.nil:Null=0
+_BUILTIN.Refany=^null
+_BUILTIN.Address=^null
+_BUILTIN.Root=null
+object {
+}
+_BUILTIN.Text=^null
+_BUILTIN.First:(...)
+_BUILTIN.Last:(...)
+_BUILTIN.New:(...)
+_BUILTIN.Number:(...)
+BEGIN MethodRedefine
+MethodRedefine.A=Root
+object {
+0: foo:()=null
+}
+MethodRedefine.B=A
+object {
+4: foo:()=null
+}
+BEGIN MethodRedefine.1
+END MethodRedefine.1
+BEGIN MethodRedefine.2
+foo:()=null
+END MethodRedefine.2
+BEGIN MethodRedefine.3
+END MethodRedefine.3
+BEGIN MethodRedefine.5
+END MethodRedefine.5
+BEGIN MethodRedefine.6
+foo:()=null
+END MethodRedefine.6
+BEGIN MethodRedefine.7
+END MethodRedefine.7
+END MethodRedefine
+END _BUILTIN

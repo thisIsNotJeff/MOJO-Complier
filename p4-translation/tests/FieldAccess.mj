@@ -1,0 +1,6 @@
+var r: ( x: int; r: ( y: int ); z: int);
+{
+  r.x := 1;
+  r.r.y := 2;
+  r.z := 3;
+}

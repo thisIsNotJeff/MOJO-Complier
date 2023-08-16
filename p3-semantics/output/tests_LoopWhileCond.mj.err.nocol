@@ -1,0 +1,2 @@
+ line 2, column: error: loop while condition must be a boolean
+ line 2, column: error: loop until condition must be a boolean

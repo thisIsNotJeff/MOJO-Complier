@@ -1,0 +1,3 @@
+def foo(x:[]int): int {
+    return x[First(x)];
+}

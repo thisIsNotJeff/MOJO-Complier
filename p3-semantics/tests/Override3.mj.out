@@ -1,0 +1,47 @@
+BEGIN _BUILTIN
+_BUILTIN.int=int
+_BUILTIN.bool=bool
+_BUILTIN.false:bool=false
+_BUILTIN.true:bool=true
+_BUILTIN.Null=^null
+_BUILTIN.nil:Null=0
+_BUILTIN.Refany=^null
+_BUILTIN.Address=^null
+_BUILTIN.Root=null
+object {
+}
+_BUILTIN.Text=^null
+_BUILTIN.First:(...)
+_BUILTIN.Last:(...)
+_BUILTIN.New:(...)
+_BUILTIN.Number:(...)
+BEGIN Override3
+Override3.A=Root
+object {
+0: a:int
+0: p:()=null
+}
+Override3.AB=A
+object {
+4: b:int
+}
+Override3.Pa:(VALUE self:A)
+Override3.Pab:(VALUE self:AB)
+Override3.T1=AB
+object {
+4: p:()=Override3.Pab:(VALUE self:AB)
+}
+Override3.T2=A
+object {
+4: p:()=Override3.Pa:(VALUE self:A)
+}
+Override3.T3=AB
+object {
+4: p:()=Override3.Pa:(VALUE self:A)
+}
+Override3.T4=A
+object {
+4: p:()=Override3.Pab:(VALUE self:AB)
+}
+END Override3
+END _BUILTIN

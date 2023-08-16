@@ -1,0 +1,1053 @@
+	.data
+	.balign 8
+MethodCalls.A:
+	.quad badPtr
+	.data
+	.balign 8
+MethodCalls.AB:
+	.quad badPtr
+	.quad badPtr
+	.data
+	.balign 8
+MethodCalls.T1:
+	.quad badPtr
+	.quad MethodCalls.Pab
+	.data
+	.balign 8
+MethodCalls.T2:
+	.quad MethodCalls.Pa
+	.data
+	.balign 8
+MethodCalls.T3:
+	.quad badPtr
+	.quad MethodCalls.Pa
+PROCEDURE MethodCalls
+# Before canonicalization (trees):
+MOVE(
+ TEMP MethodCalls.15.a,
+ CONST 0),
+MOVE(
+ TEMP MethodCalls.15.ab,
+ CONST 0),
+MOVE(
+ TEMP MethodCalls.15.t1,
+ CONST 0),
+MOVE(
+ TEMP MethodCalls.15.t2,
+ CONST 0),
+MOVE(
+ TEMP MethodCalls.15.t3,
+ CONST 0),
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.a, 
+    CONST -8, 8), 
+   CONST 0, 8),
+  CONST 0,
+  TEMP MethodCalls.15.a)),
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.A, 
+   CONST 0, 8),
+  CONST 0,
+  TEMP MethodCalls.15.a)),
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.ab, 
+    CONST -8, 8), 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.ab)),
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.AB, 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.ab)),
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.t1, 
+    CONST -8, 8), 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t1)),
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.T1, 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t1)),
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.t2, 
+    CONST -8, 8), 
+   CONST 0, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t2)),
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.T2, 
+   CONST 0, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t2)),
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.t3, 
+    CONST -8, 8), 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t3)),
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.T3, 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t3))
+# After canonicalization (trees):
+MOVE(
+ TEMP MethodCalls.15.a,
+ CONST 0)
+MOVE(
+ TEMP MethodCalls.15.ab,
+ CONST 0)
+MOVE(
+ TEMP MethodCalls.15.t1,
+ CONST 0)
+MOVE(
+ TEMP MethodCalls.15.t2,
+ CONST 0)
+MOVE(
+ TEMP MethodCalls.15.t3,
+ CONST 0)
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.a, 
+    CONST -8, 8), 
+   CONST 0, 8),
+  CONST 0,
+  TEMP MethodCalls.15.a))
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.A, 
+   CONST 0, 8),
+  CONST 0,
+  TEMP MethodCalls.15.a))
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.ab, 
+    CONST -8, 8), 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.ab))
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.AB, 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.ab))
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.t1, 
+    CONST -8, 8), 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t1))
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.T1, 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t1))
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.t2, 
+    CONST -8, 8), 
+   CONST 0, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t2))
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.T2, 
+   CONST 0, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t2))
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.t3, 
+    CONST -8, 8), 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t3))
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.T3, 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t3))
+# Basic Blocks:
+LABEL L.2
+MOVE(
+ TEMP MethodCalls.15.a,
+ CONST 0)
+MOVE(
+ TEMP MethodCalls.15.ab,
+ CONST 0)
+MOVE(
+ TEMP MethodCalls.15.t1,
+ CONST 0)
+MOVE(
+ TEMP MethodCalls.15.t2,
+ CONST 0)
+MOVE(
+ TEMP MethodCalls.15.t3,
+ CONST 0)
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.a, 
+    CONST -8, 8), 
+   CONST 0, 8),
+  CONST 0,
+  TEMP MethodCalls.15.a))
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.A, 
+   CONST 0, 8),
+  CONST 0,
+  TEMP MethodCalls.15.a))
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.ab, 
+    CONST -8, 8), 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.ab))
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.AB, 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.ab))
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.t1, 
+    CONST -8, 8), 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t1))
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.T1, 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t1))
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.t2, 
+    CONST -8, 8), 
+   CONST 0, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t2))
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.T2, 
+   CONST 0, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t2))
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.t3, 
+    CONST -8, 8), 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t3))
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.T3, 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t3))
+# Trace Scheduled:
+LABEL L.2
+MOVE(
+ TEMP MethodCalls.15.a,
+ CONST 0)
+MOVE(
+ TEMP MethodCalls.15.ab,
+ CONST 0)
+MOVE(
+ TEMP MethodCalls.15.t1,
+ CONST 0)
+MOVE(
+ TEMP MethodCalls.15.t2,
+ CONST 0)
+MOVE(
+ TEMP MethodCalls.15.t3,
+ CONST 0)
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.a, 
+    CONST -8, 8), 
+   CONST 0, 8),
+  CONST 0,
+  TEMP MethodCalls.15.a))
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.A, 
+   CONST 0, 8),
+  CONST 0,
+  TEMP MethodCalls.15.a))
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.ab, 
+    CONST -8, 8), 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.ab))
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.AB, 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.ab))
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.t1, 
+    CONST -8, 8), 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t1))
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.T1, 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t1))
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.t2, 
+    CONST -8, 8), 
+   CONST 0, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t2))
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.T2, 
+   CONST 0, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t2))
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.t3, 
+    CONST -8, 8), 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t3))
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.T3, 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t3))
+# With procedure entry/exit:
+LABEL L.2
+MOVE(
+ TEMP MethodCalls.15.a,
+ CONST 0)
+MOVE(
+ TEMP MethodCalls.15.ab,
+ CONST 0)
+MOVE(
+ TEMP MethodCalls.15.t1,
+ CONST 0)
+MOVE(
+ TEMP MethodCalls.15.t2,
+ CONST 0)
+MOVE(
+ TEMP MethodCalls.15.t3,
+ CONST 0)
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.a, 
+    CONST -8, 8), 
+   CONST 0, 8),
+  CONST 0,
+  TEMP MethodCalls.15.a))
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.A, 
+   CONST 0, 8),
+  CONST 0,
+  TEMP MethodCalls.15.a))
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.ab, 
+    CONST -8, 8), 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.ab))
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.AB, 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.ab))
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.t1, 
+    CONST -8, 8), 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t1))
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.T1, 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t1))
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.t2, 
+    CONST -8, 8), 
+   CONST 0, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t2))
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.T2, 
+   CONST 0, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t2))
+EXP(
+ CALL(
+  MEM(
+   MEM(
+    TEMP MethodCalls.15.t3, 
+    CONST -8, 8), 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t3))
+EXP(
+ CALL(
+  MEM(
+   NAME MethodCalls.T3, 
+   CONST 8, 8),
+  CONST 0,
+  TEMP MethodCalls.15.t3))
+# Instructions:
+L.2:	# <- 
+	xorq MethodCalls.15.a,MethodCalls.15.a	# MethodCalls.15.a <- 
+	xorq MethodCalls.15.ab,MethodCalls.15.ab	# MethodCalls.15.ab <- 
+	xorq MethodCalls.15.t1,MethodCalls.15.t1	# MethodCalls.15.t1 <- 
+	xorq MethodCalls.15.t2,MethodCalls.15.t2	# MethodCalls.15.t2 <- 
+	xorq MethodCalls.15.t3,MethodCalls.15.t3	# MethodCalls.15.t3 <- 
+	movq -8(MethodCalls.15.a),t.0	# t.0 <- MethodCalls.15.a 
+	movq 0(t.0),t.1	# t.1 <- t.0 
+	movq MethodCalls.15.a,%rdi	# %rdi := MethodCalls.15.a 
+	call *t.1	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- t.1 %rdi 
+	leaq MethodCalls.A(%rip),t.2	# t.2 <- 
+	movq 0(t.2),t.3	# t.3 <- t.2 
+	movq MethodCalls.15.a,%rdi	# %rdi := MethodCalls.15.a 
+	call *t.3	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- t.3 %rdi 
+	movq -8(MethodCalls.15.ab),t.4	# t.4 <- MethodCalls.15.ab 
+	movq 8(t.4),t.5	# t.5 <- t.4 
+	movq MethodCalls.15.ab,%rdi	# %rdi := MethodCalls.15.ab 
+	call *t.5	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- t.5 %rdi 
+	leaq MethodCalls.AB(%rip),t.6	# t.6 <- 
+	movq 8(t.6),t.7	# t.7 <- t.6 
+	movq MethodCalls.15.ab,%rdi	# %rdi := MethodCalls.15.ab 
+	call *t.7	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- t.7 %rdi 
+	movq -8(MethodCalls.15.t1),t.8	# t.8 <- MethodCalls.15.t1 
+	movq 8(t.8),t.9	# t.9 <- t.8 
+	movq MethodCalls.15.t1,%rdi	# %rdi := MethodCalls.15.t1 
+	call *t.9	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- t.9 %rdi 
+	leaq MethodCalls.T1(%rip),t.10	# t.10 <- 
+	movq 8(t.10),t.11	# t.11 <- t.10 
+	movq MethodCalls.15.t1,%rdi	# %rdi := MethodCalls.15.t1 
+	call *t.11	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- t.11 %rdi 
+	movq -8(MethodCalls.15.t2),t.12	# t.12 <- MethodCalls.15.t2 
+	movq 0(t.12),t.13	# t.13 <- t.12 
+	movq MethodCalls.15.t2,%rdi	# %rdi := MethodCalls.15.t2 
+	call *t.13	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- t.13 %rdi 
+	leaq MethodCalls.T2(%rip),t.14	# t.14 <- 
+	movq 0(t.14),t.15	# t.15 <- t.14 
+	movq MethodCalls.15.t2,%rdi	# %rdi := MethodCalls.15.t2 
+	call *t.15	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- t.15 %rdi 
+	movq -8(MethodCalls.15.t3),t.16	# t.16 <- MethodCalls.15.t3 
+	movq 8(t.16),t.17	# t.17 <- t.16 
+	movq MethodCalls.15.t3,%rdi	# %rdi := MethodCalls.15.t3 
+	call *t.17	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- t.17 %rdi 
+	leaq MethodCalls.T3(%rip),t.18	# t.18 <- 
+	movq 8(t.18),t.19	# t.19 <- t.18 
+	movq MethodCalls.15.t3,%rdi	# %rdi := MethodCalls.15.t3 
+	call *t.19	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- t.19 %rdi 
+# Control Flow Graph:
+0: MethodCalls.15.a MethodCalls.15.ab MethodCalls.15.t1 MethodCalls.15.t2 MethodCalls.15.t3 t.0 t.1 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.2 t.3 t.4 t.5 t.6 t.7 t.8 t.9 t.10 t.11 t.12 t.13 t.14 t.15 t.16 t.17 t.18 t.19 <- %rsp %rbp ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+MethodCalls.15.a: t.3 t.2 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.1 t.0 MethodCalls.15.t3 MethodCalls.15.t2 MethodCalls.15.t1 MethodCalls.15.ab %rsp %rbp 
+MethodCalls.15.ab: t.7 t.6 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.5 t.4 t.3 t.2 t.1 t.0 MethodCalls.15.t3 MethodCalls.15.t2 MethodCalls.15.t1 %rsp %rbp MethodCalls.15.a 
+MethodCalls.15.t1: t.11 t.10 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.9 t.8 t.7 t.6 t.5 t.4 t.3 t.2 t.1 t.0 MethodCalls.15.t3 MethodCalls.15.t2 %rsp %rbp MethodCalls.15.ab MethodCalls.15.a 
+MethodCalls.15.t2: t.15 t.14 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.13 t.12 t.11 t.10 t.9 t.8 t.7 t.6 t.5 t.4 t.3 t.2 t.1 t.0 MethodCalls.15.t3 %rsp %rbp MethodCalls.15.t1 MethodCalls.15.ab MethodCalls.15.a 
+MethodCalls.15.t3: t.19 t.18 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.17 t.16 t.15 t.14 t.13 t.12 t.11 t.10 t.9 t.8 t.7 t.6 t.5 t.4 t.3 t.2 t.1 t.0 %rsp %rbp MethodCalls.15.t2 MethodCalls.15.t1 MethodCalls.15.ab MethodCalls.15.a 
+t.0: %rsp %rbp MethodCalls.15.t3 MethodCalls.15.t2 MethodCalls.15.t1 MethodCalls.15.ab MethodCalls.15.a 
+t.1: %rdi %rsp %rbp MethodCalls.15.t3 MethodCalls.15.t2 MethodCalls.15.t1 MethodCalls.15.ab MethodCalls.15.a 
+t.2: %rsp %rbp MethodCalls.15.t3 MethodCalls.15.t2 MethodCalls.15.t1 MethodCalls.15.ab MethodCalls.15.a 
+t.3: %rdi %rsp %rbp MethodCalls.15.t3 MethodCalls.15.t2 MethodCalls.15.t1 MethodCalls.15.ab MethodCalls.15.a 
+t.4: %rsp %rbp MethodCalls.15.t3 MethodCalls.15.t2 MethodCalls.15.t1 MethodCalls.15.ab 
+t.5: %rdi %rsp %rbp MethodCalls.15.t3 MethodCalls.15.t2 MethodCalls.15.t1 MethodCalls.15.ab 
+t.6: %rsp %rbp MethodCalls.15.t3 MethodCalls.15.t2 MethodCalls.15.t1 MethodCalls.15.ab 
+t.7: %rdi %rsp %rbp MethodCalls.15.t3 MethodCalls.15.t2 MethodCalls.15.t1 MethodCalls.15.ab 
+t.8: %rsp %rbp MethodCalls.15.t3 MethodCalls.15.t2 MethodCalls.15.t1 
+t.9: %rdi %rsp %rbp MethodCalls.15.t3 MethodCalls.15.t2 MethodCalls.15.t1 
+t.10: %rsp %rbp MethodCalls.15.t3 MethodCalls.15.t2 MethodCalls.15.t1 
+t.11: %rdi %rsp %rbp MethodCalls.15.t3 MethodCalls.15.t2 MethodCalls.15.t1 
+t.12: %rsp %rbp MethodCalls.15.t3 MethodCalls.15.t2 
+t.13: %rdi %rsp %rbp MethodCalls.15.t3 MethodCalls.15.t2 
+t.14: %rsp %rbp MethodCalls.15.t3 MethodCalls.15.t2 
+t.15: %rdi %rsp %rbp MethodCalls.15.t3 MethodCalls.15.t2 
+t.16: %rsp %rbp MethodCalls.15.t3 
+t.17: %rdi %rsp %rbp MethodCalls.15.t3 
+t.18: %rsp %rbp MethodCalls.15.t3 
+t.19: %rdi %rsp %rbp MethodCalls.15.t3 
+%rdi <= MethodCalls.15.a
+%rdi <= MethodCalls.15.a
+%rdi <= MethodCalls.15.ab
+%rdi <= MethodCalls.15.ab
+%rdi <= MethodCalls.15.t1
+%rdi <= MethodCalls.15.t1
+%rdi <= MethodCalls.15.t2
+%rdi <= MethodCalls.15.t2
+%rdi <= MethodCalls.15.t3
+%rdi <= MethodCalls.15.t3
+# Register Allocation:
+%rax->%rax
+%rbx->%rbx
+%rcx->%rcx
+%rdx->%rdx
+%rsp->%rsp
+%rbp->%rbp
+%rsi->%rsi
+%rdi->%rdi
+%r8->%r8
+%r9->%r9
+%r10->%r10
+%r11->%r11
+%r12->%r12
+%r13->%r13
+%r14->%r14
+%r15->%r15
+MethodCalls.15.a->%r15
+MethodCalls.15.ab->%r14
+MethodCalls.15.t1->%r13
+MethodCalls.15.t2->%r12
+MethodCalls.15.t3->%rbx
+t.0->%rax
+t.1->%rax
+t.2->%rax
+t.3->%rax
+t.4->%rax
+t.5->%rax
+t.6->%rax
+t.7->%rax
+t.8->%rax
+t.9->%rax
+t.10->%rax
+t.11->%rax
+t.12->%rax
+t.13->%rax
+t.14->%rax
+t.15->%rax
+t.16->%rax
+t.17->%rax
+t.18->%rax
+t.19->%rax
+# Assembly code:
+	.text
+MethodCalls:
+	pushq %rbp
+	movq %rsp,%rbp
+	subq $48,%rsp
+	movq %r15, -40(%rbp)
+	movq %r14, -32(%rbp)
+	movq %r13, -24(%rbp)
+	movq %r12, -16(%rbp)
+	movq %rbx, -8(%rbp)
+L.2:
+	xorq %r15,%r15
+	xorq %r14,%r14
+	xorq %r13,%r13
+	xorq %r12,%r12
+	xorq %rbx,%rbx
+	movq -8(%r15),%rax
+	movq 0(%rax),%rax
+	movq %r15,%rdi
+	call *%rax
+	leaq MethodCalls.A(%rip),%rax
+	movq 0(%rax),%rax
+	movq %r15,%rdi
+	call *%rax
+	movq -8(%r14),%rax
+	movq 8(%rax),%rax
+	movq %r14,%rdi
+	call *%rax
+	leaq MethodCalls.AB(%rip),%rax
+	movq 8(%rax),%rax
+	movq %r14,%rdi
+	call *%rax
+	movq -8(%r13),%rax
+	movq 8(%rax),%rax
+	movq %r13,%rdi
+	call *%rax
+	leaq MethodCalls.T1(%rip),%rax
+	movq 8(%rax),%rax
+	movq %r13,%rdi
+	call *%rax
+	movq -8(%r12),%rax
+	movq 0(%rax),%rax
+	movq %r12,%rdi
+	call *%rax
+	leaq MethodCalls.T2(%rip),%rax
+	movq 0(%rax),%rax
+	movq %r12,%rdi
+	call *%rax
+	movq -8(%rbx),%rax
+	movq 8(%rax),%rax
+	movq %rbx,%rdi
+	call *%rax
+	leaq MethodCalls.T3(%rip),%rax
+	movq 8(%rax),%rax
+	movq %rbx,%rdi
+	call *%rax
+#	returnSink
+	movq -8(%rbp),%rbx
+	movq -16(%rbp),%r12
+	movq -24(%rbp),%r13
+	movq -32(%rbp),%r14
+	movq -40(%rbp),%r15
+	addq $48,%rsp
+	popq %rbp
+	ret
+END MethodCalls
+PROCEDURE main
+# Before canonicalization (trees):
+EXP(
+ CALL(
+  NAME MethodCalls,
+  CONST 0))
+# After canonicalization (trees):
+EXP(
+ CALL(
+  NAME MethodCalls,
+  CONST 0))
+# Basic Blocks:
+LABEL L.3
+EXP(
+ CALL(
+  NAME MethodCalls,
+  CONST 0))
+# Trace Scheduled:
+LABEL L.3
+EXP(
+ CALL(
+  NAME MethodCalls,
+  CONST 0))
+# With procedure entry/exit:
+LABEL L.3
+EXP(
+ CALL(
+  NAME MethodCalls,
+  CONST 0))
+# Instructions:
+L.3:	# <- 
+	call MethodCalls	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- 
+# Control Flow Graph:
+0: %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rsp %rbp ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+# Register Allocation:
+%rax->%rax
+%rbx->%rbx
+%rcx->%rcx
+%rdx->%rdx
+%rsp->%rsp
+%rbp->%rbp
+%rsi->%rsi
+%rdi->%rdi
+%r8->%r8
+%r9->%r9
+%r10->%r10
+%r11->%r11
+%r12->%r12
+%r13->%r13
+%r14->%r14
+%r15->%r15
+# Assembly code:
+	.globl main
+	.text
+main:
+	pushq %rbp
+	movq %rsp,%rbp
+L.3:
+	call MethodCalls
+#	returnSink
+	popq %rbp
+	ret
+END main
+	.data
+	.balign 8
+L.0:	.asciz	"Attempt to use a null pointer"
+PROCEDURE badPtr
+# Before canonicalization (trees):
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.0)),
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# After canonicalization (trees):
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.0))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Basic Blocks:
+LABEL L.4
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.0))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Trace Scheduled:
+LABEL L.4
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.0))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# With procedure entry/exit:
+LABEL L.4
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.0))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Instructions:
+L.4:	# <- 
+	leaq L.0(%rip),t.20	# t.20 <- 
+	movq t.20,%rdi	# %rdi := t.20 
+	call puts	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	movabsq $1,t.21	# t.21 <- 
+	movq t.21,%rdi	# %rdi := t.21 
+	call exit	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+# Control Flow Graph:
+0: t.20 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.21 <- %rsp %rbp ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+t.20: %rsp %rbp 
+t.21: %rsp %rbp 
+%rdi <= t.20
+%rdi <= t.21
+# Register Allocation:
+%rax->%rax
+%rbx->%rbx
+%rcx->%rcx
+%rdx->%rdx
+%rsp->%rsp
+%rbp->%rbp
+%rsi->%rsi
+%rdi->%rdi
+%r8->%r8
+%r9->%r9
+%r10->%r10
+%r11->%r11
+%r12->%r12
+%r13->%r13
+%r14->%r14
+%r15->%r15
+t.20->%rax
+t.21->%rax
+# Assembly code:
+	.text
+badPtr:
+	pushq %rbp
+	movq %rsp,%rbp
+L.4:
+	leaq L.0(%rip),%rax
+	movq %rax,%rdi
+	call puts
+	movabsq $1,%rax
+	movq %rax,%rdi
+	call exit
+#	returnSink
+	popq %rbp
+	ret
+END badPtr
+	.data
+	.balign 8
+L.1:	.asciz	"Subscript out of bounds"
+PROCEDURE badSub
+# Before canonicalization (trees):
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.1)),
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# After canonicalization (trees):
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.1))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Basic Blocks:
+LABEL L.5
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.1))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Trace Scheduled:
+LABEL L.5
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.1))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# With procedure entry/exit:
+LABEL L.5
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.1))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Instructions:
+L.5:	# <- 
+	leaq L.1(%rip),t.22	# t.22 <- 
+	movq t.22,%rdi	# %rdi := t.22 
+	call puts	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	movabsq $1,t.23	# t.23 <- 
+	movq t.23,%rdi	# %rdi := t.23 
+	call exit	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+# Control Flow Graph:
+0: t.22 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.23 <- %rsp %rbp ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+t.22: %rsp %rbp 
+t.23: %rsp %rbp 
+%rdi <= t.22
+%rdi <= t.23
+# Register Allocation:
+%rax->%rax
+%rbx->%rbx
+%rcx->%rcx
+%rdx->%rdx
+%rsp->%rsp
+%rbp->%rbp
+%rsi->%rsi
+%rdi->%rdi
+%r8->%r8
+%r9->%r9
+%r10->%r10
+%r11->%r11
+%r12->%r12
+%r13->%r13
+%r14->%r14
+%r15->%r15
+t.22->%rax
+t.23->%rax
+# Assembly code:
+	.text
+badSub:
+	pushq %rbp
+	movq %rsp,%rbp
+L.5:
+	leaq L.1(%rip),%rax
+	movq %rax,%rdi
+	call puts
+	movabsq $1,%rax
+	movq %rax,%rdi
+	call exit
+#	returnSink
+	popq %rbp
+	ret
+END badSub

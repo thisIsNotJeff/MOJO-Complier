@@ -1,0 +1,27 @@
+BEGIN _BUILTIN
+_BUILTIN.int=int
+_BUILTIN.bool=bool
+_BUILTIN.false:bool=false
+_BUILTIN.true:bool=true
+_BUILTIN.Null=^null
+_BUILTIN.nil:Null=0
+_BUILTIN.Refany=^null
+_BUILTIN.Address=^null
+_BUILTIN.Root=null
+object {
+}
+_BUILTIN.Text=^null
+_BUILTIN.First:(...)
+_BUILTIN.Last:(...)
+_BUILTIN.New:(...)
+_BUILTIN.Number:(...)
+BEGIN OpenArrayFormal
+OpenArrayFormal.foo:(VALUE a:[null]int)
+BEGIN OpenArrayFormal.1
+VALUE a:[null]int
+END OpenArrayFormal.1
+BEGIN OpenArrayFormal.foo
+OpenArrayFormal.foo.a:[null]int
+END OpenArrayFormal.foo
+END OpenArrayFormal
+END _BUILTIN

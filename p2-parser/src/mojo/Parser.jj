@@ -1,0 +1,746 @@
+/* Copyright (C) 1/* Copyright (C) 1997-2023, Antony L Hosking.
+* All rights reserved.  */
+
+options {
+    DEBUG_PARSER = false;
+    DEBUG_LOOKAHEAD = false;
+    DEBUG_TOKEN_MANAGER = false;
+    STATIC = false;
+    JDK_VERSION = "1.9";
+    LOOKAHEAD = 2;
+}
+PARSER_BEGIN(Parser)
+package mojo.parse;
+import java.util.*;
+import java.math.BigInteger;
+import java.lang.*;
+import static mojo.Absyn.*;
+public class Parser {
+private static void usage() {
+  throw new java.lang.Error("Usage: java mojo.Parser <source>");
+}
+public static void main (String[] args) {
+  if (args.length != 1) usage();
+  java.io.File file = new java.io.File(args[0]);
+  try {
+    new Parser(file).Unit();
+  } catch (java.io.FileNotFoundException e) {
+    System.err.println("File not found:" + file.getName());
+  } catch (ParseException e) {
+    System.err.println(e.getMessage());
+  } catch (TokenMgrError e) {
+    System.err.println(e.getMessage());
+  }
+}
+public String unitName = "Main";
+public Parser(java.io.File file) throws java.io.FileNotFoundException {
+  this(new java.io.FileInputStream(file));
+  String fileName = file.getName();
+  if (fileName.endsWith(".mj"))
+    unitName = fileName.substring(0, fileName.lastIndexOf(".mj"));
+}
+}
+PARSER_END(Parser)
+
+
+/**************************************************
+* The lexical spec starts here                   *
+**************************************************/
+
+TOKEN_MGR_DECLS :
+{
+int comment;
+public static void main(String[] args) {
+  SimpleCharStream stream = new SimpleCharStream(System.in);
+  ParserTokenManager scanner = new ParserTokenManager(stream);
+  while (true) {
+    try {
+      Token token = scanner.getNextToken();
+      for (Token t = token.specialToken; t != null; t = t.specialToken)
+        System.out.println(tokenImage[t.kind] + " " + t);
+      if (token.kind == EOF) break;
+      System.out.println(tokenImage[token.kind] + " " + token);
+    } catch (TokenMgrError e) {
+      System.err.println(e.getMessage());
+      System.exit(-1);
+    }
+  }
+}
+}
+
+/* PUT YOUR TOKEN RULES HERE */
+
+/* ID */
+/* WHITE SPACE */
+SKIP : { " " | "\t" | "\n" | "\r" | "\13" | "\f" }
+
+/* KEYWORDS */
+TOKEN :
+{
+"break" | "class" | "const" | "else" | "extends" | "for" | "if" | "loop" | "method" |
+"override" | "proc" | "return" | "struct" | "type" | "until" | "val" | "var" | "while"
+}
+
+/* OPERATORS */
+TOKEN :
+{ "||" | "<"  | "<=" | "+" | "-" | "{" | "}" | ";" | ","
+| "&&" | ">"  | ">=" | "*" | "/" | "(" | ")" | ":" | "."
+| "==" | "!"  | "!=" | ".."| "%" | "[" | "]" | ":="| "=" | "^" }
+
+/* TODO: comments */                          //should not allowed */ and /* inside comment.
+//SKIP : {<ANY: "/*" ("\n" | <PRINTINGCHAR> | <ESCAPE> | "'" )* "*/">}
+//
+//TOKEN : {<#EXCLUDE: ~["/","*"]>}
+
+SKIP: {
+  "/*" {comment = 1;} : COMMENT
+}
+
+<COMMENT> SKIP : {
+  "/*" {comment += 1;}
+}
+
+<COMMENT> SKIP : {
+  "*/" {
+      comment -= 1;
+      SwitchTo (comment == 0 ? DEFAULT : COMMENT);
+
+  }
+}
+
+<COMMENT> SKIP : {
+  <~[]>
+}
+
+
+
+/* TODO: identifiers */
+TOKEN : {<ID: <LETTER> (<LETTER> | <DIGIT> | "_")*>}
+
+/* TODO: numbers */
+TOKEN : {<NUMBER: (<DIGIT>)+ | (<DIGIT>)+ "_" (<HexDigit>)+>}
+
+/* TODO: characters */
+TOKEN: {<CHAR: "'" (<PRINTINGCHAR> | <ESCAPE> | "\"" ) "'">}
+
+/* TODO: texts (strings) */
+TOKEN: {<TEXT: "\"" (<PRINTINGCHAR> | <ESCAPE> | "'")* "\"">}
+
+
+TOKEN : {< #ESCAPE: "\\" "a"   | "\\" "b"   | "\\" "f"   | "\\" "n"   | "\\" "r"
+                         | "\\" "t"   | "\\" "v"   | "\\" "\\"   | "\\" "'"   | "\\" "\""
+                         | "\\" ( "0" | "1" | "2" | "3" ) <OctalDigit> <OctalDigit>
+                         | "\\x" <HexDigit> <HexDigit>
+                         | "\\u" <HexDigit> <HexDigit> <HexDigit> <HexDigit>
+                         | "\\U" <HexDigit> <HexDigit> <HexDigit> <HexDigit>
+                                 <HexDigit> <HexDigit> <HexDigit> <HexDigit> >}
+
+
+TOKEN : {< #OctalDigit: "0"|"1"|"2"|"3"|"4"|"5"|"6"|"7" >}
+TOKEN : {< #PRINTINGCHAR:(<OTHERCHAR> | <DIGIT> | <LETTER>) >}
+TOKEN : {< #HexDigit:(<DIGIT> | ["A" - "F"]) | (["a" - "f"]) >}
+TOKEN : {< #DIGIT: "0"|"1"|"2"|"3"|"4"|"5"|"6"|"7"|"8"|"9" >}
+TOKEN : {< #LETTER: ["A" - "Z"] | ["a" - "z"] >}
+TOKEN : {< #OTHERCHAR: "/" | "*" | " " | "!" | "#" | "$" | "%" | "&" | "(" | ")"
+                               | "+" | "," | "-" | "." | ":" | ";"
+                               | "<" | "=" | ">" | "?" | "@" | "[" | "]" | "^"
+                               | "_" | "`" | "{" | "|" | "}" | "~" >}
+
+
+/**************************************************
+ * TODO: Complete the grammar, and build AST      *
+ **************************************************/
+
+Value.Unit Unit () :
+{
+  List<Value> decls = new LinkedList<Value>();
+  Value decl = null;
+  Stmt.Block block = null;
+}
+
+{
+  (Decls(decls))* [ block = Block() ] <EOF>
+  { return new Value.Unit(ID(unitName), decls, block); }
+}
+
+Stmt.Block Block ():
+{
+  Token token;
+  List<Value> decls = new LinkedList<Value>();
+  List<Stmt> stmts = new LinkedList<Stmt>();
+  Value decl;
+  Stmt stmt;
+}
+{
+  token = "{" (Decls(decls))* (stmt = Stmts() {stmts.add(stmt);})* "}"
+  { return new Stmt.Block(token, decls, stmts); }
+}
+
+
+Stmt Stmts():
+{
+  Token tok;
+  Stmt.Assign assign;
+  Stmt.Break _break;
+  Stmt.For _for;
+  Stmt.If _if;
+  Stmt.Loop loop;
+  Stmt.Return _return;
+  Stmt.Block block;
+  Stmt.Call call;
+}
+{
+      assign = Assign() {return assign;}
+    | call = Call() {return call;}
+    | _break = Break() {return _break;}
+    | _for = For() {return _for;}
+    | _if = If() {return _if;}
+    | loop = Loop() {return loop;}
+    | _return = Return() {return _return;}
+    | block = Block() {return block;}
+
+ }
+
+
+Stmt.Assign Assign():
+{
+  Token tok;
+  Expr lhs;
+  Expr rhs;
+}
+{
+  lhs = Expr() tok = ":=" rhs = Expr() ";"
+  {return new Stmt.Assign(tok,lhs,rhs);}
+}
+Expr.Call exprCall():
+{
+  Expr proc;
+  Expr arg;
+  Token tok;
+  List<Expr> exprs = new LinkedList<Expr>();
+}
+{
+  proc = Expr() tok = "(" [arg = Actual() {exprs.add(arg);} ("," arg = Actual() {exprs.add(arg);})*] ")"
+  {return new Expr.Call(tok, proc, exprs);}
+}
+
+Stmt.Call Call():
+{
+  Expr.Call exprCall;
+  Token tok;
+}
+{
+  exprCall = exprCall() tok = "(" [Actual() ("," Actual())*] ")" ";"
+  {return new Stmt.Call(tok, exprCall);}
+}
+
+
+Expr Actual():
+{
+// Type type = null;
+// Token tok = null;
+  Expr e = null;
+}
+{
+  e = Expr()
+//    type = Type() {return new Expr.TypeExpr(type);}
+  {return e;}
+}
+
+Stmt.Break Break():
+{
+  Token tok;
+}
+{
+  tok = "break" ";"
+  {return new Stmt.Break(tok);}
+}
+
+Stmt.For For():
+{
+  Token tok, id;
+  Expr from, to, by = null;
+  Stmt stmt = null;
+}
+{
+  tok = "for" id = <ID> ":=" from = Expr() ".." to = Expr() (<ID> by = Expr())? stmt = Block()
+  {return new Stmt.For(tok,id,from,to,by,stmt);}
+
+}
+
+Stmt.If If():
+{
+  Expr expr;
+  Stmt.Block block, block2;
+  Stmt stmt = null;
+  List<Stmt.Block> blocks = new LinkedList<Stmt.Block>();
+  List<Stmt> stmts = new LinkedList<Stmt>();
+  Token tok, tok2;
+
+
+}
+{
+  tok = "if" expr = Expr() block = Block() ("else" (stmt = If() | Block()))?
+
+//  {
+//    if (stmt != null) {
+//        Stmt.If ifs = (Stmt.If) stmt;
+//        while (ifs.stmt != null) {
+//            ifs = (Stmt.If) ifs.stmt;
+//        }
+//
+//    }
+//  }
+  {return new Stmt.If(tok, expr, block, stmt);}
+}
+Stmt.Loop Loop():
+{
+  Stmt.Block block;
+  Expr whileExpr = null;
+  Expr untilExpr = null;
+  Token tok;
+
+}
+{
+  tok = "loop" ("while" whileExpr = Expr())?  block = Block() ("until" untilExpr = Expr() ";")?
+  {return new Stmt.Loop(tok, whileExpr, block, untilExpr);}
+}
+
+Stmt.Return Return():
+{
+  Expr expr = null;
+  Token tok;
+}
+{
+  tok = "return" [expr = Expr()] ";"
+  {return new Stmt.Return(tok, expr);}
+}
+
+void Decls(List<Value> decls):
+{
+  Token tok;
+}
+{
+    tok = "const" {Value.Const Const = null;} (Const = ConstDecl() {decls.add(Const);} ";")*
+  | tok = "type" {Value decl = null;} (decl = TypeDecl() {decls.add(decl);}";")*
+  | tok = "var" (VarDecl(decls) ";")*
+  | tok = <ID> {Value.Procedure pro= null;} pro = ProcDecl() {decls.add(pro);}
+}
+
+Type.Proc TypeSignature():
+{
+  List<Value.Formal> formals = new LinkedList<Value.Formal>();
+  Type type = null;
+  Token tok;
+}
+{
+   tok = "(" formals = Formals() ")" [":" type = Type()]
+   {return new Type.Proc(tok, formals, type);}
+}
+
+
+Value.Procedure ProcDecl():
+{
+  Type.Proc sig;
+  Stmt.Block block = null;
+  Token tok;
+}
+{
+  (tok = <ID>) (sig = TypeSignature()) (block = Block() | ";")
+  {return new Value.Procedure(tok, sig, block);}
+}
+
+//Expr.Proc Signature():
+//{
+//  List<Value.Formal> formals = new LinkedList<Value.Formal>();
+//  Type type = null;
+//  Token tok;
+//}
+//{
+//  tok = "(" formals = Formals() ")" [":" type = Type()]
+//  {return new Expr.Proc(formals, type);}
+//}
+//////////////////////////////////////////////////////////////////////////////////////////
+
+
+Type Type():
+{
+  Token tok;
+}
+{
+    {Type.Named named = null;} named = Named() {return named;}
+  | {Type.Record record = null;} record = TypeRecord() {return record;}
+  | {Type.Object object = null;} object = TypeObject() {return object;}
+  | {Type.Array array= null;} array = TypeArray() {return array;}
+  | {Type.Ref ref=null;} ref = TypeRef() {return ref;}
+}
+
+Type.Named Named():
+{
+  Token tok;
+}
+{
+  tok = <ID>
+  {return new Type.Named(tok);}
+}
+
+//Type.Object TypeObject():
+//{
+//  Token tok = null;
+//  List<Value.Field> fields = new LinkedList<Value.Field>();
+//  List<Value.Method> methods = new LinkedList<Value.Method>();
+//  List<Value.Method> overrides = new LinkedList<Value.Method>();
+//}
+//{
+//  LOOKAHEAD((tok = <ID> | tok=TypeObject())?) <ID> "{" Members() "}"
+//  {return new Type.Object(tok,null,fields,methods,overrides);}
+//}
+Type.Object TypeObject():
+{
+  Token tok = null;
+  List<Value.Field> fields = new LinkedList<Value.Field>();
+  List<Value.Method> methods = new LinkedList<Value.Method>();
+  List<Value.Method> overrides = new LinkedList<Value.Method>();
+}
+{
+  (tok = <ID> | (tok = <ID> B(fields, methods, overrides)))? <ID> "{" Members(fields, methods, overrides) "}"
+  {
+    return new Type.Object(tok,null,fields,methods,overrides);
+  }
+}
+
+void B(List<Value.Field> fields, List<Value.Method> methods, List<Value.Method> overrides):
+
+{
+  Token tok;
+  List<List<Value>> list;
+}
+{
+  (tok = <ID> "{" Members(fields, methods, overrides) "}" B(fields, methods, overrides))?
+  {return;}
+}
+
+//List<Value> Members():
+//{
+//  Value member;
+//  List<Value> members = new LinkedList<Value>();
+//}
+//{
+//  [member = Member() {members.add(member);} (";" member = Member() {members.add(member);})* [";"]]
+//  {return members;}
+//}
+void Members(List<Value.Field> fields, List<Value.Method> methods, List<Value.Method> overrides):
+{
+  Value member;
+}
+{
+  [member = Member() {addMember(member,fields,methods,overrides);}
+  (";" member = Member() {addMember(member,fields,methods,overrides);})* [";"]]
+
+  {
+    return;
+  }
+}
+
+
+
+Value Member():
+{
+ Token tok = null;
+}
+{
+    {Value.Field field = null;} field = Field() {return field;}
+  | {Value.Method method = null;} method = Method() {return method;}
+  | {Expr expr = null;} tok = <ID> ":=" expr = Expr() {return new Value.Method(tok, null, null,expr);}
+}
+
+
+
+Type.Ref TypeRef():
+{
+  Type type;
+  Token tok;
+}
+{
+  tok = "^" type = Type()
+  {return new Type.Ref(tok, type);}
+}
+
+Type.Array TypeArray():
+{
+  Expr expr = null;
+  Type type;
+  Token token;
+}
+{
+  token = "[" [expr = Expr()] "]" type = Type()
+  {return new Type.Array(token,expr,type);}
+}
+
+Type.Record TypeRecord():
+{
+  List<Value.Field> fields = new LinkedList<Value.Field>();
+  Token tok;
+}
+{
+  tok = "(" fields = Fields() ")"
+  {return new Type.Record(tok, fields);}
+}
+
+
+
+Value.Method Method():
+{
+  Token tok;
+  Type.Object parent;
+  Type.Proc sig;
+  Expr expr = null;
+}
+{
+  tok = <ID> sig = TypeSignature() (":=" expr = Expr())?
+  {return new Value.Method(tok, null, sig, expr);}
+
+}
+
+List<Value.Field> Fields():
+{
+  List<Value.Field> fields = new LinkedList<Value.Field>();
+  Value.Field field;
+}
+{
+  [field = Field() {fields.add(field);} (";" field = Field() {fields.add(field);})* [";"] ]
+  {
+    return fields;
+  }
+}
+
+Value.Field Field():
+{
+  Type type;
+  Token tok;
+}
+{
+  tok = <ID> ("," <ID>)* ":" type = Type()
+  {return new Value.Field(tok, null, type);}
+}
+
+void Formal(List<Value.Formal> formals):
+{
+  Type type = null;
+  Token tok, tok2 = null;
+  Value.Formal.Mode mode = null;
+  List<Token> idlist = new LinkedList<Token>();
+}
+{
+  (tok = "val" {mode = Value.Formal.Mode.VALUE;} | tok = "var" {mode = Value.Formal.Mode.VAR;})?
+   tok = <ID> {idlist.add(tok);} ("," tok = <ID> {idlist.add(tok);})* ":" type = Type()
+  {
+    if (mode == null) {
+        mode = Value.Formal.Mode.VALUE;
+    }
+    for (Token t : idlist) {
+        formals.add(new Value.Formal(t, mode, type));
+    }
+  }
+}
+
+List<Value.Formal> Formals():
+{
+  Value.Formal formal;
+  List<Value.Formal> formals = new LinkedList<Value.Formal>();
+}
+{
+  (Formal(formals) (";" Formal(formals))* [";"])?
+  {return formals;}
+}
+
+void VarDecl(List<Value> decls):
+{
+  Type type;
+  Expr expr;
+  Token tok;
+  List<Token> idlist = new LinkedList<Token>();
+}
+{
+  tok = <ID> {idlist.add(tok);} ("," tok = <ID> {idlist.add(tok);})* (":" type = Type() ":=" expr = Expr())
+
+  {
+    for (Token t : idlist) {
+        decls.add(new Value.Variable(t, type, expr));
+    }
+  }
+}
+
+Value.Tipe TypeDecl():
+{
+  Type type;
+  Token tok;
+}
+{
+  tok = <ID> "=" type = Type()
+  {return new Value.Tipe(tok, type);}
+}
+
+
+Value.Const ConstDecl():
+{
+  Type type = null;
+  Expr expr = null;
+  Token tok = null;
+}
+{
+  tok = <ID> [":" type = Type()] "=" expr = Expr()
+  {return new Value.Const(tok, type, expr);}
+}
+
+Expr Expr():
+{
+  Token tok;
+  Expr lhs, rhs;
+}
+{
+
+  lhs = E1() (tok = "||" rhs = E1() {lhs = new Expr.Or(tok, lhs, rhs);})*
+  {return lhs;}
+}
+
+Expr E1():
+{
+  Expr lhs, rhs;
+  Token tok;
+}
+{
+  lhs=E2() (tok="&&" rhs=E2() {lhs = new Expr.And(tok, lhs, rhs);})*
+  {return lhs;}
+}
+
+Expr E2():
+{
+  Expr e3;
+  Token tok = null;
+  List<Token> tokens = new LinkedList<Token>();
+}
+{
+  (tok = "!" {tokens.add(tok);})* e3=E3()
+  {
+    if (tokens.size() == 0) return e3;
+    else{
+        Expr finalE2 = e3;
+        for (int i = tokens.size(); i-- > 0;) {
+            Token s = tokens.get(i);
+            finalE2 = new Expr.Not(s,finalE2);
+        }
+        return finalE2;
+    }
+  }
+
+}
+
+Expr E3():
+{
+  Expr lhs, rhs;
+  Token tok;
+}
+{
+  lhs=E4() (tok = "==" rhs=E4() {lhs = new Expr.Equal(tok,lhs,rhs,Expr.Equal.Op.EQ);}
+          | tok = "!=" rhs=E4() {lhs = new Expr.Equal(tok,lhs,rhs,Expr.Equal.Op.NE);}
+          | tok = "<"  rhs=E4() {lhs = new Expr.Compare(tok,lhs,rhs,Expr.Compare.Op.LT);}
+          | tok = "<=" rhs=E4() {lhs = new Expr.Compare(tok,lhs,rhs,Expr.Compare.Op.LE);}
+          | tok = ">"  rhs=E4() {lhs = new Expr.Compare(tok,lhs,rhs,Expr.Compare.Op.GT);}
+          | tok = ">=" rhs=E4() {lhs = new Expr.Compare(tok,lhs,rhs,Expr.Compare.Op.GE);}
+           )*
+  {return lhs;}
+}
+
+Expr E4():
+{
+  Expr lhs,rhs;
+  Token tok;
+}
+{
+  lhs=E5() (tok = "+" rhs = E5()  {lhs = new Expr.Add(tok,lhs,rhs);}
+          | tok = "-" rhs=E5() {lhs = new Expr.Sub(tok,lhs,rhs);})*
+  {return lhs;}
+}
+
+Expr E5():
+{
+  Expr lhs, rhs = null;
+  Token tok;
+}
+{
+  lhs=E6() (tok = "*" rhs=E6() {lhs = new Expr.Mul(tok,lhs,rhs);}
+         | tok = "/" rhs=E6() {lhs = new Expr.Div(tok,lhs,rhs);}
+         | tok = "%" rhs=E6() {lhs = new Expr.Mod(tok,lhs,rhs);}
+          )*
+  {return lhs;}
+}
+
+/////////////////////////////////////////////
+Expr E6():
+{
+  Expr e, e7 = null;
+  Token tok = null;
+  List<Token> signs = new LinkedList<Token>();
+}
+{
+  ( tok = "+" {signs.add(tok);}
+  | tok = "-" {signs.add(tok);})* e7 = E7()
+
+  {
+    if (signs.size() == 0) return e7;
+    else{
+        Expr finalE6 = e7;
+        for (int i = signs.size(); i-- > 0;) {
+            Token s = signs.get(i);
+            if (s.image.equals("-")) {
+                finalE6 = new Expr.Neg(s,finalE6);
+            } else {
+                finalE6 = new Expr.Pos(s,finalE6);
+            }
+        }
+        return finalE6;
+    }
+  }
+}
+
+Expr E7():
+{
+  Expr e8;
+  Token tok;
+  Token name;
+  Expr index;
+  List<Expr> args = new LinkedList<Expr>();
+
+}
+{
+  e8=E8() (tok = "^" {e8 = new Expr.Deref(tok, e8);}
+          | tok = "." name = <ID> {e8 = new Expr.Qualify(tok, e8, name);}
+          | tok = "[" index = Expr() "]" {e8 = new Expr.Subscript(tok, e8, index);}
+          | tok = "(" (index = Actual() {args.add(index);} ("," index = Actual() {args.add(index);})*)? ")"{e8 = new Expr.Call(tok,e8, args);})*
+
+          {return e8;}
+}
+
+Expr E8():
+{
+  Token tok;
+  Expr expr;
+}
+{
+   tok = <ID> {return new Expr.Named(tok);}
+  |tok = <NUMBER> {
+                    int index;
+                    if ((index = tok.image.indexOf('_')) != -1) {
+                        int base = Integer.parseInt(tok.image.substring(0,index));
+                        String number = tok.image.substring(index+1);
+                        return new Expr.Int(tok, new BigInteger(number, base));
+                    }
+                    return new Expr.Int(tok, new BigInteger(tok.image,10));
+                  }
+  |tok = <CHAR> {return new Expr.Int(tok, BigInteger.valueOf(tok.image.charAt(1)));}
+  |tok = <TEXT> {return new Expr.Text(tok, tok.image);}
+  |tok = "(" expr = Expr() ")" {return expr;}
+}
+///////////////////////////////////
+

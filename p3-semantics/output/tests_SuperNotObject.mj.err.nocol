@@ -1,0 +1,18 @@
+ line 1, column: error: super type must be an object type
+Exception in thread "main" java.lang.NullPointerException: Cannot read field "fieldOffset" because "<parameter1>" is null
+	at mojo.Semant.GetOffsets(Semant.java:1367)
+	at mojo.Semant.GetOffsets(Semant.java:1374)
+	at mojo.Semant$5Visitor.visit(Semant.java:686)
+	at mojo.Semant$5Visitor.visit(Semant.java:579)
+	at mojo.Absyn$Type$Object.accept(Absyn.java:271)
+	at mojo.Semant.Check(Semant.java:817)
+	at mojo.Semant$1Visitor.visit(Semant.java:251)
+	at mojo.Semant$1Visitor.visit(Semant.java:66)
+	at mojo.Absyn$Value$Tipe.accept(Absyn.java:688)
+	at mojo.Semant.Check(Semant.java:260)
+	at mojo.Semant.Check(Semant.java:2956)
+	at mojo.Semant$1Visitor.visit(Semant.java:234)
+	at mojo.Semant$1Visitor.visit(Semant.java:66)
+	at mojo.Absyn$Value$Unit.accept(Absyn.java:639)
+	at mojo.Semant.Check(Semant.java:260)
+	at mojo.Semant.main(Semant.java:49)

@@ -1,0 +1,78 @@
+def putchar(
+    val i: int;
+  ): int;
+const N: int = 8;
+type Queens = Root object {
+    row: ^[] int;
+    col: ^[] int;
+    diag1: ^[] int;
+    diag2: ^[] int;
+    init(): Queens := Init;
+    solve(
+      val c: int;
+    ) := Solve;
+};
+def Init(
+    val self: Queens;
+  ): Queens
+{
+  self.row := New(^[] int, N);
+  self.col := New(^[] int, N);
+  self.diag1 := New(^[] int, (N + N) - 1);
+  self.diag2 := New(^[] int, (N + N) - 1);
+  return self;
+}
+def Solve(
+    val self: Queens;
+    val c: int;
+  )
+{
+  if c == Number(self.col^)
+  {
+    Print(self);
+  }
+  else
+    {
+      for r := 0 .. Number(self.row^) - 1 by 1
+        {
+          if ((self.row^)[r] == 0
+              && (self.diag1^)[r + c] == 0)
+            && (self.diag2^)[(r + (N - 1)) - c] == 0
+          {
+            (self.row^)[r] := 1;
+            (self.diag1^)[r + c] := 1;
+            (self.diag2^)[(r + (N - 1)) - c] := 1;
+            (self.col^)[c] := r;
+            (self.solve)(c + 1);
+            (self.row^)[r] := 0;
+            (self.diag1^)[r + c] := 0;
+            (self.diag2^)[(r + (N - 1)) - c] := 0;
+          }
+        }
+    }
+}
+def Print(
+    val self: Queens;
+  )
+{
+  for i := 0 .. Number(self.col^) - 1 by 1
+    {
+      for j := 0 .. Number(self.row^) - 1 by 1
+        {
+          putchar(32);
+          if (self.col^)[i] == j
+          {
+            putchar(81);
+          }
+          else
+            {
+              putchar(46);
+            }
+          putchar(10);
+        }
+      putchar(10);
+    }
+}
+{
+  ((((New(Queens)).init)()).solve)(0);
+}

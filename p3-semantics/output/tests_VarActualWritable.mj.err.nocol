@@ -1,0 +1,2 @@
+ line 1, column: error: value is not a constant expression
+ line 3, column: error: VAR actual must be a designator

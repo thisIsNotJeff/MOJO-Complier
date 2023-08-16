@@ -1,0 +1,10 @@
+type S = (
+    x: int;
+    y: int;
+    z: int;
+);
+
+{
+    var x: [10]int;
+    var positions: [10]S;
+}

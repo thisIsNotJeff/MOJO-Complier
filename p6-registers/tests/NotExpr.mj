@@ -1,0 +1,3 @@
+def Not(x: bool): bool {
+  return !x;
+}

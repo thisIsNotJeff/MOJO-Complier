@@ -1,0 +1,13 @@
+<ID> boolean
+".." ..
+"class" class
+"==" ==
+"else" else
+"*" *
+"*" *
+"if" if
+"," ,
+"," ,
+<ID> int
+"&&" &&
+<ID> new

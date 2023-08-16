@@ -1,0 +1,6 @@
+type
+  A = object { m() := P };
+  B = A object { m := Q };
+  C = A object { m() := Q };
+def P(a:A);
+def Q(a:A);

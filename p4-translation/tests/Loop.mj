@@ -1,0 +1,10 @@
+{
+    var x := 0;
+    
+    loop while x < 100 {
+        x := x + 1;
+        if x == 42 {
+            break;
+        }
+    }
+}

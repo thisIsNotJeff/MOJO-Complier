@@ -1,0 +1,16 @@
+ line 1, column 19: error: no method to override in supertype (f)
+ line 0, column 0: error: super type must be an object type
+Exception in thread "main" java.lang.ArrayStoreException: mojo.Absyn$Type$Err
+	at mojo.Semant.LookUp(Semant.java:1307)
+	at mojo.Semant.PrimaryMethodDeclaration(Semant.java:1340)
+	at mojo.Semant$20Visitor.visit(Semant.java:3022)
+	at mojo.Semant$20Visitor.visit(Semant.java:3008)
+	at mojo.Absyn$Type$Object.accept(Absyn.java:271)
+	at mojo.Semant.ToString(Semant.java:3062)
+	at mojo.Semant$22Visitor.visit(Semant.java:3120)
+	at mojo.Semant$22Visitor.visit(Semant.java:3099)
+	at mojo.Absyn$Value$Tipe.accept(Absyn.java:688)
+	at mojo.Semant.ToString(Semant.java:3124)
+	at mojo.Semant.print(Semant.java:3001)
+	at mojo.Semant.print(Semant.java:3002)
+	at mojo.Semant.main(Semant.java:50)

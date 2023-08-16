@@ -1,0 +1,4 @@
+def printf(format: Text; i: int);
+{
+  printf("Number is: %d\n", 42);
+}

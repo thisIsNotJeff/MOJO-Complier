@@ -1,0 +1,59 @@
+BEGIN _BUILTIN
+_BUILTIN.int=int
+_BUILTIN.bool=bool
+_BUILTIN.false:bool=false
+_BUILTIN.true:bool=true
+_BUILTIN.Null=^null
+_BUILTIN.nil:Null=0
+_BUILTIN.Refany=^null
+_BUILTIN.Address=^null
+_BUILTIN.Root=null
+object {
+}
+_BUILTIN.Text=^null
+_BUILTIN.First:(...)
+_BUILTIN.Last:(...)
+_BUILTIN.New:(...)
+_BUILTIN.Number:(...)
+BEGIN Override2
+Override2.A=Root
+object {
+0: m:()=Override2.P:(VALUE a:A)
+}
+Override2.B=A
+object {
+-1: m:null=Override2.Q:(VALUE a:A)
+}
+Override2.C=A
+object {
+4: m:()=Override2.Q:(VALUE a:A)
+}
+Override2.P:(VALUE a:A)
+Override2.Q:(VALUE a:A)
+BEGIN Override2.1
+END Override2.1
+BEGIN Override2.2
+m:()=Override2.P:(VALUE a:A)
+END Override2.2
+BEGIN Override2.3
+END Override2.3
+BEGIN Override2.5
+VALUE a:A
+END Override2.5
+BEGIN Override2.6
+END Override2.6
+BEGIN Override2.7
+m:null=Override2.Q:(VALUE a:A)
+END Override2.7
+BEGIN Override2.8
+VALUE a:A
+END Override2.8
+BEGIN Override2.9
+END Override2.9
+BEGIN Override2.10
+m:()=Override2.Q:(VALUE a:A)
+END Override2.10
+BEGIN Override2.11
+END Override2.11
+END Override2
+END _BUILTIN

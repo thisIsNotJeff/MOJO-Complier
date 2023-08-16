@@ -1,0 +1,831 @@
+PROCEDURE LocalArrayFixed2d
+# Before canonicalization (trees):
+MOVE(
+ TEMP LocalArrayFixed2d.1.x,
+ ESEQ(
+  MOVE(
+   TEMP t.0,
+   CALL(
+    NAME malloc,
+    CONST 0,
+    CONST 400)),
+  MOVE(
+   TEMP t.2,
+   CONST 10),
+  MOVE(
+   TEMP t.1,
+   CONST 0),
+  BGE(
+   TEMP t.1,
+   TEMP t.2,
+   L.1, L.0),
+  LABEL L.0,
+  MOVE(
+   TEMP t.4,
+   CONST 5),
+  MOVE(
+   TEMP t.3,
+   CONST 0),
+  BGE(
+   TEMP t.3,
+   TEMP t.4,
+   L.3, L.2),
+  LABEL L.2,
+  MOVE(
+   MEM(
+    ADD(
+     ADD(
+      TEMP t.0,
+      MUL(
+       TEMP t.1,
+       CONST 40)),
+     MUL(
+      TEMP t.3,
+      CONST 8)), 
+    CONST 0, 8),
+   CONST 0),
+  MOVE(
+   TEMP t.3,
+   ADD(
+    TEMP t.3,
+    CONST 1)),
+  BLT(
+   TEMP t.3,
+   TEMP t.4,
+   L.2, L.3),
+  LABEL L.3,
+  MOVE(
+   TEMP t.1,
+   ADD(
+    TEMP t.1,
+    CONST 1)),
+  BLT(
+   TEMP t.1,
+   TEMP t.2,
+   L.0, L.1),
+  LABEL L.1,
+  TEMP t.0))
+# After canonicalization (trees):
+MOVE(
+ TEMP t.0,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  CONST 400))
+MOVE(
+ TEMP t.2,
+ CONST 10)
+MOVE(
+ TEMP t.1,
+ CONST 0)
+BGE(
+ TEMP t.1,
+ TEMP t.2,
+ L.1, L.0)
+LABEL L.0
+MOVE(
+ TEMP t.4,
+ CONST 5)
+MOVE(
+ TEMP t.3,
+ CONST 0)
+BGE(
+ TEMP t.3,
+ TEMP t.4,
+ L.3, L.2)
+LABEL L.2
+MOVE(
+ MEM(
+  ADD(
+   ADD(
+    TEMP t.0,
+    MUL(
+     TEMP t.1,
+     CONST 40)),
+   MUL(
+    TEMP t.3,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.3,
+ ADD(
+  TEMP t.3,
+  CONST 1))
+BLT(
+ TEMP t.3,
+ TEMP t.4,
+ L.2, L.3)
+LABEL L.3
+MOVE(
+ TEMP t.1,
+ ADD(
+  TEMP t.1,
+  CONST 1))
+BLT(
+ TEMP t.1,
+ TEMP t.2,
+ L.0, L.1)
+LABEL L.1
+MOVE(
+ TEMP LocalArrayFixed2d.1.x,
+ TEMP t.0)
+# Basic Blocks:
+LABEL L.6
+MOVE(
+ TEMP t.0,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  CONST 400))
+MOVE(
+ TEMP t.2,
+ CONST 10)
+MOVE(
+ TEMP t.1,
+ CONST 0)
+BGE(
+ TEMP t.1,
+ TEMP t.2,
+ L.1, L.0)
+LABEL L.0
+MOVE(
+ TEMP t.4,
+ CONST 5)
+MOVE(
+ TEMP t.3,
+ CONST 0)
+BGE(
+ TEMP t.3,
+ TEMP t.4,
+ L.3, L.2)
+LABEL L.2
+MOVE(
+ MEM(
+  ADD(
+   ADD(
+    TEMP t.0,
+    MUL(
+     TEMP t.1,
+     CONST 40)),
+   MUL(
+    TEMP t.3,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.3,
+ ADD(
+  TEMP t.3,
+  CONST 1))
+BLT(
+ TEMP t.3,
+ TEMP t.4,
+ L.2, L.3)
+LABEL L.3
+MOVE(
+ TEMP t.1,
+ ADD(
+  TEMP t.1,
+  CONST 1))
+BLT(
+ TEMP t.1,
+ TEMP t.2,
+ L.0, L.1)
+LABEL L.1
+MOVE(
+ TEMP LocalArrayFixed2d.1.x,
+ TEMP t.0)
+# Trace Scheduled:
+LABEL L.6
+MOVE(
+ TEMP t.0,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  CONST 400))
+MOVE(
+ TEMP t.2,
+ CONST 10)
+MOVE(
+ TEMP t.1,
+ CONST 0)
+BGE(
+ TEMP t.1,
+ TEMP t.2,
+ L.1, L.0)
+LABEL L.0
+MOVE(
+ TEMP t.4,
+ CONST 5)
+MOVE(
+ TEMP t.3,
+ CONST 0)
+BGE(
+ TEMP t.3,
+ TEMP t.4,
+ L.3, L.2)
+LABEL L.2
+MOVE(
+ MEM(
+  ADD(
+   ADD(
+    TEMP t.0,
+    MUL(
+     TEMP t.1,
+     CONST 40)),
+   MUL(
+    TEMP t.3,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.3,
+ ADD(
+  TEMP t.3,
+  CONST 1))
+BLT(
+ TEMP t.3,
+ TEMP t.4,
+ L.2, L.3)
+LABEL L.3
+MOVE(
+ TEMP t.1,
+ ADD(
+  TEMP t.1,
+  CONST 1))
+BLT(
+ TEMP t.1,
+ TEMP t.2,
+ L.0, L.1)
+LABEL L.1
+MOVE(
+ TEMP LocalArrayFixed2d.1.x,
+ TEMP t.0)
+# With procedure entry/exit:
+LABEL L.6
+MOVE(
+ TEMP t.0,
+ CALL(
+  NAME malloc,
+  CONST 0,
+  CONST 400))
+MOVE(
+ TEMP t.2,
+ CONST 10)
+MOVE(
+ TEMP t.1,
+ CONST 0)
+BGE(
+ TEMP t.1,
+ TEMP t.2,
+ L.1, L.0)
+LABEL L.0
+MOVE(
+ TEMP t.4,
+ CONST 5)
+MOVE(
+ TEMP t.3,
+ CONST 0)
+BGE(
+ TEMP t.3,
+ TEMP t.4,
+ L.3, L.2)
+LABEL L.2
+MOVE(
+ MEM(
+  ADD(
+   ADD(
+    TEMP t.0,
+    MUL(
+     TEMP t.1,
+     CONST 40)),
+   MUL(
+    TEMP t.3,
+    CONST 8)), 
+  CONST 0, 8),
+ CONST 0)
+MOVE(
+ TEMP t.3,
+ ADD(
+  TEMP t.3,
+  CONST 1))
+BLT(
+ TEMP t.3,
+ TEMP t.4,
+ L.2, L.3)
+LABEL L.3
+MOVE(
+ TEMP t.1,
+ ADD(
+  TEMP t.1,
+  CONST 1))
+BLT(
+ TEMP t.1,
+ TEMP t.2,
+ L.0, L.1)
+LABEL L.1
+MOVE(
+ TEMP LocalArrayFixed2d.1.x,
+ TEMP t.0)
+# Instructions:
+L.6:	# <- 
+	movabsq $400,t.5	# t.5 <- 
+	movq t.5,%rdi	# %rdi := t.5 
+	call malloc	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	movq %rax,t.0	# t.0 := %rax 
+	movq $10,t.2	# t.2 <- 
+	xorq t.1,t.1	# t.1 <- 
+	cmpq t.2,t.1	# <- t.1 t.2 
+	jge L.1	# <- : goto L.1 L.0 
+L.0:	# <- 
+	movq $5,t.4	# t.4 <- 
+	xorq t.3,t.3	# t.3 <- 
+	cmpq t.4,t.3	# <- t.3 t.4 
+	jge L.3	# <- : goto L.3 L.2 
+L.2:	# <- 
+	movq t.0,t.7	# t.7 := t.0 
+	movq t.1,t.8	# t.8 := t.1 
+	imulq $40,t.8	# t.8 <- t.8 
+	addq t.8,t.7	# t.7 <- t.8 t.7 
+	movq t.7,t.6	# t.6 := t.7 
+	movq t.3,t.9	# t.9 := t.3 
+	shlq $3,t.9	# t.9 <- t.9 
+	addq t.9,t.6	# t.6 <- t.9 t.6 
+	movq $0,0(t.6)	# <- t.6 
+	movq t.3,t.10	# t.10 := t.3 
+	addq $1,t.10	# t.10 <- t.10 
+	movq t.10,t.3	# t.3 := t.10 
+	cmpq t.4,t.3	# <- t.3 t.4 
+	jl L.2	# <- : goto L.2 L.3 
+L.3:	# <- 
+	movq t.1,t.11	# t.11 := t.1 
+	addq $1,t.11	# t.11 <- t.11 
+	movq t.11,t.1	# t.1 := t.11 
+	cmpq t.2,t.1	# <- t.1 t.2 
+	jl L.0	# <- : goto L.0 L.1 
+L.1:	# <- 
+	movq t.0,LocalArrayFixed2d.1.x	# LocalArrayFixed2d.1.x := t.0 
+# Control Flow Graph:
+0: t.5 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.0 t.2 t.1 <- ; goto 4 1 
+1: t.4 t.3 <- ; goto 3 2 
+2: t.7 t.8 t.6 t.9 t.10 t.3 <- t.0 t.1 t.3 t.4 ; goto 2 3 
+3: t.11 t.1 <- t.1 t.2 ; goto 1 4 
+4: LocalArrayFixed2d.1.x <- t.0 %rsp %rbp ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+t.5: %rsp %rbp 
+t.0: t.1 t.2 %rsp %rbp t.3 t.4 t.10 t.6 t.9 t.7 t.8 t.11 
+t.2: t.1 t.0 %rsp %rbp t.3 t.4 t.10 t.6 t.9 t.7 t.8 t.11 
+t.1: t.0 %rsp %rbp t.2 t.3 t.4 t.10 t.6 t.9 t.7 t.8 
+t.4: t.3 t.1 t.2 t.0 %rsp %rbp t.10 t.6 t.9 t.7 t.8 
+t.3: t.1 t.2 t.0 %rsp %rbp t.4 t.6 t.9 t.7 t.8 
+t.7: t.0 t.1 t.4 t.2 %rsp %rbp t.3 t.8 
+t.8: t.0 t.1 t.4 t.2 %rsp %rbp t.3 t.7 
+t.6: t.0 t.1 t.4 t.2 %rsp %rbp t.3 t.9 
+t.9: t.0 t.1 t.4 t.2 %rsp %rbp t.3 t.6 
+t.10: t.0 t.1 t.4 t.2 %rsp %rbp 
+t.11: t.0 %rsp %rbp t.2 
+LocalArrayFixed2d.1.x: %rsp %rbp 
+LocalArrayFixed2d.1.x <= t.0
+t.11 <= t.1
+t.1 <= t.11
+t.7 <= t.0
+t.8 <= t.1
+t.6 <= t.7
+t.9 <= t.3
+t.10 <= t.3
+t.3 <= t.10
+%rdi <= t.5
+t.0 <= %rax
+# Register Allocation:
+%rax->%rax
+%rbx->%rbx
+%rcx->%rcx
+%rdx->%rdx
+%rsp->%rsp
+%rbp->%rbp
+%rsi->%rsi
+%rdi->%rdi
+%r8->%r8
+%r9->%r9
+%r10->%r10
+%r11->%r11
+%r12->%r12
+%r13->%r13
+%r14->%r14
+%r15->%r15
+t.5->%rax
+t.0->%r8
+t.2->%rdi
+t.1->%rsi
+t.4->%rdx
+t.3->%rcx
+t.7->%rbx
+t.8->%rax
+t.6->%rbx
+t.9->%rax
+t.10->%rax
+t.11->%rax
+LocalArrayFixed2d.1.x->%rax
+# Assembly code:
+	.text
+LocalArrayFixed2d:
+	pushq %rbp
+	movq %rsp,%rbp
+	subq $16,%rsp
+	movq %rbx, -8(%rbp)
+L.6:
+	movabsq $400,%rax
+	movq %rax,%rdi
+	call malloc
+	movq %rax,%r8
+	movq $10,%rdi
+	xorq %rsi,%rsi
+	cmpq %rdi,%rsi
+	jge L.1
+L.0:
+	movq $5,%rdx
+	xorq %rcx,%rcx
+	cmpq %rdx,%rcx
+	jge L.3
+L.2:
+	movq %r8,%rbx
+	movq %rsi,%rax
+	imulq $40,%rax
+	addq %rax,%rbx
+#	movq %rbx,%rbx
+	movq %rcx,%rax
+	shlq $3,%rax
+	addq %rax,%rbx
+	movq $0,0(%rbx)
+	movq %rcx,%rax
+	addq $1,%rax
+	movq %rax,%rcx
+	cmpq %rdx,%rcx
+	jl L.2
+L.3:
+	movq %rsi,%rax
+	addq $1,%rax
+	movq %rax,%rsi
+	cmpq %rdi,%rsi
+	jl L.0
+L.1:
+	movq %r8,%rax
+#	returnSink
+	movq -8(%rbp),%rbx
+	addq $16,%rsp
+	popq %rbp
+	ret
+END LocalArrayFixed2d
+PROCEDURE main
+# Before canonicalization (trees):
+EXP(
+ CALL(
+  NAME LocalArrayFixed2d,
+  CONST 0))
+# After canonicalization (trees):
+EXP(
+ CALL(
+  NAME LocalArrayFixed2d,
+  CONST 0))
+# Basic Blocks:
+LABEL L.7
+EXP(
+ CALL(
+  NAME LocalArrayFixed2d,
+  CONST 0))
+# Trace Scheduled:
+LABEL L.7
+EXP(
+ CALL(
+  NAME LocalArrayFixed2d,
+  CONST 0))
+# With procedure entry/exit:
+LABEL L.7
+EXP(
+ CALL(
+  NAME LocalArrayFixed2d,
+  CONST 0))
+# Instructions:
+L.7:	# <- 
+	call LocalArrayFixed2d	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- 
+# Control Flow Graph:
+0: %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rsp %rbp ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+# Register Allocation:
+%rax->%rax
+%rbx->%rbx
+%rcx->%rcx
+%rdx->%rdx
+%rsp->%rsp
+%rbp->%rbp
+%rsi->%rsi
+%rdi->%rdi
+%r8->%r8
+%r9->%r9
+%r10->%r10
+%r11->%r11
+%r12->%r12
+%r13->%r13
+%r14->%r14
+%r15->%r15
+# Assembly code:
+	.globl main
+	.text
+main:
+	pushq %rbp
+	movq %rsp,%rbp
+L.7:
+	call LocalArrayFixed2d
+#	returnSink
+	popq %rbp
+	ret
+END main
+	.data
+	.balign 8
+L.4:	.asciz	"Attempt to use a null pointer"
+PROCEDURE badPtr
+# Before canonicalization (trees):
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.4)),
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# After canonicalization (trees):
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.4))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Basic Blocks:
+LABEL L.8
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.4))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Trace Scheduled:
+LABEL L.8
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.4))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# With procedure entry/exit:
+LABEL L.8
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.4))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Instructions:
+L.8:	# <- 
+	leaq L.4(%rip),t.12	# t.12 <- 
+	movq t.12,%rdi	# %rdi := t.12 
+	call puts	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	movabsq $1,t.13	# t.13 <- 
+	movq t.13,%rdi	# %rdi := t.13 
+	call exit	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+# Control Flow Graph:
+0: t.12 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.13 <- %rsp %rbp ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+t.12: %rsp %rbp 
+t.13: %rsp %rbp 
+%rdi <= t.12
+%rdi <= t.13
+# Register Allocation:
+%rax->%rax
+%rbx->%rbx
+%rcx->%rcx
+%rdx->%rdx
+%rsp->%rsp
+%rbp->%rbp
+%rsi->%rsi
+%rdi->%rdi
+%r8->%r8
+%r9->%r9
+%r10->%r10
+%r11->%r11
+%r12->%r12
+%r13->%r13
+%r14->%r14
+%r15->%r15
+t.12->%rax
+t.13->%rax
+# Assembly code:
+	.text
+badPtr:
+	pushq %rbp
+	movq %rsp,%rbp
+L.8:
+	leaq L.4(%rip),%rax
+	movq %rax,%rdi
+	call puts
+	movabsq $1,%rax
+	movq %rax,%rdi
+	call exit
+#	returnSink
+	popq %rbp
+	ret
+END badPtr
+	.data
+	.balign 8
+L.5:	.asciz	"Subscript out of bounds"
+PROCEDURE badSub
+# Before canonicalization (trees):
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.5)),
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# After canonicalization (trees):
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.5))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Basic Blocks:
+LABEL L.9
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.5))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Trace Scheduled:
+LABEL L.9
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.5))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# With procedure entry/exit:
+LABEL L.9
+EXP(
+ CALL(
+  NAME puts,
+  CONST 0,
+  NAME L.5))
+EXP(
+ CALL(
+  NAME exit,
+  CONST 0,
+  CONST 1))
+# Instructions:
+L.9:	# <- 
+	leaq L.5(%rip),t.14	# t.14 <- 
+	movq t.14,%rdi	# %rdi := t.14 
+	call puts	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+	movabsq $1,t.15	# t.15 <- 
+	movq t.15,%rdi	# %rdi := t.15 
+	call exit	# %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 <- %rdi 
+# Control Flow Graph:
+0: t.14 %rdi %rsi %rdx %rcx %r8 %r9 %rax %r10 %r11 t.15 <- %rsp %rbp ; goto 
+# Interference Graph:
+%rax: 
+%rbx: 
+%rcx: 
+%rdx: 
+%rsp: 
+%rbp: 
+%rsi: 
+%rdi: 
+%r8: 
+%r9: 
+%r10: 
+%r11: 
+%r12: 
+%r13: 
+%r14: 
+%r15: 
+t.14: %rsp %rbp 
+t.15: %rsp %rbp 
+%rdi <= t.14
+%rdi <= t.15
+# Register Allocation:
+%rax->%rax
+%rbx->%rbx
+%rcx->%rcx
+%rdx->%rdx
+%rsp->%rsp
+%rbp->%rbp
+%rsi->%rsi
+%rdi->%rdi
+%r8->%r8
+%r9->%r9
+%r10->%r10
+%r11->%r11
+%r12->%r12
+%r13->%r13
+%r14->%r14
+%r15->%r15
+t.14->%rax
+t.15->%rax
+# Assembly code:
+	.text
+badSub:
+	pushq %rbp
+	movq %rsp,%rbp
+L.9:
+	leaq L.5(%rip),%rax
+	movq %rax,%rdi
+	call puts
+	movabsq $1,%rax
+	movq %rax,%rdi
+	call exit
+#	returnSink
+	popq %rbp
+	ret
+END badSub

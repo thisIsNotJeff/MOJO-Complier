@@ -1,0 +1,13 @@
+ line 3, column 7: error: value is not a constant expression
+ line 7, column 16: error: -------->mojo.Absyn$Type$Int@33e5ccce4
+ line 8, column 20: error: -------->mojo.Absyn$Type$Int@33e5ccce4
+ line 14, column 20: error: -------->mojo.Absyn$Type$Int@33e5ccce4
+ line 15, column 20: error: -------->mojo.Absyn$Type$Int@33e5ccce4
+ line 16, column 22: error: -------->mojo.Absyn$Type$Int@33e5ccce4
+ line 17, column 22: error: -------->mojo.Absyn$Type$Int@33e5ccce4
+ line 44, column 19: error: undefined (Number)
+ line 45, column 7: error: undefined (putchar)
+ line 46, column 10: error: undefined (self)
+ line 47, column 9: error: undefined (putchar)
+ line 51, column 7: error: undefined (putchar)
+ line 53, column 5: error: undefined (putchar)

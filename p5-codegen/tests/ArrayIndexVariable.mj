@@ -1,0 +1,4 @@
+var x: [10]int;
+def Get(n: int): int {
+  return x[n];
+}

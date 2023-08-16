@@ -1,0 +1,1 @@
+type R = ( a,b,c,d,e,f: [16_FFF][16_FFFF]int; );

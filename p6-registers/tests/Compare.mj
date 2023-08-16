@@ -1,0 +1,12 @@
+def LT(x, y: int): bool {
+  return x < y;
+}
+def LE(x, y: int): bool {
+  return x <= y;
+}
+def GT(x, y: int): bool {
+  return x > y;
+}
+def GE(x, y: int): bool {
+  return x >= y;
+}

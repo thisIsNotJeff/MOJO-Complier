@@ -1,0 +1,4 @@
+def And(x, y: bool): bool {
+  if x && y { return false; }
+  return true;
+}

@@ -1,0 +1,32 @@
+	.data
+	.balign 8
+ArrayIndexVariable.x:
+	.quad 0
+	.quad 0
+	.quad 0
+	.quad 0
+	.quad 0
+	.quad 0
+	.quad 0
+	.quad 0
+	.quad 0
+	.quad 0
+	.text
+ArrayIndexVariable.Get:
+MOVE(
+ TEMP %rax,
+ MEM(
+  ADD(
+   NAME ArrayIndexVariable.x,
+   MUL(
+    TEMP ArrayIndexVariable.Get.n,
+    CONST 8)), 
+  CONST 0, 8)),
+JUMP(
+ NAME L.0),
+LABEL L.0
+
+
+	.text
+ArrayIndexVariable:
+

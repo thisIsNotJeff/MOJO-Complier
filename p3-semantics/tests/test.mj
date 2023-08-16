@@ -1,0 +1,7 @@
+type a = int;
+     b = int;
+var x: a;
+    y: b;
+{
+  x := y;
+}

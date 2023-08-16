@@ -1,0 +1,21 @@
+def putchar(x: int): int;
+
+type A = [3]int;
+
+def foo(): A {
+    var a: A;
+    for i := 0 .. Last(a) {
+      a[i] := i;
+    }
+    return a;
+}
+
+{
+  var a := foo();
+  putchar('0' + a[0]);
+  putchar('\n');
+  putchar('0' + a[1]);
+  putchar('\n');
+  putchar('0' + a[2]);
+  putchar('\n');
+}

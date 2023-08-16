@@ -1,0 +1,16 @@
+"proc" proc
+<ID> main
+"(" (
+<ID> args
+":" :
+"[" [
+"]" ]
+<ID> Text
+")" )
+"{" {
+<ID> println
+"(" (
+<TEXT> "Hello World!"
+")" )
+";" ;
+"}" }
